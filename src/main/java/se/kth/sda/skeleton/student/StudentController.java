@@ -7,6 +7,14 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+/**
+ * Class is used in MVC design for performing CRUD functions with the {@code StudentService} class
+ *
+ * Class {@code StudentController} allow REST API
+ * operations. This class implements {@code StudentService}.
+ *
+ * @author leefowler
+ */
 @RestController
 public class StudentController {
 
