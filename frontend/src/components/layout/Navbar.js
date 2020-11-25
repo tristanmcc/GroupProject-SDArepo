@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function Navbar({ onLogout }) {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="/">SDA starter</a>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark" data-testid="Navbar">
+            <a className="navbar-brand" href="/">Educational Support environment</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -18,18 +18,27 @@ function Navbar({ onLogout }) {
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/posts" className="nav-link">
-                            Posts
+                        <Link to="/courses" className="nav-link">
+                            Courses
                             </Link>
                     </li>
 
                     <li className="nav-item">
-                        <Link to="/chat" className="nav-link">
-                            Chat
+                        <Link to="/lectures" className="nav-link">
+                            Lectures
+                            </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/assignments" className="nav-link">
+                            Assignments
+                            </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to="/students" className="nav-link">
+                            Students
                             </Link>
                     </li>
                 </ul>
-
                 <button className="btn btn-outline-info my-2 my-sm-0" onClick={onLogout}>Logout</button>
             </div>
         </nav>
