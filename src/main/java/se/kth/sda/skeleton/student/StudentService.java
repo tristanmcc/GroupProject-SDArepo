@@ -7,6 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Class is used in MVC design for performing CRUD functions with the repository
+ *
+ * Class {@code StudentService} is used by class {@code StudentController} to allow REST API
+ * operations. This class implements {@code StudentRepository}.
+ *
+ * @author leefowler
+ */
 @Service
 public class StudentService {
 

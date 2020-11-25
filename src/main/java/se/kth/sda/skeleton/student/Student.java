@@ -2,7 +2,11 @@ package se.kth.sda.skeleton.student;
 
 import javax.persistence.*;
 
-
+/**
+ * Class is used for constructing entities of type student
+ *
+ * @author leefowler
+ */
 @Entity
 @Table(name="students")
 public class Student {
