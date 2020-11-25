@@ -20,7 +20,7 @@ function AssignmentsPage() {
     {
         console.log("Inside Submit")
         AssignmentsApi.postAssignment(
-            assignmentTitle,
+            {assignmentTitle,
             assignmentDescription,
             question1,
             question2,
@@ -31,8 +31,8 @@ function AssignmentsPage() {
             question7,
             question8,
             question9,
-            question10)
-            .then(() => window.location.reload())
+            question10})
+            .then((response) => console.log(response.data) )
     }
 
 
