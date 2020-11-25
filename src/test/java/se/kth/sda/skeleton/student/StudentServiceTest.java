@@ -10,6 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBeans;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -26,8 +27,8 @@ class StudentServiceTest {
     @MockBean
     StudentRepository repository;
 
-    @MockBean
-    StudentController studentController;
+//    @MockBean
+//    StudentController studentController;
 
     @Test
     public void should_ReturnTwoStudents_WhenGetAll() {
@@ -66,6 +67,11 @@ class StudentServiceTest {
 
     @Test
     void testCreate() {
+     Student student = new Student(1L, "sally",13);
+     when(repository.save(student)).thenReturn(student);
+
+     assertEquals(student, service.create(student));
+
     }
 
     @Test
@@ -73,6 +79,12 @@ class StudentServiceTest {
     }
 
     @Test
-    void testDelete() {
+    void testDelete() throws Exception {
+
+//     Student student = new Student(1L,"Benjamin", 12);
+//     when(repository.findById(1L)).thenReturn(Optional.of(student));
+//     service.delete(1L);
+//     verify(repository, times(1)).delete(student);
+
     }
 }
