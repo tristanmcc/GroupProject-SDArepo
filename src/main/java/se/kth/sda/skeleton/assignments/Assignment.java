@@ -3,6 +3,11 @@ package se.kth.sda.skeleton.assignments;
 
 import javax.persistence.*;
 
+/**
+ * Class is used for constructing entities of type Assignment
+ *
+ * @author Tristan McCarthy
+ */
 
 @Entity
 public class Assignment {

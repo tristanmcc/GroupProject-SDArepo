@@ -1,10 +1,22 @@
+//Package
 package se.kth.sda.skeleton.assignments;
 
+//Spring
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+//Services
 import java.util.List;
 import java.util.Optional;
+
+/**
+ * Class is used in MVC design for performing CRUD functions with the {@code AssignmentService} class
+ *
+ * Class {@code AssignmentController} allow REST API
+ * operations. This class implements {@code AssignmentService}.
+ *
+ * @author Tristan McCarthy
+ */
 
 @Service
 public class AssignmentService {
