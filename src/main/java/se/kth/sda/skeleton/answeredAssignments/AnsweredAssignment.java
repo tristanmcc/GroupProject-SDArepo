@@ -1,10 +1,8 @@
 package se.kth.sda.skeleton.answeredAssignments;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 
 /**
  * Class is used for constructing entities of type AnsweredAssignment
@@ -19,7 +17,7 @@ public class AnsweredAssignment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String assignmentTitle;
+    private String answeredAssignmentTitle;
 
     private String answer1;
     private String answer2;
@@ -34,9 +32,9 @@ public class AnsweredAssignment {
 
     private Long studentId;
 
-    public AnsweredAssignment(Long id, String assignmentTitle, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, Long studentId) {
+    public AnsweredAssignment(Long id, String answeredAssignmentTitle, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, Long studentId) {
         this.id = id;
-        this.assignmentTitle = assignmentTitle;
+        this.answeredAssignmentTitle = answeredAssignmentTitle;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
@@ -63,12 +61,12 @@ public class AnsweredAssignment {
         this.id = id;
     }
 
-    public String getAssignmentTitle() {
-        return assignmentTitle;
+    public String getAnsweredAssignmentTitle() {
+        return answeredAssignmentTitle;
     }
 
-    public void setAssignmentTitle(String assignmentTitle) {
-        this.assignmentTitle = assignmentTitle;
+    public void setAnsweredAssignmentTitle(String answeredAssignmentTitle) {
+        this.answeredAssignmentTitle = answeredAssignmentTitle;
     }
 
     public String getAnswer1() {
@@ -157,5 +155,8 @@ public class AnsweredAssignment {
 
     public void setStudentId(Long studentId) {
         this.studentId = studentId;
+    }
+
+    public void setEmail(String loggedInUserEmail) {
     }
 }
