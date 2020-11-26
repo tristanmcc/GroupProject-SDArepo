@@ -178,7 +178,7 @@ function AssignmentsPage() {
                 
                 <button
                     className=" btn btn-info btn-sm"
-                    onClick={() => handleSubmit({})}>
+                    onClick={() => handleSubmit()}>
                     Submit
                 </button>
                     
