@@ -36,18 +36,12 @@ body {
 
  .container-assignment label
 {
-  color:white;
+  color:black;
   font-weight: bold;
   
   
 }
 
-.container-assignment 
-{
-  
-  background-color:3498db;
-  
-}
 
 .question label
 {
