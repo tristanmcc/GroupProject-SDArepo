@@ -16,6 +16,7 @@ import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
 import LecturesPage from './components/lectures/LecturesPage';
 import VideosPage from './components/videos/VideosPage.jsx';
+import StudentsPage from './components/students/StudentsPage';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -40,7 +41,7 @@ function App() {
           </Route>
 
           <Route path="/students">
-            <LecturesPage />
+            <StudentsPage />
           </Route>
 
           <Route path="/videos">
