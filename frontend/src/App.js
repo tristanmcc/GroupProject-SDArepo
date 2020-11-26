@@ -14,6 +14,7 @@ import PostsPage from './components/posts/PostsPage';
 import ChatPage from './components/chat/ChatPage';
 import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
+import CourseDetailsPage from './components/courses/CourseDetailsPage';
 import LecturesPage from './components/lectures/LecturesPage';
 import VideosPage from './components/videos/VideosPage.jsx';
 
@@ -27,7 +28,7 @@ function App() {
 
       <div className="container mt-5">
         <Switch>
-          <Route path="/courses">
+          <Route exact path="/courses">
             <CoursePage />
           </Route>
 
@@ -37,6 +38,10 @@ function App() {
 
           <Route path="/lectures">
             <LecturesPage />
+          </Route>
+
+          <Route path="/courseDetails">
+            <CourseDetailsPage />
           </Route>
 
           <Route path="/students">
