@@ -19,6 +19,8 @@ import ChatPage from './components/chat/ChatPage';
 import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
 import LecturesPage from './components/lectures/LecturesPage';
+import AssignmentsView from './components/assignments/AssignmentsView';
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -35,6 +37,17 @@ function App() {
                         </Route>
 
                         <Route path="/assignments">
+                            <AssignmentsView/>
+                        </Route>
+                        
+                        
+
+                        <Route
+                            path="/assignmentsView/:assignId"
+                            render={({match}) => <AssignmentsPage match={match} />}
+                                />
+
+                        <Route path="/assignmentsView">
                             <AssignmentsPage/>
                         </Route>
 
