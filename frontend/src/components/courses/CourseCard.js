@@ -1,7 +1,7 @@
 // React core
 import React from "react";
 import { Link } from "react-router-dom";
-import maths from '../../images/maths.png'
+import maths from '../../images/maths.png';
 
 // Note the curly braces around props, to allow to prepare to break down the object into individual variables
 export default function CourseCard({ data }) {
@@ -14,12 +14,8 @@ export default function CourseCard({ data }) {
     thumbnail,
   } = data;
 
-  console.log("the details",data);
-  const cardStyle =  {
-    width:"100%",
-  };
   return (
-    <div className="card">
+    <div className="course-card">
       <Link to={`/courseDetails`}>
       
         <img className="courseImage" src= {maths} alt={description}></img>
