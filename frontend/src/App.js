@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Import custom styles for our application
-import './App.css';
+import "./App.css";
 
-import Auth from './services/Auth';
-import Navbar from './components/layout/Navbar';
+import Auth from "./services/Auth";
+import Navbar from "./components/layout/Navbar";
 
 // Import pages
 import LoginPage from './components/auth/LoginPage';
 import HomePage from './components/home/HomePage';
-import PostsPage from './components/posts/PostsPage';
-import ChatPage from './components/chat/ChatPage';
+// import PostsPage from './components/posts/PostsPage';
+// import ChatPage from './components/chat/ChatPage';
 import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
 import CourseDetailsPage from './components/courses/CourseDetailsPage';
 import LecturesPage from './components/lectures/LecturesPage';
 import VideosPage from './components/videos/VideosPage.jsx';
+import StudentsPage from './components/students/StudentsPage';
+import AssignmentsView from "./components/assignments/AssignmentsView";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -33,6 +35,15 @@ function App() {
           </Route>
 
           <Route path="/assignments">
+            <AssignmentsView />
+          </Route>
+
+          <Route
+            path="/assignmentsView/:assignId"
+            render={({ match }) => <AssignmentsPage match={match} />}
+          />
+
+          <Route path="/assignmentsView">
             <AssignmentsPage />
           </Route>
 
@@ -45,7 +56,7 @@ function App() {
           </Route>
 
           <Route path="/students">
-            <LecturesPage />
+            <StudentsPage />
           </Route>
 
           <Route path="/videos">

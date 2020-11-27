@@ -3,6 +3,11 @@ package se.kth.sda.skeleton.assignments;
 
 import javax.persistence.*;
 
+/**
+ * Class is used for constructing entities of type Assignment
+ *
+ * @author Tristan McCarthy
+ */
 
 @Entity
 public class Assignment {
@@ -27,6 +32,8 @@ public class Assignment {
     private String question9;
     private String question10;
 
+
+    //Constructor
     public Assignment(Long id, String assignmentTitle, String assignmentDescription, String question1, String question2, String question3, String question4, String question5, String question6, String question7, String question8, String question9, String question10) {
         this.id = id;
         this.assignmentTitle = assignmentTitle;
@@ -43,9 +50,11 @@ public class Assignment {
         this.question10 = question10;
     }
 
+    //Dummy Constructor
     public Assignment() {
     }
 
+    //Getters and Setters
     public Long getId() {
         return id;
     }

@@ -1,9 +1,11 @@
-body {
-  min-height: 100vh;
-  /* background-image: url(./images/bg_image.jpg); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  
+
+body{
+	background-color:#f4f4f4;
+	color:#555;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	line-height:1.6em;
+	margin:0;
 }
 
 .App {
@@ -44,8 +46,6 @@ body {
   text-align:right;
   float:right;
   margin-left:2rem;
-  /* display:flex; */
- 
 }
 
 .card {
@@ -57,29 +57,86 @@ body {
   max-width: 250px;
 }
 
-
-
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
 }
 
-
 img {
  width: 100%;
-
-}
-
-.button {
-  margin:1rem;
-}
-
-.card-content {
-  /* padding: 2px 16px; */
 }
 
 .grid {
   display:grid;
   grid-template-columns: 1fr 1fr 1fr; 
   align-items: center;
-  /* padding:2rem; */
+}
+
+.container{
+  width:80%;
+	margin:20px auto;
+}
+
+#main-header{
+	background-color:coral;
+	color:#fff;
+}
+
+#main{
+	float:left;
+	width:70%;
+	padding:0 30px;
+	box-sizing: border-box;
+}
+
+#button{
+  text-align: center;
+  margin-top: 360px;
+}
+
+.btn{
+  border: 1px solid #3498db;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "montserrat";
+  cursor: pointer;
+  margin: 10px;
+}
+
+.btn1,.btn2,.btn3{
+  color: #3498db;
+}
+
+.btn1:hover,.btn2:hover,.btn3:hover{
+  color: #3498db;
+}
+
+
+@media(max-width:600px){
+	#main{
+		width:100%;
+		float:none;
+	}
+
+	#sidebar{
+		width:100%;
+		float:none;
+	}
+}
+
+.link {
+  color:darkolivegreen;
+}
+
+.link:hover {
+   color: #00F
+}
+
+.container-assignment label {
+  color:black;
+  font-weight: bold;
+}
+
+.question label {
+  font-weight: normal;
 }

@@ -12,7 +12,17 @@ import se.kth.sda.skeleton.auth.AuthService;
 import se.kth.sda.skeleton.user.User;
 import se.kth.sda.skeleton.user.UserService;
 
+//Util
 import java.util.List;
+
+/**
+ * Class is used in MVC design for performing CRUD functions with the {@code AssignmentService} class
+ *
+ * Class {@code AssignmentController} allow REST API
+ * operations. This class implements {@code AssignmentService}.
+ *
+ * @author Tristan McCarthy
+ */
 
 @RestController
 public class AssignmentController {
