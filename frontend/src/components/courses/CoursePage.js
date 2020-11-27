@@ -1,7 +1,6 @@
 import React from "react";
 import CourseCard from "./CourseCard";
 import information from '../../information.json';
-import "./course.css";
 import { Link } from "react-router-dom";
 
 function CoursePage() {
