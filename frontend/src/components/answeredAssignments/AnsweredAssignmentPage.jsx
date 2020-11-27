@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
 import AnsAssForm from '../answeredAssignments/AnsweredAssignmentForm';
+import AssApi from '../../api/AssignmentsApi';
 
 
 export default function AnsweredAssignmentPage() {
@@ -14,9 +15,29 @@ export default function AnsweredAssignmentPage() {
         .then(()=> window.location.reload());
     };
 
+    const [assignments, setAssignments] = useState([]);
+
+    const getAll = () => {
+        AssApi.getAllAssignment()
+        .then((response) => 
+            setAssignments(response.data))
+    };
+
+    useEffect(() => {
+       getAll();
+    }, []);
+
+
+    const assignmentsDue = assignments.map(assignment => {
+        return <AnsAssForm key={assignment.id} assignmentsDue={assignments} />;
+      });
+
+    //const assignmentTitles = assignments.map(assignment => assignment.assignmentTitle);
+
     return (
         <div>
-            <AnsAssForm onSubmit={createAnsweredAssignment}/>
+            <AnsAssForm onSubmit={createAnsweredAssignment} assignmentsDue={assignmentsDue}/>
+        
         </div>
     );
 }
