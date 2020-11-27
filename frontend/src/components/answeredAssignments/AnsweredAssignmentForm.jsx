@@ -44,10 +44,9 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
     return (
         <div className="card mt-4">
             <div className="card-body">
-                <h6 className="card-title" >Header</h6>
+                <h6 className="card-title" >Geography quiz</h6>
                 <div>
                     <div className="form-group">
-                        <label>What is the capital of Chile</label>
                         <input
                             type="text"
                             className="form-control"
@@ -56,7 +55,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnsweredAssignmentTitle(e.target.value)} />
                     </div>
                     <div className="form-group">
-                        <label></label>
+                        <label>What is the capital of Bulgaria</label>
                         <input
                             type="text"
                             className="form-control"
@@ -65,7 +64,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer1(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q2</label>
+                    <label>What is terreaforming</label>
                         <input
                             type="text"
                             className="form-control"
@@ -74,7 +73,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer2(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q3</label>
+                    <label>describe a cumulonimbus cloud</label>
                         <input
                             type="text"
                             className="form-control"
@@ -83,7 +82,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer3(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q4</label>
+                    <label>What is urban sprawl</label>
                         <input
                             type="text"
                             className="form-control"
@@ -92,7 +91,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer4(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q5</label>
+                    <label>Describe the process of urbanisation?</label>
                         <input
                             type="text"
                             className="form-control"
@@ -101,7 +100,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer5(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q6</label>
+                    <label>What does the fox say</label>
                         <input
                             type="text"
                             className="form-control"
@@ -110,7 +109,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer6(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q7</label>
+                    <label>What is the global population</label>
                         <input
                             type="text"
                             className="form-control"
@@ -118,7 +117,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             value={answer7}
                             onChange={e => setAnswer7(e.target.value)} />
                     </div>
-                    <label>q8</label>
+                    <label>What is the capital of South Africa</label>
                     <div className="form-group">
                         <input
                             type="text"
@@ -128,7 +127,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer8(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q9</label>
+                    <label>Describe El nino cycle</label>
                         <input
                             type="text"
                             className="form-control"
@@ -137,7 +136,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer9(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>q10</label>
+                    <label>What is a carnifurus tree</label>
                         <input
                             type="text"
                             className="form-control"
