@@ -48,24 +48,36 @@ body{
   margin-left:2rem;
 }
 
-.card {
-  border: 4px transparent #555;
-  padding:2rem;
+.course-card {
+  border: 3px solid #555;
+  padding:3rem;
   background-color:transparent;
   margin-top:2rem;
-  border-radius:20px 20px;
+  margin-left:3.5rem;
+  border-radius:30px 30px;
   max-width: 250px;
 }
 
-.card:hover {
+.course-card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+}
+
+button.btn.btn-info.course-button {
+  color:grey;
+  border: 3px solid #555;
+  border-radius:30px 30px;
+  font-weight:bold;
+}
+
+.card-title {
+  text-align:center;
 }
 
 img {
  width: 100%;
 }
 
-.grid {
+.course-grid {
   display:grid;
   grid-template-columns: 1fr 1fr 1fr; 
   align-items: center;
@@ -88,12 +100,12 @@ img {
 	box-sizing: border-box;
 }
 
-#button{
+#button {
   text-align: center;
   margin-top: 360px;
 }
 
-.btn{
+.btn {
   border: 1px solid #3498db;
   background: none;
   padding: 10px 20px;
@@ -110,7 +122,6 @@ img {
 .btn1:hover,.btn2:hover,.btn3:hover{
   color: #3498db;
 }
-
 
 @media(max-width:600px){
 	#main{
