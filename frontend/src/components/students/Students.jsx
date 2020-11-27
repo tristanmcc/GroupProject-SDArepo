@@ -27,7 +27,7 @@ export default function Students() {
 
   useEffect(() => {
     getAllStudents();
-  }, []);
+  }, [student]);
 
   return (
     <>
