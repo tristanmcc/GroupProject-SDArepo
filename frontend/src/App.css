@@ -1,6 +1,9 @@
 body {
   min-height: 100vh;
-  background: linear-gradient(to right, #2c3e50, #3498db);
+  /* background-image: url(./images/bg_image.jpg); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 .App {
@@ -24,4 +27,59 @@ body {
 
 .App-link {
   color: #09d3ac;
+}
+
+.course-details {
+  float:right;
+  margin:1rem;
+}
+
+.course-container {
+  background-color: #F4E0DC;
+  display: flex;
+  flex-direction: column;
+}
+
+.row-buttons {
+  text-align:right;
+  float:right;
+  margin-left:2rem;
+  /* display:flex; */
+ 
+}
+
+.card {
+  border: 4px transparent #555;
+  padding:2rem;
+  background-color:transparent;
+  margin-top:2rem;
+  border-radius:20px 20px;
+  max-width: 250px;
+}
+
+
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+}
+
+
+img {
+ width: 100%;
+
+}
+
+.button {
+  margin:1rem;
+}
+
+.card-content {
+  /* padding: 2px 16px; */
+}
+
+.grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  align-items: center;
+  /* padding:2rem; */
 }
