@@ -26,7 +26,6 @@ body {
   color: #09d3ac;
 }
 
-
 body{
 	background-color:#f4f4f4;
 	color:#555;
@@ -89,4 +88,26 @@ body{
 		width:100%;
 		float:none;
 	}
+}
+
+.link {
+  color:darkolivegreen;
+}
+.link:hover {
+   color: #00F
+}
+
+
+ .container-assignment label
+{
+  color:black;
+  font-weight: bold;
+  
+  
+}
+
+
+.question label
+{
+  font-weight: normal;
 }
