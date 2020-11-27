@@ -1,6 +1,11 @@
-body {
-  min-height: 100vh;
-  background: linear-gradient(to right, #2c3e50, #3498db);
+
+body{
+	background-color:#f4f4f4;
+	color:#555;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	line-height:1.6em;
+	margin:0 auto;
 }
 
 .App {
@@ -26,19 +31,66 @@ body {
   color: #09d3ac;
 }
 
-body{
-	background-color:#f4f4f4;
-	color:#555;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:16px;
-	line-height:1.6em;
-	margin:0;
+.course-details {
+  float:right;
+  margin:1rem;
+}
+
+.course-container {
+  background-color: #F4E0DC;
+  display: flex;
+  flex-direction: column;
+}
+
+.row-buttons {
+  text-align:right;
+  float:right;
+  margin-left:2rem;
+}
+
+.course-card {
+  border: 3px solid #555;
+  padding:2rem;
+  margin:2rem;
+  background-color:transparent;
+  /* margin-top:2rem; */
+  margin-left:3.5rem;
+  border-radius:30px 30px;
+  max-width: 250px;
+}
+
+.description {
+  text-align:center;
+}
+
+.course-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+}
+
+button.btn.btn-info.course-button {
+  color:grey;
+  border: 3px solid #555;
+  border-radius:30px 30px;
+  font-weight:bold;
+}
+
+.card-title {
+  text-align:center;
+}
+
+img {
+ width: 100%;
+}
+
+.course-grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  align-items: center;
 }
 
 .container{
   width:80%;
 	margin:20px auto;
-	
 }
 
 #main-header{
@@ -53,12 +105,12 @@ body{
 	box-sizing: border-box;
 }
 
-#button{
+#button {
   text-align: center;
   margin-top: 360px;
 }
 
-.btn{
+.btn {
   border: 1px solid #3498db;
   background: none;
   padding: 10px 20px;
@@ -74,9 +126,7 @@ body{
 
 .btn1:hover,.btn2:hover,.btn3:hover{
   color: #3498db;
-
 }
-
 
 @media(max-width:600px){
 	#main{
@@ -90,24 +140,27 @@ body{
 	}
 }
 
+@media(max-width:600px){
+
+  .course-container {
+   display:grid;
+   grid-template-columns: 1fr 1 fr;
+  }
+}
+
 .link {
   color:darkolivegreen;
 }
+
 .link:hover {
    color: #00F
 }
 
-
- .container-assignment label
-{
+.container-assignment label {
   color:black;
   font-weight: bold;
-  
-  
 }
 
-
-.question label
-{
+.question label {
   font-weight: normal;
 }
