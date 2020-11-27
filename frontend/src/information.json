@@ -1,0 +1,46 @@
+[   
+    {
+		"id": 1,
+		"category": "maths",
+		"title": "Maths",
+		"description": "Various topics that might enrich an elementary school mathematics program, including probability and statistics, the integers, rational and real numbers, clock arithmetic, diophantine equations, geometry and transformations, the metric system, relations and functions.",
+		"thumbnail": "../../images/maths.png"
+	},
+	{
+		"id": 2,
+		"category": "science",
+		"title": "Science",
+		"description": "All these science courses are intended to allow individuals to understand the relationships that science, technology, and society share in our everyday world.",
+		"thumbnail": "../../images/science.png"
+	},
+	{
+		"id": 3,
+		"category": "social",
+		"title": "social",
+		"description": "This course is an introduction to the interdisciplinary field of the history and sociology of the social sciences.",
+		"thumbnail": "../../images/social.png"
+
+	},
+	{
+		"id": 4,
+		"category": "english",
+		"title": "English",
+		"description": "This is an English education program to study the history of the language, composition, grammar, reading, language acquisition and language development. ",
+		"thumbnail": "../../images/english.png"
+
+	},
+	{
+		"id": 5,
+		"category": "arts",
+		"title": "Arts",
+		"description": "Students will explore basic art media and techniques, such as drawing, painting, graphic design, photography, collage, ceramics, printmaking, and sculpture and more!",
+		"thumbnail": "../../images/arts.png"
+	},
+	{
+		"id": 6,
+		"category": "swedish",
+		"title": "Swedish",
+		"description": "This Cactus Course outlines provide a learning framework for the Cactus Foreign Language Evening Courses.",
+		"thumbnail": "../../images/swedish.png"
+	}
+]
