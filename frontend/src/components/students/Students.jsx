@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import StudentCreateForm from './StudentCreateForm';
+import StudentCard from './StudentCard';
 
 import Api from '../../api/Api';
 
@@ -13,10 +14,16 @@ export default function Students() {
     );
   };
 
+  const getAllStudents = () => {
+    Api.get(`/students`).then((res) => {
+      setStudent(res.data);
+    });
+  };
+
   return (
     <>
-      <h3>The list of students is displayed below</h3>
       <StudentCreateForm onCreateClick={createStudent} />
+      <StudentCard onGetClick = {getAllStudents} student={student} />
     </>
   );
 }
