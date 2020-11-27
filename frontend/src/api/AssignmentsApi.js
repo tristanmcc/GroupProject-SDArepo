@@ -32,6 +32,11 @@ class AssignmentsApi
         question9,
         question10});
 }
+
+    getAllAssignments() {
+        
+        return Api.get('/assignments');
+    }
 }
 
 export default new AssignmentsApi() ;
