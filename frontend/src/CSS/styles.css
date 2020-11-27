@@ -1,8 +1,4 @@
-body{
-  background-image: url('../CSS/images/kidwithbook.jpeg');
-  background-repeat: no-repeat;
-  
-}
+
 div.gallery {
     margin: 50px;
     border: 1px solid rgb(233, 236, 24);
