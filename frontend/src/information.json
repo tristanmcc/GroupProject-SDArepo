@@ -3,7 +3,7 @@
 		"id": 1,
 		"category": "maths",
 		"title": "Maths",
-		"description": "Various topics that might enrich an elementary school mathematics program, including probability and statistics, the integers, rational and real numbers, clock arithmetic, diophantine equations, geometry and transformations, the metric system, relations and functions.",
+		"description": "Various topics that might enrich an elementary school mathematics program, the metric system, relations and functions.",
 		"thumbnail": "../../images/maths.png"
 	},
     
@@ -11,7 +11,7 @@
 		"id": 2,
 		"category": "science",
 		"title": "Science",
-		"description": "All these science courses are intended to allow individuals to understand the relationships that science, technology, and society share in our everyday world.",
+		"description": "All these science courses are intended to allow individuals to understand the relationships that science share in our everyday world.",
 		"thumbnail": "../../images/science.png"
 	},
 	{
