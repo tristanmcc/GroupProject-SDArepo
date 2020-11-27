@@ -1,7 +1,10 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
 import AssignmentsApi from '../../api/AssignmentsApi';
 
-function AssignmentsPage() {
+
+
+function AssignmentsPage({match}) {
+    
     const [assignmentTitle, setAssignmentTitle] = useState("");
     const [assignmentDescription, setAssignmentDescription] = useState("");
     const [question1, setQuestion1] = useState("");
@@ -14,7 +17,40 @@ function AssignmentsPage() {
     const [question8, setQuestion8] = useState("");
     const [question9, setQuestion9] = useState("");
     const [question10, setQuestion10] = useState("");
+    const [assignId, setAssignId] = useState("");
+   
     
+    const getAssignmentById = (id) => {
+        console.log("Calling getAssignmentById " + id )
+        AssignmentsApi.getAssignmentById(id)
+            .then(response => {
+                console.log("Title value" +response.data.assignmentTitle);
+                setAssignId(response.data.id);
+                setAssignmentTitle(response.data.assignmentTitle);
+                setAssignmentDescription(response.data.assignmentDescription);
+                setQuestion1(response.data.question1);
+                setQuestion2(response.data.question2);
+                setQuestion3(response.data.question3);
+                setQuestion4(response.data.question4);
+                setQuestion5(response.data.question5);
+                setQuestion6(response.data.question6);
+                setQuestion7(response.data.question7);
+                setQuestion8(response.data.question8);
+                setQuestion9(response.data.question9);
+                setQuestion10(response.data.question10);
+                
+                console.log(response.data);
+            })
+    }
+    useEffect(() => {
+        if(typeof match !== 'undefined' || assignId !== '')
+        {
+            console.log("Inside useEffect , going to call getAssignmentById " + match.params.assignId);
+            getAssignmentById(match.params.assignId);
+
+        }
+        },[] );
+
 
     function handleSubmit()
     {
@@ -32,17 +68,46 @@ function AssignmentsPage() {
             question8,
             question9,
             question10})
-            .then((response) => console.log(response.data) )
+            .then((response) => {
+                setAssignId(response.data.id)
+                alert("Successfully added the assignment")
+            } )
     }
+    
+    function handleUpdate()
+    {
+        console.log("Inside Update"+ assignId)
+        // Creating a local variable 
+        const id = assignId;
+        AssignmentsApi.updateAssignment(
+            {
+            id,
+            assignmentTitle,
+            assignmentDescription,
+            question1,
+            question2,
+            question3,
+            question4,
+            question5,
+            question6,
+            question7,
+            question8,
+            question9,
+            question10})
+            .then((response) => alert("Updation of Assignment Successful") )
+    }
+    
+
 
 
 
     return (
-        <div className="container">
+        <div className="container-assignment">
 
 
              <div className="form-group">
-             <label>Title:</label>
+             
+             <label>Assignment Title:</label>
              
             
             <input type="text" 
@@ -54,7 +119,7 @@ function AssignmentsPage() {
             
             <div className="form-group text-dark">
             
-             <label>Description:</label>
+             <label>Assignment Description:</label>
 
              <input
                             type="text"
@@ -66,9 +131,10 @@ function AssignmentsPage() {
            
            
 
-            <div className="card-body text-dark"></div>
+            <div className="card-body text-dark border">
+            <div className="question">
              <div className="form-group">
-           
+            
             <label>Question 1:</label>
             <textarea
                             type="text"
@@ -173,14 +239,23 @@ function AssignmentsPage() {
             
             
             </div>
-
+            </div>
+            </div>
             <div className="card-header">
-                
+                {assignId === '' ?
                 <button
                     className=" btn btn-info btn-sm"
                     onClick={() => handleSubmit()}>
                     Submit
                 </button>
+                :
+                <button
+                    className=" btn btn-info btn-sm"
+                    onClick={() => handleUpdate()}>
+                    Update
+                </button>}
+
+               
                     
             </div>
             
