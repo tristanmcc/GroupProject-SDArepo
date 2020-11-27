@@ -9,11 +9,11 @@ export default function AnsweredAssignmentPage() {
    
 
     //Rest API post call to create Answered Assignment
-    const createAnsweredAssignment = (answers) => {
+    /*const createAnsweredAssignment = (answers) => {
         console.log("Inside createAnsweredAssignment" + answers)
         AnsAssApi.createAnsweredAssignment(answers)
         .then(()=> window.location.reload());
-    };
+    };*/
 
     const [assignments, setAssignments] = useState([]);
 
@@ -29,19 +29,20 @@ export default function AnsweredAssignmentPage() {
 
 
     const assignmentsDue = assignments.map(assignment => {
-        return <AnsAssForm key={assignment.id} assignmentsDue={assignments} />;
+        return <AnsAssForm key={assignment.id}  assignmentsDue={assignment} />;
       });
 
-    //const assignmentTitles = assignments.map(assignment => assignment.assignmentTitle);
+    const assignmentTitles = assignments.map(assignment => assignment.assignmentTitle);
+
+
 
     return (
         <div>
-            <AnsAssForm onSubmit={createAnsweredAssignment} assignmentsDue={assignmentsDue}/>
-        
+            {assignmentsDue}
         </div>
     );
 }
-
+//onSubmit={createAnsweredAssignment} 
 
 
                                  

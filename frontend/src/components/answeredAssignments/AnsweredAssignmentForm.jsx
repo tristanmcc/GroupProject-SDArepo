@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import AssApi from '../../api/AssignmentsApi';
+import AnsAssApi from '../../api/AnsweredAssignmentsApi';
 
-export default function AnsweredAssignmentsForm({onSubmit, assignmentsDue}) {
+export default function AnsweredAssignmentsForm({assignmentsDue}) {
     
     const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
     const [answer1, setAnswer1] = useState("");
@@ -17,13 +18,36 @@ export default function AnsweredAssignmentsForm({onSubmit, assignmentsDue}) {
 
     console.log(assignmentsDue)
 
+    const createAnsweredAssignment = (answers) => {
+        console.log("Inside createAnsweredAssignment" + answers)
+        AnsAssApi.createAnsweredAssignment(answers)
+        .then(()=> window.location.reload());
+    };
+
+   /* const {
+        assignmentTitle, 
+        assignmentDescription, 
+        question1, 
+        question2, 
+        question3, 
+        question4,
+        question5,
+        question6,
+        question7,
+        question8,
+        question9,
+        question10
+    } = assignmentsDue; */
+
+   // const assignmentTitles = assignmentsDue.map(assignment => assignment.assignmentTitle);
+
     return (
         <div className="card mt-4">
             <div className="card-body">
-                <h6 className="card-title" >YEs:</h6>
+                <h6 className="card-title" >Header</h6>
                 <div>
                     <div className="form-group">
-                        <label>tit</label>
+                        <label>What is the capital of Chile</label>
                         <input
                             type="text"
                             className="form-control"
@@ -32,7 +56,7 @@ export default function AnsweredAssignmentsForm({onSubmit, assignmentsDue}) {
                             onChange={e => setAnsweredAssignmentTitle(e.target.value)} />
                     </div>
                     <div className="form-group">
-                        <label>q1</label>
+                        <label></label>
                         <input
                             type="text"
                             className="form-control"
@@ -122,12 +146,10 @@ export default function AnsweredAssignmentsForm({onSubmit, assignmentsDue}) {
                             onChange={e => setAnswer10(e.target.value)} />
                     </div>
 
-
-
                     <div className="form-group">
                         <button
                             className="btn btn-danger"
-                            onClick={() => onSubmit({answeredAssignmentTitle, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10 })}>
+                            onClick={() => createAnsweredAssignment({answeredAssignmentTitle, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10 })}>
                             Comment
                         </button>
                     </div>
