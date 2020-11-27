@@ -1,16 +1,17 @@
 import React from 'react';
 
-export default function StudentCard({ onGetClick, student }) {
+export default function StudentCard(data) {
+  console.log('this is message: ' + data);
+  console.log('this is message: ' + data.items.name);
+
   return (
-    <div className="comment">
+    <div className="card mt-5">
       <div className="comment">
         <div className="signature">
-          <span className="user-name-comment">{student.name}</span>
-          <span className="user-name-comment">{student.age}</span>
-        </div>
+          <span className="user-name-comment">{`Student  name : ${data.items.name}`}</span>
 
-        <div>students recorded in DB. </div>
-        <div>display created students here. </div>
+          <span className="user-name-comment">{`   Student  age : ${data.items.age}`}</span>
+        </div>
       </div>
     </div>
   );
