@@ -32,7 +32,7 @@ function App() {
             <CoursePage />
           </Route>
 
-          <Route path="/assignments">
+          <Route exact path="/assignments">
             <AssignmentsView />
           </Route>
 

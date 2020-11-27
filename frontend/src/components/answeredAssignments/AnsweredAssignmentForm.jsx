@@ -18,7 +18,7 @@ export default function AnsweredAssignmentsForm({onSubmit}) {
     const [assignments, setAssignments] = useState([]);
 
     const getAll = () => {
-        AssApi.getAllAssignments()
+        AssApi.getAllAssignment()
         .then((response) => 
             setAssignments(response.data))
     };
