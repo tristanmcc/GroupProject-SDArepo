@@ -13,15 +13,15 @@ function CoursePage() {
     <div className="course-container">
      
         <div className="row-buttons">
-          <button className="btn btn-info"> CREATE COURSE</button>
+          <button className="btn btn-info course-button"> CREATE COURSE</button>
         
-          <button className="btn btn-info"> DELETE COURSE</button>
+          <button className="btn btn-info course-button"> DELETE COURSE</button>
         
-          <button className="btn btn-info"> UPDATE COURSE</button>
+          <button className="btn btn-info course-button"> UPDATE COURSE</button>
         </div>
      
       
-      <div className="grid">
+      <div className="course-grid">
           {CourseCards}
       </div>
       {/* <Link to={`/courseDetails`}>
