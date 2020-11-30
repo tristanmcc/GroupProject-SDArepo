@@ -14,7 +14,7 @@ export default function CourseCard({ data }) {
   return (
     <div className="course-card">
       <Link to={`/courseDetails`}>
-      
+
         <img className="courseImage" src= {maths} alt={title}/>
       </Link>
       <div className="card-content">
@@ -22,7 +22,8 @@ export default function CourseCard({ data }) {
           {/* <p className="description">{description}</p>  */}
          
       </div>
-    </div> 
+    </div>
+
 
    
 
