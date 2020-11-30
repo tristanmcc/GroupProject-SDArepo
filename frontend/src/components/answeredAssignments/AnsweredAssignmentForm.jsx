@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
+import book from '../../images/carousel-6.jpg'
 
 
 export default function AnsweredAssignmentsForm({match}) {
@@ -86,15 +87,174 @@ export default function AnsweredAssignmentsForm({match}) {
                             value=""
                             onChange={e => setAnsweredAssignmentTitle(e.target.value)} />
                     </div>
-                    <div className="form-group">
-                        <label>{question1}</label>
-                        <input
+
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                    <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question1}</label>   
+                    
+                    <textarea
                             type="text"
                             className="form-control"
                             placeholder="..."
                             value={answer1}
                             onChange={e => setAnswer1(e.target.value)} />
+        
                     </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question1}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer2}
+                            onChange={e => setAnswer2(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question3}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer3}
+                            onChange={e => setAnswer3(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question4}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer4}
+                            onChange={e => setAnswer4(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question5}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer5}
+                            onChange={e => setAnswer5(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question6}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer6}
+                            onChange={e => setAnswer6(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question7}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer7}
+                            onChange={e => setAnswer7(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question8}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer8}
+                            onChange={e => setAnswer8(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question9}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer9}
+                            onChange={e => setAnswer9(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    <div class="carousel-item active">
+                        
+                    <img src={book} alt="quiz" width="1100" height="180"/>
+                    <div class="carousel-caption  d-md-block">
+                    <label>{question10}</label>   
+                    
+                    <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="..."
+                            value={answer10}
+                            onChange={e => setAnswer10(e.target.value)} />
+        
+                    </div>
+                    </div>
+
+                    </div>
+                    </div>
+
+
                     <div className="form-group">
                     <label>{question2}</label>
                         <input
