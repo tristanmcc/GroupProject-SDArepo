@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Navbar({ onLogout }) {
   return (
     <nav
-      className="navbar navbar-expand-lg navbar-dark bg-dark"
+      className="navbar navbar-expand-lg navbar-light bg-warning"
       data-testid="Navbar"
     >
       <a className="navbar-brand" href="/">
@@ -36,11 +36,11 @@ function Navbar({ onLogout }) {
             </Link>
           </li>
 
-          <li className="nav-item">
+         {/* <li className="nav-item">
             <Link to="/lectures" className="nav-link">
               Lectures
             </Link>
-          </li>
+          </li>**/}
           <li className="nav-item">
             <Link to="/assignments" className="nav-link">
               Assignments
@@ -53,12 +53,12 @@ function Navbar({ onLogout }) {
           </li>
           <li className="nav-item">
             <Link to="/videos" className="nav-link">
-              Videos
+              Lectures
             </Link>
           </li>
         </ul>
         <button
-          className="btn btn-outline-info my-2 my-sm-0"
+          className="btn btn-outline-dark"
           onClick={onLogout}
         >
           Logout
