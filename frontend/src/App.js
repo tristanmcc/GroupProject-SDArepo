@@ -17,7 +17,7 @@ import LecturesPage from './components/lectures/LecturesPage';
 import VideosPage from './components/videos/VideosPage.jsx';
 import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
-import AnsAssPage from './components/answeredAssignments/AnsweredAssignmentPage';
+import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -42,13 +42,15 @@ function App() {
             render={({ match }) => <AssignmentsPage match={match} />}
           />
 
+          <Route
+            path="/assignmentsAnsweredView/:assignId"
+            render={({ match }) => <AnsweredAssignmentsForm match={match} />}
+          />
+           
           <Route path="/assignmentsView">
             <AssignmentsPage />
           </Route>
 
-          <Route path="/assignments/answered">
-            <AnsAssPage />
-          </Route>
 
           <Route path="/lectures">
             <LecturesPage />

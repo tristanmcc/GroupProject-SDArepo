@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import AssApi from '../../api/AssignmentsApi';
+import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
 
-export default function AnsweredAssignmentsForm({assignmentsDue}) {
+
+export default function AnsweredAssignmentsForm({match}) {
     
     const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
+    const [answeredAssignmentDescription, setAnsweredAssignmentDescription] = useState("");
     const [answer1, setAnswer1] = useState("");
     const [answer2, setAnswer2] = useState("");
     const [answer3, setAnswer3] = useState("");
@@ -15,37 +17,65 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
     const [answer8, setAnswer8] = useState("");
     const [answer9, setAnswer9] = useState("");
     const [answer10, setAnswer10] = useState("");
+    const [question1, setQuestion1] = useState("");
+    const [question2, setQuestion2] = useState("");
+    const [question3, setQuestion3] = useState("");
+    const [question4, setQuestion4] = useState("");
+    const [question5, setQuestion5] = useState("");
+    const [question6, setQuestion6] = useState("");
+    const [question7, setQuestion7] = useState("");
+    const [question8, setQuestion8] = useState("");
+    const [question9, setQuestion9] = useState("");
+    const [question10, setQuestion10] = useState("");
+    const [assignmentId, setAssignmentId] = useState("");
+    
+    const getAssignmentById = (id) => {
+        console.log("Calling getAssignmentById " + id )
+        AssignmentsApi.getAssignmentById(id)
+            .then(response => {
+                console.log("Title value" +response.data.assignmentTitle);
+                setAssignmentId(response.data.id);
+                setAnsweredAssignmentTitle(response.data.assignmentTitle);
+                setAnsweredAssignmentDescription(response.data.assignmentDescription)
+                setQuestion1(response.data.question1);
+                setQuestion2(response.data.question2);
+                setQuestion3(response.data.question3);
+                setQuestion4(response.data.question4);
+                setQuestion5(response.data.question5);
+                setQuestion6(response.data.question6);
+                setQuestion7(response.data.question7);
+                setQuestion8(response.data.question8);
+                setQuestion9(response.data.question9);
+                setQuestion10(response.data.question10);
+                
+                console.log(response.data);
+            })
+    }
+    useEffect(() => {
+        
+            
+            console.log("Inside useEffect , going to call getAssignmentById " + match.params.assignId);
+            getAssignmentById(match.params.assignId);
 
-    console.log(assignmentsDue)
+        
+        },[] );
 
     const createAnsweredAssignment = (answers) => {
         console.log("Inside createAnsweredAssignment" + answers)
         AnsAssApi.createAnsweredAssignment(answers)
-        .then(()=> window.location.reload());
+        .then((response)=> {
+            console.log(response);
+            window.location.reload();
+        });
     };
+    
 
-   /* const {
-        assignmentTitle, 
-        assignmentDescription, 
-        question1, 
-        question2, 
-        question3, 
-        question4,
-        question5,
-        question6,
-        question7,
-        question8,
-        question9,
-        question10
-    } = assignmentsDue; */
-
-   // const assignmentTitles = assignmentsDue.map(assignment => assignment.assignmentTitle);
 
     return (
         <div className="card mt-4">
             <div className="card-body">
-                <h6 className="card-title" >Geography quiz</h6>
-                <p className="card-subtitle">This is a knowledge quiz to test whether you paid attention to this weeks prescribed videos!</p>
+                <h6 className="card-title" >{answeredAssignmentTitle}</h6>
+    <p className="card-subtitle">{answeredAssignmentDescription}</p>
                 <div>
                     <div className="form-group">
                     <label>Student Number:</label>
@@ -53,11 +83,11 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             type="text"
                             className="form-control"
                             placeholder="..."
-                            value={answeredAssignmentTitle}
+                            value=""
                             onChange={e => setAnsweredAssignmentTitle(e.target.value)} />
                     </div>
                     <div className="form-group">
-                        <label>What is the capital of Bulgaria?</label>
+                        <label>{question1}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -66,7 +96,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer1(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>What is terreaforming?</label>
+                    <label>{question2}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -75,7 +105,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer2(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>Describe a cumulonimbus cloud:</label>
+                    <label>{question3}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -84,7 +114,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer3(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>What is urban sprawl?</label>
+                    <label>{question4}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -93,7 +123,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer4(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>Describe the process of urbanisation:</label>
+                    <label>{question5}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -102,7 +132,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer5(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>What does the fox say?</label>
+                    <label>{question6}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -111,7 +141,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer6(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>What is the global population?</label>
+                    <label>{question7}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -119,7 +149,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             value={answer7}
                             onChange={e => setAnswer7(e.target.value)} />
                     </div>
-                    <label>What is the capital of South Africa?</label>
+                    <label>{question8}</label>
                     <div className="form-group">
                         <input
                             type="text"
@@ -129,7 +159,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer8(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>Describe El nino cycle:</label>
+                    <label>{question9}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -138,7 +168,7 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                             onChange={e => setAnswer9(e.target.value)} />
                     </div>
                     <div className="form-group">
-                    <label>What is a coniferous tree?</label>
+                    <label>{question10}</label>
                         <input
                             type="text"
                             className="form-control"
@@ -150,8 +180,8 @@ export default function AnsweredAssignmentsForm({assignmentsDue}) {
                     <div className="form-group">
                         <button
                             className="btn btn-danger"
-                            onClick={() => createAnsweredAssignment({answeredAssignmentTitle, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10 })}>
-                            Comment
+                            onClick={() => createAnsweredAssignment({answeredAssignmentTitle, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, assignmentId })}>
+                            Submit
                         </button>
                     </div>
                 </div>
