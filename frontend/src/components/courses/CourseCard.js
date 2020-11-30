@@ -5,7 +5,6 @@ import maths from "../../images/maths.png";
 
 export default function CourseCard({ data }) {
   const { title, description, thumbnail } = data;
-  console.log("image",data.thumbnail);
 
   return (
     <div className="course-card">
