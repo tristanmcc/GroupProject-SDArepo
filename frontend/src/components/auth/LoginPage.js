@@ -3,6 +3,8 @@ import Auth from "../../services/Auth";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
+import style from '../../CSS/loginPage.css';
+
 function LoginPage() {
     const login = async (loginData) => {
         const loginSuccess = await Auth.login(loginData);
@@ -19,12 +21,11 @@ function LoginPage() {
     }
 
     return (
-        <div className="wrapper">
+        <div className="wrapper p-5">
             <div className="container">
                 <div className="row mt-4">
-                    <div className="col-md-6 " style={{ color: "white" }}>
-                        <h1>SDA</h1>
-                        <p>Starter template</p>
+                    <div className="col-md-6 " style={{ color: "grey" }}>
+                        <h1>Educations Support Environment</h1>
                     </div>
 
                     <div className="col-md-6">
