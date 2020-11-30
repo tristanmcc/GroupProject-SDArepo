@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
-import book from '../../images/carousel-6.jpg'
+import book from '../../images/carousel-6.jpg';
+import '../../CSS/assignment.css';
 
 
 export default function AnsweredAssignmentsForm({match}) {
@@ -76,7 +77,7 @@ export default function AnsweredAssignmentsForm({match}) {
         <div className="card mt-4">
             <div className="card-body">
                 <h6 className="card-title" >{answeredAssignmentTitle}</h6>
-    <p className="card-subtitle">{answeredAssignmentDescription}</p>
+                <p className="card-subtitle">{answeredAssignmentDescription}</p>
                 <div>
                     <div className="form-group">
                     <label>Student Number:</label>
@@ -107,7 +108,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item ">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -123,7 +124,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -139,7 +140,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -155,7 +156,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -171,7 +172,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item ">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -187,7 +188,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item ">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -203,7 +204,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item ">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -219,7 +220,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item ">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -235,7 +236,7 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
                     </div>
 
-                    <div class="carousel-item active">
+                    <div class="carousel-item ">
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
@@ -252,90 +253,17 @@ export default function AnsweredAssignmentsForm({match}) {
                     </div>
 
                     </div>
+                    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+  
                     </div>
 
 
-                    <div className="form-group">
-                    <label>{question2}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer2}
-                            onChange={e => setAnswer2(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                    <label>{question3}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer3}
-                            onChange={e => setAnswer3(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                    <label>{question4}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer4}
-                            onChange={e => setAnswer4(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                    <label>{question5}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer5}
-                            onChange={e => setAnswer5(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                    <label>{question6}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer6}
-                            onChange={e => setAnswer6(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                    <label>{question7}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer7}
-                            onChange={e => setAnswer7(e.target.value)} />
-                    </div>
-                    <label>{question8}</label>
-                    <div className="form-group">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer8}
-                            onChange={e => setAnswer8(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                    <label>{question9}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer9}
-                            onChange={e => setAnswer9(e.target.value)} />
-                    </div>
-                    <div className="form-group">
-                    <label>{question10}</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value={answer10}
-                            onChange={e => setAnswer10(e.target.value)} />
-                    </div>
+                    
 
                     <div className="form-group">
                         <button
