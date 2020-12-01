@@ -1,56 +1,64 @@
 import React, { useState } from "react";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import { Modal } from "react-bootstrap";
 
-function CourseForm({ initialTitle, initialDescription, onClick, open, onClose }) {
+function CourseForm({ onSubmit,onCancel }) {
   console.log("course form");
-  const [title, setTitle] = useState(initialTitle || "");
-  const [description, setDescription] = useState(initialDescription || "");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [show, setShow] = useState(false);
+
   const onCreateCourseClick = (e) => {
-      const courseData = { title, description };
-      onsubmit(courseData).catch((err) => {
-          alert("error occured");
-      });
-    }
+    const courseData = { title, description };
+    onSubmit(courseData).catch((err) => {
+      alert("error occured");
+    });
+  };
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
-    <div>
-      <Dialog open={open} onClose={onClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Create a Course</DialogTitle>
-        <DialogContent>
-          <DialogContentText>Add a Course</DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            label="Course title"
-            value={title}
-            type="text"
-            fullWidth
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            label="Course description"
-            type="text"
-            value={description}
-            fullWidth
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
+    <div className="card mt-4">
+      <div className="card-body">
+        <h4 className="card-title">{"Create a course"}</h4>
+        <form onSubmit={onCreateCourseClick}>
+          <div className="form-group">
+            <label>Title:</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
 
-        </DialogContent>
-        <DialogActions>
-          <Button color="primary" type="submit" onClick={onCreateCourseClick}>Create</Button>
-          <Button color="primary" onClick={onClose}>Cancel</Button>
-        </DialogActions>
-      </Dialog>
+          <div className="form-group">
+            <label>Description:</label>
+            <textarea
+              className="form-control"
+              placeholder="Course Description"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <button className="btn btn-primary" type="submit">
+              Create
+            </button>
+            <button
+              className="btn btn-outline"
+              type="button"
+              onClick={onCancel}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
