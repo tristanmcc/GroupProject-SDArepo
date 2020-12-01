@@ -7,11 +7,12 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function CourseForm() {
+function CourseForm({open, onClose }) {
+    console.log("course form");
     return(
     <div>
-      <Dialog  aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Subscribe</DialogTitle>
+      <Dialog open={open} onClose={onClose}aria-labelledby="form-dialog-title">
+        <DialogTitle id="form-dialog-title">Create a Course</DialogTitle>
         <DialogContent>
           <DialogContentText>
             To subscribe to this website, please enter your email address here. We will send updates
@@ -31,7 +32,7 @@ function CourseForm() {
             Cancel
           </Button>
           <Button  color="primary">
-            Subscribe
+           Create
           </Button>
         </DialogActions>
       </Dialog>
