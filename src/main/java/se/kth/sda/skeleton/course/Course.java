@@ -1,7 +1,6 @@
 package se.kth.sda.skeleton.course;
 
 import javax.persistence.*;
-import java.awt.*;
 
 @Entity
 public class Course {
