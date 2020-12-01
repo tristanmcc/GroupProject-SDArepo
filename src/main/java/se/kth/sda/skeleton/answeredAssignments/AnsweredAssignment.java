@@ -28,11 +28,22 @@ public class AnsweredAssignment {
     private String answer7;
     private String answer8;
     private String answer9;
+
+    public Long getAssignmentId() {
+        return assignmentId;
+    }
+
+    public void setAssignmentId(Long assignmentId) {
+        this.assignmentId = assignmentId;
+    }
+
     private String answer10;
+
+    private Long assignmentId;
 
     private Long studentId;
 
-    public AnsweredAssignment(Long id, String answeredAssignmentTitle, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, Long studentId) {
+    public AnsweredAssignment(Long id, String answeredAssignmentTitle, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, Long studentId, Long assignmentId) {
         this.id = id;
         this.answeredAssignmentTitle = answeredAssignmentTitle;
         this.answer1 = answer1;
@@ -46,6 +57,7 @@ public class AnsweredAssignment {
         this.answer9 = answer9;
         this.answer10 = answer10;
         this.studentId = studentId;
+        this.assignmentId = assignmentId;
     }
 
 
