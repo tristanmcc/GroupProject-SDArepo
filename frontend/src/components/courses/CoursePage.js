@@ -4,6 +4,7 @@ import information from "../../information.json";
 import CourseUpdateForm from './CourseUpdateForm.js';
 import CoursesApi from "../../api/CoursesApi.js";
 import AssignmentsApi from "../../api/AssignmentsApi";
+import UserApi from "../../api/UserApi";
 
 function CoursePage() {
   //useState variables
