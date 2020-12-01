@@ -1,4 +1,4 @@
-package se.kth.sda.skeleton.Course;
+package se.kth.sda.skeleton.course;
 
 import javax.persistence.*;
 import java.awt.*;
