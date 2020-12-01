@@ -19,7 +19,7 @@ class CoursesApi {
     }
 
     deleteCourse(id) {
-        return Api.delete('/courses'+id);
+        return Api.delete('/courses/'+id);
     }
 }
 
