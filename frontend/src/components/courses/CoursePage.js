@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { Modal } from "react-bootstrap";
 import CourseForm from "./CourseForm";
-// import information from "../../information.json";
+
 import CoursesApi from "../../api/CoursesApi";
 import CoursesList from "./CoursesList";
 
 function CoursePage() {
   const [courses, setCourses] = useState([]);
   const [openForm, setOpenForm] = useState(false);
-  /* const CourseCards = information.map((item) => {
-    return <Course key={item.id} course={item} />;
-  }); */
+  
 
   const getAll = () => {
     CoursesApi.getAllCourses().then((res) => {
@@ -18,47 +17,55 @@ function CoursePage() {
   };
 
   useEffect(() => {
-    console.log("get all courses", getAll());
     getAll();
   }, []);
 
-  const handleClickOpen = () => {
+  const createCourse = (courseData) => {
+    return CoursesApi.createCourse(courseData).then((res) => {
+      setCourses([res.data, ...courses]);
+      // setOpenForm(false);
+    });
+  };
+
+  const onCancelCreateCourse = () => {
+    setOpenForm(false);
+  };
+
+  const onCreateNewCourse = () => {
     setOpenForm(true);
   };
 
-  const handleClose = () => {
-    setOpenForm(false);
+  const deleteCourse = (course) => {
+    console.log("course details", course.id);
+    return CoursesApi.deleteCourse(course.id).then(() =>
+      setCourses(courses.filter((a) => a.id !== course.id))
+    );
   };
+
+
 
   return (
     <div className="course-container">
       <div className="row-buttons">
-        {openForm ? (
-          <CourseForm open={openForm} onClose={handleClose} />
-        ) : (
+         { openForm ? 
+          <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
+        
+         : 
           <>
             <button
               className="btn btn-info course-button"
-              onClick={handleClickOpen}
-            >
-              {" "}
+              onClick={onCreateNewCourse}>
               CREATE COURSE
             </button>
-
-            <button className="btn btn-info course-button">
-              {" "}
-              DELETE COURSE
-            </button>
-
-            <button className="btn btn-info course-button">
-              {" "}
-              UPDATE COURSE
-            </button>
+            <CoursesList 
+              courses={courses} 
+              onCourseDelete={deleteCourse} 
+            />
           </>
-        )}
+        }
       </div>
 
-      <CoursesList courses={courses} />
+     
     </div>
   );
 }
