@@ -116,7 +116,7 @@ function AssignmentsView()
                             
                           <TableCell key={column.id} align={column.align}>
                           
-                          <Link to={`/assignmentsView/${assignId}`}   className="link">
+                          <Link to={`/assignmentsAnsweredView/${assignId}`}   className="link">
                             {column.format && typeof value === 'number' ? column.format(value) :  value}
                             
                             </Link>
@@ -148,7 +148,7 @@ function AssignmentsView()
     <div className="card-header">
     <Link to="/assignmentsView" >
         <button
-            className=" btn btn-info btn-sm">
+            className=" btn btn-dark">
             Add New Assignment
         </button>
     </Link>

@@ -28,7 +28,7 @@ export default function StudentCreateForm({ onCreateClick, user }) {
         </div>
 
         <button
-          className="btn btn-primary"
+          className="btn btn-dark"
           onClick={() => {
             onCreateClick({ name, user, age });
             setName('');

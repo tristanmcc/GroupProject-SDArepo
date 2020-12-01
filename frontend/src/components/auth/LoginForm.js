@@ -31,7 +31,7 @@ function LoginForm({onSubmit}) {
 
                     <div className="form-group">
                         <button 
-                            className="btn btn-info" 
+                            className="btn btn-dark" 
                             onClick={() => onSubmit({email, password})}>
                             Login
                         </button>

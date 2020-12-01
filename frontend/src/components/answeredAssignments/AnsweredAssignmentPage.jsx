@@ -38,7 +38,7 @@ export default function AnsweredAssignmentPage() {
 
     return (
         <div>
-            {assignmentsDue}
+            <AnsAssForm></AnsAssForm>
         </div>
     );
 }

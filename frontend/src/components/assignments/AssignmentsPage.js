@@ -244,13 +244,13 @@ function AssignmentsPage({match}) {
             <div className="card-header">
                 {assignId === '' ?
                 <button
-                    className=" btn btn-info btn-sm"
+                    className=" btn btn-dark btn-sm"
                     onClick={() => handleSubmit()}>
                     Submit
                 </button>
                 :
                 <button
-                    className=" btn btn-info btn-sm"
+                    className=" btn btn-dark btn-sm"
                     onClick={() => handleUpdate()}>
                     Update
                 </button>}
