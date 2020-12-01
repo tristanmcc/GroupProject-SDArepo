@@ -35,20 +35,14 @@ useEffect(() => {
   getUserRole();
 }, []);
 
+
+//Get userRole call
 const getUserRole = () => {
-  AssignmentsApi.getCurrentUser()
+  UserApi.getCurrentUser()
       .then(response => {
       setCurrentUser(response.data.userRole);
- })
+      })
 }
-
-
-
-
-// const CourseCards = information.map((item) => {
-//      return <CourseCard key={item.id} data={item} />;
-//    });
-   
   
   return (
     <div className="course-container">
@@ -56,21 +50,17 @@ const getUserRole = () => {
         {information.map((item) => {
      return < div>
        <CourseCard key={item.id} data={item} />
-       {currentUser === "teacher" ?
        <button className="btn btn-dark course-button"
           onClick = {() => {
               setFormState(true);
         }}>UPDATE COURSE 
           </button>
-          : null}
         {formState ? <CourseUpdateForm key={item.id} oldCourse={item} onUpdateClick = {updateCourse}/>: null }
        </div>
    })}
         {currentUser === "teacher" ?
         <button className="btn btn-dark course-button"> DELETE COURSE</button>: null}
       </div> 
-
-         
       </div>
   );
 }
