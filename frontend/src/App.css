@@ -1,6 +1,11 @@
-body {
-  min-height: 100vh;
-  background: linear-gradient(to right, #2c3e50, #3498db);
+
+body{
+	background-color: #FEF9E7;
+	color:#555;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	line-height:1.6em;
+	margin:0 auto;
 }
 
 .App {
@@ -12,7 +17,7 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #2471A3;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,19 +31,68 @@ body {
   color: #09d3ac;
 }
 
-body{
-	background-color:#f4f4f4;
-	color:#555;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:16px;
-	line-height:1.6em;
-	margin:0;
+.course-details {
+  float:right;
+  margin:1rem;
+}
+
+
+
+.row-buttons {
+  text-align:right;
+}
+
+.course-card {
+  border: 3px solid #555;
+  padding:2rem;
+  margin:2rem;
+  background-color: #F7DC6F;
+  margin-left:3.5rem;
+  border-radius:30px 30px;
+  max-width: 250px;
+
+}
+
+.description {
+  text-align:center;
+}
+
+.course-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2)
+}
+
+button.btn.btn-dark.course-button {
+  color:grey;
+  border: 3px solid #555;
+  border-radius:30px 30px;
+  font-weight:bold;
+}
+
+.card-title {
+  text-align:center;
+}
+.card-subtitle{
+  text-align: center;
+}
+
+img {
+ width: 100%;
+}
+
+.course-grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  align-items: center;
+} 
+
+.course-container {
+  display: grid;
+  background-color:#FEF9E7;
 }
 
 .container{
   width:80%;
 	margin:20px auto;
-	
 }
 
 #main-header{
@@ -53,14 +107,13 @@ body{
 	box-sizing: border-box;
 }
 
-#button{
+#button {
   text-align: center;
   margin-top: 360px;
 }
 
-.btn{
-  border: 1px solid #3498db;
-  background: none;
+.btn {
+  border: 1px solid #000000;
   padding: 10px 20px;
   font-size: 20px;
   font-family: "montserrat";
@@ -74,9 +127,7 @@ body{
 
 .btn1:hover,.btn2:hover,.btn3:hover{
   color: #3498db;
-
 }
-
 
 @media(max-width:600px){
 	#main{
@@ -90,24 +141,40 @@ body{
 	}
 }
 
-.link {
-  color:darkolivegreen;
+@media(max-width:1100px){
+
+  .course-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .course-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .course-card {
+    margin:0;
+  }
+
+  .row-buttons {
+    text-align:center;
+  }
 }
+
+.link {
+  color:black;
+}
+
 .link:hover {
    color: #00F
 }
 
-
- .container-assignment label
-{
+.container-assignment label {
   color:black;
   font-weight: bold;
-  
-  
 }
 
-
-.question label
-{
+.question label {
   font-weight: normal;
 }

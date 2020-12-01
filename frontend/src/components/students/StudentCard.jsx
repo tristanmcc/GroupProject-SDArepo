@@ -5,7 +5,7 @@ export default function StudentCard(data) {
   console.log('this is message: ' + data.items.name);
 
   return (
-    <div className="card mt-5">
+    <div className="card mt-5 p-2">
       <div className="comment">
         <div className="signature">
           <span className="user-name-comment">{`Student  name : ${data.items.name}`}</span>
