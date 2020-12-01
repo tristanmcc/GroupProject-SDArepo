@@ -1,7 +1,10 @@
 package se.kth.sda.skeleton.video;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
-public class VideoRepository {
+public interface VideoRepository extends JpaRepository <Video, Long> {
+
 }
