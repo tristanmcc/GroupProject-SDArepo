@@ -21,8 +21,9 @@ function CoursePage() {
   return (
     <div className="course-container">
       <div className="row-buttons">
-          { 
-            openForm ? <CourseForm onCancel={handleClose}/>
+          {console.log(openForm)};
+        { 
+            openForm ? <CourseForm open={openForm} onClose={handleClose}/>
           
         :
         <>
