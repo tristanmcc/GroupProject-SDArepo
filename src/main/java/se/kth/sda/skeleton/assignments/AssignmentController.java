@@ -49,12 +49,6 @@ public class AssignmentController {
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("/currentUser")
-    public User getCurrentUser() {
-        String email = authService.getLoggedInUserEmail();
-        return userService.findUserByEmail(email);
-    }
-
     @PostMapping("/assignments")
     public Assignment create(@RequestBody Assignment newAssignment) {
         newAssignment.setEmail(authService.getLoggedInUserEmail());

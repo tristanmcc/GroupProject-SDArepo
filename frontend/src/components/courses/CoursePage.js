@@ -3,10 +3,14 @@ import CourseCard from "./CourseCard";
 import information from "../../information.json";
 import CourseUpdateForm from './CourseUpdateForm.js';
 import CoursesApi from "../../api/CoursesApi.js";
+import AssignmentsApi from "../../api/AssignmentsApi";
+import UserApi from "../../api/UserApi";
 
 function CoursePage() {
+  //useState variables
   const [courses, setCourses] = useState([]);
   const [formState, setFormState]= useState(false);
+  const [currentUser, setCurrentUser] = useState("");
   
   const createCourse = (courseData) => {
     CoursesApi.createCourse("", courseData)
@@ -29,19 +33,21 @@ function CoursePage() {
 
 useEffect(() => {
   getAllCourses();
+  getUserRole();
 }, []);
 
-// const CourseCards = information.map((item) => {
-//      return <CourseCard key={item.id} data={item} />;
-//    });
-   
+
+//Get userRole call
+const getUserRole = () => {
+  UserApi.getCurrentUser()
+      .then(response => {
+      setCurrentUser(response.data.userRole);
+      })
+}
   
   return (
     <div className="course-container">
       <div className="row-buttons">
-        <button className="btn btn-dark course-button"> CREATE COURSE</button>
-        
-        
         {information.map((item) => {
      return < div>
        <CourseCard key={item.id} data={item} />
@@ -53,12 +59,11 @@ useEffect(() => {
         {formState ? <CourseUpdateForm key={item.id} oldCourse={item} onUpdateClick = {updateCourse}/>: null }
        </div>
    })}
-        
-        <button className="btn btn-dark course-button"> DELETE COURSE</button>
+        {currentUser === "teacher" ?
+        <button className="btn btn-dark course-button"> DELETE COURSE</button>: null}
       </div> 
-
-         
       </div>
   );
 }
 export default CoursePage;
+
