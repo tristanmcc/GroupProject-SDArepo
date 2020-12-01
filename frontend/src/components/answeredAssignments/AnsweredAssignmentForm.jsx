@@ -112,7 +112,7 @@ export default function AnsweredAssignmentsForm({match}) {
                         
                     <img src={book} alt="quiz" width="1100" height="180"/>
                     <div class="carousel-caption  d-md-block">
-                    <label>{question1}</label>   
+                    <label>{question2}</label>   
                     
                     <textarea
                             type="text"
