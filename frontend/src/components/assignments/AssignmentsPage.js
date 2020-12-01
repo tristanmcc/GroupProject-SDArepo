@@ -4,6 +4,8 @@ import AssignmentsApi from '../../api/AssignmentsApi';
 
 
 function AssignmentsPage({match}) {
+
+    console.log(match.params)
     
     const [assignmentTitle, setAssignmentTitle] = useState("");
     const [assignmentDescription, setAssignmentDescription] = useState("");
@@ -18,6 +20,7 @@ function AssignmentsPage({match}) {
     const [question9, setQuestion9] = useState("");
     const [question10, setQuestion10] = useState("");
     const [assignId, setAssignId] = useState("");
+    const [courseId, setCourseId] = useState(match.params.courseId);
    
     
     const getAssignmentById = (id) => {
@@ -38,12 +41,12 @@ function AssignmentsPage({match}) {
                 setQuestion8(response.data.question8);
                 setQuestion9(response.data.question9);
                 setQuestion10(response.data.question10);
-                
+                setCourseId(response.data.courseId);
                 console.log(response.data);
             })
     }
     useEffect(() => {
-        if(typeof match !== 'undefined' || assignId !== '')
+        if(typeof match.params.assignId !== 'undefined'  || assignId !== '')
         {
             console.log("Inside useEffect , going to call getAssignmentById " + match.params.assignId);
             getAssignmentById(match.params.assignId);
@@ -54,7 +57,7 @@ function AssignmentsPage({match}) {
 
     function handleSubmit()
     {
-        console.log("Inside Submit")
+        console.log("Inside Submit value of courseId" + courseId)
         AssignmentsApi.postAssignment(
             {assignmentTitle,
             assignmentDescription,
@@ -67,9 +70,12 @@ function AssignmentsPage({match}) {
             question7,
             question8,
             question9,
-            question10})
+            question10,
+            courseId
+        })
             .then((response) => {
-                setAssignId(response.data.id)
+                setAssignId(response.data.id);
+                console.log("inside add response" + response.data.courseId);
                 alert("Successfully added the assignment")
             } )
     }
@@ -93,7 +99,9 @@ function AssignmentsPage({match}) {
             question7,
             question8,
             question9,
-            question10})
+            question10,
+            courseId
+        })
             .then((response) => alert("Updation of Assignment Successful") )
     }
     
