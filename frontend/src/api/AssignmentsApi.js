@@ -78,6 +78,11 @@ updateAssignment({id,assignmentTitle,
     question10});
 }
 
+//TESTTESTETSTESTEST
+getCurrentUser() {
+    return Api.get('/currentUser');
+}
+
 }
 
 export default new AssignmentsApi() ;

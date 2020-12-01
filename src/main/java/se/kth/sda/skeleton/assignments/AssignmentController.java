@@ -55,6 +55,12 @@ public class AssignmentController {
         return userService.findUserByEmail(email);
     }
 
+    @GetMapping("/currentUserRole")
+    public User getUserRole(){
+        String userRole = authService.getLoggedInUserRole();
+        return userService.findUserByUserRole(userRole);
+    }
+
     @PostMapping("/assignments")
     public Assignment create(@RequestBody Assignment newAssignment) {
         newAssignment.setEmail(authService.getLoggedInUserEmail());
