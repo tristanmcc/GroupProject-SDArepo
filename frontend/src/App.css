@@ -138,6 +138,29 @@ img {
 	}
 }
 
+.modal-body {
+  border: 2px solid #555;
+  /* box-shadow: 3px 7px #888888;  */
+  /* background-color:#dee2e6; */
+  background-color:lightgrey;
+  border-radius:5px 5px;
+}
+
+.course-card-buttons {
+  text-align: center;
+}
+
+.deleteButton {
+  margin-right:2rem;
+}
+
+.card-body {
+  background-color:gainsboro;
+  border: 2px solid #555;
+  border-radius:8px 8px;
+}
+
+
 @media(max-width:1100px){
 
   .course-container {
