@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 import courseImg from "../../images/courses-icon.png";
 
 export default function Course({ course, onCourseDelete }) {
-  const { title, description } = course;
+  const { id, title, description } = course;
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [show, setShow] = useState(false);
 
   return (
     <div className="course-card">
-      <Link to={`/courseDetails`}>
+      <Link to={`/assignmentsViewForCourse/${id}`}>
          <img className="courseImage"  src={courseImg} alt={title} />
       </Link>
       <div className="card-content">
