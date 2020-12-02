@@ -1,12 +1,14 @@
+
 import Api from "./Api";
 
 class CoursesApi {
-    
+
     getAllCourses() {
         return Api.get('/courses');
     }
 
     getCourseById(id) {
+
         return Api.get('/courses?courseId='+id);
     }
 
@@ -20,7 +22,9 @@ class CoursesApi {
 
     deleteCourse(id) {
         return Api.delete('/courses/'+id);
+
     }
+
 }
 
 export default new CoursesApi();

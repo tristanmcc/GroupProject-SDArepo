@@ -8,12 +8,17 @@ export default function CourseCard({ data }) {
 
   return (
     <div className="course-card">
-      <Link to={`/courseDetails`}>
-      </Link>
+      <Link to={`/assignmentsViewForCourse/${id}`}>
+      
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         {/* <p className="description">{description}</p>  */}
       </div>
+      </Link>
     </div>
   );
+
 }
+
+ 
+

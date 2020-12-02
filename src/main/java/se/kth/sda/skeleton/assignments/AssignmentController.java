@@ -37,9 +37,10 @@ public class AssignmentController {
     UserService userService;
 
 
-    @GetMapping("/assignments")
-    public List<Assignment> viewAll() {
-        return assService.viewAll();
+    @GetMapping("/assignments/courseId/{courseId}")
+    public List<Assignment> viewAll(@PathVariable Long courseId) {
+            return assService.getAllByCourseId(courseId);
+
     }
 
     //get specific task by ID
@@ -47,12 +48,6 @@ public class AssignmentController {
     public Assignment getById(@PathVariable Long id){
         return assService.getById(id)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
-    }
-
-    @GetMapping("/currentUser")
-    public User getCurrentUser() {
-        String email = authService.getLoggedInUserEmail();
-        return userService.findUserByEmail(email);
     }
 
     @PostMapping("/assignments")

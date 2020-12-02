@@ -3,10 +3,12 @@ package se.kth.sda.skeleton.auth;
 public class AuthRequest {
     private String email;
     private String password;
+    private String userRole;
 
-    public AuthRequest(String email, String password) {
+    public AuthRequest(String email, String password, String userRole) {
         this.email = email;
         this.password = password;
+        this.userRole = userRole;
     }
 
     public String getEmail() {
@@ -24,4 +26,8 @@ public class AuthRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getUserRole() { return userRole; }
+
+    public void setUserRole(String userRole) { this.userRole = userRole; }
 }
