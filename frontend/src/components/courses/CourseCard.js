@@ -17,4 +17,8 @@ export default function CourseCard({ data }) {
       </Link>
     </div>
   );
-} 
+
+}
+
+ 
+
