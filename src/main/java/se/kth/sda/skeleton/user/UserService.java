@@ -17,6 +17,8 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
+    public User findUserByUserRole(String userRole) {return userRepository.findByUserRole(userRole);}
+
     public void register(User user) {
         String encryptedPass = passwordEncoder.encode(user.getPassword());
         user.setPassword(encryptedPass);

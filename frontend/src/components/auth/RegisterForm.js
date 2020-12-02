@@ -4,6 +4,7 @@ function RegisterForm({onSubmit}) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [userRole, setUserRole] = useState("");
 
     return (
         <div className="card">
@@ -39,11 +40,21 @@ function RegisterForm({onSubmit}) {
                             value={password}
                             onChange={e => setPassword(e.target.value)} />
                     </div>
+                    <div className="form-group">
+                        <label>UserRole:</label>
+                        <input 
+                            type="userRole" 
+                            placeholder="userRole" 
+                            className="form-control" 
+                            value={userRole}
+                            onChange={e => setUserRole(e.target.value)} />
+                    </div>
+
 
                     <div className="form-group">
                         <button 
                             className="btn btn-dark"
-                            onClick={e => onSubmit({name, email, password})}>
+                            onClick={e => onSubmit({name, email, password, userRole})}>
                             Create account
                         </button>
                     </div>

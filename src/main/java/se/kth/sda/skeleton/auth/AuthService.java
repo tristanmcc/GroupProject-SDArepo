@@ -31,6 +31,14 @@ public class AuthService {
         return null;
     }
 
+    public String getLoggedInUserRole() {
+        Object maybeUserDetails = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (maybeUserDetails instanceof UserDetails) {
+            return ((UserDetails) maybeUserDetails).getUsername();
+        }
+            return null;
+    }
+
     public String createAuthToken(String email) {
         HashMap<String, String> claims = new HashMap<>();
         claims.put("email", email);
