@@ -61,10 +61,13 @@ const getUserRole = () => {
     );
   };
   
+  const  onCreateNewCourse = () => {
+    setOpenForm(true);
+  };
 
 const updateCourse = (updatedCourse) => {
     CoursesApi.put("", updatedCourse)
-        .then(r => getAllCourses());
+        .then(r => getAll());
 };
 
   return (
@@ -90,7 +93,7 @@ const updateCourse = (updatedCourse) => {
 
      
     </div>
-        {information.map((item) => {
+        /* {information.map((item) => {
      return < div>
        <CourseCard key={item.id} data={item} />
        <button className="btn btn-dark course-button"
@@ -105,7 +108,7 @@ const updateCourse = (updatedCourse) => {
         
       </div> 
       </div>
-
+ */
   );
 }
 export default CoursePage;
