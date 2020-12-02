@@ -15,6 +15,7 @@ public class Video {
     @Column(name = "videoName")
     private String videoName;
 
+
     @Column(name = "url")
     private String url;
 

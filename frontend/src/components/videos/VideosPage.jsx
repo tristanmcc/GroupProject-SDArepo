@@ -1,41 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import axios from 'axios';
+import Api from '../../api/Api';
 
-import Video from './Video';
-import VideoUploading from './VideoUploading.jsx';
-
-import information from '../../resources/information.json';
+import Videos from './Videos';
 
 export default function VideosPage() {
-  const Uploader = () => {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'presentUserToken',
-      },
-    };
+  const [user, setUser] = useState([]);
 
-    axios
-      .post(
-        'http:localhost/8080/videos',
-        {
-          title: 'New Todo',
-          completed: false,
-        },
-        config
-      )
-      .then((res) => console.log(res.data))
-      .catch((err) => console.err(err));
-  };
+  useEffect(
+    () =>
+      Api.get('/user/me').then((res) => {
+        setUser(res.data);
+      }),
+    []
+  );
 
   return (
     <>
-      <h1>Lectures</h1>
-      <Video data={information[6]} />
+      <h1>Lectures Page</h1>
 
-      <h1>Upload feature</h1>
-      <VideoUploading clickUpload={Uploader} />
+      <Videos user={user} />
     </>
   );
 }
