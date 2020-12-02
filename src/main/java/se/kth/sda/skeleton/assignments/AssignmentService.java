@@ -44,4 +44,7 @@ public class AssignmentService {
     }
 
 
+    public List<Assignment> getAllByCourseId(Long courseId) {
+        return assRepo.findAllByCourseId(courseId);
+    }
 }

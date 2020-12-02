@@ -27,9 +27,9 @@ public class AssignmentControllerTest {
     public void should_ReturnThreeAssignments_WhenViewAll() {
 
         // arrange
-        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1", "Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10");
-        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10");
-        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", "Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10");
+        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1", "Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10", (long) 1);
+        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10", (long) 1);
+        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", "Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10", (long) 1);
 
 
         List<Assignment> threeAssignments = new ArrayList<>();
@@ -41,7 +41,7 @@ public class AssignmentControllerTest {
 
 
         //act
-        List<Assignment> actualAssignments = assController.viewAll();
+        List<Assignment> actualAssignments = assController.viewAll((long) 1);
 
         //assert
         Assertions.assertEquals(threeAssignments.size(),actualAssignments.size());
@@ -55,9 +55,9 @@ public class AssignmentControllerTest {
 
 
         //arrange
-        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1", "Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10");
-        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10");
-        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", "Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10");
+        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1", "Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10", (long) 1);
+        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10", (long) 1);
+        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", "Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10", (long) 1);
 
 
         when(assService.getById(1L))

@@ -37,9 +37,10 @@ public class AssignmentController {
     UserService userService;
 
 
-    @GetMapping("/assignments")
-    public List<Assignment> viewAll() {
-        return assService.viewAll();
+    @GetMapping("/assignments/courseId/{courseId}")
+    public List<Assignment> viewAll(@PathVariable Long courseId) {
+            return assService.getAllByCourseId(courseId);
+
     }
 
     //get specific task by ID

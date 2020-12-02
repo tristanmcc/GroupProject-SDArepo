@@ -46,10 +46,15 @@ function App() {
             path="/assignmentsAnsweredView/:assignId"
             render={({ match }) => <AnsweredAssignmentsForm match={match} />}
           />
-           
-          <Route path="/assignmentsView">
-            <AssignmentsPage />
+
+          <Route path="/assignmentsViewForCourse/:courseId"
+            render={({ match }) => <AssignmentsView match={match} />}>
           </Route>
+
+          <Route path="/assignmentsViewForAdd/:courseId"
+          render={({ match }) => <AssignmentsPage match={match} />}
+          />
+            
 
 
           <Route path="/lectures">

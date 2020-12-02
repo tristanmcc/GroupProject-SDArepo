@@ -36,9 +36,9 @@ const columns = [
         },
       });
 
-function AssignmentsView()
+function AssignmentsView({match})
 {
-
+    
     const handleDelete = ({assignId}) => 
     {
         console.log("inside delete"+assignId);
@@ -50,12 +50,13 @@ function AssignmentsView()
 
     }
 
-
+    
     const [rows, setRows] = useState([]);
-
-    const viewAssignment = () => {
+    const [courseId, setCourseId] = useState(match.params.courseId)
+    console.log("courseId" + courseId);
+    const viewAssignment = (courseId) => {
         console.log("Inside viewAssignment")
-        AssignmentsApi.getAllAssignment()
+        AssignmentsApi.getAllAssignment(courseId)
             .then(response => {
                 console.log("Response data" + response.data);
                 const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
@@ -66,7 +67,7 @@ function AssignmentsView()
             })
     }
     useEffect(() => {
-        viewAssignment();
+        viewAssignment(match.params.courseId);
 
 
     }, []);
@@ -146,9 +147,9 @@ function AssignmentsView()
         </Paper>
 
     <div className="card-header">
-    <Link to="/assignmentsView" >
+    <Link to={`/assignmentsViewForAdd/${courseId}`} >
         <button
-            className=" btn btn-dark">
+            className=" btn btn-light">
             Add New Assignment
         </button>
     </Link>
@@ -156,8 +157,7 @@ function AssignmentsView()
     </div>
     
       );
-       
-
+      
 }
 
 export default AssignmentsView;

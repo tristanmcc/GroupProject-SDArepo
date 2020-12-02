@@ -15,7 +15,9 @@ class AssignmentsApi
         question7,
         question8,
         question9,
-        question10}) {
+        question10,
+        courseId
+                   }) {
         
 
         return Api.post('/assignments',
@@ -30,12 +32,13 @@ class AssignmentsApi
         question7,
         question8,
         question9,
-        question10});
+        question10,
+        courseId});
 }
 
-getAllAssignment() {
-    console.log("Inside getAllAssignment")
-    return Api.get('/assignments');
+getAllAssignment(courseId) {
+    console.log("Inside getAllAssignment" + courseId)
+    return Api.get('/assignments/courseId/'+ courseId);
 }
 
 deleteAssignment(id) {
@@ -58,7 +61,9 @@ updateAssignment({id,assignmentTitle,
     question7,
     question8,
     question9,
-    question10}) {
+    question10,
+    courseId
+}) {
     
     console.log("value of assignId"+ id);
     return Api.put('/assignments',
@@ -75,7 +80,9 @@ updateAssignment({id,assignmentTitle,
     question7,
     question8,
     question9,
-    question10});
+    question10,
+    courseId
+});
 }
 
 }
