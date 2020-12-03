@@ -7,6 +7,12 @@ import "./App.css";
 import Auth from "./services/Auth";
 import Navbar from "./components/layout/Navbar";
 
+
+
+import Chat from "./components/chat/Chat";
+
+
+
 // Import pages
 import LoginPage from './components/auth/LoginPage';
 import HomePage from './components/home/HomePage';
@@ -28,6 +34,8 @@ function App() {
       <Navbar onLogout={() => Auth.logout()} />
 
       <div className="container mt-5">
+
+  
         <Switch>
           <Route exact path="/courses">
             <CoursePage />
@@ -54,9 +62,7 @@ function App() {
           <Route path="/assignmentsViewForAdd/:courseId"
           render={({ match }) => <AssignmentsPage match={match} />}
           />
-            
-
-
+          
           <Route path="/lectures">
             <LecturesPage />
           </Route>
@@ -76,12 +82,18 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
+
+          <Route exact path="/chat">
+            <Chat/>
+          </Route>
+
         </Switch>
       </div>
     </Router>
   );
 
   return loggedIn ? loggedInRouter : <LoginPage />;
+  
 }
 
 export default App;
