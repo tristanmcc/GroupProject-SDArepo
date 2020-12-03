@@ -58,12 +58,9 @@ function AssignmentsView({match})
         console.log("Inside viewAssignment")
         AssignmentsApi.getAllAssignment(courseId)
             .then(response => {
-                console.log("Response data" + response.data);
                 const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
                 );
-                setRows(newArray);
-                console.log(newArray);
-                
+                setRows(newArray.reverse());
             })
     }
     useEffect(() => {
