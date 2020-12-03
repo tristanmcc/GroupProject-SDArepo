@@ -20,6 +20,7 @@ import java.util.List;
  * @author leefowler
  */
 @RestController
+@RequestMapping("/videos")
 public class VideoController {
 
     private VideoService videoService;
@@ -28,33 +29,38 @@ public class VideoController {
         this.videoService = videoService;
     }
 
-    // Return all videos.
-    @GetMapping("/videos")
-    public List<Video> getAll() {
-        return videoService.getAll();
+    //get method for all videos by relationship mapped course id
+    @GetMapping("")
+    public List<Video> getAll(@RequestParam(required = false) Long courseId){
+        if (courseId == null) {
+            return videoService.getAll();
+        }
+        else {
+            return videoService.getAllByCourseId(courseId);
+        }
     }
 
     // Return video by ID.
-    @GetMapping("/videos/{id}")
+    @GetMapping("/{id}")
     public Video getById(@PathVariable Long id) {
         return videoService.getById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     // Create a new video.
-    @PostMapping("/videos")
+    @PostMapping("")
     public Video create(@RequestBody Video video) {
         return videoService.create(video);
     }
 
     // Update a video.
-    @PutMapping("/videos")
+    @PutMapping("")
     public Video update(@RequestBody Video video) {
         return videoService.update(video);
     }
 
     // Delete a video.
-    @DeleteMapping("/videos/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         videoService.delete(id);
     }

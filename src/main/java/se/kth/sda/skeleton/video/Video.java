@@ -1,5 +1,5 @@
 package se.kth.sda.skeleton.video;
-
+import se.kth.sda.skeleton.course.Course;
 
 import javax.persistence.*;
 
@@ -19,15 +19,25 @@ public class Video {
     @Column(name = "videoUrl")
     private String videoUrl;
 
+    @ManyToOne
+    private Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 
     public Video() {
     }
-
 
     public Video(Long id, String videoName, String videoUrl) {
         this.id = id;
         this.videoName = videoName;
         this.videoUrl = videoUrl;
+
     }
 
     public Long getId() {
@@ -60,6 +70,7 @@ public class Video {
                 "id=" + id +
                 ", videoName='" + videoName + '\'' +
                 ", videoUrl='" + videoUrl + '\'' +
+               // ", course='" + course + + '\'' +
                 '}';
     }
 }
