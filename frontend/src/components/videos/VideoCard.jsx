@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import coursesIcon from '../../images/courses-icon.png';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faPhotoVideo } from '@fortawesome/free-solid-svg-icons';
+
 export default function VideoCard({ video, onDeleteClick, user }) {
   console.log('videocard print out: ' + video.videoUrl);
 
@@ -8,8 +13,8 @@ export default function VideoCard({ video, onDeleteClick, user }) {
     <div className="card mt-5 p-2">
       <div className="comment">
         <div className="signature">
-          <Link to={video.videoUrl}>
-            <img src="fab fa-youtube" alt="font awesome icon"></img>
+          <Link to={`/video.videoUrl`}>
+            <FontAwesomeIcon icon={faPhotoVideo} />
           </Link>
 
           <span className="user-name-comment">{`video  name : ${video.videoName}`}</span>
@@ -22,7 +27,7 @@ export default function VideoCard({ video, onDeleteClick, user }) {
             onDeleteClick(video);
           }}
         >
-          <i className="far fa-trash-alt"></i>
+          <FontAwesomeIcon icon={faTrash} />
         </button>
       </div>
     </div>
