@@ -42,4 +42,9 @@ public class VideoService {
     public void delete(Long id) {
         videoRepo.deleteById(id);
     }
+
+    //this is an extra method for relationship mapping video and courses
+    public List<Video> getAllByCourseId(Long courseId) {
+        return videoRepo.findAllByCourseId(courseId);
+    }
 }
