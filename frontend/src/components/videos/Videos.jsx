@@ -37,7 +37,7 @@ export default function Videos({ user }) {
   return (
     <div>
       <div>
-        <VideoUploadForm onSubmit={createVideo} user={user} />
+        <VideoUploadForm onCreateClick={createVideo} user={user} />
 
         {videos.map((video) => (
           <VideoCard
