@@ -20,7 +20,6 @@ function CoursePage() {
   
     //useState variables
   
-  const [formState, setFormState]= useState(false);
   const [currentUser, setCurrentUser] = useState("");
   
 
@@ -61,13 +60,14 @@ const getUserRole = () => {
     );
   };
   
-  const  onCreateNewCourse = () => {
+  const onCreateNewCourse = () => {
     setOpenForm(true);
   };
 
 const updateCourse = (updatedCourse) => {
-    CoursesApi.put("", updatedCourse)
-        .then(r => getAll());
+  console.log('in course page',updatedCourse);
+    CoursesApi.updateCourse(updatedCourse)
+      .then(r => getAll());
 };
 
   return (
@@ -86,6 +86,7 @@ const updateCourse = (updatedCourse) => {
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
+              onCourseUpdate={updateCourse}
             />
           </>
         }
