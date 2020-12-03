@@ -65,7 +65,6 @@ const getUserRole = () => {
   };
 
 const updateCourse = (updatedCourse) => {
-  console.log('in course page',updatedCourse);
     CoursesApi.updateCourse(updatedCourse)
       .then(r => getAll());
 };
@@ -73,20 +72,24 @@ const updateCourse = (updatedCourse) => {
   return (
     <div className="course-container">
       <div className="row-buttons">
+
          { openForm ? 
           <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
         
          : 
           <>
+          {currentUser==='teacher' ? 
             <button
               className="btn btn-info course-button"
               onClick={onCreateNewCourse}>
               CREATE COURSE
-            </button>
+            </button> : null
+            }
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
               onCourseUpdate={updateCourse}
+              currentUser = {currentUser}
             />
           </>
         }

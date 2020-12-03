@@ -6,8 +6,7 @@ class UserApi
 
 getCurrentUser() {
     return Api.get('/currentUser');
-    }
-
+    
+};
 }
-
 export default new UserApi();
