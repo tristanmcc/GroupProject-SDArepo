@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import courseImg from "../../images/courses-icon.png";
 import CourseUpdateForm from './CourseUpdateForm.js';
 
+
 export default function Course({ course, onCourseDelete, onCourseUpdate }) {
   const { title, description } = course;
   const [formState, setFormState]= useState(false);
+
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [show, setShow] = useState(false);
 
@@ -18,7 +20,7 @@ export default function Course({ course, onCourseDelete, onCourseUpdate }) {
 
   return (
     <div className="course-card">
-      <Link to={`/courseDetails`}>
+      <Link to={`/assignmentsViewForCourse/${id}`}>
          <img className="courseImage"  src={courseImg} alt={title} />
       </Link>
       <div className="card-content">
