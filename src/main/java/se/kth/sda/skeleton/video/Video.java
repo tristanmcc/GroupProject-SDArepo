@@ -16,18 +16,18 @@ public class Video {
     private String videoName;
 
 
-    @Column(name = "url")
-    private String url;
+    @Column(name = "videoUrl")
+    private String videoUrl;
 
 
     public Video() {
     }
 
 
-    public Video(Long id, String videoName, String url) {
+    public Video(Long id, String videoName, String videoUrl) {
         this.id = id;
         this.videoName = videoName;
-        this.url = url;
+        this.videoUrl = videoUrl;
     }
 
     public Long getId() {
@@ -46,12 +46,12 @@ public class Video {
         this.videoName = videoName;
     }
 
-    public String getUrl() {
-        return url;
+    public String getVideoUrl() {
+        return videoUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class Video {
         return "Video{" +
                 "id=" + id +
                 ", videoName='" + videoName + '\'' +
-                ", url='" + url + '\'' +
+                ", videoUrl='" + videoUrl + '\'' +
                 '}';
     }
 }

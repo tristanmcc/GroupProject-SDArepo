@@ -8,9 +8,12 @@ export default function Videos({ user }) {
   const [videos, setVideos] = useState([]);
 
   const createVideo = (videoData) => {
+    console.log('videodata : ' + videoData);
     Api.post('/videos', videoData)
       .then((res) => setVideos([...videos, res.data]))
       .catch((err) => console.error(err));
+
+    console.log('from videos: ' + videos);
   };
 
   const getVideos = () => {
@@ -34,7 +37,7 @@ export default function Videos({ user }) {
   return (
     <div>
       <div>
-        <VideoUploadForm onCreateClick={createVideo} user={user} />
+        <VideoUploadForm onSubmit={createVideo} user={user} />
 
         {videos.map((video) => (
           <VideoCard
