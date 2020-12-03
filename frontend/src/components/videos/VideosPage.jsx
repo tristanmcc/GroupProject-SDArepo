@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import Video from './Video';
+import Api from '../../api/Api';
 
-import information from '../../resources/information.json';
+import Videos from './Videos';
 
 export default function VideosPage() {
+  const [user, setUser] = useState([]);
+
+  useEffect(
+    () =>
+      Api.get('/user/me').then((res) => {
+        setUser(res.data);
+      }),
+    []
+  );
+
   return (
     <>
-      <h1>Lectures</h1>
-      <Video data={information[6]} />
+      <h1>Lectures Page</h1>
+
+      <Videos user={user} />
     </>
   );
 }

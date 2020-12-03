@@ -27,7 +27,7 @@ public class CourseService {
 
     /* Update new course */
     public Course update (Course updatedCourse) {
-        return courseRepo.save(updatedCourse);
+         return courseRepo.save(updatedCourse);
     }
 
     /* Delete a specific course*/

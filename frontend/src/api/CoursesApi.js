@@ -17,7 +17,8 @@ class CoursesApi {
     }
 
     updateCourse(course) {
-        return Api.put('./courses',course);
+        console.log("I'm updated... or am I?", course);
+        return Api.put('/courses',course);
     }
 
     deleteCourse(id) {
