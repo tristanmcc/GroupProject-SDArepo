@@ -1,7 +1,7 @@
 import React from 'react';
 import Course from './Course';
 
-function CoursesList({courses, onCourseDelete, onCourseUpdate}) {
+function CoursesList({courses, onCourseDelete, onCourseUpdate, currentUser}) {
     return <div className="course-grid">
         {
           courses.map(course => (<Course 
@@ -9,6 +9,7 @@ function CoursesList({courses, onCourseDelete, onCourseUpdate}) {
                 course={course}
                 onCourseDelete={onCourseDelete}
                 onCourseUpdate={onCourseUpdate}
+                currentUserRole = {currentUser}
                 />)
          )  
         }
