@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 public class StudentController {
 
+    @Autowired
     private StudentService studentService;
 
     public StudentController(@Autowired StudentService studentService) {
@@ -52,6 +53,7 @@ public class StudentController {
     // Delete a post.
     @DeleteMapping("/students/{id}")
     public void delete(@PathVariable Long id) {
+        System.out.println("I am in controller against student id "+id);
         studentService.delete(id);
     }
 

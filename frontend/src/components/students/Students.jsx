@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import StudentCreateForm from './StudentCreateForm';
+import StudentUpdateFrom from './StudentUpdateForm';
 import StudentCard from './StudentCard';
 
 import Api from '../../api/Api';
@@ -14,25 +15,46 @@ export default function Students() {
       setStudent([...student, res.data])
     );
   };
+  
+
+  const deleteStudent = (student) => {
+    return Api.delete('/students/'+student.id)
+              .then(r => getAllStudents());
+    // .then(() =>
+    //   setStudent(student.filter((a) => a.id !== student.id))
+    // );
+  };
+
+
+const updatedStudent = (updatedStudent) => {
+  console.log('I am in update API ' +updatedStudent)
+    Api.put('/students/', updatedStudent)
+        .then(r => getAllStudents());
+};
 
   const getAllStudents = () => {
     Api.get(`/students`).then((res) => {
-      const x = res.data.map((item) => (
-        <StudentCard key={item.id} items={item} />
-      ));
-
-      setInformation(x);
-    });
-  };
+      setStudent(res.data.sort((a, b) => b.id - a.id));
+    })
+   };
 
   useEffect(() => {
     getAllStudents();
-  }, [student]);
+  },[]);
 
   return (
     <>
       <StudentCreateForm onCreateClick={createStudent} />
-      <div>{information}</div>
+      {
+        student.map(eachStudent => (<StudentCard 
+                key={eachStudent.id}
+                student={eachStudent}
+                onStudentDelete={deleteStudent}
+                onStudentUpdate={updatedStudent}
+                />)
+         )  
+        }
+
     </>
   );
 }
