@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 
-export default function VideoUploadForm({ onSubmit, user }) {
+export default function VideoUploadForm({ /*onSubmit*/ onCreateClick, user }) {
   const [videoName, setVideoName] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
 
-  const onCreateVideoClick = (e) => {
+  /*this component pattern renders faster so keep it here*/
+
+  /*  const onCreateVideoClick = (e) => {
     const videoData = { videoName, videoUrl, user };
     console.log('from upload form' + videoData);
     onSubmit(videoData).catch((err) => {
       alert('error occured');
     });
-  };
+  };  */
 
   return (
     <>
       <h3>Create a video below</h3>
       <label>Video Upload area</label>
 
-      <form onSubmit={onCreateVideoClick}>
+      <form /*onSubmit={onCreateVideoClick}*/>
         <div class="input-group mb-3">
           <textarea
             type="text"
@@ -37,11 +39,11 @@ export default function VideoUploadForm({ onSubmit, user }) {
           />
         </div>
 
-        <button className="btn btn-primary" type="submit">
+        {/*<button className="btn btn-primary" type="submit">
           Create
-        </button>
+  </button>*/}
 
-        {/* <button
+        <button
           className="btn btn-primary"
           onClick={() => {
             onCreateClick({ videoName, user, videoUrl });
@@ -49,7 +51,7 @@ export default function VideoUploadForm({ onSubmit, user }) {
           }}
         >
           Upload
-        </button>*/}
+        </button>
       </form>
     </>
   );
