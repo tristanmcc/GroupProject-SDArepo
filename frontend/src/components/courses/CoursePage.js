@@ -94,22 +94,6 @@ const updateCourse = (updatedCourse) => {
 
      
     </div>
-        /* {information.map((item) => {
-     return < div>
-       <CourseCard key={item.id} data={item} />
-       <button className="btn btn-dark course-button"
-          onClick = {() => {
-              setFormState(true);
-        }}>UPDATE COURSE 
-          </button>
-        {formState ? <CourseUpdateForm key={item.id} oldCourse={item} onUpdateClick = {updateCourse}/>: null }
-       </div>
-   })}
-        
-        
-      </div> 
-      </div>
- */
   );
 }
 export default CoursePage;
