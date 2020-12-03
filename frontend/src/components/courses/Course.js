@@ -7,7 +7,7 @@ import courseImg from '../../images/courses-icon.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
 
 export default function Course({ course, onCourseDelete, onCourseUpdate }) {
-  const { id, title, description } = course;
+  const { id,title, description } = course;
   const [formState, setFormState] = useState(false);
 
   const [isFormOpen, setIsFormOpen] = useState(false);
