@@ -2,7 +2,7 @@ package se.kth.sda.skeleton.comment;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import se.kth.sda.skeleton.auth.*;
+import se.kth.sda.skeleton.auth.AuthService;
 
 import java.util.List;
 
