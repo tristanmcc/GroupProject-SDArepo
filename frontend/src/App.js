@@ -24,7 +24,11 @@ import VideosPage from './components/videos/VideosPage.jsx';
 import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
+
 import ResoursePage from "./components/resourse/ResoursePage";
+
+import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpdation';
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -48,7 +52,7 @@ function App() {
 
           <Route
             path="/assignmentsView/:assignId"
-            render={({ match }) => <AssignmentsPage match={match} />}
+            render={({ match }) => <AssignmentsPageUpdation match={match} />}
           />
 
           <Route
@@ -56,14 +60,18 @@ function App() {
             render={({ match }) => <AnsweredAssignmentsForm match={match} />}
           />
 
-          <Route path="/assignmentsViewForCourse/:courseId"
+          <Route path="/assignmentsViewForCourse/:course"
             render={({ match }) => <AssignmentsView match={match} />}>
           </Route>
 
-          <Route path="/assignmentsViewForAdd/:courseId"
+          <Route path="/assignmentsViewForAdd/:course"
           render={({ match }) => <AssignmentsPage match={match} />}
           />
-          
+        
+           <Route
+            path="/courseDetail/:id"
+            render={({ match }) => <CourseDetailsPage match={match} />}
+          /> 
           <Route path="/lectures">
             <LecturesPage />
           </Route>

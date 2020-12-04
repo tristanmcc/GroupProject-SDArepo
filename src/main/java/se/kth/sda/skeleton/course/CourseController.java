@@ -14,7 +14,7 @@ import java.util.Map;
 public class CourseController {
 
     @Autowired
-    private CourseService courseService;
+    private final CourseService courseService;
 
     public CourseController(@Autowired CourseService courseService) {
         this.courseService = courseService;

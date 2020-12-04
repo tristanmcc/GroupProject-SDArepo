@@ -1,10 +1,14 @@
 package se.kth.sda.skeleton.course;
+import se.kth.sda.skeleton.video.Video;
+import se.kth.sda.skeleton.assignments.Assignment;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Table(name="courses")
 public class Course {
 
     @Id
@@ -12,13 +16,18 @@ public class Course {
     @Column(name = "id")
     private Long id;
 
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Assignment> assignments;
+
     private String title;
 
     private String description;
 
     private Date createDate;
-
     private Date updateDate;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Video> videos;
 
     public Course() {
 

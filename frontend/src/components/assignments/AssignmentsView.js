@@ -12,14 +12,13 @@ import { Link } from "react-router-dom";
 import AssignmentsApi from '../../api/AssignmentsApi';
 import MenuBookTwoToneIcon from '@material-ui/icons/MenuBookTwoTone';
 import DeleteIcon from '@material-ui/icons/Delete';
+import UserApi from '../../api/UserApi';
 
 const columns = [
     { id: 'title', label: 'Click on the Assignment to View it', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'},
     { id: 'ICONS', label: '', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'}
     
     ];
-
-
 
     function createData(title,Id) {
         
@@ -36,12 +35,12 @@ const columns = [
         },
       });
 
-function AssignmentsView({match})
+function AssignmentsView({course,currentUsers})
 {
-    
+  const [rows, setRows] = useState([]);
     const handleDelete = ({assignId}) => 
     {
-        console.log("inside delete"+assignId);
+        
         AssignmentsApi.deleteAssignment(assignId)
             .then(response => {
                 window.location.reload();
@@ -49,33 +48,45 @@ function AssignmentsView({match})
             });
 
     }
-
     
-    const [rows, setRows] = useState([]);
-    const [courseId, setCourseId] = useState(match.params.courseId)
-    console.log("courseId" + courseId);
-    const viewAssignment = (courseId) => {
-        console.log("Inside viewAssignment")
-        AssignmentsApi.getAllAssignment(courseId)
+    const viewAssignment = (course) => {
+      console.log("inside viewAssignment" + course)
+        
+        if(typeof course !== 'undefined' && course !== '')
+        {
+          AssignmentsApi.getAllAssignment(course.id)
             .then(response => {
-                console.log("Response data" + response.data);
+                
                 const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
                 );
-                setRows(newArray);
-                console.log(newArray);
+                setRows(newArray.reverse());
+              })
+        }
+        else
+        {
+          AssignmentsApi.getAll()
+            .then(response => {
                 
-            })
+                const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
+                );
+                setRows(newArray.reverse());
+                })
+
+        }
     }
-    useEffect(() => {
-        viewAssignment(match.params.courseId);
+    useEffect(() => { 
+
+          viewAssignment(course);
+          getUserRole();
 
 
-    }, []);
+        }, [course]);
 
 
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [currentUser, setCurrentUser] = useState(" ");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -85,6 +96,16 @@ function AssignmentsView({match})
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+ 
+
+  //Get userRole call
+const getUserRole = () => {
+    UserApi.getCurrentUser()
+        .then(response => {
+        setCurrentUser(response.data.userRole);
+        })
+  }
 
     return (
         <div>
@@ -117,13 +138,13 @@ function AssignmentsView({match})
                             
                           <TableCell key={column.id} align={column.align}>
                           
-                          <Link to={`/assignmentsAnsweredView/${assignId}`}   className="link">
+                          <Link to={`/assignmentsView/${assignId}`}   className="link">
                             {column.format && typeof value === 'number' ? column.format(value) :  value}
                             
                             </Link>
-                            
-                            {column.id === 'ICONS' ? <DeleteIcon onClick={() => handleDelete({assignId})} /> : null}
-                            
+                            {currentUser==='teacher' ? <div>
+                              {column.id === 'ICONS' ? <DeleteIcon onClick={() => handleDelete({assignId})} /> : null}
+                            </div>:null}
                            
                           </TableCell>
                           
@@ -146,18 +167,9 @@ function AssignmentsView({match})
           />
         </Paper>
 
-    <div className="card-header">
-    <Link to={`/assignmentsViewForAdd/${courseId}`} >
-        <button
-            className=" btn btn-light">
-            Add New Assignment
-        </button>
-    </Link>
-    </div>
-    </div>
+        </div>
     
       );
-      
 }
 
 export default AssignmentsView;
