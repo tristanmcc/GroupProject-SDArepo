@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 import courseImg from '../../images/courses-icon.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
 
-export default function Course({ course, onCourseDelete, onCourseUpdate }) {
-  const { id, title, description } = course;
+export default function Course({ course, onCourseDelete, onCourseUpdate, currentUserRole }) {
+  const { id,title, description } = course;
   const [formState, setFormState] = useState(false);
 
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -19,20 +19,27 @@ export default function Course({ course, onCourseDelete, onCourseUpdate }) {
 
   return (
     <div className="course-card">
-      <Link to={`/assignmentsViewForCourse/${id}`}>
-         <img className="courseImage"  src={courseImg} alt={title} />
-  </Link>
+      
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         <p className="description">{description}</p>
       </div>
       <div className="course-card-buttons">
-        <button className="deleteButton" onClick={() => onCourseDelete(course)}>
-          <FontAwesomeIcon icon={faTrash} />
-        </button>
-        <button className="updateButton" onClick={() => setFormState(true)}>
-          <FontAwesomeIcon icon={faPen} />
-        </button>
+      <Link to={`/assignmentsViewForCourse/${id}`}>
+            <img className="courseImage"  src={courseImg} alt={title} 
+        />
+        </Link>
+      
+        {currentUserRole==='teacher' ? 
+        <div>
+          
+          <button className="deleteButton" onClick={() => onCourseDelete(course)}>
+            <FontAwesomeIcon icon={faTrash} />
+          </button>
+          <button className="updateButton" onClick={() => setFormState(true)}>
+            <FontAwesomeIcon icon={faPen} />
+          </button>
+        </div> : null}
         {formState ? (
           <CourseUpdateForm
             key={course.id}
