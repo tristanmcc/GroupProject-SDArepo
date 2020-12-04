@@ -1,6 +1,7 @@
 package se.kth.sda.skeleton.assignments;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import se.kth.sda.skeleton.course.Course;
 
 import javax.persistence.*;
@@ -33,18 +34,22 @@ public class Assignment {
     private String question8;
     private String question9;
     private String question10;
-    private long courseId ;
 
-    public long getCourseId() {
-        return courseId;
+
+    @ManyToOne
+    private Course course;
+
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourseId(long courseId) {
-        this.courseId = courseId;
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     //Constructor
-    public Assignment(Long id, String assignmentTitle, String assignmentDescription, String question1, String question2, String question3, String question4, String question5, String question6, String question7, String question8, String question9, String question10,long courseId) {
+    public Assignment(Long id, String assignmentTitle, String assignmentDescription, String question1, String question2, String question3, String question4, String question5, String question6, String question7, String question8, String question9, String question10
+    ) {
         this.id = id;
         this.assignmentTitle = assignmentTitle;
         this.assignmentDescription = assignmentDescription;
@@ -58,7 +63,7 @@ public class Assignment {
         this.question8 = question8;
         this.question9 = question9;
         this.question10 = question10;
-        this.courseId = courseId;
+
     }
 
     

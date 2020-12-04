@@ -19,8 +19,6 @@ const columns = [
     
     ];
 
-
-
     function createData(title,Id) {
         
         return { title , Id};
@@ -36,12 +34,12 @@ const columns = [
         },
       });
 
-function AssignmentsView({match})
+function AssignmentsView({course,currentUser})
 {
-    
+  const [rows, setRows] = useState([]);
     const handleDelete = ({assignId}) => 
     {
-        console.log("inside delete"+assignId);
+        
         AssignmentsApi.deleteAssignment(assignId)
             .then(response => {
                 window.location.reload();
@@ -49,28 +47,38 @@ function AssignmentsView({match})
             });
 
     }
-
     
-    const [rows, setRows] = useState([]);
-    const [courseId, setCourseId] = useState(match.params.courseId)
-    console.log("courseId" + courseId);
-    const viewAssignment = (courseId) => {
-        console.log("Inside viewAssignment")
-        AssignmentsApi.getAllAssignment(courseId)
+    const viewAssignment = (course) => {
+      console.log("inside viewAssignment" + course)
+        
+        if(typeof course !== 'undefined' && course !== '')
+        {
+          AssignmentsApi.getAllAssignment(course.id)
             .then(response => {
-                console.log("Response data" + response.data);
+                
                 const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
                 );
                 setRows(newArray);
-                console.log(newArray);
+              })
+        }
+        else
+        {
+          AssignmentsApi.getAll()
+            .then(response => {
                 
-            })
+                const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
+                );
+                setRows(newArray);
+                })
+
+        }
     }
-    useEffect(() => {
-        viewAssignment(match.params.courseId);
+    useEffect(() => { 
+
+          viewAssignment(course);
 
 
-    }, []);
+        }, [course]);
 
 
   const classes = useStyles();
@@ -117,7 +125,7 @@ function AssignmentsView({match})
                             
                           <TableCell key={column.id} align={column.align}>
                           
-                          <Link to={`/assignmentsAnsweredView/${assignId}`}   className="link">
+                          <Link to={`/assignmentsView/${assignId}`}   className="link">
                             {column.format && typeof value === 'number' ? column.format(value) :  value}
                             
                             </Link>
@@ -146,18 +154,9 @@ function AssignmentsView({match})
           />
         </Paper>
 
-    <div className="card-header">
-    <Link to={`/assignmentsViewForAdd/${courseId}`} >
-        <button
-            className=" btn btn-light">
-            Add New Assignment
-        </button>
-    </Link>
-    </div>
-    </div>
+        </div>
     
       );
-      
 }
 
 export default AssignmentsView;

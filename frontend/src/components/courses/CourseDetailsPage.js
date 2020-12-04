@@ -1,25 +1,64 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, {useState, useEffect} from 'react';
 import "../../App.css";
+import AssignmentsView from '../assignments/AssignmentsView';
+import CoursesApi from '../../api/CoursesApi';
+import UserApi from '../../api/UserApi';
+import AssignmentsPage from '../assignments/AssignmentsPage';
 
-export default function CourseDetailsPage() {
-    return (
-        <div>
-            
-            <div className="container">
-                <div className="row">
-                    <h1 className="courseDetails-title">Course Details </h1>
-                    <p className="courseDetails-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-                <Link to= {`/courses`}>
-                <button  className=" btn btn-dark btn-sm">
-                        courses
-                </button>
-            </Link>
-                
-            </div>
+
+export default function CourseDetailsPage({match}) {
+    
+    const courseId = match.params.id;
+    const [course, setCourse] = useState([]);
+    const [currentUser, setCurrentUser] = useState([]);
+    const [openForm, setOpenForm] = useState(true);
+    const onCreateNewAssignment = () => {
+        setOpenForm(false);
+      };
+
+    const getCourseById = (courseId) => {
+        CoursesApi.getCourseById(courseId).then((res) => {
           
-        </div>
+          setCourse(res.data)
+          //setCourse(res.data);
+          
+        });
+      };
+      
+      //Get userRole call
+    const getUserRole = () => {
+        UserApi.getCurrentUser().then(response => {
+          
+          setCurrentUser(response.data);
+          
+          })
+    }
+
+    
+      useEffect(() => {
+        getCourseById(courseId);
+        getUserRole();
+      }, []);
+
+    return (
+        
+        <div>
+        { openForm ? 
+            <div>
+                
+                    <AssignmentsView course={course} currentUser={currentUser}/> 
+            
+                    <button className=" btn btn-light" onClick={onCreateNewAssignment}>
+                    Add New Assignment
+                    </button>
+                    
+             </div>
+            
+        :
+            <AssignmentsPage course={course} currentUser={currentUser}/>}
+            </div>
+
+
+       
     );
 }
