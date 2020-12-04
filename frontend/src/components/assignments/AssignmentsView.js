@@ -20,7 +20,6 @@ const columns = [
     
     ];
 
-
     function createData(title,Id) {
         
         return { title , Id};
@@ -36,12 +35,12 @@ const columns = [
         },
       });
 
-function AssignmentsView({match})
+function AssignmentsView({course,currentUsers})
 {
-    
+  const [rows, setRows] = useState([]);
     const handleDelete = ({assignId}) => 
     {
-        console.log("inside delete"+assignId);
+        
         AssignmentsApi.deleteAssignment(assignId)
             .then(response => {
                 window.location.reload();
@@ -49,24 +48,38 @@ function AssignmentsView({match})
             });
 
     }
-
     
-    const [rows, setRows] = useState([]);
-    const [courseId, setCourseId] = useState(match.params.courseId)
-    console.log("courseId" + courseId);
-    const viewAssignment = (courseId) => {
-        AssignmentsApi.getAllAssignment(courseId)
+    const viewAssignment = (course) => {
+      console.log("inside viewAssignment" + course)
+        
+        if(typeof course !== 'undefined' && course !== '')
+        {
+          AssignmentsApi.getAllAssignment(course.id)
             .then(response => {
+                
                 const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
                 );
-                setRows(newArray.reverse());
-            })
-    }
-    useEffect(() => {
-        viewAssignment(match.params.courseId);
-        getUserRole();
+                setRows(newArray);
+              })
+        }
+        else
+        {
+          AssignmentsApi.getAll()
+            .then(response => {
+                
+                const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
+                );
+                setRows(newArray);
+                })
 
-    }, []);
+        }
+    }
+    useEffect(() => { 
+
+          viewAssignment(course);
+
+
+        }, [course]);
 
 
   const classes = useStyles();
@@ -124,7 +137,7 @@ const getUserRole = () => {
                             
                           <TableCell key={column.id} align={column.align}>
                           
-                          <Link to={`/assignmentsAnsweredView/${assignId}`}   className="link">
+                          <Link to={`/assignmentsView/${assignId}`}   className="link">
                             {column.format && typeof value === 'number' ? column.format(value) :  value}
                             
                             </Link>
@@ -153,21 +166,9 @@ const getUserRole = () => {
           />
         </Paper>
 
-    <div className="card-header">
-      
-    <Link to={`/assignmentsViewForAdd/${courseId}`} >
-    {currentUser==='teacher' ? 
-        <button
-            className=" btn btn-light">
-            Add New Assignment
-        </button>
-      :null}
-      </Link> 
-    </div>
-    </div>
+        </div>
     
       );
-      
 }
 
 export default AssignmentsView;

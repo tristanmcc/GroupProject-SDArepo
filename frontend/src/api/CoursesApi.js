@@ -8,8 +8,8 @@ class CoursesApi {
     }
 
     getCourseById(id) {
-
-        return Api.get('/courses?courseId='+id);
+        console.log("Value of courseId in API" + id)
+        return Api.get('/courses/' +id);
     }
 
     createCourse(course) {
