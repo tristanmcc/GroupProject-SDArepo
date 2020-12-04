@@ -1,10 +1,38 @@
 import React, {useState} from "react";
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      display: 'block',
+      marginTop: theme.spacing(2),
+    },
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 120,
+    },
+  }));
 
 function RegisterForm({onSubmit}) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userRole, setUserRole] = useState("");
+    
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+      const handleClose = () => {
+        setOpen(false);
+      };
+    
+      const handleOpen = () => {
+        setOpen(true);
+      };
 
     return (
         <div className="card">
@@ -40,17 +68,24 @@ function RegisterForm({onSubmit}) {
                             value={password}
                             onChange={e => setPassword(e.target.value)} />
                     </div>
-                    <div className="form-group">
-                        <label>UserRole:</label>
-                        <input 
-                            type="userRole" 
-                            placeholder="userRole" 
-                            className="form-control" 
-                            value={userRole}
-                            onChange={e => setUserRole(e.target.value)} />
-                    </div>
-
-
+                    <FormControl className={classes.formControl}>
+                    <InputLabel id="controlled-open-select-label">User Role:</InputLabel>
+                    <Select
+                    labelId="controlled-open-select-label"
+                    id="demo-controlled-open-select"
+                    open={open}
+                    onClose={handleClose}
+                    onOpen={handleOpen}
+                    value={userRole}
+                    onChange={e => setUserRole(e.target.value)}
+                    >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={"teacher"}>Teacher</MenuItem>
+                    <MenuItem value={"student"}>Student</MenuItem>
+                    </Select>
+                    </FormControl>
                     <div className="form-group">
                         <button 
                             className="btn btn-dark"

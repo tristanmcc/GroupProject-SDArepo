@@ -1,8 +1,14 @@
 package se.kth.sda.skeleton.course;
 
+import se.kth.sda.skeleton.video.Video;
+
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Entity
+@Table(name="courses")
 public class Course {
 
     @Id
@@ -14,21 +20,22 @@ public class Course {
 
     private String description;
 
-    private String createDate;
+    private Date createDate;
+    private Date updateDate;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Video> videos;
 
     public Course() {
 
-
-
-
-
     }
 
-    public Course(Long id, String title, String description, String createDate) {
+    public Course(Long id, String title, String description, Date createDate, Date updateDate) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.createDate = createDate;
+        this.updateDate = updateDate;
     }
 
     public Long getId() {
@@ -55,11 +62,24 @@ public class Course {
         this.description = description;
     }
 
-    public String getCreateDate() {
+    public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    @PrePersist
+    void preInsert() {
+            this.createDate = new Date();
     }
 }
