@@ -1,6 +1,6 @@
 package se.kth.sda.skeleton.course;
-
 import se.kth.sda.skeleton.video.Video;
+import se.kth.sda.skeleton.assignments.Assignment;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,6 +15,9 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<Assignment> assignments;
 
     private String title;
 
