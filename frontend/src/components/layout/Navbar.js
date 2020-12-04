@@ -62,6 +62,12 @@ function Navbar({ onLogout }) {
              Chat
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/resourse" className="nav-link">
+             Resourse
+            </Link>
+          </li>
+
 
         </ul>
         <button
