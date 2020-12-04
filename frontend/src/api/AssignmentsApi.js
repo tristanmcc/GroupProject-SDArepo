@@ -3,8 +3,9 @@ import Api from "./Api";
 class AssignmentsApi
 {
     
-    
-    postAssignment({assignmentTitle,
+
+    postAssignment({course,
+        assignmentTitle,
         assignmentDescription,
         question1,
         question2,
@@ -15,13 +16,14 @@ class AssignmentsApi
         question7,
         question8,
         question9,
-        question10,
-        courseId
-                   }) {
+        question10},
+
+                   ) {
         
 
         return Api.post('/assignments',
-        {assignmentTitle,
+        {course,
+        assignmentTitle,
         assignmentDescription,
         question1,
         question2,
@@ -32,13 +34,17 @@ class AssignmentsApi
         question7,
         question8,
         question9,
-        question10,
-        courseId});
+        question10
+        });
 }
 
-getAllAssignment(courseId) {
-    console.log("Inside getAllAssignment" + courseId)
-    return Api.get('/assignments/courseId/'+ courseId);
+getAll() {
+    return Api.get('/assignments');
+}
+
+getAllAssignment(course) {
+    console.log("Inside getAllAssignment" + course);
+    return Api.get('/assignments/courseId/'+ course);
 }
 
 deleteAssignment(id) {
@@ -62,10 +68,10 @@ updateAssignment({id,assignmentTitle,
     question8,
     question9,
     question10,
-    courseId
+    course
 }) {
     
-    console.log("value of assignId"+ id);
+    
     return Api.put('/assignments',
     {
     id,   
@@ -81,7 +87,7 @@ updateAssignment({id,assignmentTitle,
     question8,
     question9,
     question10,
-    courseId
+    course
 });
 }
 

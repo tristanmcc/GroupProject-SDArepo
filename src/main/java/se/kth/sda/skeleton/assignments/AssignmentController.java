@@ -36,6 +36,10 @@ public class AssignmentController {
     @Autowired
     UserService userService;
 
+    @GetMapping("/assignments")
+    public List<Assignment> getAll() {
+        return assService.viewAll();
+    }
 
     @GetMapping("/assignments/courseId/{courseId}")
     public List<Assignment> viewAll(@PathVariable Long courseId) {
