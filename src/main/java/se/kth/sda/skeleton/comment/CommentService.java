@@ -22,7 +22,7 @@ public class CommentService {
         repo.deleteById(id);
     }
 
-    public List<Comment> getAllByPostId(Long postId) { return repo.findAllByPostId(postId);
+    public List<Comment> getAllByQuestionId(Long questionId) { return repo.findAllByQuestionId(questionId);
     }
 }
 

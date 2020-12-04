@@ -21,11 +21,11 @@ public class Comment {
     public Comment() {
     }
 
-    public Comment(Long id, String body, String email, Question question) {
+    public Comment(Long id, String body, String email) {
         this.id = id;
         this.body = body;
         this.email = email;
-        this.question = question;
+
     }
 
     public Question getQuestion() {

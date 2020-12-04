@@ -5,7 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se.kth.sda.skeleton.auth.AuthService;
-import se.kth.sda.skeleton.user.User;
+
 import se.kth.sda.skeleton.user.UserService;
 
 import java.util.List;
@@ -23,33 +23,26 @@ public class QuestionController {
     UserService userService;
 
 
-    @GetMapping("/posts")
+    @GetMapping("/questions")
     public List<Question> viewAll() {
         return questionService.viewAll();
     }
 
     //get specific task by ID
-    @GetMapping("posts/{id}")
+    @GetMapping("questions/{id}")
     public Question getById(@PathVariable Long id) {
         return questionService.getById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/posts")
+    @PostMapping("/questions")
     public Question create(@RequestBody Question newQuestion) {
         System.out.println(newQuestion);
         newQuestion.setEmail(authService.getLoggedInUserEmail());
         return questionService.create(newQuestion);
     }
 
-    @GetMapping("/currentUser")
-    public User getCurrentUser() {
-        String email = authService.getLoggedInUserEmail();
-        return userService.findUserByEmail(email);
-
-    }
-
-    @DeleteMapping("/posts/{id}")
+    @DeleteMapping("/questions/{id}")
     public void delete(@PathVariable long id) {
         questionService.delete(id);
     }

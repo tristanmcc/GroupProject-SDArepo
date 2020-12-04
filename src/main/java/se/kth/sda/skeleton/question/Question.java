@@ -16,15 +16,14 @@ public class Question {
     private String title;
     private String email;
 
-    @OneToMany
-    private List<Comment> commentList;
+   // @OneToMany
+   // private List<Comment> commentList;
 
-    public Question(Long id, String textBody, String title, String email, List commentList) {
+    public Question(Long id, String textBody, String email) {
         this.id = id;
         this.textBody = textBody;
-        this.title = title;
         this.email = email;
-        this.commentList = commentList;
+
     }
 
     public Question() {
@@ -46,14 +45,6 @@ public class Question {
         this.email = email;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getTextBody() {
         return textBody;
     }
@@ -62,12 +53,12 @@ public class Question {
         this.textBody = textBody;
     }
 
-    public List<Comment> getCommentList() {
-       return commentList;
-    }
+    //public List<Comment> getCommentList() {
+  //     return commentList;
+  //  }
 
-   public void setCommentList(List<Comment> commentList) {
-     this.commentList = commentList;
-   }
+  // public void setCommentList(List<Comment> commentList) {
+  //   this.commentList = commentList;
+  // }
 
 }
