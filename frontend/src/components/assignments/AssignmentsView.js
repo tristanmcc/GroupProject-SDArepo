@@ -59,7 +59,7 @@ function AssignmentsView({course,currentUsers})
                 
                 const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
                 );
-                setRows(newArray);
+                setRows(newArray.reverse());
               })
         }
         else
@@ -69,7 +69,7 @@ function AssignmentsView({course,currentUsers})
                 
                 const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
                 );
-                setRows(newArray);
+                setRows(newArray.reverse());
                 })
 
         }
@@ -77,6 +77,7 @@ function AssignmentsView({course,currentUsers})
     useEffect(() => { 
 
           viewAssignment(course);
+          getUserRole();
 
 
         }, [course]);
