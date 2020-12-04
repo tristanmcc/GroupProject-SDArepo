@@ -7,12 +7,6 @@ import "./App.css";
 import Auth from "./services/Auth";
 import Navbar from "./components/layout/Navbar";
 
-
-
-import Chat from "./components/chat/Chat";
-
-
-
 // Import pages
 import LoginPage from './components/auth/LoginPage';
 import HomePage from './components/home/HomePage';
