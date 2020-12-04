@@ -24,6 +24,7 @@ import VideosPage from './components/videos/VideosPage.jsx';
 import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
+import ResoursePage from "./components/resourse/ResoursePage";
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -85,6 +86,10 @@ function App() {
 
           <Route exact path="/chat">
             <Chat/>
+          </Route>
+         
+          <Route exact path="/resourse">
+            <ResoursePage/>
           </Route>
 
         </Switch>

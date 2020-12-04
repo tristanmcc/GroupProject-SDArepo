@@ -1,20 +1,4 @@
-div.gallery {
-  margin: 50px;
-  border: 1px solid rgb(233, 236, 24);
-  float: left;
- text-align: center; 
- width:150px;
-}
-div.gallery:hover {
-  border: 1px solid rgb(235, 74, 11);
-} 
-div.gallery img {
-padding-top: 20px;
-margin-top: 10px;
-width: 100%;
-height: 150px;
- display: inline;
-}
+
 .course{
   display:grid;
   grid-template-columns:1fr 1fr 1fr 1fr ;
@@ -23,13 +7,5 @@ height: 150px;
    margin-top: 50px;
   padding-top: 25%; 
  }
-div.courses-button{
-  display:grid;
-  grid-template-columns:1fr 1fr ;
-}
 
-div.course-button-function{
-display:flex;
-flex-direction: row;
-display: inline;
-}
+

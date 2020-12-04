@@ -21,7 +21,7 @@ export default function Course({ course, onCourseDelete, onCourseUpdate }) {
     <div className="course-card">
       <Link to={`/assignmentsViewForCourse/${id}`}>
          <img className="courseImage"  src={courseImg} alt={title} />
-  </Link>
+       </Link>
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         <p className="description">{description}</p>
