@@ -56,11 +56,23 @@ function Navbar({ onLogout }) {
               Lectures
             </Link>
           </li>
+
+          <li className="nav-item">
+            <Link to="/chat" className="nav-link">
+             Chat
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/resourse" className="nav-link">
+             Resourse
+            </Link>
+          </li>
+
+
         </ul>
         <button
           className="btn btn-outline-dark"
-          onClick={onLogout}
-        >
+          onClick={onLogout} >
           Logout
         </button>
       </div>

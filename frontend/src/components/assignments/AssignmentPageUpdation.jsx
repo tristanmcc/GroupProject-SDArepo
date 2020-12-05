@@ -3,8 +3,8 @@ import AssignmentsApi from '../../api/AssignmentsApi';
 
 
 
-function AssignmentsPage({course,currentUser}) {
-
+function AssignmentsPageUpdation({match}) {
+    
     const [assignmentTitle, setAssignmentTitle] = useState("");
     const [assignmentDescription, setAssignmentDescription] = useState("");
     const [question1, setQuestion1] = useState("");
@@ -18,31 +18,68 @@ function AssignmentsPage({course,currentUser}) {
     const [question9, setQuestion9] = useState("");
     const [question10, setQuestion10] = useState("");
     const [assignId, setAssignId] = useState("");
+    const [course, setCourse] = useState("");
     
-
-    function handleSubmit()
-    {
-        AssignmentsApi.postAssignment(
-            {course,
-            assignmentTitle,
-            assignmentDescription,
-            question1,
-            question2,
-            question3,
-            question4,
-            question5,
-            question6,
-            question7,
-            question8,
-            question9,
-            question10,
-         }  )
-            .then((response) => {
+   
+    
+    const getAssignmentById = (id) => {
+        
+        AssignmentsApi.getAssignmentById(id)
+            .then(response => {
+                
                 setAssignId(response.data.id);
-                alert("Successfully added the assignment")
-            } )
+                setAssignmentTitle(response.data.assignmentTitle);
+                setAssignmentDescription(response.data.assignmentDescription);
+                setQuestion1(response.data.question1);
+                setQuestion2(response.data.question2);
+                setQuestion3(response.data.question3);
+                setQuestion4(response.data.question4);
+                setQuestion5(response.data.question5);
+                setQuestion6(response.data.question6);
+                setQuestion7(response.data.question7);
+                setQuestion8(response.data.question8);
+                setQuestion9(response.data.question9);
+                setQuestion10(response.data.question10);
+                setCourse(response.data.course);
+                
+            })
     }
-    
+    useEffect(() => {
+       
+        if(typeof match.params.assignId !== 'undefined'  || assignId !== '')
+        {
+        
+            getAssignmentById(match.params.assignId);
+
+        }
+        
+
+        },[] );
+
+        function handleSubmit()
+        {
+            AssignmentsApi.postAssignment(
+                {course,
+                assignmentTitle,
+                assignmentDescription,
+                question1,
+                question2,
+                question3,
+                question4,
+                question5,
+                question6,
+                question7,
+                question8,
+                question9,
+                question10,
+             }  )
+                .then((response) => {
+                    setAssignId(response.data.id);
+                    alert("Successfully added the assignment")
+                } )
+        }
+            
+
     function handleUpdate()
     {
         console.log("Inside Update"+ assignId)
@@ -69,10 +106,7 @@ function AssignmentsPage({course,currentUser}) {
     }
     
 
-
-
-
-    return (
+        return (
         <div className="container-assignment">
 
 
@@ -234,4 +268,4 @@ function AssignmentsPage({course,currentUser}) {
     );
 }
 
-export default AssignmentsPage;
+export default AssignmentsPageUpdation;

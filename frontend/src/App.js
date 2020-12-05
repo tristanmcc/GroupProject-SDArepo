@@ -7,6 +7,12 @@ import "./App.css";
 import Auth from "./services/Auth";
 import Navbar from "./components/layout/Navbar";
 
+
+
+import Chat from "./components/chat/Chat";
+
+
+
 // Import pages
 import LoginPage from './components/auth/LoginPage';
 import HomePage from './components/home/HomePage';
@@ -19,6 +25,11 @@ import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
 
+import ResoursePage from "./components/resourse/ResoursePage";
+
+import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpdation';
+
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
   Auth.bindLoggedInStateSetter(setLoggedIn);
@@ -28,6 +39,8 @@ function App() {
       <Navbar onLogout={() => Auth.logout()} />
 
       <div className="container mt-5">
+
+  
         <Switch>
           <Route exact path="/courses">
             <CoursePage />
@@ -39,7 +52,7 @@ function App() {
 
           <Route
             path="/assignmentsView/:assignId"
-            render={({ match }) => <AssignmentsPage match={match} />}
+            render={({ match }) => <AssignmentsPageUpdation match={match} />}
           />
 
           <Route
@@ -47,16 +60,18 @@ function App() {
             render={({ match }) => <AnsweredAssignmentsForm match={match} />}
           />
 
-          <Route path="/assignmentsViewForCourse/:courseId"
+          <Route path="/assignmentsViewForCourse/:course"
             render={({ match }) => <AssignmentsView match={match} />}>
           </Route>
 
-          <Route path="/assignmentsViewForAdd/:courseId"
+          <Route path="/assignmentsViewForAdd/:course"
           render={({ match }) => <AssignmentsPage match={match} />}
           />
-            
-
-
+        
+           <Route
+            path="/courseDetail/:id"
+            render={({ match }) => <CourseDetailsPage match={match} />}
+          /> 
           <Route path="/lectures">
             <LecturesPage />
           </Route>
@@ -76,12 +91,22 @@ function App() {
           <Route exact path="/">
             <HomePage />
           </Route>
+
+          <Route exact path="/chat">
+            <Chat/>
+          </Route>
+         
+          <Route exact path="/resourse">
+            <ResoursePage/>
+          </Route>
+
         </Switch>
       </div>
     </Router>
   );
 
   return loggedIn ? loggedInRouter : <LoginPage />;
+  
 }
 
 export default App;
