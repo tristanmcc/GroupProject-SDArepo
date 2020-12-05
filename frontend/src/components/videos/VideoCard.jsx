@@ -13,13 +13,11 @@ export default function VideoCard({ video, onDeleteClick, user }) {
     <div className="card mt-5 p-2">
       <div className="comment">
         <div className="signature">
-          <Link to={{ pathname: video.videoUrl }}>
+          <a href={video.videoUrl} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faVideo} size="6x" color="black" />
-          </Link>
+          </a>
 
           <span className="user-name-comment">{`video  name : ${video.videoName}`}</span>
-
-          <span className="user-name-comment">{`   video  url : ${video.videoUrl}`}</span>
         </div>
         <button
           className="btn btn-danger"
