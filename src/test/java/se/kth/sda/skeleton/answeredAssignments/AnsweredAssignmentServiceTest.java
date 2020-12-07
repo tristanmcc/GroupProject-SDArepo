@@ -31,8 +31,8 @@ public class AnsweredAssignmentServiceTest {
         public void should_ReturnTwoAssignments_WheViewAll() {
 
             when(answeredAssignmentRepository.findAll()).thenReturn(Stream
-                    .of(new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L),
-                            new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L))
+                    .of(new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L),
+                            new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L,2L))
                     .collect(Collectors.toList()));
 
             assertEquals(2, AnsweredAssService.viewAll().size());
@@ -41,7 +41,7 @@ public class AnsweredAssignmentServiceTest {
 
         @Test
         void testCreate() {
-            AnsweredAssignment ansAss = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L);
+            AnsweredAssignment ansAss = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L);
 
             when(answeredAssignmentRepository.save(ansAss)).thenReturn(ansAss);
 

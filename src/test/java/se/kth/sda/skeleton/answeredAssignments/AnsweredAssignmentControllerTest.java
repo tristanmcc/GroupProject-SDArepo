@@ -25,9 +25,9 @@ public class AnsweredAssignmentControllerTest {
     public void should_ReturnThreeAssignments_WhenViewAll() {
 
         // arrange
-        AnsweredAssignment answeredAssignment1 = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L);
-        AnsweredAssignment answeredAssignment2 = new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L);
-        AnsweredAssignment answeredAssignment3 = new AnsweredAssignment(3L, "ansAss3",  "A3.1", "A3.2", "A3.3","A3.4","A3.5","A3.6","A3.7","A3.8","A3.9","A3.10", 3L);
+        AnsweredAssignment answeredAssignment1 = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L);
+        AnsweredAssignment answeredAssignment2 = new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L, 2L);
+        AnsweredAssignment answeredAssignment3 = new AnsweredAssignment(3L, "ansAss3",  "A3.1", "A3.2", "A3.3","A3.4","A3.5","A3.6","A3.7","A3.8","A3.9","A3.10", 3L, 3L);
 
 
         List<AnsweredAssignment> threeAnsweredAssignments = new ArrayList<>();
@@ -53,9 +53,9 @@ public class AnsweredAssignmentControllerTest {
 
 
         //arrange
-        AnsweredAssignment answeredAssignment1 = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L);
-        AnsweredAssignment answeredAssignment2 = new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L);
-        AnsweredAssignment answeredAssignment3 = new AnsweredAssignment(3L, "ansAss3",  "A3.1", "A3.2", "A3.3","A3.4","A3.5","A3.6","A3.7","A3.8","A3.9","A3.10", 3L);
+        AnsweredAssignment answeredAssignment1 = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L);
+        AnsweredAssignment answeredAssignment2 = new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L, 2L);
+        AnsweredAssignment answeredAssignment3 = new AnsweredAssignment(3L, "ansAss3",  "A3.1", "A3.2", "A3.3","A3.4","A3.5","A3.6","A3.7","A3.8","A3.9","A3.10", 3L,3L);
 
 
         when(answeredAssService.getById(1L))
