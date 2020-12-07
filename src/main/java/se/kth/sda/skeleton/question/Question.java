@@ -16,8 +16,8 @@ public class Question {
     private String title;
     private String email;
 
-   // @OneToMany
-   // private List<Comment> commentList;
+   @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
+   private List<Comment> commentList;
 
     public Question(Long id, String textBody, String email) {
         this.id = id;
@@ -53,12 +53,10 @@ public class Question {
         this.textBody = textBody;
     }
 
-    //public List<Comment> getCommentList() {
-  //     return commentList;
-  //  }
+    public List<Comment> getCommentList() { return commentList;
+    }
 
-  // public void setCommentList(List<Comment> commentList) {
-  //   this.commentList = commentList;
-  // }
+    public void setCommentList(List<Comment> commentList) { this.commentList = commentList;
+   }
 
 }
