@@ -1,10 +1,14 @@
 package se.kth.sda.skeleton.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.validator.constraints.Length;
+import se.kth.sda.skeleton.answeredAssignments.AnsweredAssignment;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 @Table(name="account")
@@ -40,6 +44,9 @@ public class User {
         this.userRole = userRole;
     }
 
+    @OneToMany (cascade = CascadeType.ALL)
+    List<AnsweredAssignment> answeredAssignments;
+
     public String getUserRole() { return userRole; }
 
     public void setUserRole(String userRole) {this.userRole = userRole;}
@@ -60,10 +67,12 @@ public class User {
         this.email = email;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }
