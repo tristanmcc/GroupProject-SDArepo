@@ -1,4 +1,5 @@
 import React from "react";
+import Style from "../../CSS/styles.css";
 
 //media
 import carousel1 from "../../images/carousel-1.jpg";
@@ -12,12 +13,27 @@ import Artboard from "../../images/Artboard+circles+3.png";
 function HomePage() {
     return (
         <div>
-        <div className="card mb-4">
-            <div className="card-body">
-                <h4 className="card-title">Remote Learning with ESE</h4>
-                <p className="card-subtitle">Meaningful learning can happen anywhere. We’re here to support students, teachers, and families with remote learning.</p>
-            </div>
-            </div>
+        <div class="row">
+  <div class="column">
+    <div class="card">Courses</div>
+  </div>
+  <div class="column">
+    <div class="card">Calender</div>
+  </div>
+  <div class="column">
+    <div class="card">Students</div>
+  </div>
+  <div class="column">
+    <div class="card">Communication</div>
+  </div>
+  <div class="column">
+    <div class="card">Assignments</div>
+  </div>
+  <div class="column">
+    <div class="card">Lectures</div>
+  </div>
+  
+</div>
             <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
             <div class="carousel-inner">
                       <div class="carousel-item active">
@@ -69,6 +85,7 @@ Families gain a window into their student’s learning and engage with school ha
   </div>
 </div>
         </div>
+        
     );
 }
 
