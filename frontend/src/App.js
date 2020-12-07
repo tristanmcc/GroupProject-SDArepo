@@ -93,7 +93,7 @@ function App() {
             <Chat/>
           </Route>
          
-          <Route exact path="/resourse">
+          <Route exact path="/resources">
             <ResoursePage/>
           </Route>
 
