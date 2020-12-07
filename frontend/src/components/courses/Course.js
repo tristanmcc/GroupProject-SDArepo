@@ -13,6 +13,9 @@ export default function Course({ course, onCourseDelete, onCourseUpdate, current
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [show, setShow] = useState(false);
 
+  const [Discription,setDiscription]= useState(false);
+
+
   const onCancelUpdate = () => {
     setFormState(false);
   };
@@ -22,23 +25,35 @@ export default function Course({ course, onCourseDelete, onCourseUpdate, current
 
       
       <Link to={`/courseDetail/${id}`}>
-         <img className="courseImage"  src={courseImg} alt={title} />
+         <img className="courseimage"  src={courseImg} alt={title} />
       </Link>
-      <div className="card-content">
-        <h3 className="card-title">{title}</h3>
-        <p className="description">{description}</p>
+   
+      <div className="">
+        <h3 className="course-card-title">{title}</h3>
+       
+        { /*  <p className="description">{description}</p>*/} 
       </div>
+     
+       <button className="moreinfobutton" onClick={ () => setDiscription (!Discription)} > 
+          More Info<br/> </button>
+         {   Discription
+            ? // If the condtion is true , this code
+           <p> Description  :{description} </p>
+              : null // nothing to display
+                }
+
       <div className="course-card-buttons">
       
         {currentUserRole==='teacher' ? 
-        <div>
+        <div>  
+          <button className="create-deleteButton" onClick={() => onCourseDelete(course)}>
+            <FontAwesomeIcon icon={faTrash} /> 
+          </button>       
+
+             <button className="create-updateButton" onClick={() => setFormState(true)}>
+             <FontAwesomeIcon icon={faPen} />
+             </button>
           
-          <button className="deleteButton" onClick={() => onCourseDelete(course)}>
-            <FontAwesomeIcon icon={faTrash} />
-          </button>
-          <button className="updateButton" onClick={() => setFormState(true)}>
-            <FontAwesomeIcon icon={faPen} />
-          </button>
         </div> : null}
         {formState ? (
           <CourseUpdateForm

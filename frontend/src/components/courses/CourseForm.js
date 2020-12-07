@@ -19,15 +19,15 @@ function CourseForm({ onSubmit,onCancel }) {
 
   return (
     <div className="card mt-4">
-      <div className="card-body">
+      <div className="course-card-body">
         <h4 className="card-title">{"Create a course"}</h4>
         <form onSubmit={onCreateCourseClick}>
           <div className="form-group">
-            <label>Title:</label>
-            <input
-              type="text"
+            <label >Title:</label>
+            <input 
+              type="text" 
               className="form-control"
-              placeholder="Title"
+              placeholder="Title" 
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
@@ -52,8 +52,7 @@ function CourseForm({ onSubmit,onCancel }) {
             <button
               className="btn btn-outline"
               type="button"
-              onClick={onCancel}
-            >
+              onClick={onCancel} >
               Cancel
             </button>
           </div>

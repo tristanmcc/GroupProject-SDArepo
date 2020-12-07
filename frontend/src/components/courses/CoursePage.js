@@ -80,7 +80,7 @@ const updateCourse = (updatedCourse) => {
           <>
           {currentUser==='teacher' ? 
             <button
-              className="btn btn-info course-button"
+              className="create-coursebutton"
               onClick={onCreateNewCourse}>
               CREATE COURSE
             </button> : null
@@ -88,6 +88,7 @@ const updateCourse = (updatedCourse) => {
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
+
               onCourseUpdate={updateCourse}
               currentUser = {currentUser}
             />

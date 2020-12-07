@@ -11,7 +11,7 @@ export default function CourseCard({ data }) {
       <Link to={`/assignmentsViewForCourse/${id}`}>
       
       <div className="card-content">
-        <h3 className="card-title">{title}</h3>
+        <h3 className="course-card-title">{title}</h3>
         {/* <p className="description">{description}</p>  */}
       </div>
       </Link>
