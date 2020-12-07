@@ -21,27 +21,10 @@ function LoginPage() {
     }
 
     return (
-        <div className="wrapper p-5">
-            <div className="container">
-                <div className="row mt-4">
-                    <div className="col-md-6 " style={{ color: "grey" }}>
-                        <h1>Educations Support Environment</h1>
-                    </div>
-
-                    <div className="col-md-6">
-                        <div className="row">
-                            <div className="col-12  strong-shadow">
-                                <LoginForm onSubmit={login} />
-                            </div>
-
-                            <div className="col-12 mt-4">
-                                <RegisterForm onSubmit={register} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <LoginForm onSubmit={login} onRegister={register} />
+                
             </div>
-        </div>
     );
 }
 
