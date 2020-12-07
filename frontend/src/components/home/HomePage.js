@@ -1,5 +1,6 @@
 import React from "react";
-import Style from "../../CSS/styles.css";
+import Style from "../../CSS/homePage.css";
+import {Link} from "react-router-dom";
 
 //media
 import carousel1 from "../../images/carousel-1.jpg";
@@ -20,27 +21,42 @@ import apple from "../../images/apple.png";
 function HomePage() {
     return (
         <div>
+            <div className="home-banner">Home</div>
         <div class="row">
         <div class="column">
     <div class="card-nav1"><img src= {Calender} alt="Open Book" width="80" height="140"></img>Calender</div>
   </div>
+  
   <div class="column">
+  <Link to="/courses" className="nav-card">
     <div class="card-nav2"><img src= {CourseGraphic} alt="Open Book" width="80" height="140"></img>Courses</div>
+    </Link>
   </div>
+  
   <div class="column">
+  <Link to="/assignments" className="nav-card">
     <div class="card-nav3"><img src= {assignmentIcon} alt="Open Book" width="80" height="140"></img>Assignments</div>
+    </Link>
   </div>
   <div class="column">
+  <Link to="/students" className="nav-card">
     <div class="card-nav4"><img src= {Students} alt="Open Book" width="80" height="140"></img>Students</div>
+    </Link>
   </div>
   <div class="column">
+  <Link to="/videos" className="nav-card">
     <div class="card-nav5"><img src= {videoIcon} alt="Open Book" width="80" height="140"></img>Lectures</div>
+    </Link>
   </div>
   <div class="column">
+  <Link to="/chat" className="nav-card">
     <div class="card-nav6"><img src= {chatIcon} alt="Open Book" width="80" height="140"></img>Communication</div>
+    </Link>
   </div>
   <div class="column">
+  <Link to="/resources" className="nav-card">
     <div class="card-nav7"><img src= {apple} alt="Open Book" width="80" height="140"></img>Resources</div>
+    </Link>
   </div> 
 </div>
             <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
