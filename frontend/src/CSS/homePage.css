@@ -1,0 +1,177 @@
+.home-banner{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 45px;
+    margin-left: -50px;
+    margin-right: -50px;;
+    background-color: #6AD1FA;
+    font-size: medium;
+    border-radius: 5px;
+}
+
+
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 14.28%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: -25px -95px 20px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  .card-nav1{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #6AD1FA;
+    font-size: medium;
+    border-radius: 5px;
+  }
+  .card-nav1:hover {
+      margin-top: 5px;
+      margin-bottom: -10px;
+  }
+  .card-nav2{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #E55A71;
+    font-size: medium;
+    border-radius: 5px;
+  }
+
+  .card-nav2:hover {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+
+  .card-nav3{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #6AD1FA;
+    font-size: medium;
+    border-radius: 5px;
+  }
+  
+  .card-nav3:hover {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+  
+  .card-nav4{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #FDC00F;
+    font-size: medium;
+    border-radius: 5px;
+  }
+
+
+  .card-nav4:hover {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+
+  .card-nav5{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #E55A71;
+    font-size: medium;
+    border-radius: 5px;
+  }
+  .card-nav5:hover {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+  .card-nav6{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #6AD1FA;
+    font-size: medium;
+    border-radius: 5px;
+  }
+  .card-nav6:hover {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+  .card-nav7{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    background-color: #FDC00F;
+    font-size: medium;
+    border-radius: 5px;
+  }
+  .card-nav7:hover {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+  
+  
+  .nav-card:link {
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .nav-card:visited {
+    color: #fff;
+  }
+  .nav-card:hover {
+    color: #fff;
+  }
+  .nav-card:active {
+    color: #fff;
+  }
+  
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media (max-width: 750px) {
+      .column {
+          display: inline;
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+        margin-bottom: 20px;
+
+      }
+    }
+  
+  @media screen and (max-width: 600px) {
+    .column {
+        display: inline;
+        float: left;
+        width: 35%;
+        padding: 0;
+        margin-bottom: 20px;
+        margin-left: 60px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .column {
+        display: inline;
+        float: left;
+        width: 50%;
+        padding: 0;
+        margin-bottom: 20px;
+        margin-left: 120px;
+
+    }
+}
