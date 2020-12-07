@@ -19,6 +19,7 @@ import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
 import Chat from './components/chat/Chat';
+import ResoursePage from "./components/resourse/ResoursePage";
 import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpdation';
 
 
@@ -90,6 +91,10 @@ function App() {
 
           <Route exact path="/chat">
             <Chat/>
+          </Route>
+         
+          <Route exact path="/resourse">
+            <ResoursePage/>
           </Route>
 
         </Switch>
