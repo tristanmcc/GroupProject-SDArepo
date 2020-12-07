@@ -27,8 +27,8 @@ export default function Students() {
 
 
 const updatedStudent = (updatedStudent) => {
-  console.log('I am in update API ' +updatedStudent)
-    Api.put('/students/', updatedStudent)
+  console.log('I am in update API', updatedStudent)
+    Api.put('/students', updatedStudent)
         .then(r => getAllStudents());
 };
 
@@ -56,5 +56,6 @@ const updatedStudent = (updatedStudent) => {
         }
 
     </>
+    
   );
 }
