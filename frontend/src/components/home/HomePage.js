@@ -9,30 +9,39 @@ import carousel4 from "../../images/carousel-4.jpg";
 import carousel5 from "../../images/carousel-5.jpg";
 import carousel6 from "../../images/carousel-6.jpg";
 import Artboard from "../../images/Artboard+circles+3.png";
+import CourseGraphic from "../../images/Light_bulb.png";
+import Calender from "../../images/clock_icon.png";
+import Students from "../../images/Bag_icon.png";
+import chatIcon from "../../images/paper_airplane.png";
+import assignmentIcon from "../../images/NoteBook_icon.png";
+import videoIcon from "../../images/Play_button.png";
+import apple from "../../images/apple.png";
 
 function HomePage() {
     return (
         <div>
         <div class="row">
-  <div class="column">
-    <div class="card">Courses</div>
+        <div class="column">
+    <div class="card-nav1"><img src= {Calender} alt="Open Book" width="80" height="140"></img>Calender</div>
   </div>
   <div class="column">
-    <div class="card">Calender</div>
+    <div class="card-nav2"><img src= {CourseGraphic} alt="Open Book" width="80" height="140"></img>Courses</div>
   </div>
   <div class="column">
-    <div class="card">Students</div>
+    <div class="card-nav3"><img src= {assignmentIcon} alt="Open Book" width="80" height="140"></img>Assignments</div>
   </div>
   <div class="column">
-    <div class="card">Communication</div>
+    <div class="card-nav4"><img src= {Students} alt="Open Book" width="80" height="140"></img>Students</div>
   </div>
   <div class="column">
-    <div class="card">Assignments</div>
+    <div class="card-nav5"><img src= {videoIcon} alt="Open Book" width="80" height="140"></img>Lectures</div>
   </div>
   <div class="column">
-    <div class="card">Lectures</div>
+    <div class="card-nav6"><img src= {chatIcon} alt="Open Book" width="80" height="140"></img>Communication</div>
   </div>
-  
+  <div class="column">
+    <div class="card-nav7"><img src= {apple} alt="Open Book" width="80" height="140"></img>Resources</div>
+  </div> 
 </div>
             <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
             <div class="carousel-inner">
