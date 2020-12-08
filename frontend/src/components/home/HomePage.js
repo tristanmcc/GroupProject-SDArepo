@@ -1,5 +1,5 @@
 import React from "react";
-import Style from "../../CSS/homePage.css";
+import Style from "../../css/homePage.css";
 import {Link} from "react-router-dom";
 
 //media

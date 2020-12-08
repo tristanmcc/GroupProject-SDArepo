@@ -32,8 +32,6 @@ function App() {
       <Navbar onLogout={() => Auth.logout()} />
 
       <div className="container mt-5">
-
-  
         <Switch>
           <Route exact path="/courses">
             <CoursePage />
