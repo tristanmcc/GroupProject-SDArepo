@@ -86,9 +86,16 @@ img {
   background-color:#FEF9E7;
 }
 
-.container{
+.course-details-container {
+  display: grid;
+  background-color:green;
+  grid-template-rows: 1fr 1fr;
+}
+
+
+.container {
   width:80%;
-	margin:20px auto;
+  margin:20px auto;
 }
 
 #main-header{
@@ -124,6 +131,23 @@ img {
 .btn1:hover,.btn2:hover,.btn3:hover{
   color: #3498db;
 }
+/* Course details page styling starts */
+.assignment-details {
+ background-color:red;
+  
+}
+
+.lecture-details {
+  background-color:pink;
+}
+
+.lectures-title {
+  text-align:center;
+  color:white;
+  font-size:24px;
+}
+
+/* Course details page styling ends */
 
 @media(max-width:600px){
 	#main{
