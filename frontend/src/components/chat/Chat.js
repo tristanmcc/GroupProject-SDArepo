@@ -6,13 +6,13 @@ import UserApi from '../../api/UserApi';
 import Forum from "./Forum";
 
 //Media
-import CourseGraphic from "../../images/Light_bulb.png";
-import Calender from "../../images/clock_icon.png";
-import Students from "../../images/Bag_icon.png";
-import chatIcon from "../../images/paper_airplane.png";
-import assignmentIcon from "../../images/NoteBook_icon.png";
-import videoIcon from "../../images/Play_button.png";
-import apple from "../../images/apple.png";
+import CourseGraphic from "../../images/Icons/Light_bulb.png";
+import Calender from "../../images/Icons/clock_icon.png";
+import Students from "../../images/Icons/Bag_icon.png";
+import chatIcon from "../../images/Icons/paper_airplane.png";
+import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
+import videoIcon from "../../images/Icons/Play_button.png";
+import apple from "../../images/Icons/apple.png";
 
 const URL = 'ws://localhost:3030'
 
