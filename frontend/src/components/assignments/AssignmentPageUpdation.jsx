@@ -1,12 +1,15 @@
 import React, {useState,useEffect} from "react";
 import AssignmentsApi from '../../api/AssignmentsApi';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { parseISO } from 'date-fns';
 
 
 function AssignmentsPageUpdation({match}) {
     
     const [assignmentTitle, setAssignmentTitle] = useState("");
     const [assignmentDescription, setAssignmentDescription] = useState("");
+    const [dueDate, setDueDate] = useState(new Date());
     const [question1, setQuestion1] = useState("");
     const [question2, setQuestion2] = useState("");
     const [question3, setQuestion3] = useState("");
@@ -30,6 +33,7 @@ function AssignmentsPageUpdation({match}) {
                 setAssignId(response.data.id);
                 setAssignmentTitle(response.data.assignmentTitle);
                 setAssignmentDescription(response.data.assignmentDescription);
+                setDueDate(parseISO(response.data.dueDate));
                 setQuestion1(response.data.question1);
                 setQuestion2(response.data.question2);
                 setQuestion3(response.data.question3);
@@ -62,6 +66,7 @@ function AssignmentsPageUpdation({match}) {
                 {course,
                 assignmentTitle,
                 assignmentDescription,
+                dueDate,
                 question1,
                 question2,
                 question3,
@@ -90,6 +95,7 @@ function AssignmentsPageUpdation({match}) {
             id,
             assignmentTitle,
             assignmentDescription,
+            dueDate,
             question1,
             question2,
             question3,
@@ -131,11 +137,20 @@ function AssignmentsPageUpdation({match}) {
                             value={assignmentDescription}
                             className="form-control"
                             onChange={e => setAssignmentDescription(e.target.value)} />
+            
             </div>
+            <div className="form-group text-dark">
+            <label>Deadline: </label>
+            <p></p>
+            <DatePicker
+               selected= { dueDate }
+               onChange={date => setDueDate(date)}
+               showCalendarIcon= {true}
+               required = {true}
+               calendarAriaLabel = "Toggle calendar"
+               />
 
-           
-           
-
+            </div>
             <div className="card-body text-dark border">
             <div className="question">
              <div className="form-group">
