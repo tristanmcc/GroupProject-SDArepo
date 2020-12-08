@@ -4,8 +4,11 @@ import Api from '../../api/Api';
 import VideoCard from './VideoCard';
 import VideoUploadForm from './VideoUploadForm';
 
-export default function Videos({ user }) {
+import '../../CSS/videos.css';
+
+export default function Videos({ currentUser }) {
   const [videos, setVideos] = useState([]);
+  console.log('from videos line: ' + videos);
 
   const createVideo = (videoData) => {
     console.log('videodata : ' + videoData);
@@ -34,19 +37,28 @@ export default function Videos({ user }) {
     getVideos();
   }, []);
 
+  const Cards = videos.map((item) => {
+    return (
+      <div className="videoLayout">
+        <VideoCard
+          key={item.id}
+          video={item}
+          onDeleteClick={deleteVideo}
+          currentUser={currentUser}
+        />
+      </div>
+    );
+  });
+
   return (
     <div>
       <div>
-        <VideoUploadForm onCreateClick={createVideo} user={user} />
+        <VideoUploadForm
+          onCreateClick={createVideo}
+          currentUser={currentUser}
+        />
 
-        {videos.map((video) => (
-          <VideoCard
-            key={video.id}
-            video={video}
-            onDeleteClick={deleteVideo}
-            user={user}
-          />
-        ))}
+        <div>{Cards}</div>
       </div>
     </div>
   );

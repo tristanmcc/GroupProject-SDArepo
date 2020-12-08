@@ -35,12 +35,6 @@ function Navbar({ onLogout }) {
               Courses
             </Link>
           </li>
-
-         {/* <li className="nav-item">
-            <Link to="/lectures" className="nav-link">
-              Lectures
-            </Link>
-          </li>**/}
           <li className="nav-item">
             <Link to="/assignments" className="nav-link">
               Assignments
@@ -63,8 +57,8 @@ function Navbar({ onLogout }) {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/resourse" className="nav-link">
-             Resourse
+            <Link to="/resources" className="nav-link">
+             Resources
             </Link>
           </li>
 

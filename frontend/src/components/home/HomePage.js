@@ -1,4 +1,6 @@
 import React from "react";
+import Style from "../../CSS/homePage.css";
+import {Link} from "react-router-dom";
 
 //media
 import carousel1 from "../../images/carousel-1.jpg";
@@ -8,20 +10,59 @@ import carousel4 from "../../images/carousel-4.jpg";
 import carousel5 from "../../images/carousel-5.jpg";
 import carousel6 from "../../images/carousel-6.jpg";
 import Artboard from "../../images/Artboard+circles+3.png";
+import CourseGraphic from "../../images/Light_bulb.png";
+import Calender from "../../images/clock_icon.png";
+import Students from "../../images/Bag_icon.png";
+import chatIcon from "../../images/paper_airplane.png";
+import assignmentIcon from "../../images/NoteBook_icon.png";
+import videoIcon from "../../images/Play_button.png";
+import apple from "../../images/apple.png";
 
 function HomePage() {
     return (
         <div>
-        <div className="card mb-4">
-            <div className="card-body">
-                <h4 className="card-title">Remote Learning with ESE</h4>
-                <p className="card-subtitle">Meaningful learning can happen anywhere. We’re here to support students, teachers, and families with remote learning.</p>
-            </div>
-            </div>
-            <div id="carouselExampleControls" className="carousel slide mb-4" data-ride="carousel">
-            <div className="carousel-inner">
-                      <div className="carousel-item active">
-                              <img className="d-block w-100" src={carousel1} alt="First slide"></img>
+            <div className="home-banner">Home</div>
+        <div class="row">
+        <div class="column">
+    <div class="card-nav1"><img src= {Calender} alt="Open Book" width="80" height="140"></img>Calender</div>
+  </div>
+  
+  <div class="column">
+  <Link to="/courses" className="nav-card">
+    <div class="card-nav2"><img src= {CourseGraphic} alt="Open Book" width="80" height="140"></img>Courses</div>
+    </Link>
+  </div>
+  
+  <div class="column">
+  <Link to="/assignments" className="nav-card">
+    <div class="card-nav3"><img src= {assignmentIcon} alt="Open Book" width="80" height="140"></img>Assignments</div>
+    </Link>
+  </div>
+  <div class="column">
+  <Link to="/students" className="nav-card">
+    <div class="card-nav4"><img src= {Students} alt="Open Book" width="80" height="140"></img>Students</div>
+    </Link>
+  </div>
+  <div class="column">
+  <Link to="/videos" className="nav-card">
+    <div class="card-nav5"><img src= {videoIcon} alt="Open Book" width="80" height="140"></img>Lectures</div>
+    </Link>
+  </div>
+  <div class="column">
+  <Link to="/chat" className="nav-card">
+    <div class="card-nav6"><img src= {chatIcon} alt="Open Book" width="80" height="140"></img>Communication</div>
+    </Link>
+  </div>
+  <div class="column">
+  <Link to="/resources" className="nav-card">
+    <div class="card-nav7"><img src= {apple} alt="Open Book" width="80" height="140"></img>Resources</div>
+    </Link>
+  </div> 
+</div>
+            <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
+            <div class="carousel-inner">
+                      <div class="carousel-item active">
+                              <img class="d-block w-100" src={carousel1} alt="First slide"></img>
                      </div>
                     <div className="carousel-item">
                                   <img className="d-block w-100" src={carousel2} alt="Second slide"></img>
@@ -69,6 +110,7 @@ Families gain a window into their student’s learning and engage with school ha
   </div>
 </div>
         </div>
+        
     );
 }
 

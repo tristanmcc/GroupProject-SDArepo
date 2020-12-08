@@ -28,12 +28,33 @@ export default function CourseDetailsPage({ match }) {
     setOpenForm(false);
   };
 
+<<<<<<< HEAD
   const getCourseById = (courseId) => {
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
       //setCourse(res.data);
     });
   };
+=======
+    return (
+        
+        <div>
+        { openForm ? 
+            <div>
+                
+                    <AssignmentsView course={course} currentUser={currentUser}/> 
+                    {currentUser.userRole === 'teacher' ? 
+                        <button className=" btn btn-light" onClick={onCreateNewAssignment}>
+                        Add New Assignment
+                        </button>
+                    : null }
+                    
+             </div>
+            
+        :
+            <AssignmentsPage course={course} currentUser={currentUser}/>}
+            </div>
+>>>>>>> master
 
   //Get userRole call
   const getUserRole = () => {

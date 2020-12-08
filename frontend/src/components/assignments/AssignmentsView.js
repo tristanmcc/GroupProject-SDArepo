@@ -151,6 +151,7 @@ function AssignmentsView({ course, currentUsers }) {
                         const value = row[column.id];
                         const assignId = row["Id"];
                         return (
+<<<<<<< HEAD
                           <TableCell className={classes.assignmentRowData} key={column.id} align={column.align}>
                             <Link
                               to={`/assignmentsView/${assignId}`}
@@ -169,6 +170,19 @@ function AssignmentsView({ course, currentUsers }) {
                                 ) : null}
                               </div>
                             ) : null}
+=======
+                            
+                          <TableCell key={column.id} align={column.align}>
+                          <Link to={ currentUser === 'teacher' ? `/assignmentsView/${assignId}` : `/assignmentsAnsweredView/${assignId}` }   className="link">
+                            {column.format && typeof value === 'number' ? column.format(value) :  value}
+                            
+                            </Link>
+                        
+                            {currentUser==='teacher' ? <div>
+                              {column.id === 'ICONS' ? <DeleteIcon onClick={() => handleDelete({assignId})} /> : null}
+                            </div>:null}
+                           
+>>>>>>> master
                           </TableCell>
                         );
                       })}

@@ -64,7 +64,7 @@ function App() {
             path="/courseDetail/:id"
             render={({ match }) => <CourseDetailsPage match={match} />}
           /> 
-
+        
           <Route path="/courseDetails">
             <CourseDetailsPage />
           </Route>
@@ -85,11 +85,7 @@ function App() {
             <HomePage />
           </Route>
 
-          <Route exact path="/chat">
-            <Chat/>
-          </Route>
-         
-          <Route exact path="/resourse">
+          <Route exact path="/resources">
             <ResoursePage/>
           </Route>
 

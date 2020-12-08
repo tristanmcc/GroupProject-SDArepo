@@ -1,6 +1,8 @@
 package se.kth.sda.skeleton.answeredAssignments;
 
 
+import se.kth.sda.skeleton.user.User;
+
 import javax.persistence.*;
 
 
@@ -42,6 +44,10 @@ public class AnsweredAssignment {
     private Long assignmentId;
 
     private Long studentId;
+
+    @ManyToOne
+    private User user;
+
 
     public AnsweredAssignment(Long id, String answeredAssignmentTitle, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, Long studentId, Long assignmentId) {
         this.id = id;
@@ -171,4 +177,13 @@ public class AnsweredAssignment {
 
     public void setEmail(String loggedInUserEmail) {
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }
