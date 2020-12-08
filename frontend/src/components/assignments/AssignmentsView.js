@@ -137,11 +137,11 @@ const getUserRole = () => {
                         return (
                             
                           <TableCell key={column.id} align={column.align}>
-                          
-                          <Link to={`/assignmentsView/${assignId}`}   className="link">
+                          <Link to={ currentUser === 'teacher' ? `/assignmentsView/${assignId}` : `/assignmentsAnsweredView/${assignId}` }   className="link">
                             {column.format && typeof value === 'number' ? column.format(value) :  value}
                             
                             </Link>
+                        
                             {currentUser==='teacher' ? <div>
                               {column.id === 'ICONS' ? <DeleteIcon onClick={() => handleDelete({assignId})} /> : null}
                             </div>:null}
