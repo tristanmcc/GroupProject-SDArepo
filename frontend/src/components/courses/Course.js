@@ -22,32 +22,30 @@ export default function Course({ course, onCourseDelete, onCourseUpdate, current
 
   return (
     <div className="course-card">
-
-      
-      <Link to={`/courseDetail/${id}`}>
-         <img className="courseimage"  src={courseImg} alt={title} />
-      </Link>
-   
-      <div className="">
-        <h3 className="course-card-title">{title}</h3>
-       
-        { /*  <p className="description">{description}</p>*/} 
-      </div>
+         <div className="courseheader">
+         <img className="courseimage"  src={courseImg} alt={title} />  
+          <h3 className="course-card-title">{title}</h3>
+            { /*  <p className="description">{description}</p>*/} 
+         </div> 
+         <div className="coursebody">
+         <Link to={`/courseDetail/${id}`}>
+           <b>MoreInfo</b> 
+             {/* <img className="courseimage"  src={courseImg} alt={title} />  */}
+          </Link>
+         </div>
      
        
       <div className="course-card-buttons">
-      
-        {currentUserRole==='teacher' ? 
-        <div>  
-          <button className="create-deleteButton" onClick={() => onCourseDelete(course)}>
+          {currentUserRole==='teacher' ? 
+         <div>  
+            <button className="create-deleteButton" onClick={() => onCourseDelete(course)}>
             <FontAwesomeIcon icon={faTrash} /> 
-          </button>       
+            </button>       
 
              <button className="create-updateButton" onClick={() => setFormState(true)}>
              <FontAwesomeIcon icon={faPen} />
-             </button>
-          
-        </div> : null}
+             </button>  
+         </div> : null}
         {formState ? (
           <CourseUpdateForm
             key={course.id}
@@ -57,7 +55,10 @@ export default function Course({ course, onCourseDelete, onCourseUpdate, current
             onCancelUpdate={onCancelUpdate}
           />
         ) : null}
-      </div>
-    </div>
+       </div>
+
+   </div>
+
+
   );
 }

@@ -32,7 +32,7 @@ function CourseForm({ onSubmit,onCancel }) {
               onChange={(e) => setTitle(e.target.value)}
               required
             />
-            <span>(12 char.max)</span>
+            <span>(12 char)</span>
           </div>
 
           <div className="form-group">

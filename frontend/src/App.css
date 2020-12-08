@@ -1,6 +1,6 @@
 
 body{
-	background-color: #FEF9E7;
+	
 	color:#555;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:16px;
@@ -43,14 +43,6 @@ body{
 .create-coursebutton{
   margin-bottom: 2rem;
   }
-/*button.btn.btn-dark.course-button {
-  color:grey;
-  border: 3px solid #555;
-  border-radius:30px 30px;
-  font-weight:bold;
- 
-}*/
-
 
 .card-subtitle{
   text-align: center;
@@ -58,15 +50,17 @@ body{
 img {
  width: 100%;
 }
+
 .course-grid {
   display:grid;
   grid-template-columns: 1fr 1fr 1fr; 
   align-items: center;
+  justify-content: spa;
 } 
 
 .course-container {
   display: grid;
-  background-color:#FEF9E7;
+  background-color:#ffff;
 }
 
 .container{
@@ -125,36 +119,46 @@ img {
   text-align: center;
 }
 .course-card:hover {
-  box-shadow: 0 8px 16px 0 rgba(78, 2, 2, 0.74)
+  transform: scale(1.05);
+  box-shadow:0 0 40px -10px rgba(0,0,0,0.25)
 }
 
 .course-card {
-  border: 2px solid #555;
- padding-top: 1rem;
- margin-top: 1rem;
-  background-color: rgba(224, 177, 22, 0.349);
+ width:200px;
+
   margin-left:3.5rem;
-  border-radius:20px 20px;
   max-width: 220px;
-  resize: horizontal;
   overflow: auto;
 padding-bottom: 1rem;
 text-align: center;
-
+border-radius: 10px 10px;
+margin-bottom: 2rem;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+border-radius: 5px; 
+border-style: ridge;
 }
 
 .course-card-body{
-  background-color: rgba(224, 177, 22, 0.349);
   border: 2px solid rgb(9, 10, 92);
-  border-radius:6px 6px;
-  
+  border-radius: 5px; 
+}
+.courseheader{
+  text-align: center;
+  background-color:white;
+  color: rgb(43, 17, 17);
+  padding :10px 4px;
+}
+.coursebody{
+  padding:20px 20px;
+  text-align: center;
 }
 
 
 .courseimage{
   height: 10rem;
+  margin-bottom: 20px;
 }
-div.ouseupdate, .form-group{
+div.couseupdate, .form-group{
 margin-left: 0rem;
 padding-left: 0%;
 }
@@ -162,34 +166,17 @@ padding-left: 0%;
 
 .create-deleteButton {
   margin-right:2rem; 
-  background :rgba(241, 180, 24, 0.897);
-}
-.create-deleteButton:hover{
-  border: none;
-  background: #f10d0d;
-  color: #fff;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  position: relative;
-  box-sizing: border-box;
-  transition: all 500ms ease; 
-
   
 }
-.create-updateButton{
-  background :rgba(241, 180, 24, 0.897);
-}
-.create-updateButton:hover{
-  border: none;
-  background: #0b45a9;
-  color: #fff;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  position: relative;
+.create-deleteButton:hover{
+ 
+  background: #f10d0d;
   box-sizing: border-box;
-  transition: all 500ms ease; 
+}
+
+.create-updateButton:hover{
+  background: #493eeb;
+  box-sizing: border-box;
 }
   .create-coursebutton:hover{
    
@@ -200,23 +187,11 @@ padding-left: 0%;
     color: #fff;
   }
   .create-coursebutton{
-    background-color: rgb(252, 227, 164);
+   
     border-radius:6px 6px;
   }
 
-  .moreinfobutton{
-    margin-bottom: 1rem;
-    text-align: center; 
-    display: inline;
-    border-radius:6px 6px;
 
-    background :rgba(241, 180, 24, 0.897);
-   }
-   .moreinfobutton:hover{
-    color: #ad0513d7;
-    border: #15177e solid 0.5px;
-    background:rgb(238, 139, 25); 
-   }
 
 
 @media(max-width:1100px){
