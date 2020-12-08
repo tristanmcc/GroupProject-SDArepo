@@ -26,8 +26,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function VideoCard({ video, onDeleteClick, user }) {
+export default function VideoCard({ video, onDeleteClick, currentUser }) {
   console.log('videocard print out: ' + video.videoUrl);
+  console.log('currentuser from videocard : ' + currentUser.userRole);
 
   const classes = useStyles();
   return (
