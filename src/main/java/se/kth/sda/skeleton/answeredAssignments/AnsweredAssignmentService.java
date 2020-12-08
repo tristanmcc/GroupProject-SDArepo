@@ -41,8 +41,12 @@ public class AnsweredAssignmentService {
     }
 
     public void delete(long id) {
-        answeredAssRepo.deleteById(id);
+         answeredAssRepo.deleteById(id);
     }
+
+	public AnsweredAssignment getByAssignmentId(Long id) {
+		return answeredAssRepo.findByAssignmentId(id);
+	}
 
 
 }

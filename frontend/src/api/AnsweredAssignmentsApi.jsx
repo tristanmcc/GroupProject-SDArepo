@@ -9,11 +9,15 @@ class AnsweredAssignmentsApi
     getAnsweredAssignmenttById(id) {
         return Api.get('/assignments/answered/'+id);
     }
+
+    getAnsweredAssignmenttByAssignmentId(id) {
+        return Api.get('/assignments/answeredByAssignmentId/'+id);
+    }
     
     createAnsweredAssignment(answeredAssignment) {
         return Api.post('/assignments/answered', answeredAssignment);  
     }
-
+    
     updateAnsweredAssignment(updatedAssignment) {
         return Api.put('/assignments/answered', updatedAssignment);
     }
