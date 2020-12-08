@@ -1,47 +1,41 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import "../../App.css";
-import AssignmentsView from '../assignments/AssignmentsView';
-import CoursesApi from '../../api/CoursesApi';
-import UserApi from '../../api/UserApi';
-import AssignmentsPage from '../assignments/AssignmentsPage';
+import AssignmentsView from "../assignments/AssignmentsView";
+import CoursesApi from "../../api/CoursesApi";
+import UserApi from "../../api/UserApi";
+import VideosPage from "../videos/VideosPage";
+import AssignmentsPage from "../assignments/AssignmentsPage";
 
+export default function CourseDetailsPage({ match }) {
+  const courseId = match.params.id;
+  const [course, setCourse] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
+  const [openForm, setOpenForm] = useState(true);
+  const onCreateNewAssignment = () => {
+    setOpenForm(false);
+  };
 
-export default function CourseDetailsPage({match}) {
-    
-    const courseId = match.params.id;
-    const [course, setCourse] = useState([]);
-    const [currentUser, setCurrentUser] = useState([]);
-    const [openForm, setOpenForm] = useState(true);
-    const onCreateNewAssignment = () => {
-        setOpenForm(false);
-      };
+  const getCourseById = (courseId) => {
+    CoursesApi.getCourseById(courseId).then((res) => {
+      setCourse(res.data);
+      //setCourse(res.data);
+    });
+  };
 
-    const getCourseById = (courseId) => {
-        CoursesApi.getCourseById(courseId).then((res) => {
-          
-          setCourse(res.data)
-          //setCourse(res.data);
-          
-        });
-      };
-      
-      //Get userRole call
-    const getUserRole = () => {
-        UserApi.getCurrentUser().then(response => {
-          
-          setCurrentUser(response.data);
-          
-          })
-    }
+  //Get userRole call
+  const getUserRole = () => {
+    UserApi.getCurrentUser().then((response) => {
+      setCurrentUser(response.data);
+    });
+  };
 
-    
-      useEffect(() => {
-        getCourseById(courseId);
-        getUserRole();
-      }, []);
+  useEffect(() => {
+    getCourseById(courseId);
+    getUserRole();
+  }, []);
 
-    return (
-      <div>
+  return (
+    <div>
       <div className="assignment-details">
         {openForm ? (
           <>
@@ -58,8 +52,8 @@ export default function CourseDetailsPage({match}) {
 
       <div className="lecture-details">
         <p className="lectures-title">Lectures</p>
+        <VideosPage course={course} currentUser={currentUser}/>
       </div>
     </div>
-       
-    );
+  );
 }

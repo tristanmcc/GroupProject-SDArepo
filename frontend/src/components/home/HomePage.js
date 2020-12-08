@@ -18,51 +18,51 @@ function HomePage() {
                 <p className="card-subtitle">Meaningful learning can happen anywhere. We’re here to support students, teachers, and families with remote learning.</p>
             </div>
             </div>
-            <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
-            <div class="carousel-inner">
-                      <div class="carousel-item active">
-                              <img class="d-block w-100" src={carousel1} alt="First slide"></img>
+            <div id="carouselExampleControls" className="carousel slide mb-4" data-ride="carousel">
+            <div className="carousel-inner">
+                      <div className="carousel-item active">
+                              <img className="d-block w-100" src={carousel1} alt="First slide"></img>
                      </div>
-                    <div class="carousel-item">
-                                  <img class="d-block w-100" src={carousel2} alt="Second slide"></img>
+                    <div className="carousel-item">
+                                  <img className="d-block w-100" src={carousel2} alt="Second slide"></img>
                     </div>
-                    <div class="carousel-item">
-                               <img class="d-block w-100" src={carousel3} alt="Third slide"></img>
+                    <div className="carousel-item">
+                               <img className="d-block w-100" src={carousel3} alt="Third slide"></img>
                     </div>
-                    <div class="carousel-item">
-                               <img class="d-block w-100" src={carousel4} alt="Fourth slide"></img>
+                    <div className="carousel-item">
+                               <img className="d-block w-100" src={carousel4} alt="Fourth slide"></img>
                     </div>
-                    <div class="carousel-item">
-                               <img class="d-block w-100" src={carousel5} alt="Fifth slide"></img>
+                    <div className="carousel-item">
+                               <img className="d-block w-100" src={carousel5} alt="Fifth slide"></img>
                     </div>
-                    <div class="carousel-item">
-                               <img class="d-block w-100" src={carousel6} alt="sixth slide"></img>
+                    <div className="carousel-item">
+                               <img className="d-block w-100" src={carousel6} alt="sixth slide"></img>
                     </div>
              </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
+  <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="sr-only">Previous</span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
+  <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="sr-only">Next</span>
   </a>
   </div>
   <div>
-      <img src={Artboard}/>
+      <img src={Artboard} alt={"artBoard"}/>
       </div>
-      <div class="container mt-4 mb-5">
-  <div class="row">
-    <div class="col d-flex justify-content-center space-between">
+      <div className="container mt-4 mb-5">
+  <div className="row">
+    <div className="col d-flex justify-content-center space-between">
     Students show learning:
 Students use built-in annotation tools to capture what they know in Seesaw’s digital portfolio
     </div>
-    <div class="col d-flex justify-content-center space-between">
+    <div className="col d-flex justify-content-center space-between">
     Teachers gain insights:
 Teachers deeply understand 
 student thinking and progress — enabling them to teach better
     </div>
-    <div class="col d-flex justify-content-center space-between">
+    <div className="col d-flex justify-content-center space-between">
     Families connect:
 Families gain a window into their student’s learning and engage with school happenings
     </div>
