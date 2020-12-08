@@ -1,19 +1,26 @@
 import React, {useState,useEffect} from 'react';
+import QuestionsApi from '../../api/QuestionsApi';
 import UserApi from "../../api/UserApi";
+import { RiDeleteBin7Line, RiQuestionAnswerLine } from 'react-icons/ri';
 
 //Function
 function ShowQuestions({questions}) {
  
-   console.log(questions.textBody)
-
-   const [currentUser, setCurrentUser] = useState("");
-
    
+    const [formState, setFormState] = useState(false);
+    const [currentUser, setCurrentUser] = useState("");
+
+   //Delete method
+   const handleDelete = (questions) => {
+    console.log("inside handleDelete" + questions.id)
+    QuestionsApi.deleteQuestion(questions.id)
+       .then(() => window.location.reload())
+}
+
     const getEmailOfUser = () => {
         UserApi.getCurrentUser()
             .then(response => {
-                //console.log("Email of the logged in user" + response)
-                setCurrentUser(response.email);
+                setCurrentUser(response.data.email);
             })
     }
 
@@ -21,13 +28,25 @@ function ShowQuestions({questions}) {
         getEmailOfUser();
     }, []);
 
+    
 
 
     return (
         <div>
-           
+            <div className="question-card">
+             { currentUser === questions.email ?
+            <button className="question-button"
+                    onClick={() => handleDelete(questions)}>
+                    <RiDeleteBin7Line/>
+                </button>
+                : null }
+                <button className="question-button"
+                    onClick={() => setFormState(true)}>
+                    <RiQuestionAnswerLine/>
+                </button>
+                
                 <p>{questions.textBody}</p>
-    
+            </div>
         </div>
 
 

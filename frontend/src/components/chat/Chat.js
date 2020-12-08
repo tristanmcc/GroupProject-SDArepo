@@ -79,9 +79,13 @@ class Chat extends Component {
         <div className="chat-banner">
             Communication
             </div>
+            <div className="chat-page-row">
+            <div className="chat-page-column">
+      <div className="forumCard"><Forum/></div>
+      </div>
       <div className="chat-page-column">
-        <div>
         <div className="chatbox">
+        <div>
         {this.state.messages.map((message, index) =>
           <ChatMessage
             key={index}
@@ -106,10 +110,7 @@ class Chat extends Component {
           onSubmitMessage={messageString => this.submitMessage(messageString)}
         />
       </div>
-     
       </div>
-      <div className="chat-page-column">
-      <div className="forumCard"><Forum></Forum></div>
       </div>
       </div>
     )
