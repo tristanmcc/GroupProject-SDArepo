@@ -41,24 +41,25 @@ export default function CourseDetailsPage({match}) {
       }, []);
 
     return (
-        
-        <div>
-        { openForm ? 
-            <div>
-                
-                    <AssignmentsView course={course} currentUser={currentUser}/> 
-            
-                    <button className=" btn btn-light" onClick={onCreateNewAssignment}>
-                    Add New Assignment
-                    </button>
-                    
-             </div>
-            
-        :
-            <AssignmentsPage course={course} currentUser={currentUser}/>}
-            </div>
+      <div>
+      <div className="assignment-details">
+        {openForm ? (
+          <>
+            <AssignmentsView course={course} currentUser={currentUser} />
 
+            <button className=" btn btn-light" onClick={onCreateNewAssignment}>
+              Add New Assignment
+            </button>
+          </>
+        ) : (
+          <AssignmentsPage course={course} currentUser={currentUser} />
+        )}
+      </div>
 
+      <div className="lecture-details">
+        <p className="lectures-title">Lectures</p>
+      </div>
+    </div>
        
     );
 }
