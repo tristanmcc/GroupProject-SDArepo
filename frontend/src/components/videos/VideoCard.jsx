@@ -1,14 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import coursesIcon from '../../images/courses-icon.png';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faVideo } from '@fortawesome/free-solid-svg-icons';
 
 export default function VideoCard({ video, onDeleteClick, user }) {
-  console.log('videocard print out: ' + video.videoUrl);
-
   return (
     <div className="card mt-5 p-2">
       <div className="comment">

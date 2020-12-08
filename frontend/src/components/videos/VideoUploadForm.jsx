@@ -20,19 +20,19 @@ export default function VideoUploadForm({ /*onSubmit*/ onCreateClick, user }) {
       <label>Video Upload area</label>
 
       <form /*onSubmit={onCreateVideoClick}*/>
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
           <textarea
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Enter the name of the video"
             value={videoName}
             onChange={(e) => setVideoName(e.target.value)}
           />
         </div>
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
           <textarea
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Enter the url for the video"
             value={videoUrl}
             onChange={(e) => setVideoUrl(e.target.value)}
