@@ -5,12 +5,25 @@ import CoursesApi from "../../api/CoursesApi";
 import UserApi from "../../api/UserApi";
 import VideosPage from "../videos/VideosPage";
 import AssignmentsPage from "../assignments/AssignmentsPage";
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Icon from '@material-ui/core/Icon';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor:"#765576"
+  },
+}));
 
 export default function CourseDetailsPage({ match }) {
   const courseId = match.params.id;
   const [course, setCourse] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [openForm, setOpenForm] = useState(true);
+
+  const classes = useStyles();
+
   const onCreateNewAssignment = () => {
     setOpenForm(false);
   };
@@ -35,24 +48,42 @@ export default function CourseDetailsPage({ match }) {
   }, []);
 
   return (
-    <div>
-      <div className="assignment-details">
-        {openForm ? (
-          <>
-            <AssignmentsView course={course} currentUser={currentUser} />
-
-            <button className=" btn btn-light" onClick={onCreateNewAssignment}>
-              Add New Assignment
-            </button>
-          </>
-        ) : (
-          <AssignmentsPage course={course} currentUser={currentUser} />
-        )}
+    <div className="course-details">
+      <div className="course-details-description">
+        <h3>Course Description:</h3>
+        <p>{course.description}</p>
       </div>
-
+      <div className="course-details-section">
       <div className="lecture-details">
-        <p className="lectures-title">Lectures</p>
-        <VideosPage course={course} currentUser={currentUser}/>
+          <p className="lectures-title">Lectures</p>
+          <VideosPage course={course} currentUser={currentUser} />
+        </div>
+        <div className="assignment-details">
+          {openForm ? (
+            <>
+              <AssignmentsView course={course} currentUser={currentUser} />
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                endIcon={<Icon>send</Icon>}
+                onClick={onCreateNewAssignment}
+              >
+                 Add New Assignment
+              </Button>
+             {/*  <button
+                className=" btn btn-light"
+                onClick={onCreateNewAssignment}
+              >
+                Add New Assignment
+              </button> */}
+            </>
+          ) : (
+            <AssignmentsPage course={course} currentUser={currentUser} />
+          )}
+        </div>
+
+       
       </div>
     </div>
   );

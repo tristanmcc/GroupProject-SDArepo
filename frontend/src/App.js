@@ -13,7 +13,6 @@ import HomePage from './components/home/HomePage';
 import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
 import CourseDetailsPage from './components/courses/CourseDetailsPage';
-import LecturesPage from './components/lectures/LecturesPage';
 import VideosPage from './components/videos/VideosPage.jsx';
 import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
@@ -31,7 +30,7 @@ function App() {
     <Router>
       <Navbar onLogout={() => Auth.logout()} />
 
-      <div className="container mt-5">
+      <div className="app-container">
 
   
         <Switch>
@@ -65,9 +64,6 @@ function App() {
             path="/courseDetail/:id"
             render={({ match }) => <CourseDetailsPage match={match} />}
           /> 
-          <Route path="/lectures">
-            <LecturesPage />
-          </Route>
 
           <Route path="/courseDetails">
             <CourseDetailsPage />

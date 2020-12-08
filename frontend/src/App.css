@@ -31,10 +31,7 @@ body{
   color: #09d3ac;
 }
 
-.course-details {
-  float:right;
-  margin:1rem;
-}
+
 .row-buttons {
   text-align:right;
 }
@@ -92,7 +89,11 @@ img {
   grid-template-rows: 1fr 1fr;
 }
 
-
+.app-container {
+  width:auto;
+  margin-top:3rem;
+  
+}
 .container {
   width:80%;
   margin:20px auto;
@@ -135,12 +136,32 @@ img {
 
 .lecture-details {
   background-color:pink;
+  
 }
 
 .lectures-title {
   text-align:center;
   color:white;
   font-size:24px;
+}
+
+.course-details {
+  margin:3rem;
+}
+
+.course-details-description {
+  margin:8px;
+  text-align:center;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 5px 3px #888888;
+}
+
+.course-details-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  margin:0 auto;
 }
 
 /* Course details page styling ends */
@@ -220,7 +241,7 @@ img {
 
 /*-------- RESOURSE PAGE CSS ---- */
 
-images figcaption {
+.images figcaption {
   line-height: 30px;
   border-radius: 10px;
   bottom: -100px;
@@ -233,12 +254,10 @@ figcaption:hover {
   color: rgb(175, 60, 6);
 }
 
-.images{
+.images {
   display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     margin-left:3px;
-    
-
 } 
 
 div.images img{
@@ -248,12 +267,12 @@ div.images img{
   padding: 10px; 
  
 }
+
 .images figure {
   position: relative;
   margin-bottom: 0;
-  
-  
 }
+
 @media screen and (max-width: 414px) {
   div.images{
     margin:5px;
