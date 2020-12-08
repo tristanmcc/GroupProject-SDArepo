@@ -49,5 +49,8 @@ public class AnsweredAssignmentService {
 	}
 
 
+    public List<AnsweredAssignment> getAllByUserId(Long userId) {
+        return answeredAssRepo.findAllByUserId(userId);
+    }
 }
 

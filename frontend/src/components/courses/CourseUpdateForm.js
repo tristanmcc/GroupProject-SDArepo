@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseUpdate, onCancelUpdate}) {
     const [title,       setTitle]       = useState(oldCourse.title);
     const [description, setDescription] = useState(oldCourse.description);
-    const id = oldCourse.id;
+    const {id, createDate} = oldCourse;
 
     const handleUpdateCourseClick = (e) => {
-        const updatedCourse = { id, description, title };
+        const updatedCourse = { id, description, title, createDate };
 
         console.log('in from upd ', updatedCourse);
         onCourseUpdate(updatedCourse);
@@ -26,12 +26,6 @@ export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseU
                         value={description}
                         onChange={e=> setDescription(e.target.value)}
                         />
-{/*       
-                <label>Update Date : </label>
-                <input name="createDate" type="text"
-                        value={createDate ?? ""}
-                        onChange={e=> setCreateDate(e.target.value)} /> */}
-
                 <div className="form-group"> 
                     <button className="btn btn-primary" type="button" onClick={handleUpdateCourseClick} > 
                     Update </button>

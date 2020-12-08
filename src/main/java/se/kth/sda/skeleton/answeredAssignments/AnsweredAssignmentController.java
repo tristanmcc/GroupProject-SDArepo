@@ -38,8 +38,12 @@ public class AnsweredAssignmentController {
     UserService userService;
 
     @GetMapping("/assignments/answered")
-    public List<AnsweredAssignment> viewAll() {
-        return answeredAssService.viewAll();
+    public List<AnsweredAssignment> viewAll(@RequestParam(required = false) Long userId) {
+        if (userId == null) {
+            return answeredAssService.viewAll();
+        } else {
+            return answeredAssService.getAllByUserId(userId);
+        }
     }
 
     //get specific task by ID
