@@ -33,8 +33,6 @@ export default function CourseDetailsPage({match}) {
           
           })
     }
-
-    
       useEffect(() => {
         getCourseById(courseId);
         getUserRole();

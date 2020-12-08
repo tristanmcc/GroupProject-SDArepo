@@ -20,18 +20,19 @@ function CourseForm({ onSubmit,onCancel }) {
   return (
     <div className="card mt-4">
       <div className="course-card-body">
-        <h4 className="card-title">{"Create a course"}</h4>
+        <h4 className="course-card-title">{"Create a course"}</h4>
         <form onSubmit={onCreateCourseClick}>
           <div className="form-group">
             <label >Title:</label>
             <input 
-              type="text" 
+              type="text" maxLength="12"
               className="form-control"
               placeholder="Title" 
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
             />
+            <span>(12 char.max)</span>
           </div>
 
           <div className="form-group">

@@ -13,7 +13,7 @@ export default function Course({ course, onCourseDelete, onCourseUpdate, current
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [show, setShow] = useState(false);
 
-  const [Discription,setDiscription]= useState(false);
+ 
 
 
   const onCancelUpdate = () => {
@@ -34,14 +34,7 @@ export default function Course({ course, onCourseDelete, onCourseUpdate, current
         { /*  <p className="description">{description}</p>*/} 
       </div>
      
-       <button className="moreinfobutton" onClick={ () => setDiscription (!Discription)} > 
-          More Info<br/> </button>
-         {   Discription
-            ? // If the condtion is true , this code
-           <p> Description  :{description} </p>
-              : null // nothing to display
-                }
-
+       
       <div className="course-card-buttons">
       
         {currentUserRole==='teacher' ? 
