@@ -4,11 +4,9 @@ import Api from '../../api/Api';
 import VideoCard from './VideoCard';
 import VideoUploadForm from './VideoUploadForm';
 
-import Grid from '@material-ui/core/Grid';
-
 import '../../CSS/videos.css';
 
-export default function Videos({ user }) {
+export default function Videos({ currentUser }) {
   const [videos, setVideos] = useState([]);
   console.log('from videos line: ' + videos);
 
@@ -46,7 +44,7 @@ export default function Videos({ user }) {
           key={item.id}
           video={item}
           onDeleteClick={deleteVideo}
-          user={user}
+          currentUser={currentUser}
         />
       </div>
     );
@@ -55,7 +53,10 @@ export default function Videos({ user }) {
   return (
     <div>
       <div>
-        <VideoUploadForm onCreateClick={createVideo} user={user} />
+        <VideoUploadForm
+          onCreateClick={createVideo}
+          currentUser={currentUser}
+        />
 
         <div>{Cards}</div>
       </div>

@@ -19,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function VideoUploadForm({ onCreateClick, user }) {
+export default function VideoUploadForm({ onCreateClick, currentUser }) {
   const [videoName, setVideoName] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
   const classes = useStyles();
+  console.log('currentuser from videoform : ' + currentUser.name);
 
   return (
     <>
@@ -49,7 +50,7 @@ export default function VideoUploadForm({ onCreateClick, user }) {
         className={classes.button}
         startIcon={<CloudUploadIcon />}
         onClick={() => {
-          onCreateClick({ videoName, user, videoUrl });
+          onCreateClick({ videoName, currentUser, videoUrl });
           setVideoName('');
         }}
       >
