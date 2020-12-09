@@ -20,7 +20,8 @@ import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAs
 import Chat from './components/chat/Chat';
 import ResoursePage from "./components/resourse/ResoursePage";
 import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpdation';
-
+import DisplaySubmittedAssignment from './components/answeredAssignments/DisplaySubmittedAssignment';
+import AssignmentSubmitted from './components/answeredAssignments/AssignmentSubmitted';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -59,12 +60,20 @@ function App() {
           <Route path="/assignmentsViewForAdd/:course"
           render={({ match }) => <AssignmentsPage match={match} />}
           />
-        
+          
+          <Route path="/assignmentsSubmittedView">
+          <DisplaySubmittedAssignment />
+          </Route>
+          
+          <Route
+            path="/assignmentSubmitted/:assignId"
+            render={({ match }) => <AssignmentSubmitted match={match} />}
+          />
            <Route
             path="/courseDetail/:id"
             render={({ match }) => <CourseDetailsPage match={match} />}
           /> 
-        
+         
           <Route path="/courseDetails">
             <CourseDetailsPage />
           </Route>

@@ -2,11 +2,10 @@ import React, {useState,useEffect} from "react";
 import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AccordianForAssignment from '../accordian/AccordianForAssignment';
-
-
   
 
-function AssignmentSubmitted() {
+function AssignmentSubmitted({match}) {
+    console.log("Value" + match.params.assignId);
     
     const[questions,setQuestions] = useState([]);
     const[answers,setAnswers] = useState([]);
@@ -37,8 +36,8 @@ function AssignmentSubmitted() {
 
     useEffect(() => {
         
-        getAnsweredAssignmentById(1); // hardcoding it now , future changes needed
-        getQuestionsAssignmentById(1); // hardcoding it now , future changes needed
+        getAnsweredAssignmentById(match.params.assignId); // hardcoding it now , future changes needed
+        getQuestionsAssignmentById(match.params.assignId); // hardcoding it now , future changes needed
 
     
     },[] );
