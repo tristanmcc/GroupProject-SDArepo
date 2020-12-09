@@ -16,8 +16,9 @@ import UserApi from '../../api/UserApi';
 
 const columns = [
     { id: 'title', label: 'Click on the Assignment to View it', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'},
-    { id: 'ICONS', label: '', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'},
-    { id: 'dueDate', label: 'Deadline*', minWidth: 100 , color: 'red', fontSize: 'calc(6px + 2vmin)'}    
+    { id: 'dueDate', label: 'Deadline*', minWidth: 100 , color: 'red', fontSize: 'calc(6px + 2vmin)'},    
+    { id: 'ICONS', label: '', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'}
+   
     ];
 
     function createData(title,Id, dueDate) {
@@ -146,7 +147,7 @@ const getUserRole = () => {
                               : null 
                             }
                             
-                        
+                            
                             {currentUser==='teacher' ? <div>
                               {column.id === 'ICONS' ? <DeleteIcon onClick={() => handleDelete({assignId})} /> : null}
                             </div>:null}
