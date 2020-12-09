@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 
-function CourseForm({ onSubmit,onCancel }) {
+function CourseForm({ onSubmit, onCancel }) {
   console.log("course form");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -19,19 +19,20 @@ function CourseForm({ onSubmit,onCancel }) {
 
   return (
     <div className="card mt-4">
-      <div className="card-body">
-        <h4 className="card-title">{"Create a course"}</h4>
+      <div className="course-card-body">
+        <h4 className="course-card-title">{"Create a course"}</h4>
         <form onSubmit={onCreateCourseClick}>
           <div className="form-group">
-            <label>Title:</label>
-            <input
-              type="text"
+            <label >Title:</label>
+            <input 
+              type="text" maxLength="12"
               className="form-control"
-              placeholder="Title"
+              placeholder="Title" 
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
             />
+            <span>(12 char)</span>
           </div>
 
           <div className="form-group">
@@ -46,14 +47,13 @@ function CourseForm({ onSubmit,onCancel }) {
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">
+            <button className="createnewcoursebutton" type="submit">
               Create
             </button>
             <button
-              className="btn btn-outline"
+              className="cancelnewcoursebutton"
               type="button"
-              onClick={onCancel}
-            >
+              onClick={onCancel} >
               Cancel
             </button>
           </div>

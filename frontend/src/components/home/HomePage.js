@@ -1,22 +1,22 @@
 import React from "react";
-import Style from "../../CSS/homePage.css";
+import Style from "../../css/homePage.css";
 import {Link} from "react-router-dom";
 
 //media
-import carousel1 from "../../images/carousel-1.jpg";
-import carousel2 from "../../images/carousel-2-jpg.jpg";
-import carousel3 from "../../images/carousel-3.jpg";
-import carousel4 from "../../images/carousel-4.jpg";
-import carousel5 from "../../images/carousel-5.jpg";
-import carousel6 from "../../images/carousel-6.jpg";
-import Artboard from "../../images/Artboard+circles+3.png";
-import CourseGraphic from "../../images/Light_bulb.png";
-import Calender from "../../images/clock_icon.png";
-import Students from "../../images/Bag_icon.png";
-import chatIcon from "../../images/paper_airplane.png";
-import assignmentIcon from "../../images/NoteBook_icon.png";
-import videoIcon from "../../images/Play_button.png";
-import apple from "../../images/apple.png";
+import carousel1 from "../../images/carousel/carousel-1.jpg";
+import carousel2 from "../../images/carousel/carousel-2-jpg.jpg";
+import carousel3 from "../../images/carousel/carousel-3.jpg";
+import carousel4 from "../../images/carousel/carousel-4.jpg";
+import carousel5 from "../../images/carousel/carousel-5.jpg";
+import carousel6 from "../../images/carousel/carousel-6.jpg";
+import Artboard from "../../images/carousel/Artboard+circles+3.png";
+import CourseGraphic from "../../images/Icons/Light_bulb.png";
+import Calender from "../../images/Icons/clock_icon.png";
+import Students from "../../images/Icons/Bag_icon.png";
+import chatIcon from "../../images/Icons/paper_airplane.png";
+import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
+import videoIcon from "../../images/Icons/Play_button.png";
+import apple from "../../images/Icons/apple.png";
 
 function HomePage() {
     return (
@@ -50,7 +50,7 @@ function HomePage() {
   </div>
   <div class="column">
   <Link to="/chat" className="nav-card">
-    <div class="card-nav6"><img src= {chatIcon} alt="Open Book" width="80" height="140"></img>Communication</div>
+    <div class="card-nav6"><img src= {chatIcon} alt="Open Book" width="80" height="140"></img>Forum</div>
     </Link>
   </div>
   <div class="column">

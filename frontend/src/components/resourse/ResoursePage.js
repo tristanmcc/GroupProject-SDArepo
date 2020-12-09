@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import "../../App.css";
-import craft from '../../images/craft.png';
-import sudoku from '../../images/sudoku.jpg';
-import quiz from '../../images/quiz.png';
-import yoga from '../../images/yoga.png';
-import puzel from '../../images/puzzel.jpg';
-import health from '../../images/healthtip.png';
-import cook from '../../images/lilchef.png';
-import googleclass from '../../images/googleclass.jpg';
+import "../../css/resoursepage.css";
+
+import craft from '../../images/resource_image/craft.png';
+import sudoku from '../../images/resource_image/sudoku.jpg';
+import quiz from '../../images/resource_image/quiz.png';
+import yoga from '../../images/resource_image/yoga.png';
+import puzel from '../../images/resource_image/puzzel.jpg';
+import health from '../../images/resource_image/healthtip.png';
+import cook from '../../images/resource_image/lilchef.png';
+import googleclass from '../../images/resource_image/googleclass.jpg';
+
+
 function ResoursePage() {
     return (
  <div className="resourseimg">
@@ -38,7 +41,7 @@ function ResoursePage() {
               <figure>
                 <img className="puzelimage"  src={puzel} />
                 <a    href="https://www.digipuzzle.net/main/kids/">
-                <figcaption>  <b> PUZZEL</b></figcaption>  </a>
+                <figcaption>  <b> PUZZLE</b></figcaption>  </a>
               </figure>
               <figure>
                 <img className="healthimage"  src={health} />

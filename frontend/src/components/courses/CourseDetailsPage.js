@@ -4,14 +4,21 @@ import AssignmentsView from '../assignments/AssignmentsView';
 import CoursesApi from '../../api/CoursesApi';
 import UserApi from '../../api/UserApi';
 import AssignmentsPage from '../assignments/AssignmentsPage';
+import { Link } from "react-router-dom";
+
+import Courses from './Course.js';
 
 
 export default function CourseDetailsPage({match}) {
     
+    //const {description}=courses;
+
+
     const courseId = match.params.id;
     const [course, setCourse] = useState([]);
     const [currentUser, setCurrentUser] = useState([]);
     const [openForm, setOpenForm] = useState(true);
+    
     const onCreateNewAssignment = () => {
         setOpenForm(false);
       };
@@ -33,8 +40,6 @@ export default function CourseDetailsPage({match}) {
           
           })
     }
-
-    
       useEffect(() => {
         getCourseById(courseId);
         getUserRole();
@@ -42,24 +47,31 @@ export default function CourseDetailsPage({match}) {
 
     return (
         
-        <div>
+    <div>
+           
         { openForm ? 
-            <div>
-                
+          
+                 <div>
+
                     <AssignmentsView course={course} currentUser={currentUser}/> 
                     {currentUser.userRole === 'teacher' ? 
                         <button className=" btn btn-light" onClick={onCreateNewAssignment}>
                         Add New Assignment
                         </button>
                     : null }
+                    {currentUser.userRole === 'teacher' ?
+                        <Link to={ `/assignmentsSubmittedView`}>  
+                        <button className=" btn btn-light">
+                                View Submitted Assignment
+                        </button>
+                        </Link>
+                  : null }
                     
              </div>
             
         :
             <AssignmentsPage course={course} currentUser={currentUser}/>}
-            </div>
 
-
-       
+      </div>     
     );
 }

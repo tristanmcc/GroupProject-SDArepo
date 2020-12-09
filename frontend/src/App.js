@@ -17,10 +17,11 @@ import VideosPage from './components/videos/VideosPage.jsx';
 import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
-import Chat from './components/chat/Chat';
+import Chat from './components/chat/chatComp/Chat';
 import ResoursePage from "./components/resourse/ResoursePage";
 import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpdation';
-
+import DisplaySubmittedAssignment from './components/answeredAssignments/DisplaySubmittedAssignment';
+import AssignmentSubmitted from './components/answeredAssignments/AssignmentSubmitted';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
@@ -31,8 +32,6 @@ function App() {
       <Navbar onLogout={() => Auth.logout()} />
 
       <div className="container mt-5">
-
-  
         <Switch>
           <Route exact path="/courses">
             <CoursePage />
@@ -59,12 +58,20 @@ function App() {
           <Route path="/assignmentsViewForAdd/:course"
           render={({ match }) => <AssignmentsPage match={match} />}
           />
-        
+          
+          <Route path="/assignmentsSubmittedView">
+          <DisplaySubmittedAssignment />
+          </Route>
+          
+          <Route
+            path="/assignmentSubmitted/:assignId"
+            render={({ match }) => <AssignmentSubmitted match={match} />}
+          />
            <Route
             path="/courseDetail/:id"
             render={({ match }) => <CourseDetailsPage match={match} />}
           /> 
-        
+         
           <Route path="/courseDetails">
             <CourseDetailsPage />
           </Route>
