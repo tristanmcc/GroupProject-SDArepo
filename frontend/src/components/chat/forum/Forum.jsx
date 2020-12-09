@@ -6,7 +6,7 @@ import Style from "../../css/chat.css";
 
 
 function Forum() {
-    
+
     const [questions, setQuestions] = useState([]);
 
     const viewQuestions = () => {
@@ -29,7 +29,7 @@ function Forum() {
     return (
         <div>
         <div className="forumbox">
-            {questions.map(item => (<ShowQuestions  key={item.id} questions={item}/>))}
+            {questions.map(question => (<ShowQuestions  key={question.id} question={question}/>))}
             </div>
             <div>
             <QuestionForm onSubmit={createQuestion}/>

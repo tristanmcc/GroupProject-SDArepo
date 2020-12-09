@@ -3,25 +3,33 @@ import QuestionsApi from '../../api/QuestionsApi';
 import UserApi from "../../api/UserApi";
 import CommentsApi from "../../api/CommentsApi";
 import CommentForm from "./CommentForm";
+import ShowComments from "./ShowComments"
 import { RiDeleteBin7Line, RiQuestionAnswerLine } from 'react-icons/ri';
 
 //Function
-function ShowQuestions({questions}) {
+function ShowQuestions({question}) {
  
    
     const [formState, setFormState] = useState(false);
     const [currentUser, setCurrentUser] = useState("");
-    //const [question, setQuestion] = useState("");
+    const [comments, setComments] = useState([]);
+
 
    //Delete method
-   const handleDelete = (questions) => {
-    console.log("inside handleDelete" + questions.id)
-    QuestionsApi.deleteQuestion(questions.id)
+   const handleDelete = (question) => {
+    QuestionsApi.deleteQuestion(question.id)
        .then(() => window.location.reload())
 }
-    
-    
-    
+
+   /* const getComments = ({id}) => {
+        //console.log("inside get comments " + id)
+        CommentsApi.getCommentByQuestionId(id)
+        .then(res => {
+          //  console.log(res.data)
+            setComments(res.data)
+        })
+    } */
+
     const getEmailOfUser = () => {
         UserApi.getCurrentUser()
             .then(response => {
@@ -31,6 +39,7 @@ function ShowQuestions({questions}) {
 
     useEffect(() => {
         getEmailOfUser();
+       // getComments();
     }, []);
 
     const toggle = () => {
@@ -38,7 +47,6 @@ function ShowQuestions({questions}) {
       }
 
       const createComment = (commentData) => {
-        console.log("inside createComment" + JSON.stringify(commentData))
             CommentsApi.createComment(commentData)
          .then(() => window.location.reload());
          };
@@ -47,9 +55,9 @@ function ShowQuestions({questions}) {
     return (
         <div>
             <div className="question-card">
-             { currentUser === questions.email ?
+             { currentUser === question.email ?
             <button className="question-button"
-                    onClick={() => handleDelete(questions)}>
+                    onClick={() => handleDelete(question)}>
                     <RiDeleteBin7Line/>
                 </button>
                 : null }
@@ -57,17 +65,22 @@ function ShowQuestions({questions}) {
                     onClick={toggle}>
                     <RiQuestionAnswerLine/>
                 </button>
-                
-                <p>{questions.textBody}</p>
-                {formState ? (
+                <div>
+                <p>{question.textBody}</p></div>
+            </div>
+            <div className="question-card">
+            {formState ? (<ShowComments question={question}/>) : null}
+            {formState ? (
                     <CommentForm
                     changeFormState={toggle}
                     onSubmit={createComment}
-                    question={questions}
+                    question={question}
 
                      />
                     ) : null}
-            </div>
+                    </div>
+
+        
         </div>
 
 
