@@ -3,23 +3,26 @@ import React, { useState, useEffect } from 'react';
 import Api from '../../api/Api';
 
 import Videos from './Videos';
+import UserApi from '../../api/UserApi';
 
 export default function VideosPage() {
-  const [user, setUser] = useState([]);
+  const [currentUser, setCurrentUser] = useState([]);
 
-  useEffect(
-    () =>
-      Api.get('/user/me').then((res) => {
-        setUser(res.data);
-      }),
-    []
-  );
+  const getUserRole = () => {
+    UserApi.getCurrentUser().then((response) => {
+      setCurrentUser(response.data);
+    });
+  };
+
+  useEffect(() => {
+    getUserRole();
+  }, []);
 
   return (
     <>
       <h1>Lectures Page</h1>
 
-      <Videos user={user} />
+      <Videos currentUser={currentUser} />
     </>
   );
 }

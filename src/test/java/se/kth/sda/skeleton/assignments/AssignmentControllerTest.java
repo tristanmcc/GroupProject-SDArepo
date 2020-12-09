@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import se.kth.sda.skeleton.student.Student;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -25,11 +27,11 @@ public class AssignmentControllerTest {
 
     @Test
     public void should_ReturnThreeAssignments_WhenViewAll() {
-
+        LocalDate d1= LocalDate.now();
         // arrange
-        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1", "Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10");
-        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10");
-        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", "Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10");
+        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1", d1,"Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10");
+        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", d1, "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10");
+        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", d1,"Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10");
 
 
         List<Assignment> threeAssignments = new ArrayList<>();
@@ -53,11 +55,11 @@ public class AssignmentControllerTest {
     @Test
     void should_ReturnOneStudent_WhenGetById() {
 
-
+        LocalDate d1= LocalDate.now();
         //arrange
-        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1", "Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10");
-        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10");
-        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", "Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10");
+        Assignment assignment1 = new Assignment(1L, "ass1", "assDes1",d1, "Q1", "Q2", "Q3","Q4","Q5","Q6","Q7","Q8","Q9","Q10");
+        Assignment assignment2 = new Assignment(2L, "ass2", "assDes2",d1, "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10");
+        Assignment assignment3 = new Assignment(3L, "ass3", "assDes3",d1, "Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10");
 
 
         when(assService.getById(1L))

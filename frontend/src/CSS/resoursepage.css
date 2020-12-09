@@ -1,0 +1,47 @@
+
+images figcaption {
+    line-height: 30px;
+    border-radius: 10px;
+    bottom: -100px;
+    padding: 5px;
+    font-weight:bold;
+    font-size: medium;
+    text-align: center;  
+  }
+  figcaption:hover {
+    color: rgb(175, 60, 6);
+  }
+  
+  .images{
+    display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      margin-left:3px;
+      
+  
+  } 
+  
+  div.images img{
+    border-radius: 15px;
+    width: 230px;
+    height: 220px;
+    padding: 10px; 
+   
+  }
+  .images figure {
+    position: relative;
+    margin-bottom: 0;
+    
+    
+  }
+  @media screen and (max-width: 414px) {
+    div.images{
+      margin:5px;
+     display: grid;
+     grid-template-columns: 1fr;
+     row-gap: 4px;
+        
+    }
+    .images figure {
+        text-align: center;
+    }
+  }

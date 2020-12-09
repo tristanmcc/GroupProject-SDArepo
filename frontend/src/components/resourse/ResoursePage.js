@@ -9,6 +9,7 @@ import puzel from '../../images/puzzel.jpg';
 import health from '../../images/healthtip.png';
 import cook from '../../images/lilchef.png';
 import googleclass from '../../images/googleclass.jpg';
+import "../../CSS/resoursepage.css";
 function ResoursePage() {
     return (
  <div className="resourseimg">

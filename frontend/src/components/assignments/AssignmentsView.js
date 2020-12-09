@@ -16,13 +16,13 @@ import UserApi from '../../api/UserApi';
 
 const columns = [
     { id: 'title', label: 'Click on the Assignment to View it', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'},
-    { id: 'ICONS', label: '', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'}
-    
+    { id: 'ICONS', label: '', minWidth: 150 , color: 'black', fontSize: 'calc(10px + 2vmin)'},
+    { id: 'dueDate', label: 'Deadline*', minWidth: 100 , color: 'red', fontSize: 'calc(6px + 2vmin)'}    
     ];
 
-    function createData(title,Id) {
+    function createData(title,Id, dueDate) {
         
-        return { title , Id};
+        return { title , Id, dueDate};
       }
       
 
@@ -57,7 +57,7 @@ function AssignmentsView({course,currentUsers})
           AssignmentsApi.getAllAssignment(course.id)
             .then(response => {
                 
-                const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
+                const newArray = response.data.map(item => createData(item.assignmentTitle,item.id, item.dueDate)
                 );
                 setRows(newArray.reverse());
               })
@@ -67,7 +67,7 @@ function AssignmentsView({course,currentUsers})
           AssignmentsApi.getAll()
             .then(response => {
                 
-                const newArray = response.data.map(item => createData(item.assignmentTitle,item.id)
+                const newArray = response.data.map(item => createData(item.assignmentTitle,item.id, item.dueDate)
                 );
                 setRows(newArray.reverse());
                 })
@@ -107,6 +107,7 @@ const getUserRole = () => {
         })
   }
 
+
     return (
         <div>
         <Paper className={classes.root}>
@@ -137,15 +138,20 @@ const getUserRole = () => {
                         return (
                             
                           <TableCell key={column.id} align={column.align}>
-                          
-                          <Link to={`/assignmentsView/${assignId}`}   className="link">
-                            {column.format && typeof value === 'number' ? column.format(value) :  value}
+                            {column.id === 'title' ? 
+                              <Link to={ currentUser === 'teacher' ? `/assignmentsView/${assignId}` : `/assignmentsAnsweredView/${assignId}` }  
+                                className="link">
+                                {column.format && typeof value === 'number' ? column.format(value) :  value}
+                              </Link> 
+                              : null 
+                            }
                             
-                            </Link>
+                        
                             {currentUser==='teacher' ? <div>
                               {column.id === 'ICONS' ? <DeleteIcon onClick={() => handleDelete({assignId})} /> : null}
                             </div>:null}
-                           
+                            {column.id==='dueDate' ?  value :null}
+                            
                           </TableCell>
                           
                         );

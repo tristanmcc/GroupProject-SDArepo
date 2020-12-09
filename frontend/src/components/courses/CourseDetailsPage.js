@@ -53,11 +53,15 @@ export default function CourseDetailsPage({match}) {
                  <div>
 
                     <AssignmentsView course={course} currentUser={currentUser}/> 
-                    <button className=" btn btn-light" onClick={onCreateNewAssignment}>
-                    Add New Assignment
-                    </button>    
-                  </div> 
-                :
+                    {currentUser.userRole === 'teacher' ? 
+                        <button className=" btn btn-light" onClick={onCreateNewAssignment}>
+                        Add New Assignment
+                        </button>
+                    : null }
+                    
+             </div>
+            
+        :
             <AssignmentsPage course={course} currentUser={currentUser}/>}
 
       </div>     
