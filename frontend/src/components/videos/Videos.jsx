@@ -1,18 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
-import Api from '../../api/Api';
+import LecturesApi from '../../api/LecturesApi';
 import VideoCard from './VideoCard';
 import VideoUploadForm from './VideoUploadForm';
 
 import '../../CSS/videos.css';
 
-export default function Videos({ currentUser }) {
+export default function Videos({ course, currentUser }) {
   const [videos, setVideos] = useState([]);
   console.log('from videos line: ' + videos);
 
+
+  const getAllVideosByCourse = (course) => {
+    console.log("course requested");
+    LecturesApi.getAllByCourseId(course.id)
+      .then((res) => {
+        setVideos(res.data.sort((a,b) => b.id - a.id));
+      })
+      .catch((err) => console.error(err));
+  };
+
   const createVideo = (videoData) => {
     console.log('videodata : ' + videoData);
-    Api.post('/videos', videoData)
+    LecturesApi.createLecture(videoData)
       .then((res) => setVideos([...videos, res.data]))
       .catch((err) => console.error(err));
 
@@ -20,7 +30,7 @@ export default function Videos({ currentUser }) {
   };
 
   const getVideos = () => {
-    Api.get('/videos')
+    LecturesApi.getAllLectures()
       .then((res) => {
         setVideos(res.data.sort((a, b) => b.id - a.id));
       })
@@ -28,14 +38,15 @@ export default function Videos({ currentUser }) {
   };
 
   const deleteVideo = (video) => {
-    Api.delete('/videos/' + video.id)
+    LecturesApi.deleteLecture(video.id)
       .then((res) => getVideos())
       .catch((err) => console.log(err));
   };
 
   useEffect(() => {
     getVideos();
-  }, []);
+    getAllVideosByCourse(course)
+  }, [course]);
 
   const Cards = videos.map((item) => {
     return (

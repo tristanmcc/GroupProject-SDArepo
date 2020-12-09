@@ -12,7 +12,7 @@ import Icon from '@material-ui/core/Icon';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor:"#765576",
+    backgroundColor:"#E55A71",
     cursor: "pointer",
     outline: "none",
     border: "none",
