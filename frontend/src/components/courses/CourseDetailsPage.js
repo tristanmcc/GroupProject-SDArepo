@@ -4,6 +4,7 @@ import AssignmentsView from '../assignments/AssignmentsView';
 import CoursesApi from '../../api/CoursesApi';
 import UserApi from '../../api/UserApi';
 import AssignmentsPage from '../assignments/AssignmentsPage';
+import { Link } from "react-router-dom";
 
 import Courses from './Course.js';
 
@@ -58,6 +59,13 @@ export default function CourseDetailsPage({match}) {
                         Add New Assignment
                         </button>
                     : null }
+                    {currentUser.userRole === 'teacher' ?
+                        <Link to={ `/assignmentsSubmittedView`}>  
+                        <button className=" btn btn-light">
+                                View Submitted Assignment
+                        </button>
+                        </Link>
+                  : null }
                     
              </div>
             
