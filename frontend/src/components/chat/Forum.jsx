@@ -6,6 +6,7 @@ import Style from "../../css/chat.css";
 
 
 function Forum() {
+    
     const [questions, setQuestions] = useState([]);
 
     const viewQuestions = () => {
@@ -19,7 +20,6 @@ function Forum() {
     }, []);
 
     const createQuestion = (question) => {
-        
         QuestionsApi.createQuestion(question)
             .then(res => setQuestions([...questions, res.data]));
     }

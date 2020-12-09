@@ -1,35 +1,29 @@
 import React, {useState} from 'react';
 
-function CommentForm({onSubmit, postNum}) {
-
+function CommentForm({onSubmit, question}) {
 
     const [body, setBody] = useState("");
-console.log('This is postId' + postNum)
-const [postId, setPostId] = useState(postNum);
-console.log("this is postnum" + postNum)
 
-
-
+   
+    
     return (
-        <div className="card mt-4">
-            <div className="card-body">
+        <div className="">
+            <div className="">
                 <h6 className="card-title" >Add Comment:</h6>
                 <div>
-                    <div className="form-group">
+                    <div className="">
                         <input
                             type="text"
-                            className="form-control"
+                            className=""
                             placeholder="..."
                             value={body}
                             onChange={e => setBody(e.target.value)} />
                     </div>
 
-
-
-                    <div className="form-group">
+                    <div className="">
                         <button
                             className="btn btn-danger"
-                            onClick={() => onSubmit({body, postId})}>
+                            onClick={() => onSubmit({body, question})}>
                             Comment
                         </button>
                     </div>

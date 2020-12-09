@@ -5,6 +5,7 @@ import Style from "../../css/chat.css";
 import UserApi from '../../api/UserApi';
 import Forum from "./Forum";
 
+
 //Media
 import CourseGraphic from "../../images/Icons/Light_bulb.png";
 import Calender from "../../images/Icons/clock_icon.png";
