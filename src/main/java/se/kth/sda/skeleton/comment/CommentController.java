@@ -33,6 +33,7 @@ public class CommentController {
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+
     @PostMapping("/comments")
     public Comment create (@RequestBody Comment newComment) {
             newComment.setEmail(authService.getLoggedInUserEmail());

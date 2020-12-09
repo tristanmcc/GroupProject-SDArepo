@@ -17,7 +17,7 @@ import VideosPage from './components/videos/VideosPage.jsx';
 import StudentsPage from './components/students/StudentsPage';
 import AssignmentsView from "./components/assignments/AssignmentsView";
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
-import Chat from './components/chat/Chat';
+import Chat from './components/chat/chatComp/Chat';
 import ResoursePage from "./components/resourse/ResoursePage";
 import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpdation';
 
@@ -31,8 +31,6 @@ function App() {
       <Navbar onLogout={() => Auth.logout()} />
 
       <div className="container mt-5">
-
-  
         <Switch>
           <Route exact path="/courses">
             <CoursePage />

@@ -9,7 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import '../../CSS/videos.css';
+import '../../css/videos.css';
 
 import DuoTwoToneIcon from '@material-ui/icons/DuoTwoTone';
 import IconButton from '@material-ui/core/IconButton';
@@ -53,7 +53,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-
+      {currentUser.userRole === 'teacher' ? (
       <button
         style={{
           height: 60,
@@ -67,6 +67,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
       >
         <DeleteOutlineOutlinedIcon style={{ height: 60, width: '100%' }} />
       </button>
+      ) : null}
     </Card>
   );
 }
