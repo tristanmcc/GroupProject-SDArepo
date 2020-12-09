@@ -26,12 +26,12 @@ public class Comment {
         this.body = body;
         this.email = email;
 
+
     }
 
     public Question getQuestion() {
         return question;
     }
-
 
     public Long getId() {
         return id;
@@ -49,7 +49,7 @@ public class Comment {
         this.body = body;
     }
 
-    public void setQuestion(Long postId) {
+    public void setQuestion(Question question) {
         this.question = question;
     }
 
@@ -60,4 +60,6 @@ public class Comment {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }
