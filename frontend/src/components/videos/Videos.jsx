@@ -4,7 +4,7 @@ import Api from '../../api/Api';
 import VideoCard from './VideoCard';
 import VideoUploadForm from './VideoUploadForm';
 
-import '../../css/videos.css';
+import '../../CSS/videos.css';
 
 export default function Videos({ currentUser }) {
   const [videos, setVideos] = useState([]);

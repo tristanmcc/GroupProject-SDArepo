@@ -20,7 +20,7 @@ export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseU
                   <input name="title" type="text" maxlength="12"
                        value={title} 
                        onChange={e=> setTitle(e.target.value)}/>
-                    <span>(12char.max)</span>
+                    <span>(12 char)</span>
              </div>
              <div className="form-group">
                   <label>Description : </label>

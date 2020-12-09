@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
 import book from '../../images/carousel/carousel-6.jpg';
-import '../../css/assignment.css';
+import '../../CSS/assignment.css';
 
 
 export default function AnsweredAssignmentsForm({match}) {

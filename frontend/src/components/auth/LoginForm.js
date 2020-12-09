@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../css/login.css';
+import '../../CSS/login.css';
 import book from '../../images/undraw_education_f8ru (1).svg';
 import history from '../../images/undraw_voice_interface_eckp.svg';
 
