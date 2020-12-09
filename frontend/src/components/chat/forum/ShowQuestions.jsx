@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
-import QuestionsApi from '../../api/QuestionsApi';
-import UserApi from "../../api/UserApi";
-import CommentsApi from "../../api/CommentsApi";
+import QuestionsApi from '../../../api/QuestionsApi';
+import UserApi from "../../../api/UserApi";
+import CommentsApi from "../../../api/CommentsApi";
 import CommentForm from "./CommentForm";
 import ShowComments from "./ShowComments"
 import { RiDeleteBin7Line, RiQuestionAnswerLine } from 'react-icons/ri';
@@ -69,7 +69,9 @@ function ShowQuestions({question}) {
                 <p>{question.textBody}</p></div>
             </div>
             <div className="question-card">
-            {formState ? (<ShowComments question={question}/>) : null}
+            {formState ? (<ShowComments
+            user={currentUser}
+            question={question}/>) : null}
             {formState ? (
                     <CommentForm
                     changeFormState={toggle}

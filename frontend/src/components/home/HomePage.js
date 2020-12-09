@@ -50,7 +50,7 @@ function HomePage() {
   </div>
   <div class="column">
   <Link to="/chat" className="nav-card">
-    <div class="card-nav6"><img src= {chatIcon} alt="Open Book" width="80" height="140"></img>Communication</div>
+    <div class="card-nav6"><img src= {chatIcon} alt="Open Book" width="80" height="140"></img>Forum</div>
     </Link>
   </div>
   <div class="column">

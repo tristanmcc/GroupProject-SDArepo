@@ -1,19 +1,19 @@
 import React, { Component} from 'react';
 import ChatInput from './ChatInput';
 import ChatMessage from './ChatMessage';
-import Style from "../../css/chat.css";
-import UserApi from '../../api/UserApi';
-import Forum from "./Forum";
+import Style from "../../../css/chat.css";
+import UserApi from '../../../api/UserApi';
+import Forum from "../forum/Forum";
 
 
 //Media
-import CourseGraphic from "../../images/Icons/Light_bulb.png";
-import Calender from "../../images/Icons/clock_icon.png";
-import Students from "../../images/Icons/Bag_icon.png";
-import chatIcon from "../../images/Icons/paper_airplane.png";
-import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
-import videoIcon from "../../images/Icons/Play_button.png";
-import apple from "../../images/Icons/apple.png";
+import CourseGraphic from "../../../images/Icons/Light_bulb.png";
+import Calender from "../../../images/Icons/clock_icon.png";
+import Students from "../../../images/Icons/Bag_icon.png";
+import chatIcon from "../../../images/Icons/paper_airplane.png";
+import assignmentIcon from "../../../images/Icons/NoteBook_icon.png";
+import videoIcon from "../../../images/Icons/Play_button.png";
+import apple from "../../../images/Icons/apple.png";
 
 const URL = 'ws://localhost:3030'
 

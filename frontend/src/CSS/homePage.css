@@ -142,6 +142,20 @@
   
   
   /* Responsive columns - one column layout (vertical) on small screens */
+  @media (max-width: 950px) {
+    .column {
+        display: inline;
+      float: left;
+      width: 20%;
+      padding: 0 10px;
+      margin-bottom: 20px;
+    }
+  }
+
+
+
+
+
   @media (max-width: 750px) {
       .column {
           display: inline;

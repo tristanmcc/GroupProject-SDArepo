@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
-import QuestionsApi from "../../api/QuestionsApi";
+import QuestionsApi from "../../../api/QuestionsApi";
 import QuestionForm from "./QuestionForm";
 import ShowQuestions from "./ShowQuestions";
-import Style from "../../css/chat.css";
+import Style from "../../../css/chat.css";
 
 
 function Forum() {
