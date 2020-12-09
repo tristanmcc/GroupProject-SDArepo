@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import se.kth.sda.skeleton.course.Course;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Class is used for constructing entities of type Assignment
@@ -23,6 +25,8 @@ public class Assignment {
 
     @Column(columnDefinition = "TEXT")
     private String assignmentDescription;
+
+    private LocalDate dueDate;
     
     private String question1;
     private String question2;
@@ -48,11 +52,12 @@ public class Assignment {
     }
 
     //Constructor
-    public Assignment(Long id, String assignmentTitle, String assignmentDescription, String question1, String question2, String question3, String question4, String question5, String question6, String question7, String question8, String question9, String question10
+    public Assignment(Long id, String assignmentTitle, String assignmentDescription, LocalDate dueDate, String question1, String question2, String question3, String question4, String question5, String question6, String question7, String question8, String question9, String question10
     ) {
         this.id = id;
         this.assignmentTitle = assignmentTitle;
         this.assignmentDescription = assignmentDescription;
+        this.dueDate = dueDate;
         this.question1 = question1;
         this.question2 = question2;
         this.question3 = question3;
@@ -95,6 +100,14 @@ public class Assignment {
 
     public void setAssignmentDescription(String assignmentDescription) {
         this.assignmentDescription = assignmentDescription;
+    }
+
+    public LocalDate getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDate dueDate) {
+        this.dueDate = dueDate;
     }
 
     public String getQuestion1() {

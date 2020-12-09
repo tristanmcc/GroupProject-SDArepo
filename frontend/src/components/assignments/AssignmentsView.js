@@ -14,14 +14,20 @@ import MenuBookTwoToneIcon from "@material-ui/icons/MenuBookTwoTone";
 import DeleteIcon from "@material-ui/icons/Delete";
 import UserApi from "../../api/UserApi";
 
-
 const columns = [
   {
     id: "title",
-    label: "Assignments",
+    label: "Click on the Assignment to view",
     minWidth: 150,
     color: "white",
     fontSize: "calc(10px + 2vmin)",
+  },
+  {
+    id: "dueDate",
+    label: "Deadline*",
+    minWidth: 100,
+    color: "red",
+    fontSize: "calc(6px + 2vmin)",
   },
   {
     id: "ICONS",
@@ -32,8 +38,8 @@ const columns = [
   },
 ];
 
-function createData(title, Id) {
-  return { title, Id };
+function createData(title, Id, dueDate) {
+  return { title, Id, dueDate };
 }
 
 const useStyles = makeStyles({
@@ -42,21 +48,20 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 300,
-    color:"white",
+    color: "white",
   },
   assignmentRowData: {
-    borderWidth: 10, 
-    borderColor: '#E55A71',
-    borderStyle: 'solid'
+    borderWidth: 10,
+    borderColor: "",
+    borderStyle: "solid",
   },
   assignmentBody: {
-    color:"white",
+    color: "white",
   },
   tablePagination: {
-    backgroundColor:"#E55A71",
-    color:"white"
-  }
-
+    backgroundColor: "#E55A71",
+    color: "white",
+  },
 });
 
 function AssignmentsView({ course, currentUsers }) {
@@ -73,14 +78,14 @@ function AssignmentsView({ course, currentUsers }) {
     if (typeof course !== "undefined" && course !== "") {
       AssignmentsApi.getAllAssignment(course.id).then((response) => {
         const newArray = response.data.map((item) =>
-          createData(item.assignmentTitle, item.id)
+          createData(item.assignmentTitle, item.id, item.dueDate)
         );
         setRows(newArray.reverse());
       });
     } else {
       AssignmentsApi.getAll().then((response) => {
         const newArray = response.data.map((item) =>
-          createData(item.assignmentTitle, item.id)
+          createData(item.assignmentTitle, item.id, item.dueDate)
         );
         setRows(newArray.reverse());
       });
@@ -116,7 +121,11 @@ function AssignmentsView({ course, currentUsers }) {
     <div>
       <Paper className={classes.root}>
         <TableContainer className={classes.container}>
-          <Table className={classes.assignmentsTable} stickyHeader aria-label="sticky table">
+          <Table
+            className={classes.assignmentsTable}
+            stickyHeader
+            aria-label="sticky table"
+          >
             <TableHead>
               <TableRow>
                 {columns.map((column) => (
@@ -126,7 +135,7 @@ function AssignmentsView({ course, currentUsers }) {
                     style={{
                       minWidth: column.minWidth,
                       color: column.color,
-                      backgroundColor:"#E55A71",
+                      backgroundColor: "#E55A71",
                       fontSize: column.fontSize,
                     }}
                   >
@@ -145,13 +154,16 @@ function AssignmentsView({ course, currentUsers }) {
                       role="checkbox"
                       tabIndex={-1}
                       key={row.code}
-                      
                     >
                       {columns.map((column) => {
                         const value = row[column.id];
                         const assignId = row["Id"];
                         return (
-                          <TableCell className={classes.assignmentRowData} key={column.id} align={column.align}>
+                          <TableCell
+                            className={classes.assignmentRowData}
+                            key={column.id}
+                            align={column.align}
+                          >
                             <Link
                               to={`/assignmentsView/${assignId}`}
                               className="link"
@@ -169,6 +181,7 @@ function AssignmentsView({ course, currentUsers }) {
                                 ) : null}
                               </div>
                             ) : null}
+                            {column.id === "dueDate" ? value : null}
                           </TableCell>
                         );
                       })}
@@ -178,7 +191,8 @@ function AssignmentsView({ course, currentUsers }) {
             </TableBody>
           </Table>
         </TableContainer>
-        <TablePagination className= {classes.tablePagination}
+        <TablePagination
+          className={classes.tablePagination}
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
           count={rows.length}

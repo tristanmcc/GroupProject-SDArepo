@@ -4,6 +4,7 @@ import se.kth.sda.skeleton.assignments.Assignment;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class Course {
 
     private String description;
 
-    private Date createDate;
-    private Date updateDate;
+    private LocalDateTime createDate;
+    private LocalDateTime updateDate;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Video> videos;
@@ -33,7 +34,7 @@ public class Course {
 
     }
 
-    public Course(Long id, String title, String description, Date createDate, Date updateDate) {
+    public Course(Long id, String title, String description, LocalDateTime createDate, LocalDateTime updateDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -65,24 +66,29 @@ public class Course {
         this.description = description;
     }
 
-    public Date getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
     }
 
-    public Date getUpdateDate() {
+    public LocalDateTime getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(Date updateDate) {
+    public void setUpdateDate(LocalDateTime updateDate) {
         this.updateDate = updateDate;
     }
 
     @PrePersist
     void preInsert() {
-            this.createDate = new Date();
+        this.createDate = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    void PreUpdate() {
+        this.updateDate = LocalDateTime.now();
     }
 }

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import AssignmentsApi from "../../api/AssignmentsApi";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function AssignmentsPage({ course, currentUser }) {
   const [assignmentTitle, setAssignmentTitle] = useState("");
   const [assignmentDescription, setAssignmentDescription] = useState("");
+  const [dueDate, setDueDate] = useState(new Date());
+
   const [question1, setQuestion1] = useState("");
   const [question2, setQuestion2] = useState("");
   const [question3, setQuestion3] = useState("");
@@ -21,6 +25,7 @@ function AssignmentsPage({ course, currentUser }) {
       course,
       assignmentTitle,
       assignmentDescription,
+      dueDate,
       question1,
       question2,
       question3,
@@ -45,6 +50,7 @@ function AssignmentsPage({ course, currentUser }) {
       id,
       assignmentTitle,
       assignmentDescription,
+      dueDate,
       question1,
       question2,
       question3,
@@ -80,6 +86,15 @@ function AssignmentsPage({ course, currentUser }) {
           value={assignmentDescription}
           className="form-control"
           onChange={(e) => setAssignmentDescription(e.target.value)}
+        />
+      </div>
+      <div className="form-group text-dark">
+        <label>Deadline: </label>
+        <p></p>
+        <DatePicker
+          selected={dueDate}
+          onChange={(date) => setDueDate(date)}
+          showCalendarIcon={true}
         />
       </div>
 
