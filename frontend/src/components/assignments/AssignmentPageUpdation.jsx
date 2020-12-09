@@ -6,7 +6,7 @@ import { parseISO } from 'date-fns';
 
 
 function AssignmentsPageUpdation({match}) {
-    
+    console.log("No match for my batch: ", match)
     const [assignmentTitle, setAssignmentTitle] = useState("");
     const [assignmentDescription, setAssignmentDescription] = useState("");
     const [dueDate, setDueDate] = useState(new Date());
@@ -22,7 +22,8 @@ function AssignmentsPageUpdation({match}) {
     const [question10, setQuestion10] = useState("");
     const [assignId, setAssignId] = useState("");
     const [course, setCourse] = useState("");
-    
+
+    console.log("But of course: ", course);
    
     
     const getAssignmentById = (id) => {
@@ -33,7 +34,7 @@ function AssignmentsPageUpdation({match}) {
                 setAssignId(response.data.id);
                 setAssignmentTitle(response.data.assignmentTitle);
                 setAssignmentDescription(response.data.assignmentDescription);
-                setDueDate(parseISO(response.data.dueDate));
+                setDueDate(new Date(response.data.dueDate));
                 setQuestion1(response.data.question1);
                 setQuestion2(response.data.question2);
                 setQuestion3(response.data.question3);
