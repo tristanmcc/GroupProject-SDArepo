@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface AnsweredAssignmentRepository extends JpaRepository<AnsweredAssignment,Long> {
     List<AnsweredAssignment> findAllByUserId(Long userId);
+    AnsweredAssignment findByAssignmentId(Long Id);
 
 }
