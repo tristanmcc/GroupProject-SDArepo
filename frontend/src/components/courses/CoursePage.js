@@ -82,7 +82,7 @@ const updateCourse = (updatedCourse) => {
             <button
               className="create-coursebutton"
               onClick={onCreateNewCourse}>
-              CREATE COURSE
+              Create Course
             </button> : null
             }
             <CoursesList 

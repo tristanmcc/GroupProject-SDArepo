@@ -73,6 +73,7 @@
   
   .course-card-buttons {
     text-align: center;
+    margin-top: 10px;
    
   }
   .course-card:hover {
@@ -98,6 +99,8 @@
   
  .course-card-title{
   color: #f10d0d;
+  margin-top: 10px;
+  
  }
   
   
