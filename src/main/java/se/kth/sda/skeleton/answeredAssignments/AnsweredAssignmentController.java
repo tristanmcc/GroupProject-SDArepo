@@ -53,6 +53,12 @@ public class AnsweredAssignmentController {
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/assignments/answeredByAssignmentId/{id}")
+    public AnsweredAssignment getByAssignmentId(@PathVariable Long id){
+        return answeredAssService.getByAssignmentId(id);
+                
+    }
+
   /*  @GetMapping("/currentUser")
     public User getCurrentUser() {
         String email = authService.getLoggedInUserEmail();
