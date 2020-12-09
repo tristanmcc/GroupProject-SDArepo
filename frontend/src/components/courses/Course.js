@@ -3,10 +3,11 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import courseImg from '../../images/courses-icon.png';
+import courseImg from '../../images/Icons/Course_book.png';
+//import courseImg from '../../images/Icons/courses-icon.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
 import { Tooltip } from '@material-ui/core';
-
+import '../../css/course.css';
 export default function Course({
   course,
   onCourseDelete,
@@ -18,19 +19,34 @@ export default function Course({
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [show, setShow] = useState(false);
 
+
   const [isShown, setIsShown] = useState(false);
+
 
   const onCancelUpdate = () => {
     setFormState(false);
   };
 
   return (
-    <div
+
+  <div className="course-card">
+                <div className="courselinkimage">
+              <Link to={`/courseDetail/${id}`}>
+                <img className="courseimage"  src={courseImg} alt={title} />  
+                {/* <img className="courseimage"  src={courseImg} alt={title} />  */}
+               </Link>
+               </div>
+               <div className="courseheader">
+                <h3 className="course-card-title">{title}</h3>
+               { /*  <p className="description">{description}</p>*/}
+            </div> 
+  
+                   
+   {/*   <div
       className="course-card"
       onMouseEnter={() => setIsShown(true)}
-      onMouseLeave={() => setIsShown(false)}
-    >
-      {isShown && (
+      onMouseLeave={() => setIsShown(false)}  >
+   {isShown && (
         <p
           style={{
             display: 'block',
@@ -41,25 +57,25 @@ export default function Course({
         >
           click to navigate to assignments
         </p>
-      )}
-
+      )}  
       <Link to={`/courseDetail/${id}`}>
         <img className="courseImage" src={courseImg} alt={title} />
       </Link>
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
-        <p className="description">{description}</p>
-      </div>
+            <p className="description">{description}</p>
+      </div> */} 
+
       <div className="course-card-buttons">
         {currentUserRole === 'teacher' ? (
           <div>
             <button
-              className="deleteButton"
+              className="create-deleteButton"
               onClick={() => onCourseDelete(course)}
             >
               <FontAwesomeIcon icon={faTrash} />
             </button>
-            <button className="updateButton" onClick={() => setFormState(true)}>
+            <button className="create-updateButton" onClick={() => setFormState(true)}>
               <FontAwesomeIcon icon={faPen} />
             </button>
           </div>
@@ -73,7 +89,9 @@ export default function Course({
             onCancelUpdate={onCancelUpdate}
           />
         ) : null}
-      </div>
-    </div>
+       </div>
+
+   </div>
+
   );
 }
