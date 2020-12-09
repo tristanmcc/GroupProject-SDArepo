@@ -17,7 +17,7 @@ import UserApi from "../../api/UserApi";
 const columns = [
   {
     id: "title",
-    label: "Click on the Assignment to view",
+    label: "Assignments",
     minWidth: 150,
     color: "white",
     fontSize: "calc(10px + 2vmin)",
@@ -26,7 +26,7 @@ const columns = [
     id: "dueDate",
     label: "Deadline*",
     minWidth: 100,
-    color: "red",
+    color: "white",
     fontSize: "calc(6px + 2vmin)",
   },
   {
@@ -48,11 +48,10 @@ const useStyles = makeStyles({
   },
   container: {
     maxHeight: 300,
-    color: "white",
   },
   assignmentRowData: {
     borderWidth: 10,
-    borderColor: "white",
+    borderColor: "#E55A71",
     borderStyle: "solid",
   },
   assignmentBody: {
@@ -181,7 +180,7 @@ function AssignmentsView({ course, currentUsers }) {
                                 ) : null}
                               </div>
                             ) : null}
-                            {column.id === "dueDate" ? value : null}
+                            {/* {column.id === "dueDate" ? value : null} */}
                           </TableCell>
                         );
                       })}
