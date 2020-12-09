@@ -75,7 +75,7 @@ const updateCourse = (updatedCourse) => {
 
          { openForm ? 
           <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
-        
+          
          : 
           <>
           {currentUser==='teacher' ? 

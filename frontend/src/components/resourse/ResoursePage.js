@@ -9,7 +9,7 @@ import puzel from '../../images/puzzel.jpg';
 import health from '../../images/healthtip.png';
 import cook from '../../images/lilchef.png';
 import googleclass from '../../images/googleclass.jpg';
-import "../../CSS/resoursepage.css";
+import '../../CSS/resoursepage.css';
 function ResoursePage() {
     return (
  <div className="resourseimg">
@@ -39,7 +39,7 @@ function ResoursePage() {
               <figure>
                 <img className="puzelimage"  src={puzel} />
                 <a    href="https://www.digipuzzle.net/main/kids/">
-                <figcaption>  <b> PUZZEL</b></figcaption>  </a>
+                <figcaption>  <b> PUZZLE</b></figcaption>  </a>
               </figure>
               <figure>
                 <img className="healthimage"  src={health} />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 
-function CourseForm({ onSubmit,onCancel }) {
+function CourseForm({ onSubmit, onCancel }) {
   console.log("course form");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -47,11 +47,11 @@ function CourseForm({ onSubmit,onCancel }) {
           </div>
 
           <div className="form-group">
-            <button className="btn btn-primary" type="submit">
+            <button className="createnewcoursebutton" type="submit">
               Create
             </button>
             <button
-              className="btn btn-outline"
+              className="cancelnewcoursebutton"
               type="button"
               onClick={onCancel} >
               Cancel
