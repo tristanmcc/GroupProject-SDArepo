@@ -52,7 +52,7 @@ const useStyles = makeStyles({
   },
   assignmentRowData: {
     borderWidth: 10,
-    borderColor: "",
+    borderColor: "white",
     borderStyle: "solid",
   },
   assignmentBody: {
