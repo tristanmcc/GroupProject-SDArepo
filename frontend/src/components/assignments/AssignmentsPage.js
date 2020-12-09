@@ -231,7 +231,7 @@ function AssignmentsPage({course,currentUser}) {
                 <button
                     className=" btn btn-dark btn-sm"
                     onClick={() => handleUpdate()}>
-                    UpdateSSS
+                    Update
                 </button>}
 
                
