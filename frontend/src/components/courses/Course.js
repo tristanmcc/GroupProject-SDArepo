@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import courseImg from '../../images/courses-icon.png';
+import courseImg from '../../images/Icons/courses-icon.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
 import { Tooltip } from '@material-ui/core';
 
