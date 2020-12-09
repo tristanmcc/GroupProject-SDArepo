@@ -5,7 +5,7 @@ export default function StudentCreateForm({ onCreateClick, user }) {
   const [age, setAge] = useState('');
 
   return (
-    <div className="card">
+    <div className="student-card-container">
       <div className="card-body create-post">
         <h2>Create Student</h2>
 
@@ -15,12 +15,12 @@ export default function StudentCreateForm({ onCreateClick, user }) {
             placeholder="Enter student name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-          />
+          /> 
         </div>
-
+        
         <div className="input-group mb-3">
-          <textarea
-            className="form-control"
+          <input
+            className="form-control" maxLength="3"
             placeholder="Enter student age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
@@ -28,7 +28,7 @@ export default function StudentCreateForm({ onCreateClick, user }) {
         </div>
 
         <button
-          className="btn btn-dark"
+          className="student-createbutton"
           onClick={() => {
             onCreateClick({ name, user, age });
             setName('');
