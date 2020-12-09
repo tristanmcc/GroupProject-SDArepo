@@ -13,7 +13,7 @@ import AssignmentsApi from "../../api/AssignmentsApi";
 import MenuBookTwoToneIcon from "@material-ui/icons/MenuBookTwoTone";
 import DeleteIcon from "@material-ui/icons/Delete";
 import UserApi from "../../api/UserApi";
-import { red } from "@material-ui/core/colors";
+
 
 const columns = [
   {
@@ -46,14 +46,14 @@ const useStyles = makeStyles({
   },
   assignmentRowData: {
     borderWidth: 10, 
-    borderColor: '#765576',
+    borderColor: '#E55A71',
     borderStyle: 'solid'
   },
   assignmentBody: {
     color:"white",
   },
   tablePagination: {
-    backgroundColor:"#765576",
+    backgroundColor:"#E55A71",
     color:"white"
   }
 
@@ -126,7 +126,7 @@ function AssignmentsView({ course, currentUsers }) {
                     style={{
                       minWidth: column.minWidth,
                       color: column.color,
-                      backgroundColor:"#765576",
+                      backgroundColor:"#E55A71",
                       fontSize: column.fontSize,
                     }}
                   >
@@ -151,7 +151,6 @@ function AssignmentsView({ course, currentUsers }) {
                         const value = row[column.id];
                         const assignId = row["Id"];
                         return (
-<<<<<<< HEAD
                           <TableCell className={classes.assignmentRowData} key={column.id} align={column.align}>
                             <Link
                               to={`/assignmentsView/${assignId}`}
@@ -170,19 +169,6 @@ function AssignmentsView({ course, currentUsers }) {
                                 ) : null}
                               </div>
                             ) : null}
-=======
-                            
-                          <TableCell key={column.id} align={column.align}>
-                          <Link to={ currentUser === 'teacher' ? `/assignmentsView/${assignId}` : `/assignmentsAnsweredView/${assignId}` }   className="link">
-                            {column.format && typeof value === 'number' ? column.format(value) :  value}
-                            
-                            </Link>
-                        
-                            {currentUser==='teacher' ? <div>
-                              {column.id === 'ICONS' ? <DeleteIcon onClick={() => handleDelete({assignId})} /> : null}
-                            </div>:null}
-                           
->>>>>>> master
                           </TableCell>
                         );
                       })}

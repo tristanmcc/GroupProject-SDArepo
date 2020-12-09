@@ -12,8 +12,27 @@ import Icon from '@material-ui/core/Icon';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor:"#765576"
+    backgroundColor:"#765576",
+    cursor: "pointer",
+    outline: "none",
+    border: "none",
+    borderRadius:15,
+    transform: 'translateY(4)',
+    boxShadow: [
+      [ 0, 5, '#999'],
+    ],
+    // border: [10, 'solid', 'black'],
+    "&.active": {
+      backgroundColor: "#3e8e41",
+    },
+    '&.hover': {
+      backgroundColor: "white",
+    },
   },
+ 
+  
+    // transform: translateY(4)
+  
 }));
 
 export default function CourseDetailsPage({ match }) {
@@ -28,33 +47,12 @@ export default function CourseDetailsPage({ match }) {
     setOpenForm(false);
   };
 
-<<<<<<< HEAD
   const getCourseById = (courseId) => {
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
       //setCourse(res.data);
     });
   };
-=======
-    return (
-        
-        <div>
-        { openForm ? 
-            <div>
-                
-                    <AssignmentsView course={course} currentUser={currentUser}/> 
-                    {currentUser.userRole === 'teacher' ? 
-                        <button className=" btn btn-light" onClick={onCreateNewAssignment}>
-                        Add New Assignment
-                        </button>
-                    : null }
-                    
-             </div>
-            
-        :
-            <AssignmentsPage course={course} currentUser={currentUser}/>}
-            </div>
->>>>>>> master
 
   //Get userRole call
   const getUserRole = () => {
