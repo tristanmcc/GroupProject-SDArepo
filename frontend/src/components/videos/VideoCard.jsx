@@ -53,7 +53,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
           </Typography>
         </CardContent>
       </CardActionArea>
-
+      {currentUser.userRole === 'teacher' ? (
       <button
         style={{
           height: 60,
@@ -67,6 +67,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
       >
         <DeleteOutlineOutlinedIcon style={{ height: 60, width: '100%' }} />
       </button>
+      ) : null}
     </Card>
   );
 }
