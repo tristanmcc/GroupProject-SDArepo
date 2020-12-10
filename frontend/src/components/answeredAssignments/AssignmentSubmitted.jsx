@@ -46,8 +46,11 @@ function AssignmentSubmitted() {
 
     
     return (
+        <>
+        
         <div>
          <AccordianForAssignment questions={questions} answers={answers}/>
         </div>  
+        </>
       );}
 export default AssignmentSubmitted;

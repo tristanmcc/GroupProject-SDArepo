@@ -77,9 +77,11 @@ class Chat extends Component {
   render() {
     return (
       <div>
-        <div className="chat-banner">
+          <div className="chat-banner">
             Communication
             </div>
+            <div className="horizontalline">
+             </div>
             <div className="chat-page-row">
             <div className="chat-page-column">
       <div className="forumCard"><Forum/></div>

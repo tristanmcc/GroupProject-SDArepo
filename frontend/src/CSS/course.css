@@ -1,13 +1,16 @@
 /*-----------------Course Page CSS ----------- */
 .row-buttons {
-    text-align:center;
+    text-align:left;
   }
   
   
   .description {
     text-align:center;
   }
-  
+  .course-card-body{
+    background-color: #FDC00F  ;
+    text-align: center;
+  }
   
   .card-subtitle{
     text-align: center;
@@ -15,62 +18,7 @@
   img {
    width: 100%;
   }
-  
-  .course-grid {
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr; 
-    align-items: center;
-    justify-content: spa;
-    
-  } 
-  
-  .course-container {
-    display: grid;
-    background-color:#ffff;
-  }
-  
-  .container{
-    width:80%;
-      margin:20px auto;
-  }
-  
-  #main-header{
-      background-color:coral;
-      color:#fff;
-  }
-  
-  #main{
-      float:left;
-      width:70%;
-      padding:0 30px;
-      box-sizing: border-box;
-  }
-  
-  #button {
-    text-align: center;
-    margin-top: 360px;
-  }
-  
-  .btn {
-    border: 1px solid #000000;
-    font-size: 20px;
-    font-family: "montserrat";
-    padding: 10px 20px;
-    cursor: pointer;
-    margin: 10px;
-  }
-  
-  .btn1,.btn2,.btn3{
-    color: #3498db;
-  }
-  
-  .btn1:hover,.btn2:hover,.btn3:hover{
-    color: #3498db;
-  }
-  
-  
-  
-  
+
   .course-card-buttons {
     text-align: center;
     margin-top: 10px;
@@ -84,16 +32,19 @@
   .course-card {
    width:250px;
 
-    margin-left:3.5rem;
+  /* margin-left:3.5rem;
     max-width: 220px;
-    overflow: auto;
+    overflow: auto;*/
   padding-bottom: 1rem;
   text-align:center;
   border-radius: 10px 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px; 
   border-style: ridge;
+  text-align: center;
+  justify-content: space-around; 
+  
  
   }
   
@@ -143,25 +94,9 @@
   }
 
   .courselinkimage{
-    background-color: #1391B9;
+    background-color:#80d4f5;
   }
   
-
-  /*.create-coursebutton{
-    margin-bottom: 2rem;
-    }
-    .create-coursebutton:hover{
-     
-     -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-      transform: scale(1.2);
-      background-color: #3d4393d5;
-      color: #fff;
-    }
-    .create-coursebutton{
-     
-      border-radius:6px 6px;
-    }*/
 
 .create-coursebutton { 
   display: inline-block;
@@ -178,6 +113,7 @@
        padding: .5em 2em .55em;
        height: 40px;
       font-weight: 600;
+      text-align:center;
       }
     
     .create-coursebutton:hover {
@@ -212,73 +148,91 @@
 .createnewcoursebutton{
   display: inline-block;
 	outline: none;
-	cursor: pointer;
 	text-align: center;
 	text-decoration: none;
-  box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
+	cursor: pointer;
   background-color: #80d4f5 ;
+  box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
         border-radius:6px 6px;
         margin-bottom: 2rem;
         height: 30px;
-     
-       padding: .5em 2em .55em;
-       height: 40px;
-      font-weight: 600;
-      margin-right: 15px;
-      
-}
+        padding: .5em 2em .55em;
+        height: 40px;
+        font-weight: 600;
+        margin-right: 15px;
+        
+      }
+.course-banner{
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 45px;
+    margin-left: -50px;
+    margin-right: -50px;
+    background-color: #E55A71;
+   
+  
+    font-size: medium;
+    border-radius: 5px;
+    color: white;
+}     
+  .horizontalline{
+        padding: 2px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0),rgb(180, 173, 173), rgba(0,0,0,0)); 
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgb(180, 173, 173), rgba(0,0,0,0)); 
+     background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+   box-shadow: 0px 1px 0px rgba(94, 92, 92, 0.918);
 
+   margin-top: -25px;
+   margin-bottom: 45px;
+   margin-left: -50px;
+   margin-right: -50px
+  }
+  .course-container {
+    text-align: right;
+  
+  }
+  .course-grid {
+  /* display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    text-align: center;
+    justify-content: space-between; 
+    text-align: center;*/
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around; 
+    flex-flow: wrap; 
+    
+  } 
+  
 
 
   
   @media(max-width:1100px){
-  
-    .course-container {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .course-grid {
-      display: flex;
-      flex-direction: column;
-    }
     
+    .course-grid{
+      text-align: center;
+    
+    }
     .course-card {
       margin:0;
       margin-bottom: 1rem;
     }
-  
     .row-buttons {
-      text-align:center;
-    }
-   
-  }
-  @media(max-width:600px){
-    #main{
-        width:100%;
-        float:none;
+      text-align:left;
     }
 
-    #sidebar{
-        width:100%;
-        float:none;
+  }
+  @media screen and (max-width: 400px) {
+    .course-grid{
+      text-align: center;
+     display: grid;
+     grid-template-columns: 1fr;
+     
     }
-}
-  
-  .link {
-    color:black;
-  }
-  
-  .link:hover {
-     color: #00F
-  }
-  
-  .container-assignment label {
-    color:black;
-    font-weight: bold;
-  }
-  
-  .question label {
-    font-weight: normal;
-  }
-  
+    .course-container{
+     text-align: center;
+    } 
+    }

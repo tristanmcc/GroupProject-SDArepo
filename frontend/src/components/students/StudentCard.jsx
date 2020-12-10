@@ -14,7 +14,10 @@ export default function StudentCard({student, onStudentDelete, onStudentUpdate})
 
   
   return (
+    <div>
+    
     <div className="student-card-container">
+      
       <div className="student-comment">
            <div className="student-signature">
             <span className="student-user-name-comment">{`Student name: ${student.name}` }</span>
@@ -35,7 +38,8 @@ export default function StudentCard({student, onStudentDelete, onStudentUpdate})
           />
         ) : null}
 
-      </div>
-    </div>
+        </div>
+     </div>
+    </div>  
   );
 }

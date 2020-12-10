@@ -20,7 +20,12 @@ export default function VideosPage() {
 
   return (
     <>
-      <h1>Lectures Page</h1>
+
+        <div className="lecture-banner">
+        Lectures 
+         </div>
+           <div className="horizontalline">
+           </div> 
 
       <Videos currentUser={currentUser} />
     </>

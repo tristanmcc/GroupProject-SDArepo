@@ -23,7 +23,7 @@ function CourseForm({ onSubmit, onCancel }) {
         <h4 className="course-card-title">{"Create a course"}</h4>
         <form onSubmit={onCreateCourseClick}>
           <div className="form-group">
-            <label >Title:</label>
+            <label >Title: <span>(12 char)</span></label>
             <input 
               type="text" maxLength="12"
               className="form-control"
@@ -32,7 +32,7 @@ function CourseForm({ onSubmit, onCancel }) {
               onChange={(e) => setTitle(e.target.value)}
               required
             />
-            <span>(12 char)</span>
+           
           </div>
 
           <div className="form-group">

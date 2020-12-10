@@ -74,6 +74,8 @@ export default function AnsweredAssignmentsForm({match}) {
 
 
     return (
+        <>
+       
         <div className="card mt-4">
             <div className="card-body">
                 <h6 className="card-title" >{answeredAssignmentTitle}</h6>
@@ -275,6 +277,7 @@ export default function AnsweredAssignmentsForm({match}) {
                 </div>
             </div>
         </div>
+     </>   
     );
 }
 

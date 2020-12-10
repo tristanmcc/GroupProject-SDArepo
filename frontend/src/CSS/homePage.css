@@ -139,10 +139,57 @@
   .nav-card:active {
     color: #fff;
   }
+ 
   
+
+  .homepageanouncement{
+   
+   text-align: center;
+   border:ridge;
+   margin-top: 8%;
+   margin-bottom: 12%;
+  }
+    .homepageanouncement1{
+      background-color: #FDC00F;
+      animation-name: homepageanouncement1;
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: both;
+    }
+    @keyframes homepageanouncement1 {
+      0%   {background-color: #dc869494;}
+      25%  {background-color: rgba(222, 222, 96, 0.776);}
+      50%  {background-color: rgb(178, 178, 203);}
+      100% {background-color: rgb(180, 233, 180);}
+    }
+
+
+    .bee{
+      position: absolute;
+      bottom:10%;
+    position:relative;
+    -webkit-animation:linear infinite alternate;
+    -webkit-animation-name: run;
+    -webkit-animation-duration: 30s;
+
+     animation-name: bee;
+      height:100px;
+      width:50px
+     
+    }
+    @keyframes bee{
+      0% { left: 0;}
+      50%{ left : 100%;}
+      100%{ left: 0;}
+    }
+   
+   
+    
+
+
   
   /* Responsive columns - one column layout (vertical) on small screens */
-  @media (max-width: 950px) {
+  @media (max-width: 1360px) {
     .column {
         display: inline;
       float: left;
@@ -150,10 +197,13 @@
       padding: 0 10px;
       margin-bottom: 20px;
     }
+   .bee{
+    height:200px;
+    width:200px
+   }
+
+
   }
-
-
-
 
 
   @media (max-width: 750px) {
@@ -187,5 +237,9 @@
         margin-bottom: 20px;
         margin-left: 120px;
 
+    }
+    .bee{
+      height:80px;
+      width:40px
     }
 }
