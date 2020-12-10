@@ -16,12 +16,13 @@ export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseU
           <div className="couseupdate"> 
             <form>
             <div className="form-group">
-                 <label>Title Name : </label>
+                 <label>Title Name    : <span>(12 char)</span> </label>
+                  
                   <input name="title" type="text" maxlength="12"
                        value={title} 
-                       onChange={e=> setTitle(e.target.value)}/>
-                    <span>(12char.max)</span>
+                       onChange={e=> setTitle(e.target.value)}/>       
              </div>
+            
              <div className="form-group">
                   <label>Description : </label>
                   <textarea name="description" type="text"

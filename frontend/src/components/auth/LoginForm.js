@@ -24,7 +24,7 @@ function LoginForm({onSubmit,onRegister}) {
     
     return (
 
-        <div class="login-container">
+      <div class="login-container">
              <div class="forms-container">
              <div class="signin-signup">
           <form class="sign-in-form">

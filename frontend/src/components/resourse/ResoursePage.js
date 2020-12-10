@@ -2,18 +2,24 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "../../css/resoursepage.css";
 
-import craft from '../../images/resource_image/craft.png';
-import sudoku from '../../images/resource_image/sudoku.jpg';
-import quiz from '../../images/resource_image/quiz.png';
-import yoga from '../../images/resource_image/yoga.png';
-import puzel from '../../images/resource_image/puzzel.jpg';
-import health from '../../images/resource_image/healthtip.png';
-import cook from '../../images/resource_image/lilchef.png';
-import googleclass from '../../images/resource_image/googleclass.jpg';
+import craft from '../../images/Resource_Image/craft.png';
+import sudoku from '../../images/Resource_Image/sudoku.jpg';
+import quiz from '../../images/Resource_Image/quiz.png';
+import yoga from '../../images/Resource_Image/yoga.png';
+import puzel from '../../images/Resource_Image/puzzel.jpg';
+import health from '../../images/Resource_Image/healthtip.png';
+import cook from '../../images/Resource_Image/lilchef.png';
+import googleclass from '../../images/Resource_Image/googleclass.jpg';
 
 
 function ResoursePage() {
     return (
+    <div> 
+      <div className="resourse-banner"> 
+           Resourse  
+      </div>
+      <div className="horizontalline">
+      </div>
  <div className="resourseimg">
      <div className="images">       
         <figure>
@@ -21,6 +27,7 @@ function ResoursePage() {
            <a    href="http://tiny.cc/craftforkidss">
           <figcaption>  <b> ART & CRAFT</b></figcaption>  </a>  
         </figure>
+        
         <figure>
         <img className="yogaimage"  src={yoga} />
            <a    href="https://cosmickids.com">
@@ -60,6 +67,7 @@ function ResoursePage() {
               </figure>
           </div>   
      </div>
+     </div>    
     );
 }
 
