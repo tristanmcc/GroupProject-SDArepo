@@ -189,7 +189,8 @@
 
   
   /* Responsive columns - one column layout (vertical) on small screens */
-  @media (max-width: 1360px) {
+  
+    @media (max-width: 950px) {
     .column {
         display: inline;
       float: left;
@@ -197,6 +198,8 @@
       padding: 0 10px;
       margin-bottom: 20px;
     }
+  }
+    @media (max-width: 1360px) {
    .bee{
     height:200px;
     width:200px
