@@ -114,30 +114,28 @@ function AssignmentsView({ course, currentUsers }) {
     });
   };
 
-  return (
-    <div>
-      <Paper className={classes.root}>
-        <TableContainer className={classes.container}>
-          <Table
-            className={classes.assignmentsTable}
-            stickyHeader
-            aria-label="sticky table"
-          >
-            <TableHead>
-              <TableRow>
-                {columns.map((column) => (
-                  <TableCell
-                    key={column.id}
-                    align={column.align}
-                    style={{
-                      minWidth: column.minWidth,
-                      color: column.color,
-                      backgroundColor: "#E55A71",
-                      fontSize: column.fontSize,
-                    }}
-                  >
-                    {column.label}
-                  </TableCell>
+    return (
+      <>
+      <div className="assigenment-banner"> 
+      View Assigenment  
+      </div>
+       <div className="horizontalline">
+   </div>
+        <div>
+        <Paper className={classes.root}>
+      <TableContainer className={classes.container}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+           
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth, color:column.color, fontSize: column.fontSize }}
+                >
+                  {column.label}
+                </TableCell>
                 ))}
               </TableRow>
             </TableHead>
@@ -184,22 +182,24 @@ function AssignmentsView({ course, currentUsers }) {
                     </TableRow>
                   );
                 })}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          className={classes.tablePagination}
-          rowsPerPageOptions={[10, 25, 100]}
-          component="div"
-          count={rows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onChangePage={handleChangePage}
-          onChangeRowsPerPage={handleChangeRowsPerPage}
-        />
-      </Paper>
-    </div>
-  );
+              </TableBody>
+            </Table>
+          </TableContainer>
+          <TablePagination
+            rowsPerPageOptions={[10, 25, 100]}
+            component="div"
+            count={rows.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onChangePage={handleChangePage}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+          />
+        </Paper>
+
+        </div>
+   </>
+    
+      );
 }
 
 export default AssignmentsView;

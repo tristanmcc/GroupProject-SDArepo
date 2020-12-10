@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
-import book from '../../images/carousel-6.jpg';
-import '../../CSS/assignment.css';
-
+import UserApi from '../../api/UserApi';
+import book from '../../images/carousel/carousel-6.jpg';
+import '../../css/assignment.css';
 
 export default function AnsweredAssignmentsForm({match}) {
     
@@ -30,6 +30,7 @@ export default function AnsweredAssignmentsForm({match}) {
     const [question9, setQuestion9] = useState("");
     const [question10, setQuestion10] = useState("");
     const [assignmentId, setAssignmentId] = useState("");
+    const [user, setUser] = useState(" ");
     
     const getAssignmentById = (id) => {
         console.log("Calling getAssignmentById " + id )
@@ -53,11 +54,23 @@ export default function AnsweredAssignmentsForm({match}) {
                 console.log(response.data);
             })
     }
+
+    const getUserRole = () => {
+        UserApi.getCurrentUser()
+            .then(response => {
+            setUser(response.data);
+            console.log("User Name" + user.name);
+            })
+      }
+
+
     useEffect(() => {
         
             
             console.log("Inside useEffect , going to call getAssignmentById " + match.params.assignId);
             getAssignmentById(match.params.assignId);
+            getUserRole();
+
 
         
         },[] );
@@ -74,19 +87,17 @@ export default function AnsweredAssignmentsForm({match}) {
 
 
     return (
+        <>
+       
         <div className="card mt-4">
             <div className="card-body">
                 <h6 className="card-title" >{answeredAssignmentTitle}</h6>
                 <p className="card-subtitle">{answeredAssignmentDescription}</p>
                 <div>
                     <div className="form-group">
-                    <label>Student Number:</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="..."
-                            value=""
-                            onChange={e => setAnsweredAssignmentTitle(e.target.value)} />
+                    <label>Student Name:</label>
+                    {user.name}
+                       
                     </div>
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -268,13 +279,14 @@ export default function AnsweredAssignmentsForm({match}) {
                     <div className="form-group">
                         <button
                             className="btn btn-danger"
-                            onClick={() => createAnsweredAssignment({answeredAssignmentTitle, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, assignmentId })}>
+                            onClick={() => createAnsweredAssignment({answeredAssignmentTitle, answer1, answer2, answer3, answer4, answer5, answer6, answer7, answer8, answer9, answer10, assignmentId ,user})}>
                             Submit
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+     </>   
     );
 }
 

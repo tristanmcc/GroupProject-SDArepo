@@ -64,6 +64,7 @@ export default function VideoUploadForm({ course, currentUser }) {
           onChange={(e) => setVideoUrl(e.target.value)}
         />
       </form>
+      {currentUser.userRole === 'teacher' ? (
       <Button
         variant="contained"
         color="default"
@@ -75,7 +76,7 @@ export default function VideoUploadForm({ course, currentUser }) {
         }} 
       >
         Upload
-      </Button>
+      </Button> ): null }
       <hr />
     </>
   );

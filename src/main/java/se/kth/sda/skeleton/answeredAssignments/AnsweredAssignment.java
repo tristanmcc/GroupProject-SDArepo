@@ -43,7 +43,17 @@ public class AnsweredAssignment {
 
     private Long assignmentId;
 
+    public Long getRating() {
+        return rating;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
+
     private Long studentId;
+
+    private Long rating;
 
     @ManyToOne
     private User user;

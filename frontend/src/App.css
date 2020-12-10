@@ -1,6 +1,7 @@
 
+
 body{
-	background-color: #FFFFF3;
+	background-color: #fffff8;
 	color:#555;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:16px;
@@ -30,7 +31,6 @@ body{
 .App-link {
   color: #09d3ac;
 }
-
 
 .row-buttons {
   text-align:right;
@@ -70,11 +70,16 @@ button.btn.btn-dark.course-button {
 
 img {
  width: 100%;
+/*CSS for Nav */
+
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-.course-grid {
-  display:grid;
-  grid-template-columns: 1fr 1fr 1fr; 
+nav{
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 } 
 
@@ -102,35 +107,16 @@ img {
 #main-header{
 	background-color:coral;
 	color:#fff;
+  min-height: 8vh;
+  background-color: #5D4954;
+  font-family: 'Poppins', sans-serif;
 }
 
-#main{
-	float:left;
-	width:70%;
-	padding:0 30px;
-	box-sizing: border-box;
-}
-
-#button {
-  text-align: center;
-  margin-top: 360px;
-}
-
-.btn {
-  border: 1px solid #000000;
-  padding: 10px 20px;
-  font-size: 20px;
-  font-family: "montserrat";
-  cursor: pointer;
-  margin: 10px;
-}
-
-.btn1,.btn2,.btn3{
-  color: #3498db;
-}
-
-.btn1:hover,.btn2:hover,.btn3:hover{
-  color: #3498db;
+.logo{
+  color: white;
+  text-transform: uppercase;
+  font-size: 17px;
+  letter-spacing: 2px;
 }
 /* Course details page styling starts */
 
@@ -184,38 +170,30 @@ img {
 
 /* Course details page styling ends */
 
-@media(max-width:600px){
-	#main{
-		width:100%;
-		float:none;
-	}
-
-	#sidebar{
-		width:100%;
-		float:none;
-	}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
 }
 
-.modal-body {
-  border: 2px solid #555;
-  /* box-shadow: 3px 7px #888888;  */
-  /* background-color:#dee2e6; */
-  background-color:lightgrey;
-  border-radius:5px 5px;
+.nav-links li{
+  list-style: none;
 }
 
-.course-card-buttons {
-  text-align: center;
+.nav-links a{
+  color: rgb(226,226,226);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 14px;
+  margin: 6px;
 }
 
-.deleteButton {
-  margin-right:2rem;
-}
 
-.card-body {
-  background-color:gainsboro;
-  border: 2px solid #555;
-  border-radius:8px 8px;
+@media screen and (max-width:1024px) {
+  .nav-links{
+    width: 60%;
+  }
 }
 
 @media(max-width:900px) {
@@ -241,52 +219,63 @@ img {
     display: flex;
     flex-direction: column;
   }
-
-  .course-grid {
+}
+@media screen and (max-width:768px) {
+  body{
+     overflow-x: hidden;
+  }
+  .nav-links{
+    position: absolute;
+    right: 0px;
+    height: 84vh;
+    top: 8vh;
+    background-color: #5D4954;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    width:100%;
+    transform: translateX(100%);
+    /* transition: transform 0.5s ease-in;  */
   }
-  
-  .course-card {
-    margin:0;
+  .nav-links li{
+     opacity: 0;
   }
-
-  .row-buttons {
-    text-align:center;
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+  .burger div {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(226,226, 22);
+    margin: 5px;
+    transition: all 0.3s ease;
   }
 }
 
-.link {
-  color:black;
+.nav-active {
+  transform: translateX(0%);
 }
 
-.link:hover {
-   color: #00F
+@keyframes navLinkFade {
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
 
-.container-assignment label {
-  color:black;
-  font-weight: bold;
+.BurgToggle .line1{
+  transform: rotate(-45deg) translate(-5px, 6px);
+
+}
+.BurgToggle .line2{
+  opacity: 0;
 }
 
-.question label {
-  font-weight: normal;
-}
-
-/*-------- RESOURSE PAGE CSS ---- */
-
-.images figcaption {
-  line-height: 30px;
-  border-radius: 10px;
-  bottom: -100px;
-  padding: 5px;
-  font-weight:bold;
-  font-size: medium;
-  text-align: center;  
-}
-figcaption:hover {
-  color: rgb(175, 60, 6);
-}
 
 .images {
   display: grid;
@@ -318,4 +307,7 @@ div.images img{
   .images figure {
       text-align: center;
   }
+}
+.BurgToggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
 }

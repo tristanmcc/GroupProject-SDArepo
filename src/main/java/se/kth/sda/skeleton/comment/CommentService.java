@@ -22,7 +22,7 @@ public class CommentService {
         return repo.findById(id);
     }
 
-    public Comment create(Comment newPost) { return repo.save(newPost); }
+    public Comment create(Comment newComment) { return repo.save(newComment); }
 
     public void delete(Long id) {
         repo.deleteById(id);

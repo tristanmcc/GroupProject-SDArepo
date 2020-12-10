@@ -53,10 +53,10 @@ public class Question {
         this.textBody = textBody;
     }
 
-    public List<Comment> getCommentList() { return commentList;
+    /**public List<Comment> getCommentList() { return commentList;
     }
 
     public void setCommentList(List<Comment> commentList) { this.commentList = commentList;
-   }
+   }**/
 
 }

@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from "react";
-import AssignmentsApi from "../../api/AssignmentsApi";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useState, useEffect } from 'react';
+import AssignmentsApi from '../../api/AssignmentsApi';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+
+import { Link } from 'react-router-dom';
 
 function AssignmentsPage({ course, currentUser }) {
-  const [assignmentTitle, setAssignmentTitle] = useState("");
-  const [assignmentDescription, setAssignmentDescription] = useState("");
+  const [assignmentTitle, setAssignmentTitle] = useState('');
+  const [assignmentDescription, setAssignmentDescription] = useState('');
   const [dueDate, setDueDate] = useState(new Date());
 
-  const [question1, setQuestion1] = useState("");
-  const [question2, setQuestion2] = useState("");
-  const [question3, setQuestion3] = useState("");
-  const [question4, setQuestion4] = useState("");
-  const [question5, setQuestion5] = useState("");
-  const [question6, setQuestion6] = useState("");
-  const [question7, setQuestion7] = useState("");
-  const [question8, setQuestion8] = useState("");
-  const [question9, setQuestion9] = useState("");
-  const [question10, setQuestion10] = useState("");
-  const [assignId, setAssignId] = useState("");
+  const [question1, setQuestion1] = useState('');
+  const [question2, setQuestion2] = useState('');
+  const [question3, setQuestion3] = useState('');
+  const [question4, setQuestion4] = useState('');
+  const [question5, setQuestion5] = useState('');
+  const [question6, setQuestion6] = useState('');
+  const [question7, setQuestion7] = useState('');
+  const [question8, setQuestion8] = useState('');
+  const [question9, setQuestion9] = useState('');
+  const [question10, setQuestion10] = useState('');
+  const [assignId, setAssignId] = useState('');
 
   function handleSubmit() {
     AssignmentsApi.postAssignment({
@@ -38,12 +40,14 @@ function AssignmentsPage({ course, currentUser }) {
       question10,
     }).then((response) => {
       setAssignId(response.data.id);
-      alert("Successfully added the assignment");
+      window.location.reload();
+
+ 
     });
   }
 
   function handleUpdate() {
-    console.log("Inside Update" + assignId);
+    console.log('Inside Update' + assignId);
     // Creating a local variable
     const id = assignId;
     AssignmentsApi.updateAssignment({
@@ -62,7 +66,10 @@ function AssignmentsPage({ course, currentUser }) {
       question9,
       question10,
       course,
-    }).then((response) => alert("Updation of Assignment Successful"));
+    }).then((response) => {
+      window.location.reload();
+      /*alert('Updation of Assignment Successful')*/
+    });
   }
 
   return (
@@ -202,20 +209,24 @@ function AssignmentsPage({ course, currentUser }) {
         </div>
       </div>
       <div className="card-header">
-        {assignId === "" ? (
-          <button
-            className=" btn btn-dark btn-sm"
-            onClick={() => handleSubmit()}
-          >
-            Submit
-          </button>
+        {assignId === '' ? (
+          <Link to="/assignments">
+            <button
+              className=" btn btn-dark btn-sm"
+              onClick={() => handleSubmit()}
+            >
+              Submit
+            </button>
+          </Link>
         ) : (
-          <button
-            className=" btn btn-dark btn-sm"
-            onClick={() => handleUpdate()}
-          >
-            Update
-          </button>
+          <Link to="/assignments">
+            <button
+              className=" btn btn-dark btn-sm"
+              onClick={() => handleUpdate()}
+            >
+              Update
+            </button>
+          </Link>
         )}
       </div>
     </div>

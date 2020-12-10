@@ -1,0 +1,236 @@
+/*-----------------Course Page CSS ----------- */
+.row-buttons {
+    text-align:left;
+  }
+  
+  
+  .description {
+    text-align:center;
+  }
+  .course-card-body{
+    background-color: #FDC00F  ;
+    text-align: center;
+  }
+  
+  .card-subtitle{
+    text-align: center;
+  }
+  img {
+   width: 100%;
+  }
+
+  .course-card-buttons {
+    text-align: center;
+    margin-top: 10px;
+   
+  }
+  .course-card:hover {
+    transform: scale(1.05);
+    box-shadow:0 0 40px -10px rgba(0,0,0,0.25)
+  }
+  
+  .course-card {
+   width:250px;
+
+  /* margin-left:3.5rem;
+    max-width: 220px;
+    overflow: auto;*/
+  padding-bottom: 1rem;
+  text-align:center;
+  border-radius: 10px 10px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px; 
+  border-style: ridge;
+  text-align: center;
+  justify-content: space-around; 
+  
+ 
+  }
+  
+ .course-card-title{
+  color: #f10d0d;
+  margin-top: 10px;
+  
+ }
+  
+  
+  
+  .courseheader{
+    text-align: center;
+    background-color:white;
+    color: rgb(43, 17, 17);
+    
+   
+  }
+  .courseimage{
+    height: 10rem;
+    margin-bottom: 0px;
+  }
+  div.couseupdate, .form-group{
+  margin-left: 0rem;
+  padding-left: 0%;
+  }
+  
+  
+  .create-deleteButton {
+    margin-right:2rem; 
+    width:30px;
+    
+  }
+  .create-deleteButton:hover{
+    background: #f10d0d;
+    box-sizing: border-box;
+ 
+  }
+  .create-updateButton {
+    width:30px;
+  }
+  
+  .create-updateButton:hover{
+    background: #69c613b4;
+    box-sizing: border-box;
+   
+  }
+
+  .courselinkimage{
+    background-color:#80d4f5;
+  }
+  
+
+.create-coursebutton { 
+  display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+  box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
+  background-color: #80d4f5 ;
+        border-radius:6px 6px;
+        margin-bottom: 2rem;
+        height: 30px;
+     
+       padding: .5em 2em .55em;
+       height: 40px;
+      font-weight: 600;
+      text-align:center;
+      }
+    
+    .create-coursebutton:hover {
+        background:  #E55A71  ;  
+      }
+.cancelnewcoursebutton{
+  display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+  box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
+  background-color: #80d4f5 ;
+        border-radius:6px 6px;
+        margin-bottom: 2rem;
+        height: 30px;
+     
+       padding: .5em 2em .55em;
+       height: 40px;
+      font-weight: 600;
+}
+.cancelnewcoursebutton:active {
+	position: relative;
+	top: 1px;
+  background:  #E55A71  ; 
+}
+.createnewcoursebutton:active {
+	position: relative;
+	top: 1px;
+  
+}
+.createnewcoursebutton{
+  display: inline-block;
+	outline: none;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+  background-color: #80d4f5 ;
+  box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
+        border-radius:6px 6px;
+        margin-bottom: 2rem;
+        height: 30px;
+        padding: .5em 2em .55em;
+        height: 40px;
+        font-weight: 600;
+        margin-right: 15px;
+        
+      }
+.course-banner{
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 45px;
+    margin-left: -50px;
+    margin-right: -50px;
+    background-color: #E55A71;
+    font-size: medium;
+    border-radius: 5px;
+    color: white;
+}     
+  .horizontalline{
+        padding: 2px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0),rgb(180, 173, 173), rgba(0,0,0,0)); 
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgb(180, 173, 173), rgba(0,0,0,0)); 
+     background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+   box-shadow: 0px 1px 0px rgba(94, 92, 92, 0.918);
+
+   margin-top: -25px;
+   margin-bottom: 45px;
+   margin-left: -50px;
+   margin-right: -50px
+  }
+  .course-container {
+    text-align: right;
+  
+  }
+  .course-grid {
+  /* display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    text-align: center;
+    justify-content: space-between; 
+    text-align: center;*/
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around; 
+    flex-flow: wrap; 
+    
+  } 
+  
+
+
+  
+  @media(max-width:1100px){
+    
+    .course-grid{
+      text-align: center;
+    
+    }
+    .course-card {
+      margin:0;
+      margin-bottom: 1rem;
+    }
+    .row-buttons {
+      text-align:left;
+    }
+
+  }
+  @media screen and (max-width: 400px) {
+    .course-grid{
+      text-align: center;
+     display: grid;
+     grid-template-columns: 1fr;
+     
+    }
+    .course-container{
+     text-align: center;
+    } 
+    }

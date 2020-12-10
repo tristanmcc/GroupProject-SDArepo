@@ -13,25 +13,29 @@ export default function StudentUpdateForm( {oldStudent, changeFormState, onStude
     changeFormState(false);
     };
     return (
-      <div className="input-group mb-3">
-        <textarea
-        className="form-control"
-        placeholder="Enter student name"
-        value={name}
-        onChange={e=> setName(e.target.value)}/>
+      <div className="student-card-container">
+          <div className="input-group mb-3">
+          <textarea
+           className="form-control"
+           placeholder="Enter student name"
+           value={name}
+          onChange={e=> setName(e.target.value)}/> 
                   
-      <div className="input-group mb-3">
-        <textarea
-        className="form-control"
-        placeholder="Enter student age"
-        value={age}
-        onChange={e=> setage(e.target.value)}/>
+         <div className="input-group mb-3">
+          <input
+          className="form-control" maxLength="3"
+          placeholder="Enter student age"
+          value={age}
+          onChange={e=> setage(e.target.value)}/>
+         </div>
+
+         <div className="form-group"> 
+           <button className="btn btn-dark" onClick={handleUpdateStudentClick} > 
+           Update </button>
+           <button className="btn btn-dark" onClick={onCancelUpdate}> Cancel </button>
+         </div>
       </div>
-      <div className="form-group"> 
-        <button className="btn btn-dark" onClick={handleUpdateStudentClick} > 
-          Update </button>
-        <button className="btn btn-dark" onClick={onCancelUpdate}> Cancel </button>
-      </div>
-      </div>
+
+ </div>    
           );
   }

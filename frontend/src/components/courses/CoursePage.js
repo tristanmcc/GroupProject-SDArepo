@@ -69,33 +69,43 @@ const updateCourse = (updatedCourse) => {
 };
 
   return (
-    <div className="course-container">
-      <div className="row-buttons">
-
-         { openForm ? 
-          <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
-        
-         : 
-          <>
+  <div>
+         <div className="course-banner">
+             Courses
+             
+         </div>
+          <div className="horizontalline">
+             </div>
+     <div className="course-container">
+         
+       <div className="row-buttons">
+          { openForm ? 
+            <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
+          
+           : 
+           <>
           {currentUser==='teacher' ? 
             <button
-              className="btn btn-info course-button"
+              className="create-coursebutton"
               onClick={onCreateNewCourse}>
-              CREATE COURSE
+              Create Course
             </button> : null
             }
+            
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
+
               onCourseUpdate={updateCourse}
               currentUser = {currentUser}
             />
           </>
         }
       </div>
-
+ 
+      </div>
      
-    </div>
+ </div>
   );
 }
 export default CoursePage;

@@ -1,0 +1,189 @@
+.chat-banner{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 45px;
+    margin-left: -50px;
+    margin-right: -50px;
+    background-color: #E55A71;
+    font-size: medium;
+    border-radius: 5px;
+    color: white;
+}
+
+.horizontalline{
+ padding: 2px;
+background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+background-image: -moz-linear-gradient(left, rgba(0,0,0,0),rgb(180, 173, 173), rgba(0,0,0,0)); 
+background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgb(180, 173, 173), rgba(0,0,0,0)); 
+ background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+box-shadow: 0px 1px 0px rgba(94, 92, 92, 0.918);
+
+margin-top: -25px;
+margin-bottom: 45px;
+margin-left: -50px;
+margin-right: -50px
+}
+
+/*Styling for the Chat page */
+.chatbox{
+    background-color: aliceblue;
+        margin: auto;
+        margin-bottom: 30px; 
+        padding:15px, 15px, 15px; 
+        width: 97%; 
+        height: 250px; 
+        overflow-x: hidden; 
+        overflow-y: auto; 
+        text-align:justify; 
+
+}
+
+
+.chat-page-column {
+    float: left;
+    width: 50%;
+    padding: 0 25px;
+}
+
+.chat-page-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.forumCard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+    background-color: #E55A71;
+    padding: 30px 20px 0px 20px;
+    margin-left: -50px;
+}
+
+
+/*Styling for the Forum comp */
+    .forumbox{
+        background-color: aliceblue;
+        margin: auto;
+        margin-bottom: 30px; 
+        padding:15px, 15px, 15px; 
+        width: 97%; 
+        height: 250px; 
+        overflow-x: hidden; 
+        overflow-y: auto; 
+        text-align:justify; 
+
+    }
+
+    .question-card{
+        background-color: white;
+        padding: 0px 10px;
+        margin-bottom: 15px;
+        
+    }
+
+    .comment-card{
+        background-color: white;
+        padding: 0px 2px;
+        margin-bottom: 12px;
+        margin-left: 12px;
+    }
+
+    .question-button{
+        background-color: white;
+        float: right;
+        border: transparent;
+        padding: 0px 8px;
+    }
+    .send-button{
+        
+        background-color: white;
+        border: transparent;
+        padding: 0px 8px;
+        width:10;
+    }
+    
+    .forum-input{
+        margin-right: 10px;
+    }
+
+    .forum-title{
+        color: white;
+    }
+
+    .forum-submit{
+        margin-bottom: 20px;
+        padding: 6px;
+        border: transparent;
+        border-radius: 5px;
+    }
+    
+    .forum-textArea{
+        padding: 0px 2px; 
+    }
+    .forum-questionForm{
+        background-color: #fd9eae;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-top: 20px;
+    }
+
+
+    /*Styling for the Chat comp */
+.chat-inputform{
+    background-color: #E55A71;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-top: 20px;
+
+}
+
+.chatCard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+    background-color: #fd9eae;
+    padding: 30px 20px 0px 20px;
+    margin-right: -50px;
+}
+
+.chat-title{
+    color: white;
+    margin-top: -25px;
+}
+
+.chat-submit{
+    margin-top: -3px;
+    margin-bottom: 13px;
+    margin-left: -2.5px;
+    padding: 6px;
+    border: transparent;
+    border-radius: 5px;
+
+}
+    
+
+
+@media (max-width: 767px) {
+    .chat-page-column {
+        width: 100%;
+        padding: 0 25px;
+    }
+
+    .forumCard{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+        background-color: #E55A71;
+        padding: 30px 20px 0px 20px;
+        margin-bottom: 80px;
+        margin-left: auto;
+        
+    }
+
+    .chatCard{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+        background-color: #fd9eae;
+        padding: 30px 20px 0px 20px;
+        margin-right: auto;
+
+    }
+}

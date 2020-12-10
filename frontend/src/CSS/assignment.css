@@ -3,3 +3,97 @@
     color:black;
     font-weight: bold;
 }
+.container-assignment label {
+    color:black;
+    font-weight: bold;
+  }
+  .create-coursebutton { 
+    display: inline-block;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
+    background-color: #80d4f5 ;
+          border-radius:6px 6px;
+          margin-bottom: 2rem;
+          height: 30px;
+       
+         padding: .5em 2em .55em;
+         height: 40px;
+        font-weight: 600;
+        text-align:center;
+        }
+      
+      .create-coursebutton:hover {
+          background:  #E55A71  ;  
+        }
+  .cancelnewcoursebutton{
+    display: inline-block;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
+    background-color: #80d4f5 ;
+          border-radius:6px 6px;
+          margin-bottom: 2rem;
+          height: 30px;
+       
+         padding: .5em 2em .55em;
+         height: 40px;
+        font-weight: 600;
+  }
+  .cancelnewcoursebutton:active {
+      position: relative;
+      top: 1px;
+    background:  #E55A71  ; 
+  }
+  .createnewcoursebutton:active {
+      position: relative;
+      top: 1px;
+    
+  }
+  .createnewcoursebutton{
+    display: inline-block;
+      outline: none;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    background-color: #80d4f5 ;
+    box-shadow: 0 1px 2px rgba(185, 26, 26, 0.87);
+          border-radius:6px 6px;
+          margin-bottom: 2rem;
+          height: 30px;
+          padding: .5em 2em .55em;
+          height: 40px;
+          font-weight: 600;
+          margin-right: 15px;
+          
+        }
+  .assigenment-banner{
+       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+      padding: 16px;
+      text-align: center;
+      margin-top: -25px;
+      margin-bottom: 45px;
+      margin-left: -50px;
+      margin-right: -50px;
+      background-color: #1391B9 ;
+      font-size: medium;
+      border-radius: 5px;
+      color: white;
+  }     
+    .horizontalline{
+          padding: 2px;
+      background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+      background-image: -moz-linear-gradient(left, rgba(0,0,0,0),rgb(180, 173, 173), rgba(0,0,0,0)); 
+      background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgb(180, 173, 173), rgba(0,0,0,0)); 
+       background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
+     box-shadow: 0px 1px 0px rgba(94, 92, 92, 0.918);
+  
+     margin-top: -25px;
+     margin-bottom: 45px;
+     margin-left: -50px;
+     margin-right: -50px
+    }
