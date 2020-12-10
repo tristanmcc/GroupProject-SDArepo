@@ -3,7 +3,7 @@
 body{
 	background-color: #fffff8;
 	color:#555;
-	
+	/*font-family:Arial, Helvetica, sans-serif;*/
 	font-size:16px;
 	line-height:1.6em;
 	margin:0 auto;
@@ -142,4 +142,11 @@ nav{
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
+.logout-button{
+  padding: 0px 8px;
+  border-radius: 5px;
+  border-width: 1px;
+  
+
+}
 

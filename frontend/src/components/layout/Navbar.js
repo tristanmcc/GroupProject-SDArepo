@@ -39,18 +39,19 @@ export default function Navbar ({ onLogout }) {
                <a href="/" /**class="fas fa-home"**/>
                  Home
                </a>
-             </li>  
+             </li> 
+             <li>
+              <a href="/scheduler" /* class="far fa-calendar-alt" */>
+                Scheduler
+              </a>
+            </li> 
              <li >
                <a href="/courses" /* class="fas fa-book-open" */>
                  Courses
 
                </a>
              </li>
-             <li>
-              <a href="/scheduler" /* class="far fa-calendar-alt" */>
-                Scheduler
-              </a>
-            </li>
+             
              <li >
                <a href="/assignments" /* class="fas fa-tasks" */>
                  Assignments
@@ -84,7 +85,7 @@ export default function Navbar ({ onLogout }) {
             
            </div>
           
-           <button  
+           <button  className="logout-button"
              onClick={onLogout} >
            Logout
          </button>

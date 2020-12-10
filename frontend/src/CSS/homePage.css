@@ -145,8 +145,7 @@
   .homepageanouncement{
    
    text-align: center;
-   border:ridge;
-   margin-top: 8%;
+   border: solid;
    margin-bottom: 12%;
   }
     .homepageanouncement1{
