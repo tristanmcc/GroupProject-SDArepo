@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import '../../CSS/login.css';
+import '../../css/login.css';
 import book from '../../images/undraw_education_f8ru (1).svg';
 import history from '../../images/undraw_voice_interface_eckp.svg';
 
@@ -24,7 +24,7 @@ function LoginForm({onSubmit,onRegister}) {
     
     return (
 
-        <div class="login-container">
+      <div class="login-container">
              <div class="forms-container">
              <div class="signin-signup">
           <form class="sign-in-form">
