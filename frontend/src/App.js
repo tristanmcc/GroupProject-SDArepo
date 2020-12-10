@@ -64,7 +64,7 @@ function App() {
           </Route>
           
           <Route
-            path="/assignmentSubmitted/:assignId"
+            path="/assignmentSubmitted/:assignId/:name"
             render={({ match }) => <AssignmentSubmitted match={match} />}
           />
            <Route

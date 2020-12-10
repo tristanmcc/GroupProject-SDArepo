@@ -289,9 +289,9 @@ useEffect(() => {
                   return (
                     <TableRow>
 
-                    
+                      
                       <TableCell >
-                      <Link to={`/assignmentSubmitted/${row.id}`}>
+                      <Link to={`/assignmentSubmitted/${row.id}/${row.name}`}>
                         {row.name}
                         </Link>
                         </TableCell>
