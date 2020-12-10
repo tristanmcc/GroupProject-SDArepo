@@ -7,20 +7,20 @@ const [textBody, setTextBody] = useState();
 
     return (
         <div className="">
-            <div className="">
-                <h3 className="" >Add question</h3>
+            <div className="forum-questionForm">
+                <h5 className="forum-title" >Ask a question</h5>
                 <div>
-                    <div className="">
+                    <div className="forum-input">
                         <textarea
                             type="text"
-                            className=""
+                            className="forum-textArea"
                             placeholder="What's on your mind?"
                             value={textBody}
                             onChange={e => setTextBody(e.target.value)} />
                     </div>
-                    <div className="form-group">
+                    <div className="">
                         <button
-                            className="btn btn-danger"
+                            className="forum-submit"
                             onClick={() => onSubmit({textBody})}>
                             Post
                         </button>
