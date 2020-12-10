@@ -19,8 +19,15 @@
         background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
       box-shadow: 0px 1px 0px rgba(94, 92, 92, 0.918);
    
-      margin-top: -25px;
+     
       margin-bottom: 45px;
-      margin-left: -50px;
-      margin-right: -50px
+      
+      
      }
+
+   .schedular-card{
+     background-color: #1391B9;
+     padding: 10px;
+     margin-bottom: 40px;
+     border-radius: 5px;
+   }

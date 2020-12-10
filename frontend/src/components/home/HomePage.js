@@ -11,17 +11,19 @@ import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
 import videoIcon from "../../images/Icons/Play_button.png";
 import apple from "../../images/Icons/apple.png";
 import '../../css/homePage.css';
-import bee from '../../images/Resource_Image/graduationBee.png';
+import bee from '../../images/resource_image/graduationBee.png';
 
 
 function HomePage() {
     return (
 <div>
             <div className="home-banner">Home</div>
-              <div className="horizontalline"> </div>
+              
    <div class="row">
           <div class="column">
-            <div class="card-nav1"><img src= {Calender} alt="Open Book" width="80" height="140"></img>Calender</div>
+          <Link to="/scheduler" className="nav-card">
+            <div class="card-nav1"><img src= {Calender} alt="Open Book" width="80" height="140"></img>Scheduler</div>
+            </Link>
            </div>
   
        <div class="column">
@@ -57,20 +59,14 @@ function HomePage() {
       </div> 
    </div>
     
-    <>
-    <div className="horizontalline1"> </div>
-           <div className="homepageanouncement">
-              <div >
-             
+           <div className="homepageanouncement">  
                   <div className="homepageanouncement1" >
-                  
-          
                    <h2>Announcement  !!!</h2> </div>
                   <p>  There are two new lectures to watch and onw new assigenment to complete!!! </p>
-             </div> 
+           
              </div>
              <img className="bee"  src={bee} /> 
-       </>    
+        
  </div>
         
     );
