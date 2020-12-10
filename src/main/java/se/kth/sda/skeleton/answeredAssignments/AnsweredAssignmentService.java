@@ -44,7 +44,7 @@ public class AnsweredAssignmentService {
          answeredAssRepo.deleteById(id);
     }
 
-	public AnsweredAssignment getByAssignmentId(Long id) {
+	public List<AnsweredAssignment> getByAssignmentId(Long id) {
 		return answeredAssRepo.findByAssignmentId(id);
 	}
 
