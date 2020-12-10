@@ -43,12 +43,16 @@
   .cancelnewcoursebutton:active {
       position: relative;
       top: 1px;
+  background:  rgb(235, 235, 235)  
+
   
   }
 
   .createnewcoursebutton:active {
       position: relative;
       top: 1px;
+  background:  rgb(235, 235, 235)  
+
   }
   .createnewcoursebutton{
       display: inline-block;

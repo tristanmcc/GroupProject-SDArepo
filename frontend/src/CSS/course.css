@@ -129,6 +129,9 @@
       font-weight: 400;
       text-align:center;
       }
+      .create-coursebutton:active{
+        background:  rgb(235, 235, 235);
+      }
     
     
 .cancelnewcoursebutton{
@@ -150,11 +153,16 @@
 .cancelnewcoursebutton:active {
 	position: relative;
 	top: 1px;
-  background-color: white; 
+  background:  rgb(235, 235, 235)  
+
+
 }
 .createnewcoursebutton:active {
 	position: relative;
-	top: 1px;
+  top: 1px;
+  background:  rgb(235, 235, 235)  
+
+  
   
 }
 .createnewcoursebutton{
