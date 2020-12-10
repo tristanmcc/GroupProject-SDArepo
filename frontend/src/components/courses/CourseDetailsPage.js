@@ -3,36 +3,25 @@ import "../../App.css";
 import AssignmentsView from "../assignments/AssignmentsView";
 import CoursesApi from "../../api/CoursesApi";
 import UserApi from "../../api/UserApi";
-import VideosPage from "../videos/VideosPage";
+import Videos from "../videos/VideosPage";
+import VideoUpLoadForm from "../videos/VideoUploadForm";
 import AssignmentsPage from "../assignments/AssignmentsPage";
-import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
-import Icon from '@material-ui/core/Icon';
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import Icon from "@material-ui/core/Icon";
 
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor:"#E55A71",
+    backgroundColor: "#E55A71",
     cursor: "pointer",
     outline: "none",
     border: "none",
-    borderRadius:15,
-    transform: 'translateY(4)',
-    boxShadow: [
-      [ 0, 5, '#999'],
-    ],
-    // border: [10, 'solid', 'black'],
-    "&.active": {
-      backgroundColor: "#3e8e41",
-    },
-    '&.hover': {
-      backgroundColor: "white",
-    },
+    borderRadius: 15,
+    transform: "translateY(4)",
+    boxShadow: [[0, 5, "#999"]],
   },
- 
-  
-    // transform: translateY(4)
-  
 }));
 
 export default function CourseDetailsPage({ match }) {
@@ -40,6 +29,7 @@ export default function CourseDetailsPage({ match }) {
   const [course, setCourse] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [openForm, setOpenForm] = useState(true);
+  const [openLectureForm, setOpenLectureForm] = useState(true);
 
   const classes = useStyles();
 
@@ -47,10 +37,13 @@ export default function CourseDetailsPage({ match }) {
     setOpenForm(false);
   };
 
+  const onUploadVideo = () => {
+    setOpenLectureForm(false);
+  };
+
   const getCourseById = (courseId) => {
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
-      //setCourse(res.data);
     });
   };
 
@@ -73,14 +66,34 @@ export default function CourseDetailsPage({ match }) {
         <p>{course.description}</p>
       </div>
       <div className="course-details-section">
-      <div className="lecture-details">
-          <p className="lectures-title">Lectures</p>
-          <VideosPage course={course} currentUser={currentUser} />
+        <div className="check">
+        <div className="lecture-details">
+        <p className="lectures-title">Lectures</p>
+        <hr className="lectures-line" />
+          {openLectureForm ? (
+            <>
+              <Videos course={course} currentUser={currentUser} />
+            </>
+          ) : (
+            <VideoUpLoadForm course={course} currentUser={currentUser} />
+          )}
+         
         </div>
+        <div className="buttonCheck"> <Button
+                variant="contained"
+                color="default"
+                className={classes.button}
+                startIcon={<CloudUploadIcon />}
+                onClick={onUploadVideo}
+              >
+                Upload
+              </Button></div>
+              </div>
         <div className="assignment-details">
           {openForm ? (
             <>
               <AssignmentsView course={course} currentUser={currentUser} />
+
               <Button
                 variant="contained"
                 color="primary"
@@ -88,21 +101,13 @@ export default function CourseDetailsPage({ match }) {
                 endIcon={<Icon>send</Icon>}
                 onClick={onCreateNewAssignment}
               >
-                 Add New Assignment
-              </Button>
-             {/*  <button
-                className=" btn btn-light"
-                onClick={onCreateNewAssignment}
-              >
                 Add New Assignment
-              </button> */}
+              </Button>
             </>
           ) : (
             <AssignmentsPage course={course} currentUser={currentUser} />
           )}
         </div>
-
-       
       </div>
     </div>
   );

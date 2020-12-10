@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,7 +10,6 @@ import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { Link } from "react-router-dom";
 import AssignmentsApi from "../../api/AssignmentsApi";
-import MenuBookTwoToneIcon from "@material-ui/icons/MenuBookTwoTone";
 import DeleteIcon from "@material-ui/icons/Delete";
 import UserApi from "../../api/UserApi";
 
@@ -72,7 +71,6 @@ function AssignmentsView({ course, currentUsers }) {
   };
 
   const viewAssignment = (course) => {
-    console.log("inside viewAssignment" + course);
 
     if (typeof course !== "undefined" && course !== "") {
       AssignmentsApi.getAllAssignment(course.id).then((response) => {
@@ -163,14 +161,13 @@ function AssignmentsView({ course, currentUsers }) {
                             key={column.id}
                             align={column.align}
                           >
-                            <Link
-                              to={`/assignmentsView/${assignId}`}
-                              className="link"
-                            >
-                              {column.format && typeof value === "number"
-                                ? column.format(value)
-                                : value}
-                            </Link>
+                            {column.id === 'title' ? 
+                              <Link to={ currentUser === 'teacher' ? `/assignmentsView/${assignId}` : `/assignmentsAnsweredView/${assignId}` }  
+                                className="link">
+                                {column.format && typeof value === 'number' ? column.format(value) :  value}
+                              </Link> 
+                              : null 
+                            }
                             {currentUser === "teacher" ? (
                               <div>
                                 {column.id === "ICONS" ? (
@@ -180,7 +177,7 @@ function AssignmentsView({ course, currentUsers }) {
                                 ) : null}
                               </div>
                             ) : null}
-                            {/* {column.id === "dueDate" ? value : null} */}
+                            {column.id === "dueDate" ? value : null}
                           </TableCell>
                         );
                       })}

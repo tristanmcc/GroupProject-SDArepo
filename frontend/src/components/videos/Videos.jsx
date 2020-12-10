@@ -1,76 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import LecturesApi from '../../api/LecturesApi';
-import VideoCard from './VideoCard';
-import VideoUploadForm from './VideoUploadForm';
+import LecturesApi from "../../api/LecturesApi";
+import VideoCard from "./VideoCard";
 
-import '../../CSS/videos.css';
+
+import "../../CSS/videos.css";
 
 export default function Videos({ course, currentUser }) {
   const [videos, setVideos] = useState([]);
-  console.log('from videos line: ' + videos);
 
-
-  const getAllVideosByCourse = (course) => {
-    console.log("course requested");
-    LecturesApi.getAllByCourseId(course.id)
-      .then((res) => {
-        setVideos(res.data.sort((a,b) => b.id - a.id));
-      })
-      .catch((err) => console.error(err));
-  };
-
-  const createVideo = (videoData) => {
-    console.log('videodata : ' + videoData);
-    LecturesApi.createLecture(videoData)
-      .then((res) => setVideos([...videos, res.data]))
-      .catch((err) => console.error(err));
-
-    console.log('from videos: ' + videos);
-  };
-
-  const getVideos = () => {
-    LecturesApi.getAllLectures()
-      .then((res) => {
-        setVideos(res.data.sort((a, b) => b.id - a.id));
-      })
-      .catch((err) => console.error(err));
+  const viewVideos = (course) => {
+    if (typeof course !== "undefined" && course !== "") {
+      console.log("inside view videos", course.id);
+      LecturesApi.getAllVideos(course.id)
+        .then((res) => {
+          setVideos(res.data.sort((a, b) => b.id - a.id));
+        })
+        .catch((err) => console.error(err));
+    } else {
+      LecturesApi.getAllLectures()
+        .then((res) => {
+          setVideos(res.data.sort((a, b) => b.id - a.id));
+        })
+        .catch((err) => console.error(err));
+    }
   };
 
   const deleteVideo = (video) => {
-    LecturesApi.deleteLecture(video.id)
-      .then((res) => getVideos())
-      .catch((err) => console.log(err));
+    return LecturesApi.deleteLecture(video.id).then(() =>
+      setVideos(videos.filter((a) => a.id !== video.id))
+    );
   };
 
   useEffect(() => {
-    getVideos();
-    getAllVideosByCourse(course)
+    viewVideos(course);
   }, [course]);
 
   const Cards = videos.map((item) => {
     return (
-      <div className="videoLayout">
-        <VideoCard
-          key={item.id}
-          video={item}
-          onDeleteClick={deleteVideo}
-          currentUser={currentUser}
-        />
-      </div>
+      <VideoCard
+        key={item.id}
+        video={item}
+        onDeleteClick={deleteVideo}
+        currentUser={currentUser}
+      />
     );
   });
 
-  return (
-    <div>
-      <div>
-        <VideoUploadForm
-          onCreateClick={createVideo}
-          currentUser={currentUser}
-        />
-
-        <div>{Cards}</div>
-      </div>
-    </div>
-  );
+  return <div className="videoLayout">{Cards}</div>;
 }

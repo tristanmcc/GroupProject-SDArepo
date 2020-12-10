@@ -1,11 +1,11 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import Videos from './Videos';
+import UserApi from '../../api/UserApi';
 
 
-export default function VideosPage({course, currentUser}) {
- // const [currentUser, setCurrentUser] = useState([]);
-
- /*  const getUserRole = () => {
+export default function VideosPage({ course, currentUsers }) {
+ const [currentUser, setCurrentUser] = useState([]);
+ const getUserRole = () => {
     UserApi.getCurrentUser().then((response) => {
       setCurrentUser(response.data);
     });
@@ -13,13 +13,13 @@ export default function VideosPage({course, currentUser}) {
 
   useEffect(() => {
     getUserRole();
-  }, []); */
+  },[]);
 
   return (
-    <>
-      <h1>Lectures Page</h1>
-
+    <div>
+      
       <Videos course={course} currentUser={currentUser} />
-    </>
+      
+      </div>
   );
 }

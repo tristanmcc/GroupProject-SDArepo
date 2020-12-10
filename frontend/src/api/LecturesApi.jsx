@@ -6,9 +6,8 @@ class LecturesApi {
         return Api.get('/videos');
     }
 
-    getAllByCourseId(id) {
-        console.log("Value of courseId in API" + id)
-        return Api.get('/videos/' +id);
+    getAllVideos(course) {
+        return Api.get('/videos/?courseId=' + course);
     }
 
     createLecture(video) {
@@ -16,7 +15,6 @@ class LecturesApi {
     }
 
     updateLecture(video) {
-        console.log("I'm updated... or am I?", video);
         return Api.put('/videos',video);
     }
 
