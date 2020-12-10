@@ -11,6 +11,7 @@ class ChatInput extends Component {
 
   render() {
     return (
+
       <form
         action=".."
         onSubmit={e => {
@@ -19,14 +20,17 @@ class ChatInput extends Component {
           this.setState({ message: '' })
         }}
       >
-        <input
+        <h5 className="chat-title" >Send a message</h5>
+        <textarea
           type="text"
           placeholder={'Enter message...'}
           value={this.state.message}
           onChange={e => this.setState({ message: e.target.value })}
         />
-        <input type="submit" value={'Send'} />
+        <div className="chat-submit">
+        <input  className="chat-submit" type="submit" value={'Send'} /></div>
       </form>
+      
     )
   }
 }
