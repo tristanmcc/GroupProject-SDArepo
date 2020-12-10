@@ -54,7 +54,7 @@ public class AnsweredAssignmentController {
     }
 
     @GetMapping("/assignments/answeredByAssignmentId/{id}")
-    public AnsweredAssignment getByAssignmentId(@PathVariable Long id){
+    public List<AnsweredAssignment> getByAssignmentId(@PathVariable Long id){
         return answeredAssService.getByAssignmentId(id);
                 
     }
