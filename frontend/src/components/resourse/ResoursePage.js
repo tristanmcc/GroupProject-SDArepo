@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import "../../App.css";
-import craft from "../../images/Resource_Image/craft.png"
+import "../../css/resoursepage.css";
+
+import craft from '../../images/Resource_Image/craft.png';
 import sudoku from '../../images/Resource_Image/sudoku.jpg';
-import quiz from '../../images/Resource_Image//quiz.png';
+import quiz from '../../images/Resource_Image/quiz.png';
 import yoga from '../../images/Resource_Image/yoga.png';
 import puzel from '../../images/Resource_Image/puzzel.jpg';
 import health from '../../images/Resource_Image/healthtip.png';
 import cook from '../../images/Resource_Image/lilchef.png';
 import googleclass from '../../images/Resource_Image/googleclass.jpg';
-import '../../CSS/resoursepage.css';
+
+
 function ResoursePage() {
     return (
     <div> 

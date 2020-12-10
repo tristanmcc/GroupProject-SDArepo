@@ -1,5 +1,5 @@
 import React from "react";
-import Style from "../../CSS/homePage.css";
+import Style from "../../css/homePage.css";
 import {Link} from "react-router-dom";
 
 //media
@@ -10,8 +10,10 @@ import chatIcon from "../../images/Icons/paper_airplane.png";
 import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
 import videoIcon from "../../images/Icons/Play_button.png";
 import apple from "../../images/Icons/apple.png";
-import '../../CSS/homePage.css';
+import '../../css/homePage.css';
 import bee from '../../images/Resource_Image/graduationBee.png';
+
+
 function HomePage() {
     return (
 <div>

@@ -31,6 +31,12 @@ function Navbar({ onLogout }) {
           </li>
 
           <li className="nav-item">
+            <Link to="/scheduler" className="nav-link">
+              Scheduler
+            </Link>
+          </li>
+
+          <li className="nav-item">
             <Link to="/courses" className="nav-link">
               Courses
             </Link>
@@ -53,20 +59,16 @@ function Navbar({ onLogout }) {
 
           <li className="nav-item">
             <Link to="/chat" className="nav-link">
-             Chat
+              Chat
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/resources" className="nav-link">
-             Resources
+              Resources
             </Link>
           </li>
-
-
         </ul>
-        <button
-          className="btn btn-outline-dark"
-          onClick={onLogout} >
+        <button className="btn btn-outline-dark" onClick={onLogout}>
           Logout
         </button>
       </div>

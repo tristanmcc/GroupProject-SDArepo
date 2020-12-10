@@ -87,6 +87,7 @@ class Chat extends Component {
       <div className="forumCard"><Forum/></div>
       </div>
       <div className="chat-page-column">
+        <div className="chatCard">
         <div className="chatbox">
         <div>
         {this.state.messages.map((message, index) =>
@@ -97,9 +98,10 @@ class Chat extends Component {
           />,
         )}
         </div>
-        <label htmlFor="name">
-          Name:&nbsp; 
-          {this.state.name}
+      </div>
+      <div className="chat-inputform">
+      <label htmlFor="name">
+
          {/*} <input
             type="text"
             id={'name'}
@@ -108,10 +110,10 @@ class Chat extends Component {
             onChange={e => this.setState({ name: e.target.value })}
         />*/} 
         </label>
-        <ChatInput
+      <ChatInput
           ws={this.ws}
           onSubmitMessage={messageString => this.submitMessage(messageString)}
-        />
+        /></div>
       </div>
       </div>
       </div>
