@@ -42,9 +42,7 @@ function AssignmentsPage({ course, currentUser }) {
       setAssignId(response.data.id);
       window.location.reload();
 
-      {
-        /*}    alert('Successfully added the assignment'); */
-      }
+ 
     });
   }
 
