@@ -104,7 +104,7 @@ export default function CourseDetailsPage({ match }) {
           {openForm ? (
             <>
               <AssignmentsView course={course} currentUser={currentUser} />
-
+              {currentUser.userRole === "teacher" ? (
               <Button
                 variant="contained"
                 color="primary"
@@ -114,7 +114,13 @@ export default function CourseDetailsPage({ match }) {
               >
                 Add New Assignment
               </Button>
-              {currentUser.userRole === "teacher" ? (
+              
+            ): null }
+            </>
+          ) : (
+            <AssignmentsPage course={course} currentUser={currentUser} />
+          )}
+          {currentUser.userRole === "teacher" ? (
                 <Link to={`/assignmentsSubmittedView`}>
                   <Button
                     variant="contained"
@@ -127,10 +133,6 @@ export default function CourseDetailsPage({ match }) {
                   </Button>
                 </Link>
               ) : null}
-            </>
-          ) : (
-            <AssignmentsPage course={course} currentUser={currentUser} />
-          )}
         </div>
       </div>
     </div>
