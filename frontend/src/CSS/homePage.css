@@ -14,7 +14,7 @@
 
 /* Float four columns side by side */
 .column {
-    float: left;
+  float: left;
     width: 14.28%;
     padding: 0 10px;
   }
@@ -191,7 +191,7 @@
   
     @media (max-width: 950px) {
     .column {
-        display: inline;
+      display: inline;
       float: left;
       width: 20%;
       padding: 0 10px;
