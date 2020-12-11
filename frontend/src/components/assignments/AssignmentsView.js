@@ -128,9 +128,9 @@ function AssignmentsView({ course, currentUsers }) {
         <Paper className={classes.root}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
+          
           <TableHead>
             <TableRow>
-           
               {columns.map((column) => (
                 <TableCell
                   key={column.id}

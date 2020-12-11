@@ -15,24 +15,26 @@ export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseU
         return (
           <div className="couseupdate"> 
             <form>
-            <div className="form-group">
+            <div className="form-group-update">
                  <label>Title Name    : <span>(12 char)</span> </label>
                   
-                  <input name="title" type="text" maxlength="12"
+                  <input className="input-update"
+                  name="title" type="text" maxlength="12"
                        value={title} 
                        onChange={e=> setTitle(e.target.value)}/>       
              </div>
             
-             <div className="form-group">
+             <div className="form-group-update">
                   <label>Description : </label>
-                  <textarea name="description" type="text"
+                  <textarea  className="input-update"
+                  name="description" type="text"
                         value={description}
                         onChange={e=> setDescription(e.target.value)}
                         />
-                        <div className="form-group"> 
-                        <button className="btn btn-primary" type="button" onClick={handleUpdateCourseClick} > 
+                        <div className="form-group-update"> 
+                        <button className="updateButtoncourse" type="button" onClick={handleUpdateCourseClick} > 
                         Update  </button>
-                        <button className="btn btn-outline" type="button" onClick={onCancelUpdate}> Cancel </button>
+                        <button className="updateCancelButtoncourse" type="button" onClick={onCancelUpdate}> Cancel </button>
                         </div>
                 </div>
            </form>
