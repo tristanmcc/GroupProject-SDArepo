@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
+import "../../css/course.css";
+
 
 function CourseForm({ onSubmit, onCancel }) {
   console.log("course form");
@@ -24,7 +26,7 @@ function CourseForm({ onSubmit, onCancel }) {
         <form onSubmit={onCreateCourseClick}>
           <div className="form-group">
             <label >Title: <span>(12 char)</span></label>
-            <input 
+            <input className="input-update"
               type="text" maxLength="12"
               className="form-control"
               placeholder="Title" 
@@ -37,7 +39,7 @@ function CourseForm({ onSubmit, onCancel }) {
 
           <div className="form-group">
             <label>Description:</label>
-            <textarea
+            <textarea  className="input-update"
               className="form-control"
               placeholder="Course Description"
               value={description}

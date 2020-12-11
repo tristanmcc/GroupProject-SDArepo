@@ -24,8 +24,7 @@ export default function VideosPage() {
         <div className="lecture-banner">
         Lectures 
          </div>
-           <div className="horizontalline">
-           </div> 
+
 
       <Videos currentUser={currentUser} />
     </>
