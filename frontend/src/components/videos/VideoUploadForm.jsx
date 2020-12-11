@@ -1,25 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import TextField from '@material-ui/core/TextField';
-import LecturesApi from '../../api/LecturesApi';
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import TextField from "@material-ui/core/TextField";
+import LecturesApi from "../../api/LecturesApi";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& > *': {
+    "& > *": {
       margin: theme.spacing(1),
-      width: '25ch',
-      color:'white',
-      backgroundColor:'white'
+      width: "25ch",
+      color: "white",
+      backgroundColor: "white",
     },
   },
 
   button: {
     margin: theme.spacing(1),
-    color:'white',
-    backgroundColor: '#1391B9',
+    color: "white",
+    backgroundColor: "#1391B9",
     cursor: "pointer",
     outline: "none",
     border: "none",
@@ -30,26 +30,22 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function VideoUploadForm({ course, currentUser }) {
-
-
-  const [videoName, setVideoName] = useState('');
-  const [videoUrl, setVideoUrl] = useState('');
+  const [videoName, setVideoName] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
   const classes = useStyles();
   const [videos, setVideos] = useState([]);
 
-   const createVideo = (videoData) => {
+  const createVideo = (videoData) => {
     LecturesApi.createLecture(videoData)
       .then((res) => setVideos([...videos, res.data]))
       .catch((err) => console.error(err));
-      window.location.reload();
-
+    window.location.reload();
   };
-
 
   return (
     <>
       <h3 className="upload-video-title">Upload Video</h3>
-      <hr/>      
+      <hr />
 
       <form className={classes.root} noValidate autoComplete="off">
         <TextField
@@ -67,19 +63,20 @@ export default function VideoUploadForm({ course, currentUser }) {
           onChange={(e) => setVideoUrl(e.target.value)}
         />
       </form>
-      {currentUser.userRole === 'teacher' ? (
-      <Button
-        variant="contained"
-        color="default"
-        className={classes.button}
-        startIcon={<CloudUploadIcon />}
-        onClick={() => {
-          createVideo({ videoName, currentUser, videoUrl, course });
-          setVideoName('');
-        }} 
-      >
-        Upload
-      </Button> ): null }
+      {currentUser.userRole === "teacher" ? (
+        <Button
+          variant="contained"
+          color="default"
+          className={classes.button}
+          startIcon={<CloudUploadIcon />}
+          onClick={() => {
+            createVideo({ videoName, currentUser, videoUrl, course });
+            setVideoName("");
+          }}
+        >
+          Upload
+        </Button>
+      ) : null}
       <hr />
     </>
   );

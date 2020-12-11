@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap:10px;  */
  
- float: left;
+  float: left;
   width: 25%; 
   padding: 0 10px;
   padding-bottom: 25px; 

@@ -2,24 +2,14 @@ import React from "react";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-
+import { makeStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
-
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-
 import DuoTwoToneIcon from "@material-ui/icons/DuoTwoTone";
 import DeleteIcon from "@material-ui/icons/Delete";
-import { Link } from "react-router-dom";
-
-import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 
 import "../../css/videos.css";
-
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
 const useStyles = makeStyles({
   root: {

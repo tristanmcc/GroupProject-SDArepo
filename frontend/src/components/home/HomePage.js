@@ -100,7 +100,7 @@ function HomePage() {
         </div>
         <p>
           {" "}
-          There are two new lectures to watch and onw new assigenment to
+          There are two new lectures to watch and one new assignment to
           complete!!!{" "}
         </p>
       </div>

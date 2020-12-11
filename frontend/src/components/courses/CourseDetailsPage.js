@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../../App.css";
 import AssignmentsView from "../assignments/AssignmentsView";
 import CoursesApi from "../../api/CoursesApi";
 import UserApi from "../../api/UserApi";
@@ -8,8 +7,8 @@ import VideoUpLoadForm from "../videos/VideoUploadForm";
 import AssignmentsPage from "../assignments/AssignmentsPage";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import Icon from "@material-ui/core/Icon";
+import { Link } from "react-router-dom";
 import "../../css/course-details.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,15 +24,15 @@ const useStyles = makeStyles((theme) => ({
   },
   uploadButton: {
     margin: theme.spacing(1),
-    color:'white',
+    color: "white",
     cursor: "pointer",
     outline: "none",
     border: "none",
     borderRadius: 15,
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
-    backgroundColor:'#1391B9',
-  }
+    backgroundColor: "#1391B9",
+  },
 }));
 
 export default function CourseDetailsPage({ match }) {
@@ -74,8 +73,8 @@ export default function CourseDetailsPage({ match }) {
   return (
     <div className="course-details">
       <div className="course-details-description">
-        <h3>Course Description:</h3>
-        <p>{course.description}</p>
+        <h3>Course Details page - {course.description} </h3>
+        {/* <p>{course.description}</p> */}
       </div>
       <div className="course-details-section">
         <div>
@@ -115,6 +114,19 @@ export default function CourseDetailsPage({ match }) {
               >
                 Add New Assignment
               </Button>
+              {currentUser.userRole === "teacher" ? (
+                <Link to={`/assignmentsSubmittedView`}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    endIcon={<Icon>send</Icon>}
+                    onClick={onCreateNewAssignment}
+                  >
+                    View Submitted Assignment
+                  </Button>
+                </Link>
+              ) : null}
             </>
           ) : (
             <AssignmentsPage course={course} currentUser={currentUser} />
