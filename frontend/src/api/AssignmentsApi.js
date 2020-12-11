@@ -45,7 +45,6 @@ getAll() {
 }
 
 getAllAssignment(course) {
-    console.log("Inside getAllAssignment" + course);
     return Api.get('/assignments/courseId/'+ course);
 }
 

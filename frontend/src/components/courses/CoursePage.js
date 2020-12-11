@@ -9,7 +9,7 @@ import CoursesList from "./CoursesList";
 
 import CourseUpdateForm from './CourseUpdateForm.js';
 
-import AssignmentsApi from "../../api/AssignmentsApi";
+
 import UserApi from "../../api/UserApi";
 
 
@@ -54,7 +54,6 @@ const getUserRole = () => {
   };
 
   const deleteCourse = (course) => {
-    console.log("course details", course.id);
     return CoursesApi.deleteCourse(course.id).then(() =>
       setCourses(courses.filter((a) => a.id !== course.id))
     );
@@ -75,8 +74,8 @@ const updateCourse = (updatedCourse) => {
              Courses
              
          </div>
-          <div className="horizontalline">
-             </div>
+         {/*  <div className="horizontalline">
+             </div> */}
      <div className="course-container">
          
        <div className="row-buttons">
