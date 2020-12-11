@@ -65,7 +65,7 @@ function HomePage() {
                   <p>  There are two new lectures to watch and onw new assigenment to complete!!! </p>
            
              </div>
-             <img className="bee"  src={bee} /> 
+             {/* /*<img className="bee"  src={bee} />  */}
         
  </div>
         

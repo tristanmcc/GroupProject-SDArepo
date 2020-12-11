@@ -32,48 +32,48 @@ export default function Navbar ({ onLogout }) {
         </div>
         <ul class="nav-links">
              <li >
-               <a href="/" class="fas fa-home">
+               <a href="/" /* class="fas fa-home" */>
                  Home
                </a>
              </li>  
              <li >
-               <a href="/courses" class="fas fa-book-open">
+               <a href="/courses" /* class="fas fa-book-open" */>
                  Courses
 
                </a>
              </li>
              <li>
-              <a href="/scheduler" class="far fa-calendar-alt">
+              <a href="/scheduler" /* class="far fa-calendar-alt" */>
                 Scheduler
               </a>
             </li>
              <li >
-               <a href="/assignments" class="fas fa-tasks">
+               <a href="/assignments" /* class="fas fa-tasks" */>
                  Assignments
                </a>
              </li>
              <li >
-               <a href="/students" class="fas fa-user-graduate">
+               <a href="/students" /* class="fas fa-user-graduate" */>
                  Students
                </a>
              </li>
              <li >
-               <a href="/videos"  class="far fa-play-circle">
+               <a href="/videos"  /* class="far fa-play-circle" */>
                  Lectures
                </a>
              </li>  
              <li >
-               <a href="/chat" class="far fa-comments" >
+               <a href="/chat" /* class="far fa-comments"  */>
                 Chat
                </a>
              </li>
              <li >
-               <a href="/resources" class="fas fa-dice-d20">
+               <a href="/resources" /* class="fas fa-dice-d20" */>
                 Resources
                </a>
              </li>  
              <li >
-               <a class="fas fa-sign-out-alt" onClick={onLogout}>
+               <a /* class="fas fa-sign-out-alt" */ onClick={onLogout}>
                 Logout
                </a>
              </li>  
