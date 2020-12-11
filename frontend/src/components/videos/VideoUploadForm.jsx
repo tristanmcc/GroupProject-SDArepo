@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(1),
       width: '25ch',
+      color:'white',
       backgroundColor:'white'
     },
   },
@@ -18,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     color:'white',
-    backgroundColor: '#E55A71',
+    backgroundColor: '#1391B9',
     cursor: "pointer",
     outline: "none",
     border: "none",
@@ -40,6 +41,8 @@ export default function VideoUploadForm({ course, currentUser }) {
     LecturesApi.createLecture(videoData)
       .then((res) => setVideos([...videos, res.data]))
       .catch((err) => console.error(err));
+      window.location.reload();
+
   };
 
 

@@ -23,6 +23,17 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
   },
+  uploadButton: {
+    margin: theme.spacing(1),
+    color:'white',
+    cursor: "pointer",
+    outline: "none",
+    border: "none",
+    borderRadius: 15,
+    transform: "translateY(4)",
+    boxShadow: [[0, 5, "#999"]],
+    backgroundColor:'#1391B9',
+  }
 }));
 
 export default function CourseDetailsPage({ match }) {
@@ -69,8 +80,6 @@ export default function CourseDetailsPage({ match }) {
       <div className="course-details-section">
         <div>
           <div className="lecture-details">
-            {/*  <p className="lectures-title">Lectures</p>
-        <hr className="lectures-line" /> */}
             {openLectureForm ? (
               <>
                 <Videos course={course} currentUser={currentUser} />
@@ -84,11 +93,11 @@ export default function CourseDetailsPage({ match }) {
             <Button
               variant="contained"
               color="default"
-              className={classes.button}
-              startIcon={<CloudUploadIcon />}
+              className={classes.uploadButton}
+              endIcon={<Icon>send</Icon>}
               onClick={onUploadVideo}
             >
-              Upload
+              Add new video
             </Button>
           </div>
         </div>

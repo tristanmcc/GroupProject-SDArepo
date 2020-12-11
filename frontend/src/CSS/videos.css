@@ -1,11 +1,12 @@
 .videoLayout {
-/*   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+/* display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap:10px;  */
-  float: left;
+ 
+ float: left;
   width: 25%; 
   padding: 0 10px;
-  padding-bottom: 25px;  
+  padding-bottom: 25px; 
 }
 .lecture-banner{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */

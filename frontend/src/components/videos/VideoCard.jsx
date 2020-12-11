@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 
@@ -10,15 +10,21 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 
 import DuoTwoToneIcon from "@material-ui/icons/DuoTwoTone";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { Link } from "react-router-dom";
 
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 
 import "../../css/videos.css";
 
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+
 const useStyles = makeStyles({
   root: {
     textAlign: "center",
-    backgroundColor:'#1391B9'
+    backgroundColor: "#6AD1FA",
   },
   media: {
     height: "20%",
@@ -27,7 +33,6 @@ const useStyles = makeStyles({
 });
 
 export default function VideoCard({ video, onDeleteClick, currentUser }) {
- 
   const classes = useStyles();
 
   return (
@@ -53,19 +58,9 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
         </CardContent>
       </CardActionArea>
       {currentUser.userRole === "teacher" ? (
-        <button
-          style={{
-            height: 60,
-            color: "black",
-            backgroundColor: "#E55A71",
-            width: "30%",
-          }}
-          onClick={() => {
-            onDeleteClick(video);
-          }}
-        >
-          <DeleteOutlineOutlinedIcon style={{ height: 60, width: "100%" }} />
-        </button>
+        <div className="iconDelete">
+          <DeleteIcon onClick={() => onDeleteClick(video)} />
+        </div>
       ) : null}
     </Card>
   );
