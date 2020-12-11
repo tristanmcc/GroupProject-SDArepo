@@ -120,21 +120,21 @@ const getUserRole = () => {
         <Paper className={classes.root}>
       <TableContainer className={classes.container}>
         <Table stickyHeader aria-label="sticky table">
+          
           <TableHead>
             <TableRow>
-           
               {columns.map((column) => (
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth, color:column.color, fontSize: column.fontSize }}
+                  style={{minWidth: column.minWidth, color:column.color, fontSize: column.fontSize }}
                 >
                   {column.label}
                 </TableCell>
                 ))}
                 
                 </TableRow>
-              </TableHead>
+              </TableHead> 
               <TableBody>
                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                   return (
