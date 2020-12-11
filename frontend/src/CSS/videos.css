@@ -1,11 +1,11 @@
 .videoLayout {
-  display: grid;
+/*   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap:10px; 
+  grid-gap:10px;  */
   float: left;
-  /* width: 25%; */
-  /* padding: 0 10px;
-  padding-bottom: 25px;  */
+  width: 25%; 
+  padding: 0 10px;
+  padding-bottom: 25px;  
 }
 .lecture-banner{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
@@ -20,7 +20,7 @@
  border-radius: 5px;
  color: #fff;
 }     
-.horizontalline{
+/* .hori_Line{
      padding: 2px;
  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgb(145, 140, 140), rgba(0,0,0,0)); 
  background-image: -moz-linear-gradient(left, rgba(0,0,0,0),rgb(180, 173, 173), rgba(0,0,0,0)); 
@@ -32,7 +32,7 @@ margin-top: -25px;
 margin-bottom: 45px;
 margin-left: -50px;
 margin-right: -50px
-}
+} */
 
 .upload-video-title {
   color:white;

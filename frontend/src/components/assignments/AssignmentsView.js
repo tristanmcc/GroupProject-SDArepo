@@ -44,9 +44,12 @@ function createData(title, Id, dueDate) {
 const useStyles = makeStyles({
   root: {
     width: "100%",
+   
+
   },
   container: {
     maxHeight: 300,
+   
   },
   assignmentRowData: {
     borderWidth: 10,
@@ -116,11 +119,11 @@ function AssignmentsView({ course, currentUsers }) {
 
     return (
       <>
-      <div className="assigenment-banner"> 
-      View Assigenment  
+      {/* <div className="assigenment-banner"> 
+      View Assignment  
       </div>
        <div className="horizontalline">
-   </div>
+   </div> */}
         <div>
         <Paper className={classes.root}>
       <TableContainer className={classes.container}>
@@ -132,7 +135,7 @@ function AssignmentsView({ course, currentUsers }) {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth, color:column.color, fontSize: column.fontSize }}
+                  style={{ minWidth: column.minWidth, color:column.color, fontSize: column.fontSize,  backgroundColor: "#E55A71"}}
                 >
                   {column.label}
                 </TableCell>
@@ -185,7 +188,7 @@ function AssignmentsView({ course, currentUsers }) {
               </TableBody>
             </Table>
           </TableContainer>
-          <TablePagination
+          <TablePagination className={classes.tablePagination}
             rowsPerPageOptions={[10, 25, 100]}
             component="div"
             count={rows.length}

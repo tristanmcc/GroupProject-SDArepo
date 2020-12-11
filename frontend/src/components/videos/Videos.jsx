@@ -37,14 +37,20 @@ export default function Videos({ course, currentUser }) {
 
   const Cards = videos.map((item) => {
     return (
+      <div className="videoLayout">
       <VideoCard
         key={item.id}
         video={item}
         onDeleteClick={deleteVideo}
         currentUser={currentUser}
       />
+      </div>
     );
   });
 
-  return <div className="videoLayout">{Cards}</div>;
+  return <div >
+     
+
+    {Cards}
+    </div>;
 }

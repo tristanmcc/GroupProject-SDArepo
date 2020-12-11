@@ -11,7 +11,7 @@ import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
 import videoIcon from "../../images/Icons/Play_button.png";
 import apple from "../../images/Icons/apple.png";
 import '../../css/homePage.css';
-import bee from '../../images/Resource_Image/graduationBee.png';
+import bee from '../../images/resource_image/graduationBee.png';
 
 
 function HomePage() {

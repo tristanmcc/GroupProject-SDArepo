@@ -18,6 +18,7 @@ import "../../css/videos.css";
 const useStyles = makeStyles({
   root: {
     textAlign: "center",
+    backgroundColor:'#1391B9'
   },
   media: {
     height: "20%",
