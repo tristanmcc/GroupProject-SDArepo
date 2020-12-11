@@ -3,7 +3,7 @@
 body{
 	background-color: #fffff8;
 	color:#555;
-	font-family:Arial, Helvetica, sans-serif;
+	
 	font-size:16px;
 	line-height:1.6em;
 	margin:0 auto;
@@ -47,7 +47,7 @@ nav {
   align-items: center;
   min-height: 8vh;
   background-color: #5D4954;
-  font-family: 'Poppins', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   opacity:100%;
 }
 
@@ -66,13 +66,13 @@ nav {
 
 .nav-links li{
   list-style: none;
+  margin-top: 15px;
 }
 
 .nav-links a{
   color: rgb(226,226,226);
   text-decoration: none;
   letter-spacing: 2px;
-  font-weight: bold;
   font-size: 14px;
   margin: 6px;
 }
@@ -93,7 +93,7 @@ nav {
     right: 0px;
     height: 110vh;
     top: 8vh;
-    background-color: #5D4954;
+    background-color: #FDC00F;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -113,7 +113,7 @@ nav {
   .burger div{
     width: 25px;
     height: 2px;
-    background-color: rgb(226,226, 22);
+    background-color: white;
     margin: 5px;
     transition: all 0.3s ease;
   }
