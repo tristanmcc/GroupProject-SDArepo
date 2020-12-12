@@ -14,6 +14,12 @@ import googleclass from '../../images/resource_image/googleclass.jpg';
 
 function ResoursePage() {
     return (
+    <div> 
+      <div className="resourse-banner"> 
+           Resourse  
+      </div>
+      <div className="horizontalline">
+      </div>
  <div className="resourseimg">
      <div className="images">       
         <figure>
@@ -21,6 +27,7 @@ function ResoursePage() {
            <a    href="http://tiny.cc/craftforkidss">
           <figcaption>  <b> ART & CRAFT</b></figcaption>  </a>  
         </figure>
+        
         <figure>
         <img className="yogaimage"  src={yoga} />
            <a    href="https://cosmickids.com">
@@ -60,6 +67,7 @@ function ResoursePage() {
               </figure>
           </div>   
      </div>
+     </div>    
     );
 }
 

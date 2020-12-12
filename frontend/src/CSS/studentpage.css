@@ -1,0 +1,66 @@
+.student-createbutton{
+   display: inline-block;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+    box-shadow: 0 1px 2px ;
+   background-color: white;
+    border-radius:6px 6px;
+    margin-bottom: 0.25rem;
+    height: 30px;   
+    padding: .5em 2em .55em;
+  height: 40px;
+  font-weight: 600;
+ }
+    
+ .student-createbutton:hover {
+background:  rgb(235, 235, 235)  ;  
+}
+.student-card-container
+{
+border-style: ridge;
+text-align: center;
+margin-bottom: 1px;
+}
+.student-card-container{
+    text-align: center;
+
+}
+.student-deleteButton{
+    margin-right:2rem; 
+    width:30px;
+  }
+  .student-deleteButton:hover{
+    background: #f10d0d;
+    box-sizing: border-box;
+  }
+
+  .student-updateButton {
+    width:30px;
+  }
+  .student-updateButton:hover{
+    background: #69c613b4;
+    box-sizing: border-box; 
+  }
+  .student-card-buttons{
+     padding: 10px;
+     text-align: center;
+  }
+  .student-comment{
+      text-align: left;
+      margin-left: 15px;
+  }
+  .student-banner{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    padding: 16px;
+    text-align: center;
+    margin-top: -25px;
+    margin-bottom: 45px;
+    margin-left: -50px;
+    margin-right: -50px;
+    background-color: #E55A71;
+    font-size: medium;
+    border-radius: 5px;
+    color: white; 
+  }

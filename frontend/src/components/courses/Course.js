@@ -2,10 +2,13 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { RiDeleteBin7Line, RiEdit2Line } from 'react-icons/ri';
+
 import { Link } from 'react-router-dom';
 import courseImg from '../../images/Icons/Course_book.png';
 //import courseImg from '../../images/Icons/courses-icon.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
+
 import { Tooltip } from '@material-ui/core';
 import '../../css/course.css';
 export default function Course({
@@ -73,10 +76,10 @@ export default function Course({
               className="create-deleteButton"
               onClick={() => onCourseDelete(course)}
             >
-              <FontAwesomeIcon icon={faTrash} />
+              <RiDeleteBin7Line/>
             </button>
             <button className="create-updateButton" onClick={() => setFormState(true)}>
-              <FontAwesomeIcon icon={faPen} />
+              <RiEdit2Line/>
             </button>
           </div>
         ) : null}

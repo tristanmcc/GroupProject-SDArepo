@@ -3,7 +3,9 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import AssignmentsAPI from '../../api/AssignmentsApi';
 
+
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import "../../css/scheduler.css";
 
 const localizer = momentLocalizer(moment);
 
@@ -36,7 +38,9 @@ export default class Scheduler extends Component {
     const { due } = this.state;
 
     return (
+      <div className="schedular-card">
       <div className="hero-image">
+       
         <div className="container pt-3 pb-3">
           <div className="calendar col-lg-12 col-md-12 col-sm-12 bg-white pt-3 pb-3">
             <Calendar
@@ -49,6 +53,9 @@ export default class Scheduler extends Component {
           </div>
         </div>
       </div>
+      </div>
+
+
     );
   }
 }

@@ -37,9 +37,12 @@ export default function AnsweredAssignmentPage() {
 
 
     return (
+        <>
+      
         <div>
             <AnsAssForm></AnsAssForm>
         </div>
+        </>
     );
 }
 //onSubmit={createAnsweredAssignment} 

@@ -8,13 +8,16 @@ images figcaption {
     font-size: medium;
     text-align: center; 
     color: gray; 
+
+  
   }
   figcaption:hover {
     color: rgb(175, 60, 6);
   }
 
  a {
-    color:rgba(88, 83, 83, 0.966);
+    color:#585353f6;
+  
   }
   figcaption:visited{
     color:gray
@@ -33,6 +36,7 @@ images figcaption {
     justify-content: space-between; 
     flex-flow: wrap;
     text-align: center;
+
   
   } 
   
@@ -42,14 +46,32 @@ images figcaption {
     height: 220px;
     padding: 2px; 
     box-shadow:0 0 40px -10px rgba(0,0,0,0.25);
+  
    
   }
   .images figure {
     position: relative;
     margin-bottom: 0;
-    
-    
+  
   }
+  .resourse-banner{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+   padding: 16px;
+   text-align: center;
+   margin-top: -25px;
+   margin-bottom: 45px;
+   margin-left: -50px;
+   margin-right: -50px;
+   background-color:#6AD1FA ;
+   font-size: medium;
+   border-radius: 5px;
+   color: rgb(12, 5, 92);
+}     
+
+ .resourseimg figure{
+   margin-bottom: 30px;
+ }
+ 
   @media screen and (max-width: 414px) {
     div.images{
       width:40%;

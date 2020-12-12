@@ -9,7 +9,7 @@ import CoursesList from "./CoursesList";
 
 import CourseUpdateForm from './CourseUpdateForm.js';
 
-import AssignmentsApi from "../../api/AssignmentsApi";
+
 import UserApi from "../../api/UserApi";
 
 
@@ -54,7 +54,6 @@ const getUserRole = () => {
   };
 
   const deleteCourse = (course) => {
-    console.log("course details", course.id);
     return CoursesApi.deleteCourse(course.id).then(() =>
       setCourses(courses.filter((a) => a.id !== course.id))
     );
@@ -70,21 +69,29 @@ const updateCourse = (updatedCourse) => {
 };
 
   return (
-    <div className="course-container">
-      <div className="row-buttons">
-
-         { openForm ? 
-          <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
+  <div>
+         <div className="course-banner">
+             Courses
+             
+         </div>
+         {/*  <div className="horizontalline">
+             </div> */}
+     <div className="course-container">
+         
+       <div className="row-buttons">
+          { openForm ? 
+            <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
           
-         : 
-          <>
+           : 
+           <>
           {currentUser==='teacher' ? 
             <button
               className="create-coursebutton"
               onClick={onCreateNewCourse}>
-              CREATE COURSE
+              Create Course
             </button> : null
             }
+            
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
@@ -95,9 +102,10 @@ const updateCourse = (updatedCourse) => {
           </>
         }
       </div>
-
+ 
+      </div>
      
-    </div>
+ </div>
   );
 }
 export default CoursePage;
