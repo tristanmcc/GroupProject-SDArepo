@@ -44,7 +44,7 @@ export default class Scheduler extends Component {
               defaultView="month"
               events={due}
               localizer={localizer}
-              style={{ height: '100vh', width: '110vh' }}
+              style={{ height: '100vh' }}
             />
           </div>
         </div>
