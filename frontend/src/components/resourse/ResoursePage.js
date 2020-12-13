@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import "../../css/resoursepage.css";
+import "../../css/styles.css";
 
 import craft from '../../images/resource_image/craft.png';
 import sudoku from '../../images/resource_image/sudoku.jpg';

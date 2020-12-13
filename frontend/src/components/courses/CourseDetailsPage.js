@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import { Link } from "react-router-dom";
-import "../../css/course-details.css";
+import "../../css/styles.css";
 
 const useStyles = makeStyles((theme) => ({
   button: {

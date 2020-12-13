@@ -3,7 +3,7 @@ import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
 import UserApi from '../../api/UserApi';
 import book from '../../images/carousel/carousel-6.jpg';
-import '../../css/assignment.css';
+import '../../css/styles.css';
 
 export default function AnsweredAssignmentsForm({match}) {
     

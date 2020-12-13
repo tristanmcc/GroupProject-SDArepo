@@ -1,0 +1,16 @@
+:root {
+    /*Colouring pallette*/
+
+    /* Home Page has 3 colours */
+    --hp-blue: #6AD1FA;
+    --hp-red: #E55A71;
+    --hp-mustard: #FDC00F;
+
+    /* Blue and refreshing Colour scheme */
+    --darkest-blue: #25274D;
+    --dark-blue: #464866;
+    --gray-light: #AAABB8;
+    --banner-blue: #2E9CCA;
+    --stylish-blue: #29648A;
+  }
+  

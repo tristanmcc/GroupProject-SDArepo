@@ -1,3 +1,24 @@
+@import "./_variable.css";
+@import "./assignment.css";
+@import "./chat.css";
+@import "./course-details.css";
+@import "./course.css";
+@import "./homePage.css";
+@import "./login.css";
+@import "./loginPage.css";
+@import "./resoursepage.css";
+@import "./scheduler.css";
+@import "./starRating.css";
+@import "./studentpage.css";
+@import "./videos.css";
+
+
+
+
+
+
+
+
 .course {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -3,7 +3,7 @@ import Student from './Student.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import StudentUpdateForm from './StudentUpdateForm';
-import '../../css/studentpage.css';
+import '../../css/styles.css';
 
 export default function StudentCard({student, onStudentDelete, onStudentUpdate}) {
 
