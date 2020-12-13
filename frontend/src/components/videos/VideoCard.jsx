@@ -11,7 +11,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 
-import '../../css/videos.css';
+import '../../css/styles.css';
 
 const useStyles = makeStyles({
   root: {

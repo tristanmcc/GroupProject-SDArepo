@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../css/starRating.css';
+import '../../css/styles.css';
 import RatingIcon from '../star/RatingIcon';
 import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi'
 
