@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import LecturesApi from "../../api/LecturesApi";
 import VideoCard from "./VideoCard";
 
-import '../../css/videos.css';
+import "../../css/videos.css";
 
 export default function Videos({ course, currentUser }) {
   const [videos, setVideos] = useState([]);
+  const [lectures, setLectures] = useState([]);
 
   const viewVideos = (course) => {
     if (typeof course !== "undefined" && course !== "") {
@@ -33,24 +34,21 @@ export default function Videos({ course, currentUser }) {
 
   useEffect(() => {
     viewVideos(course);
+    setLectures([...new Set(videos.map(v=>v.course.title))]);
+    console.log("the lectures",lectures);
   }, [course]);
 
   const Cards = videos.map((item) => {
     return (
       <div className="videoLayout">
-      <VideoCard
-        key={item.id}
-        video={item}
-        onDeleteClick={deleteVideo}
-        currentUser={currentUser}
-      />
+        <VideoCard
+          key={item.id}
+          video={item}
+          onDeleteClick={deleteVideo}
+          currentUser={currentUser}
+        />
       </div>
     );
   });
-
-  return <div >
-     
-
-    {Cards}
-    </div>;
+  return <div>{Cards}</div>;
 }
