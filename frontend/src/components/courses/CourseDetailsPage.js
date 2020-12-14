@@ -85,6 +85,7 @@ export default function CourseDetailsPage({ match }) {
               <>
                 <AssignmentsView course={course} currentUser={currentUser} />
                 {currentUser.userRole === "teacher" ? (
+                   <Link to={`/assignmentsViewForCourse/${courseId}`}> 
                   <div className="assignment-addNew">
                     <Button
                       variant="contained"
@@ -96,6 +97,7 @@ export default function CourseDetailsPage({ match }) {
                       Add New Assignment
                     </Button>
                   </div>
+                  </Link>
                 ) : null}
               </>
             ) : (
