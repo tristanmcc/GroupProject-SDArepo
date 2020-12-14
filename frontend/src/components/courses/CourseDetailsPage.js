@@ -78,28 +78,6 @@ export default function CourseDetailsPage({ match }) {
       </div>
       <div className="course-details-section">
         <div>
-          <div className="lecture-details">
-            {openLectureForm ? (
-              <>
-                <Videos course={course} currentUser={currentUser} />
-              </>
-            ) : (
-              <VideoUpLoadForm course={course} currentUser={currentUser} />
-            )}
-          </div>
-          <div className="buttonCheck">
-            {" "}
-            <Button
-              variant="contained"
-              color="default"
-              className={classes.uploadButton}
-              endIcon={<Icon>send</Icon>}
-              onClick={onUploadVideo}
-            >
-              Add new video
-            </Button>
-          </div>
-        </div>
         <div className="assignment-details">
           {openForm ? (
             <>
@@ -134,6 +112,29 @@ export default function CourseDetailsPage({ match }) {
                 </Link>
               ) : null}
         </div>
+          <div className="lecture-details">
+            {openLectureForm ? (
+              <>
+                <Videos course={course} currentUser={currentUser} />
+              </>
+            ) : (
+              <VideoUpLoadForm course={course} currentUser={currentUser} />
+            )}
+          </div>
+          <div className="buttonCheck">
+            {" "}
+            <Button
+              variant="contained"
+              color="default"
+              className={classes.uploadButton}
+              endIcon={<Icon>send</Icon>}
+              onClick={onUploadVideo}
+            >
+              Add new video
+            </Button>
+          </div>
+        </div>
+
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import "../../css/videos.css";
 
 export default function Videos({ course, currentUser }) {
   const [videos, setVideos] = useState([]);
-  const [lectures, setLectures] = useState([]);
 
   const viewVideos = (course) => {
     if (typeof course !== "undefined" && course !== "") {
@@ -34,8 +33,6 @@ export default function Videos({ course, currentUser }) {
 
   useEffect(() => {
     viewVideos(course);
-    setLectures([...new Set(videos.map(v=>v.course.title))]);
-    console.log("the lectures",lectures);
   }, [course]);
 
   const Cards = videos.map((item) => {
