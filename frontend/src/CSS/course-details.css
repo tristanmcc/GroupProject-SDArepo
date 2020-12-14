@@ -68,5 +68,10 @@
     .course-description {
         font-size:16px;
     }
+
+    .course-name {
+        align-items:center;
+        margin: 0 auto !important;
+    }
     
 }
