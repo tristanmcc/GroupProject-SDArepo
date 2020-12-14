@@ -204,6 +204,7 @@
   
   .course-container {
     text-align: right;
+    margin-top: 40px;
   
   }
   .course-grid {
@@ -214,8 +215,6 @@
     
   } 
 
-
-  
 
   @media(max-width:1100px){
     
