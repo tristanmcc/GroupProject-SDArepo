@@ -11,7 +11,7 @@ import assignmentIcon from "../../images/Icons/undraw_Personal_notebook_re_d7dc 
 import videoIcon from "../../images/Icons/undraw_online_media_62jb (2).png"; 
 import apple from "../../images/Icons/undraw_mobile_apps_spmp (2).png";
 import "../../css/styles.css";
-import happyKids from '../../images/happyKids.jpg'
+import happyKids from '../../images/edvin-johansson-UGGinojhaC0-unsplash.jpg'
 import introductoryText from '../../images/introductionText.jpg'
 
 function HomePage() {
@@ -95,16 +95,11 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="homepageanouncement">
+      
       <div>
-      <img className="happKids"  src={happyKids} />
+      <img className="happKids"  src={happyKids} height = "600" width="auto"/>
       </div>
 
-      <div>
-      <img className="introductoryText"  src={introductoryText} />  
-      </div>
-
-    </div>
     </div>
   );
 }
