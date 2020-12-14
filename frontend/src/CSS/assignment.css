@@ -7,6 +7,8 @@
     color:black;
     font-weight: bold;
   }
+
+  
   .create-coursebutton { 
     display: inline-block;
       outline: none;
@@ -83,5 +85,40 @@
       font-size: medium;
       border-radius: 5px;
       color: white;
-  }     
+  }  
+  
+  .question
+  {
+    
+    border-radius: 5px;
+    padding: 8px;
+    background-color: #E3E2DF
+    
+    
+   
+    
+  }
+
+  .question label{
+    font-style: italic;
+    color: var(--darkest-blue);
+    padding: 8px;
+    margin-top: 8px;
+    
+    
+    
+    
+  }
+
+  .question input{
+    border:1px solid var(--darkest-blue);
+    
+  }
+
+  .question textarea{
+    border:1px solid var(--darkest-blue);
+  }
+
+  
+
    
