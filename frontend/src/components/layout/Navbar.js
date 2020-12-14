@@ -73,7 +73,7 @@ export default function Navbar ({ onLogout }) {
                </a>
              </li>  
              <li >
-               <a /* class="fas fa-sign-out-alt" */ onClick={onLogout}>
+               <a className="logout-button" /* class="fas fa-sign-out-alt" */ onClick={onLogout}>
                 Logout
                </a>
              </li>  

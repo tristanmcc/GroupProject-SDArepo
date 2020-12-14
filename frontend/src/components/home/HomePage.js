@@ -3,15 +3,15 @@ import Style from "../../css/homePage.css";
 import { Link } from "react-router-dom";
 
 //media
-import CourseGraphic from "../../images/Icons/Light_bulb.png";
-import Calender from "../../images/Icons/clock_icon.png";
-import Students from "../../images/Icons/Bag_icon.png";
-import chatIcon from "../../images/Icons/paper_airplane.png";
-import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
-import videoIcon from "../../images/Icons/Play_button.png"; 
-import apple from "../../images/Icons/apple.png";
+import CourseGraphic from "../../images/Icons/undraw_Bookshelves_re_lxoy (1).png";
+import Calender from "../../images/Icons/undraw_Booking_re_gw4j (1).png";
+import Students from "../../images/Icons/undraw_true_friends_c94g (1).png";
+import chatIcon from "../../images/Icons/undraw_Chatting_re_j55r (1).png";
+import assignmentIcon from "../../images/Icons/undraw_Personal_notebook_re_d7dc (1).png";
+import videoIcon from "../../images/Icons/undraw_online_media_62jb (2).png"; 
+import apple from "../../images/Icons/undraw_mobile_apps_spmp (2).png";
 import "../../css/styles.css";
-import happyKids from '../../images/happyKids.jpg'
+import happyKids from '../../images/edvin-johansson-UGGinojhaC0-unsplash.jpg'
 import introductoryText from '../../images/introductionText.jpg'
 
 function HomePage() {
@@ -23,7 +23,7 @@ function HomePage() {
         <div class="column">
           <Link to="/scheduler" className="nav-card">
             <div class="card-nav1">
-              <img src={Calender} alt="Open Book" width="80" height="140"></img>
+              <img src={Calender} alt="Open Book" ></img>
               Scheduler
             </div>
           </Link>
@@ -35,8 +35,7 @@ function HomePage() {
               <img
                 src={CourseGraphic}
                 alt="Open Book"
-                width="80"
-                height="140"
+                
               ></img>
               Courses
             </div>
@@ -49,8 +48,7 @@ function HomePage() {
               <img
                 src={assignmentIcon}
                 alt="Open Book"
-                width="80"
-                height="140"
+               
               ></img>
               Assignments
             </div>
@@ -59,7 +57,7 @@ function HomePage() {
         <div className="column">
           <Link to="/students" className="nav-card">
             <div className="card-nav4">
-              <img src={Students} alt="Open Book" width="80" height="140"></img>
+              <img src={Students} alt="Open Book" ></img>
               Students
             </div>
           </Link>
@@ -70,8 +68,7 @@ function HomePage() {
               <img
                 src={videoIcon}
                 alt="Open Book"
-                width="80"
-                height="140"
+                
               ></img>
               Lectures
             </div>
@@ -80,7 +77,7 @@ function HomePage() {
         <div className="column">
           <Link to="/chat" className="nav-card">
             <div className="card-nav6">
-              <img src={chatIcon} alt="Open Book" width="80" height="140"></img>
+              <img src={chatIcon} alt="Open Book" ></img>
               Forum
             </div>
           </Link>
@@ -88,23 +85,18 @@ function HomePage() {
         <div className="column">
           <Link to="/resources" className="nav-card">
             <div className="card-nav7">
-              <img src={apple} alt="Open Book" width="80" height="140"></img>
+              <img src={apple} alt="Open Book" ></img>
               Resources
             </div>
           </Link>
         </div>
       </div>
 
-      <div className="homepageanouncement">
+      
       <div>
-      <img className="happKids"  src={happyKids} />
+      <img className="happKids"  src={happyKids} height = "600" width="auto"/>
       </div>
 
-      <div>
-      <img className="introductoryText"  src={introductoryText} />  
-      </div>
-
-    </div>
     </div>
   );
 }

@@ -10,64 +10,68 @@ import '../../css/styles.css';
 import Home from '../home/HomePage.js';
 
 export default function AnsweredAssignmentsForm({ match }) {
-    const history = useHistory();
-    const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
-    const [answeredAssignmentDescription, setAnsweredAssignmentDescription] = useState("");
-    const [answer1, setAnswer1] = useState("");
-    const [answer2, setAnswer2] = useState("");
-    const [answer3, setAnswer3] = useState("");
-    const [answer4, setAnswer4] = useState("");
-    const [answer5, setAnswer5] = useState("");
-    const [answer6, setAnswer6] = useState("");
-    const [answer7, setAnswer7] = useState("");
-    const [answer8, setAnswer8] = useState("");
-    const [answer9, setAnswer9] = useState("");
-    const [answer10, setAnswer10] = useState("");
-    const [question1, setQuestion1] = useState("");
-    const [question2, setQuestion2] = useState("");
-    const [question3, setQuestion3] = useState("");
-    const [question4, setQuestion4] = useState("");
-    const [question5, setQuestion5] = useState("");
-    const [question6, setQuestion6] = useState("");
-    const [question7, setQuestion7] = useState("");
-    const [question8, setQuestion8] = useState("");
-    const [question9, setQuestion9] = useState("");
-    const [question10, setQuestion10] = useState("");
-    const [assignmentId, setAssignmentId] = useState("");
-    const [user, setUser] = useState(" ");
+  const history = useHistory();
+  const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
+  const [
+    answeredAssignmentDescription,
+    setAnsweredAssignmentDescription,
+  ] = useState("");
+  const [answer1, setAnswer1] = useState("");
+  const [answer2, setAnswer2] = useState("");
+  const [answer3, setAnswer3] = useState("");
+  const [answer4, setAnswer4] = useState("");
+  const [answer5, setAnswer5] = useState("");
+  const [answer6, setAnswer6] = useState("");
+  const [answer7, setAnswer7] = useState("");
+  const [answer8, setAnswer8] = useState("");
+  const [answer9, setAnswer9] = useState("");
+  const [answer10, setAnswer10] = useState("");
+  const [question1, setQuestion1] = useState("");
+  const [question2, setQuestion2] = useState("");
+  const [question3, setQuestion3] = useState("");
+  const [question4, setQuestion4] = useState("");
+  const [question5, setQuestion5] = useState("");
+  const [question6, setQuestion6] = useState("");
+  const [question7, setQuestion7] = useState("");
+  const [question8, setQuestion8] = useState("");
+  const [question9, setQuestion9] = useState("");
+  const [question10, setQuestion10] = useState("");
+  const [assignmentId, setAssignmentId] = useState("");
+  const [user, setUser] = useState(" ");
 
-    const subAssignmentDetails = [
-        { question: question1, answer: answer1, answerFunction: setAnswer1 },
-        { question: question2, answer: answer2, answerFunction: setAnswer2 },
-        { question: question3, answer: answer3, answerFunction: setAnswer3 },
-        { question: question4, answer: answer4, answerFunction: setAnswer4 },
-        { question: question5, answer: answer5, answerFunction: setAnswer5 },
-        { question: question6, answer: answer6, answerFunction: setAnswer6 },
-        { question: question7, answer: answer7, answerFunction: setAnswer7 },
-        { question: question8, answer: answer8, answerFunction: setAnswer8 },
-        { question: question9, answer: answer9, answerFunction: setAnswer9 },
-        { question: question10, answer: answer10, answerFunction: setAnswer10 }
-    ];
+  const subAssignmentDetails = [
+    { question: question1, answer: answer1, answerFunction: setAnswer1 },
+    { question: question2, answer: answer2, answerFunction: setAnswer2 },
+    { question: question3, answer: answer3, answerFunction: setAnswer3 },
+    { question: question4, answer: answer4, answerFunction: setAnswer4 },
+    { question: question5, answer: answer5, answerFunction: setAnswer5 },
+    { question: question6, answer: answer6, answerFunction: setAnswer6 },
+    { question: question7, answer: answer7, answerFunction: setAnswer7 },
+    { question: question8, answer: answer8, answerFunction: setAnswer8 },
+    { question: question9, answer: answer9, answerFunction: setAnswer9 },
+    { question: question10, answer: answer10, answerFunction: setAnswer10 }
+];
+  const getAssignmentById = (id) => {
+    console.log("Calling getAssignmentById " + id);
+    AssignmentsApi.getAssignmentById(id).then((response) => {
+      console.log("Title value" + response.data.assignmentTitle);
+      setAssignmentId(response.data.id);
+      setAnsweredAssignmentTitle(response.data.assignmentTitle);
+      setAnsweredAssignmentDescription(response.data.assignmentDescription);
+      setQuestion1(response.data.question1);
+      setQuestion2(response.data.question2);
+      setQuestion3(response.data.question3);
+      setQuestion4(response.data.question4);
+      setQuestion5(response.data.question5);
+      setQuestion6(response.data.question6);
+      setQuestion7(response.data.question7);
+      setQuestion8(response.data.question8);
+      setQuestion9(response.data.question9);
+      setQuestion10(response.data.question10);
 
-    const getAssignmentById = (id) => {
-        console.log("Calling getAssignmentById " + id)
-        AssignmentsApi.getAssignmentById(id)
-            .then(response => {
-                setAssignmentId(response.data.id);
-                setAnsweredAssignmentTitle(response.data.assignmentTitle);
-                setAnsweredAssignmentDescription(response.data.assignmentDescription)
-                setQuestion1(response.data.question1);
-                setQuestion2(response.data.question2);
-                setQuestion3(response.data.question3);
-                setQuestion4(response.data.question4);
-                setQuestion5(response.data.question5);
-                setQuestion6(response.data.question6);
-                setQuestion7(response.data.question7);
-                setQuestion8(response.data.question8);
-                setQuestion9(response.data.question9);
-                setQuestion10(response.data.question10);
-            })
-    }
+      console.log(response.data);
+    });
+  };
 
     const getUserRole = () => {
         UserApi.getCurrentUser()
@@ -77,17 +81,15 @@ export default function AnsweredAssignmentsForm({ match }) {
             })
     };
 
-    const getAll = () => {
-        AssApi.getAllAssignment()
-            .then(response => {console.log('check: ',response.data)})
-    };
+  useEffect(() => {
+    console.log(
+      "Inside useEffect , going to call getAssignmentById " +
+        match.params.assignId
+    );
+    getAssignmentById(match.params.assignId);
+    getUserRole();
+  }, []);
 
-    useEffect(() => {
-        console.log('Console me', getAll)
-        getAssignmentById(match.params.assignId);
-        getUserRole();
-        console.log('Joke!!')
-    }, []);
 
     const createAnsweredAssignment = (answers) => {
         console.log("Inside createAnsweredAssignment" + answers);
@@ -121,9 +123,9 @@ export default function AnsweredAssignmentsForm({ match }) {
                                                     className="form-control"
                                                     placeholder="Type your answer here..."
                                                     value={eachQuestion.answer}
-                                                    onChange={e => eachQuestion.answerFunction(e.target.value)} 
+                                                    onChange={e => eachQuestion.answerFunction(e.target.value)}
                                                 />
-                                                {index===9? 
+                                                {index===9?
                                                 <button
                                                     className="btn btn-danger"
                                                     onClick={() =>
@@ -147,10 +149,10 @@ export default function AnsweredAssignmentsForm({ match }) {
                                                     Submit
                                                 </button> : null}
                                             </div>
-                                            
-                                                
+
+
                                             </div>
-                                            
+
                                          ))
                                 }
                             </div>
@@ -173,13 +175,13 @@ export default function AnsweredAssignmentsForm({ match }) {
                                 <span class="carousel-control-next-icon"></span>
                             </a>
                         </div>
-                      
+
                     </div>
                 </div>
             </div>
-            
+
         </>
-        
+
     );
 }
 
