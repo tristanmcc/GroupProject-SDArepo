@@ -1,48 +1,23 @@
 /*-----------------Course Page CSS ----------- */
 .row-buttons {
     text-align:left;
-    
 
   }
-  
   
   .description {
     text-align:center;
 
   }
-  .course-card-body{
-    text-align: center;
-    
-    
-  }
-  
-  .card-subtitle{
-    text-align: center;
-  }
 
   img {
    width: 100%;
-  }
-
-  .course-card-buttons {
-    text-align: center;
-    margin-top: 10px;
-    
-   
-
-   
-  }
-  .course-card:hover {
-    transform: scale(1.05);
-    box-shadow:0 0 40px -10px rgba(0,0,0,0.25);
-   background-color: #80d4f5;
 
   }
+
+  
   
   .course-card {
    width:160px;
-   background-color: #80d4f5;
-
   padding-bottom: 15px;
   text-align:center;
   
@@ -52,37 +27,52 @@
   border-width: 2px;
   text-align: center;
   justify-content: space-around; 
- 
-  }
-  
- .course-card-title{
-  color: rgb(68, 68, 68);
-  margin-top: 10px;
-  background-color: #80d4f5;
- }
-  
-  .courseheader{
-    text-align: center;
-    background-color:white;
-    color: rgb(43, 17, 17);
-    
-   
-  }
-  .courseimage{
-    margin-top: 10px;
-    height: 120px;
-    width: 100px;
-    margin-bottom: 10px;
-    
-  }
-  div.couseupdate, .form-group{
-  margin-left: 0rem;
-  padding-left: 0%;
-  background-color: white;
+ border-style:ridge;
 
   }
   
-  
+ .course-card-form-title{
+  color: rgba(20, 19, 19, 0.781);
+
+padding: 15px 25px 35px;
+ text-align: center;
+ }
+ .course-create-form{
+   text-align: center;
+ background-color: #E3E2DF;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.input-update{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+
+  .course-form-buttons{
+    margin-top: 20px;
+  }
+  .course-card-body{
+    text-align: center;
+
+  }
+
+  .courseheader{
+    text-align: center;
+    background-color:white;
+    color: rgb(43, 17, 17); 
+  }
+ 
+.courseimage{
+    background-color:#29648A;
+  }
+
   .create-deleteButton {
     margin-right:2rem; 
     width:30px;
@@ -119,10 +109,7 @@
     padding: 2px;
   }
 
-  .courselinkimage{
-    background-color:#80d4f5;
-    border-radius: 5px;
-  }
+
   
 
 .create-coursebutton { 
@@ -222,18 +209,9 @@
     
   } 
 
-  .form-group-update{
-    background-color: #80d4f5;
-  }
-
-
-  .input-update{
-    width: 90%;
-  }
-  
-
 
   
+
   @media(max-width:1100px){
     
     .course-grid{
