@@ -6,6 +6,7 @@ export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseU
     const {id, createDate} = oldCourse;
 
     const handleUpdateCourseClick = (e) => {
+
         const updatedCourse = { id, description, title, createDate };
 
         console.log('in from upd ', updatedCourse);
@@ -31,7 +32,7 @@ export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseU
                         value={description}
                         onChange={e=> setDescription(e.target.value)}
                         />
-                        <div className="form-group-update"> 
+                        <div className="form-group-update">
                         <button className="updateButtoncourse" type="button" onClick={handleUpdateCourseClick} > 
                         Update  </button>
                         <button className="updateCancelButtoncourse" type="button" onClick={onCancelUpdate}> Cancel </button>
