@@ -3,7 +3,7 @@ import Auth from "../../services/Auth";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 
-import style from '../../css/loginPage.css';
+import style from '../../css/styles.css';
 
 function LoginPage() {
     const login = async (loginData) => {

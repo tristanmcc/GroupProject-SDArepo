@@ -3,7 +3,7 @@ import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AccordianForAssignment from '../accordian/AccordianForAssignment';
 import StarRating from "../star/StarRating";
-import '../../css/starRating.css';  
+import '../../css/styles.css';  
 
 function AssignmentSubmitted({match}) {
     console.log("Value" + match.params.assignId);

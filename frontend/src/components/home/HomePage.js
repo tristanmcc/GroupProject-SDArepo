@@ -10,7 +10,7 @@ import chatIcon from "../../images/Icons/paper_airplane.png";
 import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
 import videoIcon from "../../images/Icons/Play_button.png";
 import apple from "../../images/Icons/apple.png";
-import "../../css/homePage.css";
+import "../../css/styles.css";
 import bee from "../../images/resource_image/graduationBee.png";
 
 function HomePage() {
