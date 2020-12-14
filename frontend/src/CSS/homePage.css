@@ -32,7 +32,9 @@
   /* Style the counter cards */
   .card-nav1{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    
     padding: 16px;
+    padding-top: 35px;
     text-align: center;
     background-color: #464866;
     font-size: medium;
@@ -47,6 +49,7 @@
   .card-nav2{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 20px;
     text-align: center;
     background-color: #29648A;
     font-size: medium;
@@ -63,6 +66,7 @@
   .card-nav3{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 42px;
     text-align: center;
     background-color: #2E9CCA;
     font-size: medium;
@@ -79,6 +83,7 @@
   .card-nav4{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 34px;
     text-align: center;
     background-color: #464866;
     font-size: medium;
@@ -96,6 +101,7 @@
   .card-nav5{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 25px;
     text-align: center;
     background-color: #29648A;
     font-size: medium;
@@ -124,6 +130,7 @@
   .card-nav7{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 22px;
     text-align: center;
     background-color: #464866;
     font-size: medium;
