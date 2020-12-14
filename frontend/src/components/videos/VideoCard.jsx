@@ -29,6 +29,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
   const classes = useStyles();
 
   return (
+   
     <Card className={classes.root}>
       <CardActionArea>
         <IconButton>
@@ -56,5 +57,6 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
         </div>
       ) : null}
      </Card>
+  
   );
 }

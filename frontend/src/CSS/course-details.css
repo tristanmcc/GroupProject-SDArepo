@@ -14,7 +14,14 @@
     margin-top:3rem;
     background-color:#6AD1FA;
 }
+.coursedetailscontainer{
 
+    border-radius: 5px;
+    padding: 8px;
+    background-color: #E3E2DF ;
+    margin-left: -50px;
+    margin-right: -50px;
+}
 .check {
     background-color:#fffff8;
 }
@@ -46,9 +53,11 @@
 }
   
 .course-details-section {
-    margin:0 auto;
+    margin:0 auto; 
 }
-  
+ 
+
+
 .lectures-line {
     background-color:white;
 }

@@ -45,6 +45,7 @@
   flex-direction:column;
 
 }
+
 /* Responsive columns - one column layout (vertical) on small screens */
 @media (max-width: 750px) {
   .videoLayout {

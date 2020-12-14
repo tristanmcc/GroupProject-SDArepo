@@ -71,13 +71,15 @@ export default function CourseDetailsPage({ match }) {
   }, []);
 
   return (
+  <div className="coursedetailscontainer" >
+    
     <div className="course-details">
-      <div className="course-details-description">
-        <h3 className="course-description">
-          Course Details page - {course.description}{" "}
-        </h3>
-        {/* <p>{course.description}</p> */}
-      </div>
+         <div className="course-details-description">
+             <h3 className="course-description">
+             Course Details page - {course.description}{" "}
+              </h3>
+                {/* <p>{course.description}</p> */}
+           </div>
       <div className="course-details-section">
         <div>
           <div className="assignment-details">
@@ -110,7 +112,7 @@ export default function CourseDetailsPage({ match }) {
                     className={classes.button}
                     endIcon={<Icon>send</Icon>}
                     onClick={onCreateNewAssignment}
-                  >
+                     >
                     View Submitted Assignment
                   </Button>
                 </div>
@@ -142,5 +144,6 @@ export default function CourseDetailsPage({ match }) {
         </div>
       </div>
     </div>
+    </div>    
   );
 }
