@@ -11,11 +11,7 @@
 
   img {
    width: 100%;
-
   }
-
-  
-  
   .course-card {
    width:160px;
   padding-bottom: 15px;
@@ -28,20 +24,38 @@
   text-align: center;
   justify-content: space-around; 
  border-style:ridge;
-
   }
   
  .course-card-form-title{
-  color: rgba(20, 19, 19, 0.781);
-
-padding: 15px 25px 35px;
+  color: #fff;
+background-color: #2E9CCA;
+padding: 10px 10px 15px;
  text-align: center;
  }
+
+ .course-card-body input{
+  border:1px solid var(--darkest-blue);
+}
+
+.course-card-body textarea{
+  border:1px solid var(--darkest-blue);
+ 
+
+}
+.course-form-group label{
+  font-style: italic;
+    color: var(--darkest-blue);
+    padding: 8px;
+    margin-top: 8px;
+   
+
+    color:black;
+    font-weight: bold;
+}
+
  .course-create-form{
-   text-align: center;
- background-color: #E3E2DF;
-  border-radius: 5px;
-  padding: 20px;
+    border-radius: 5px;
+    background-color: #E3E2DF;
 }
 
 .input-update{
@@ -54,13 +68,22 @@ padding: 15px 25px 35px;
   box-sizing: border-box;
 }
 
+.course-form-buttons{
+  text-align: center;
+ margin-top: 3px;
+ padding-top: 25px;;
+}
 
-  .course-form-buttons{
-    margin-top: 20px;
-  }
   .course-card-body{
-    text-align: center;
+    text-align: justify;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
 
+  border-radius: 4px;
+  box-sizing: border-box;
+margin-bottom: 0px;
   }
 
   .courseheader{
@@ -109,9 +132,6 @@ padding: 15px 25px 35px;
     border-radius: 5px;
     padding: 2px;
   }
-
-
-  
 
 .create-coursebutton { 
   display: inline-block;

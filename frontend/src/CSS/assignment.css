@@ -1,22 +1,6 @@
-.carousel-caption label
-{
-    color:black;
-    font-weight: bold;
-}
-.container-assignment label {
-    color:black;
-    font-weight: bold;
-  }
-
-  .assignment-banner{
-    background-color: #6AD1FA;
-    text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-  }
 
   
-  .create-coursebutton { 
+ /* .create-coursebutton { 
     display: inline-block;
       outline: none;
       cursor: pointer;
@@ -78,11 +62,28 @@
           height: 40px;
           margin-right: 15px;
           border-width: 2px;
-        }
+        }*/
+ .carousel-caption label
+{
+    color:black;
+    font-weight: bold;
+}
+.container-assignment label {
+    color:black;
+    font-weight: bold;
+  }
 
-  .assigenment-banner{
+ .assignment-banner{
+    background-color: #6AD1FA;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+
+ /* .assigenment-banner{
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-      padding: 16px;
+    /*  padding: 16px;
       text-align: center;
       margin-top: -25px;
       margin-bottom: 45px;
@@ -92,18 +93,13 @@
       font-size: medium;
       border-radius: 5px;
       color: white;
-  }  
+  }  */
   
   .question
   {
-    
     border-radius: 5px;
     padding: 8px;
     background-color: #E3E2DF
-    
-    
-   
-    
   }
 
   .question label{
@@ -111,10 +107,7 @@
     color: var(--darkest-blue);
     padding: 8px;
     margin-top: 8px;
-    
-    
-    
-    
+   
   }
 
   .question input{

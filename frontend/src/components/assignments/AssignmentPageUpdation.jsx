@@ -127,10 +127,10 @@ function AssignmentsPageUpdation({ match }) {
      <img className="assignmentimage"  src={assignmentImg} />
       <div className="question">
      
-      <div >
-      <label>Assignment Title:</label>
+        <div >
+          <label>Assignment Title:</label>
 
-        <input
+         <input
           type="text"
           value={assignmentTitle}
           className="form-control"
@@ -149,9 +149,10 @@ function AssignmentsPageUpdation({ match }) {
         />
       </div>
 
-      <div>
-        <label>Deadline: </label>
+         <div>
+            <label>Deadline: </label>
         </div>
+
         <div>
         <DatePicker
           selected={dueDate}
@@ -263,7 +264,7 @@ function AssignmentsPageUpdation({ match }) {
               onChange={(e) => setQuestion10(e.target.value)}
             />
           </div>
-        </div>
+     </div>
       
       <div className="card-header">
             
