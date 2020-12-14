@@ -23,7 +23,7 @@ function HomePage() {
         <div class="column">
           <Link to="/scheduler" className="nav-card">
             <div class="card-nav1">
-              <img src={Calender} alt="Open Book" width="80" height="140"></img>
+              <img src={Calender} alt="Open Book" ></img>
               Scheduler
             </div>
           </Link>
@@ -35,8 +35,7 @@ function HomePage() {
               <img
                 src={CourseGraphic}
                 alt="Open Book"
-                width="80"
-                height="140"
+                
               ></img>
               Courses
             </div>
@@ -49,8 +48,7 @@ function HomePage() {
               <img
                 src={assignmentIcon}
                 alt="Open Book"
-                width="80"
-                height="140"
+               
               ></img>
               Assignments
             </div>
@@ -59,7 +57,7 @@ function HomePage() {
         <div className="column">
           <Link to="/students" className="nav-card">
             <div className="card-nav4">
-              <img src={Students} alt="Open Book" width="80" height="140"></img>
+              <img src={Students} alt="Open Book" ></img>
               Students
             </div>
           </Link>
@@ -70,8 +68,7 @@ function HomePage() {
               <img
                 src={videoIcon}
                 alt="Open Book"
-                width="80"
-                height="140"
+                
               ></img>
               Lectures
             </div>
@@ -80,7 +77,7 @@ function HomePage() {
         <div className="column">
           <Link to="/chat" className="nav-card">
             <div className="card-nav6">
-              <img src={chatIcon} alt="Open Book" width="80" height="140"></img>
+              <img src={chatIcon} alt="Open Book" ></img>
               Forum
             </div>
           </Link>
@@ -88,7 +85,7 @@ function HomePage() {
         <div className="column">
           <Link to="/resources" className="nav-card">
             <div className="card-nav7">
-              <img src={apple} alt="Open Book" width="80" height="140"></img>
+              <img src={apple} alt="Open Book" ></img>
               Resources
             </div>
           </Link>

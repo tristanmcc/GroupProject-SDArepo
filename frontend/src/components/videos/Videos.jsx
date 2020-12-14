@@ -55,6 +55,7 @@ export default function Videos({ course, currentUser }) {
               if (item.course.title === lecture) {
                 return (
                   <div className="videoLayout">
+                    <hr></hr>
                     <VideoCard
                       key={item.id}
                       video={item}

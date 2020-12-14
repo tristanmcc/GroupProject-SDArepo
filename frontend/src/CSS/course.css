@@ -32,10 +32,9 @@
   }
   
  .course-card-form-title{
-  color: rgba(20, 19, 19, 0.781);
-
-padding: 15px 25px 35px;
- text-align: center;
+  color: rgba(20, 19, 19, 0.781); 
+  padding: 15px 25px 35px;
+  text-align: center;
  }
  .course-create-form{
    text-align: center;
@@ -44,6 +43,9 @@ padding: 15px 25px 35px;
   padding: 20px;
 }
 
+.course-card-title{
+  padding-top: 20px;
+}
 .input-update{
   width: 100%;
   padding: 12px 20px;
@@ -70,6 +72,8 @@ padding: 15px 25px 35px;
   }
  
 .courseimage{
+  padding: 15px;
+  padding-bottom: 5px;
     background-color:#bbccd3e3;
     height: 120px;
   }
@@ -192,7 +196,7 @@ padding: 15px 25px 35px;
     margin-bottom: 45px;
     margin-left: -50px;
     margin-right: -50px;
-    background-color: #E55A71;
+    background-color: #1391B9;
     font-size: medium;
     border-radius: 5px;
     color: white;

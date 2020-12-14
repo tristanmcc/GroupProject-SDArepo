@@ -37,6 +37,8 @@
     background-color: #464866;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   .card-nav1:hover {
       margin-top: 5px;
@@ -49,6 +51,8 @@
     background-color: #29648A;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
 
   .card-nav2:hover {
@@ -63,6 +67,8 @@
     background-color: #2E9CCA;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   
   .card-nav3:hover {
@@ -77,6 +83,8 @@
     background-color: #464866;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
 
 
@@ -92,6 +100,8 @@
     background-color: #29648A;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   .card-nav5:hover {
     margin-top: 5px;
@@ -104,6 +114,8 @@
     background-color: #2E9CCA;;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   .card-nav6:hover {
     margin-top: 5px;
@@ -116,6 +128,8 @@
     background-color: #464866;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+     height:163px;
   }
   .card-nav7:hover {
     margin-top: 5px;
@@ -129,6 +143,7 @@
     line-height: 1.6rem;
     text-decoration: none;
     border-radius: 5px;
+    
   }
   .nav-card:visited {
     color: #fff;
