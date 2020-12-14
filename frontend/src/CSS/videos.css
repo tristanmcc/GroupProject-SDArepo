@@ -1,8 +1,4 @@
 .videoLayout {
-/* display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap:10px;  */
- 
   float: left;
   width: 25%; 
   padding: 0 10px;
@@ -42,6 +38,24 @@ margin-right: -50px
   padding-top:1rem;
   padding-left:1rem;
 }
+
+.course-name {
+  margin-left:1rem;
+}
+
+.videoLayout {
+  margin-top:1.6rem;
+}
+
+.break-line {
+  color:white;
+}
+
+.class-videos {
+  display:flex;
+  flex-direction:column;
+
+}
 /* Responsive columns - one column layout (vertical) on small screens */
 @media (max-width: 750px) {
   .videoLayout {
@@ -51,6 +65,9 @@ margin-right: -50px
     padding: 0 10px;
     margin-bottom: 20px;
     padding-bottom: 25px;
+  }
+  .course-name {
+    text-align:center;
   }
 }
 
