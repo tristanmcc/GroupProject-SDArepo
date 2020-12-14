@@ -20,11 +20,13 @@ function CourseForm({ onSubmit, onCancel }) {
   const handleShow = () => setShow(true);
 
   return (
-    <div className="card mt-4">
+    <div className="course-create-form">
       <div className="course-card-body">
-        <h4 className="course-card-title">{"Create a course"}</h4>
+          <div className="course-card-form-title">
+            <h4> {"Create a course"}</h4>
+            </div>
         <form onSubmit={onCreateCourseClick}>
-          <div className="form-group">
+          <div className="course-form-group">
             <label >Title: <span>(12 char)</span></label>
             <input className="input-update"
               type="text" maxLength="12"
@@ -37,7 +39,7 @@ function CourseForm({ onSubmit, onCancel }) {
            
           </div>
 
-          <div className="form-group">
+          <div className="course-form-group">
             <label>Description:</label>
             <textarea  className="input-update"
               className="form-control"
@@ -48,7 +50,7 @@ function CourseForm({ onSubmit, onCancel }) {
             />
           </div>
 
-          <div className="form-group">
+          <div className="course-form-buttons">
             <button className="createnewcoursebutton" type="submit">
               Create
             </button>
