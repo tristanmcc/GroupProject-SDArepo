@@ -40,7 +40,7 @@ export default function Course({
                </Link>
                </div>
                <div className="courseheader">
-                <h3 className="course-card-title">{title}</h3>
+                <h4 className="course-card-title">{title}</h4>
                { /*  <p className="description">{description}</p>*/}
             </div> 
   
