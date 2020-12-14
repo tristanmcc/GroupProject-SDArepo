@@ -8,6 +8,13 @@
     font-weight: bold;
   }
 
+  .assignment-banner{
+    background-color: #6AD1FA;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
   
   .create-coursebutton { 
     display: inline-block;

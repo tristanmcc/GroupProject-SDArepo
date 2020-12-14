@@ -103,6 +103,10 @@ nav {
     /* transition: transform 0.5s ease-in;  */
     
   }
+  .logout-button{
+    color: #E3E2DF;
+
+  }
 
   
   .nav-links li{
