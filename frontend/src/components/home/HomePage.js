@@ -104,7 +104,6 @@ function HomePage() {
           complete!!!{" "}
         </p>
       </div>
-       {/* <img className="bee" src={bee} alt={bee} /> */}
     </div>
   );
 }
