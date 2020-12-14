@@ -5,7 +5,7 @@ import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { RiDeleteBin7Line, RiEdit2Line } from 'react-icons/ri';
 
 import { Link } from 'react-router-dom';
-import courseImg from '../../images/Icons/Light_bulb.png';
+import courseImg from '../../images/Icons/coursebook.png';
 //import courseImg from '../../images/Icons/courses-icon.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
 
