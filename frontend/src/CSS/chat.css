@@ -1,5 +1,5 @@
 .chat-banner{
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
     text-align: center;
     margin-top: -25px;
@@ -15,18 +15,16 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
 
 /*Styling for the Chat page */
 .chatbox{
-    background-color: aliceblue;
-        margin: auto;
-        margin-bottom: 30px; 
-        padding:15px, 15px, 15px; 
-        width: 97%; 
-        height: 250px; 
-        overflow-x: hidden; 
-        overflow-y: auto; 
-        text-align:justify; 
-
+    background-color: aliceblue; 
+    margin: auto;
+    margin-bottom: 30px; 
+    padding:15px, 15px, 15px; 
+    width: 97%; 
+    height: 250px; 
+    overflow-x: hidden; 
+    overflow-y: auto; 
+    text-align:justify; 
 }
-
 
 .chat-page-column {
     float: left;
@@ -38,6 +36,61 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     content: "";
     display: table;
     clear: both;
+  }
+
+.message-sender {
+    font-size: 12px;
+    margin: 0 0 5px;
+    color: #30649c;
+    align-self: flex-start;
+  }
+  
+/* .right{
+    float: right;
+}
+.left{
+    float: left;
+} */
+
+
+.message-box {
+  border-radius: 6px 0 6px 0;
+  position: relative;
+  background: rgba(100, 170, 0, .1);
+  border: 2px solid rgba(100, 170, 0, .1);
+  color: #6c6c6c;
+  font-size: 12px;
+  display: -webkit-inline-flex;
+  
+  }
+  
+
+  .message-box:after {
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+    border-bottom: 10px solid rgba(100, 170, 0, .2); 
+    /* border-bottom: 10px solid rgba(0, 114, 135, .2); */
+    border-left: none;
+    top: -21px;
+    left: 9px;
+  }
+
+  .message-partner {
+    background: rgba(0, 114, 135, .1);
+    border: 2px solid rgba(0, 114, 135, .1);
+    align-self: flex-start;
+  }
+
+
+  .message-partner:after {
+    right: auto;
+    bottom: auto;
+    top: -22px;
+    left: 9px;
+    border: 10px solid transparent;
+    border-bottom: 10px solid rgba(0, 114, 135, .2);
+    border-left: none;
   }
 
 .forumCard{
@@ -129,7 +182,7 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
 
 .chatCard{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-    background-color: #fd9eae;
+    background-color: #fd9eae; 
     padding: 30px 20px 0px 20px;
     margin-right: -50px;
 }
