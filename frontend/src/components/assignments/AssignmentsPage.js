@@ -2,10 +2,28 @@ import React, { useState, useEffect } from 'react';
 import AssignmentsApi from '../../api/AssignmentsApi';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { Link } from 'react-router-dom';
+import Icon from "@material-ui/core/Icon";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: "#25274D",
+    cursor: "pointer",
+    outline: "none",
+    border: "none",
+    borderRadius: 15,
+    transform: "translateY(4)",
+    boxShadow: [[0, 5, "#999"]],
+  },
+  
+}));
 
 function AssignmentsPage({ course, currentUser }) {
+  const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState('');
   const [assignmentDescription, setAssignmentDescription] = useState('');
   const [dueDate, setDueDate] = useState(new Date());
@@ -73,8 +91,18 @@ function AssignmentsPage({ course, currentUser }) {
   }
 
   return (
+
     <div className="container-assignment">
-      <div className="form-group">
+
+        <div>
+        <img className="assignmentimage"  src={assignmentImg} />
+        </div>
+
+
+       <div className="question">
+       
+       
+        <div>
         <label>Assignment Title:</label>
 
         <input
@@ -85,7 +113,7 @@ function AssignmentsPage({ course, currentUser }) {
         />
       </div>
 
-      <div className="form-group text-dark">
+      <div>
         <label>Assignment Description:</label>
 
         <input
@@ -95,7 +123,8 @@ function AssignmentsPage({ course, currentUser }) {
           onChange={(e) => setAssignmentDescription(e.target.value)}
         />
       </div>
-      <div className="form-group text-dark">
+
+      <div>
         <label>Deadline: </label>
         <p></p>
         <DatePicker
@@ -105,9 +134,9 @@ function AssignmentsPage({ course, currentUser }) {
         />
       </div>
 
-      <div className="card-body text-dark border">
-        <div className="question">
-          <div className="form-group">
+     
+           <div>
+          
             <label>Question 1:</label>
             <textarea
               type="text"
@@ -206,29 +235,27 @@ function AssignmentsPage({ course, currentUser }) {
               onChange={(e) => setQuestion10(e.target.value)}
             />
           </div>
+
         </div>
-      </div>
+    
+      
+      
       <div className="card-header">
-        {assignId === '' ? (
+            
           <Link to="/assignments">
-            <button
-              className=" btn btn-dark btn-sm"
-              onClick={() => handleSubmit()}
-            >
-              Submit
-            </button>
-          </Link>
-        ) : (
-          <Link to="/assignments">
-            <button
-              className=" btn btn-dark btn-sm"
-              onClick={() => handleUpdate()}
-            >
-              Update
-            </button>
-          </Link>
-        )}
-      </div>
+
+                <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                endIcon={<Icon>send</Icon>}
+                onClick={() => handleSubmit()}
+                
+              >
+                Add Assignment
+              </Button>
+              </Link>
+    </div>
     </div>
   );
 }
