@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 body{
-	background-color: #fffff8;
+	background-color: snow;
 	color:#555;
 	font-size:16px;
 	line-height:1.6em;
@@ -45,7 +45,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #FDC00F;
+  background-color: var(--darkest-blue);
   opacity:100%;
 }
 .logo{
@@ -94,7 +94,7 @@ nav {
     right: 0px;
     height: 110vh;
     top: 8vh;
-    background-color: #FDC00F;
+    background-color: var(--darkest-blue);
     display: flex;
     align-items: center;
     flex-direction: column;
