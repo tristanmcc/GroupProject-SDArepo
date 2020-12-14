@@ -65,13 +65,13 @@ function LoginForm({onSubmit,onRegister}) {
             <div class="social-media">
            
             <input 
-            class="social-icon" 
+            className="social-icon" 
             type="radio"  
             name="userRole" 
             value={"teacher"} 
             onChange={e => setUserRole(e.target.value)}/> 
             Teacher
-            <input class="social-icon" 
+            <input className="social-icon" 
             type="radio"  
             name="userRole" 
             value={"student"} 
