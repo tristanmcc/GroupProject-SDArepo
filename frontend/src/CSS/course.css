@@ -58,6 +58,9 @@ padding: 10px 10px 15px;
     background-color: #E3E2DF;
 }
 
+.course-card-title{
+  padding-top: 20px;
+}
 .input-update{
   width: 100%;
   padding: 12px 20px;
@@ -93,6 +96,8 @@ margin-bottom: 0px;
   }
  
 .courseimage{
+  padding: 15px;
+  padding-bottom: 5px;
     background-color:#bbccd3e3;
     height: 120px;
   }
@@ -212,7 +217,7 @@ margin-bottom: 0px;
     margin-bottom: 45px;
     margin-left: -50px;
     margin-right: -50px;
-    background-color: #E55A71;
+    background-color: #1391B9;
     font-size: medium;
     border-radius: 5px;
     color: white;
@@ -220,6 +225,7 @@ margin-bottom: 0px;
   
   .course-container {
     text-align: right;
+    margin-top: 40px;
   
   }
   .course-grid {
@@ -230,8 +236,6 @@ margin-bottom: 0px;
     
   } 
 
-
-  
 
   @media(max-width:1100px){
     

@@ -32,11 +32,15 @@
   /* Style the counter cards */
   .card-nav1{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    
     padding: 16px;
+    padding-top: 35px;
     text-align: center;
     background-color: #464866;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   .card-nav1:hover {
       margin-top: 5px;
@@ -45,10 +49,13 @@
   .card-nav2{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 20px;
     text-align: center;
     background-color: #29648A;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
 
   .card-nav2:hover {
@@ -59,10 +66,13 @@
   .card-nav3{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 42px;
     text-align: center;
     background-color: #2E9CCA;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   
   .card-nav3:hover {
@@ -73,10 +83,13 @@
   .card-nav4{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 34px;
     text-align: center;
     background-color: #464866;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
 
 
@@ -88,10 +101,13 @@
   .card-nav5{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 25px;
     text-align: center;
     background-color: #29648A;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   .card-nav5:hover {
     margin-top: 5px;
@@ -104,6 +120,8 @@
     background-color: #2E9CCA;;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+    height:163px;
   }
   .card-nav6:hover {
     margin-top: 5px;
@@ -112,10 +130,13 @@
   .card-nav7{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
     padding: 16px;
+    padding-top: 22px;
     text-align: center;
     background-color: #464866;
     font-size: medium;
     border-radius: 5px;
+    width:auto;
+     height:163px;
   }
   .card-nav7:hover {
     margin-top: 5px;
@@ -129,6 +150,7 @@
     line-height: 1.6rem;
     text-decoration: none;
     border-radius: 5px;
+    
   }
   .nav-card:visited {
     color: #fff;
