@@ -103,8 +103,7 @@ function HomePage() {
       <div>
       <img className="introductoryText"  src={introductoryText} />  
       </div>
-      
-      
+
     </div>
     </div>
   );

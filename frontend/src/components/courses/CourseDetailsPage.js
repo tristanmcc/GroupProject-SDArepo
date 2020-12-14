@@ -73,49 +73,37 @@ export default function CourseDetailsPage({ match }) {
   return (
     <div className="course-details">
       <div className="course-details-description">
-        <h3>Course Details page - {course.description} </h3>
+        <h3 className="course-description">
+          Course Details page - {course.description}{" "}
+        </h3>
         {/* <p>{course.description}</p> */}
       </div>
       <div className="course-details-section">
         <div>
-          <div className="lecture-details">
-            {openLectureForm ? (
+          <div className="assignment-details">
+            {openForm ? (
               <>
-                <Videos course={course} currentUser={currentUser} />
+                <AssignmentsView course={course} currentUser={currentUser} />
+                {currentUser.userRole === "teacher" ? (
+                  <div className="assignment-addNew">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      endIcon={<Icon>send</Icon>}
+                      onClick={onCreateNewAssignment}
+                    >
+                      Add New Assignment
+                    </Button>
+                  </div>
+                ) : null}
               </>
             ) : (
-              <VideoUpLoadForm course={course} currentUser={currentUser} />
+              <AssignmentsPage course={course} currentUser={currentUser} />
             )}
-          </div>
-          <div className="buttonCheck">
-            {" "}
-            <Button
-              variant="contained"
-              color="default"
-              className={classes.uploadButton}
-              endIcon={<Icon>send</Icon>}
-              onClick={onUploadVideo}
-            >
-              Add new video
-            </Button>
-          </div>
-        </div>
-        <div className="assignment-details">
-          {openForm ? (
-            <>
-              <AssignmentsView course={course} currentUser={currentUser} />
-
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                endIcon={<Icon>send</Icon>}
-                onClick={onCreateNewAssignment}
-              >
-                Add New Assignment
-              </Button>
-              {currentUser.userRole === "teacher" ? (
-                <Link to={`/assignmentsSubmittedView`}>
+            {currentUser.userRole === "teacher" ? (
+              <Link to={`/assignmentsSubmittedView`}>
+                <div className="assignment-view">
                   <Button
                     variant="contained"
                     color="primary"
@@ -125,12 +113,32 @@ export default function CourseDetailsPage({ match }) {
                   >
                     View Submitted Assignment
                   </Button>
-                </Link>
-              ) : null}
-            </>
-          ) : (
-            <AssignmentsPage course={course} currentUser={currentUser} />
-          )}
+                </div>
+              </Link>
+            ) : null}
+          </div>
+          <div className="lecture-details">
+            <div className="check">
+              {openLectureForm ? (
+                <>
+                  <Videos course={course} currentUser={currentUser} />
+                </>
+              ) : (
+                <VideoUpLoadForm course={course} currentUser={currentUser} />
+              )}
+            </div>
+            <div className="buttonCheck">
+              <Button
+                variant="contained"
+                color="default"
+                className={classes.uploadButton}
+                endIcon={<Icon>send</Icon>}
+                onClick={onUploadVideo}
+              >
+                Add new video
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

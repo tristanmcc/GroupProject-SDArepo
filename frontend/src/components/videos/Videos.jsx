@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import LecturesApi from '../../api/LecturesApi';
 import VideoCard from './VideoCard';
 
+import "../../css/videos.css";
 import '../../css/styles.css';
 
 export default function Videos({ course, currentUser }) {
