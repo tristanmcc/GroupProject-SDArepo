@@ -8,15 +8,16 @@ import Calender from "../../images/Icons/clock_icon.png";
 import Students from "../../images/Icons/Bag_icon.png";
 import chatIcon from "../../images/Icons/paper_airplane.png";
 import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
-import videoIcon from "../../images/Icons/Play_button.png";
+import videoIcon from "../../images/Icons/Play_button.png"; 
 import apple from "../../images/Icons/apple.png";
 import "../../css/styles.css";
-import bee from "../../images/resource_image/graduationBee.png";
+import happyKids from '../../images/happyKids.jpg'
+import introductoryText from '../../images/introductionText.jpg'
 
 function HomePage() {
   return (
     <div>
-      <div className="home-banner">Home</div>
+      
 
       <div class="row">
         <div class="column">
@@ -95,16 +96,15 @@ function HomePage() {
       </div>
 
       <div className="homepageanouncement">
-        <div className="homepageanouncement1">
-          <h2>Announcement !!!</h2>{" "}
-        </div>
-        <p>
-          {" "}
-          There are two new lectures to watch and one new assignment to
-          complete!!!{" "}
-        </p>
+      <div>
+      <img className="happKids"  src={happyKids} />
       </div>
-      {/* <img className="bee" src={bee} alt={bee} /> */}
+
+      <div>
+      <img className="introductoryText"  src={introductoryText} />  
+      </div>
+
+    </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 @import "./_variable.css";
 @import "./assignment.css";
-@import "./chat.css";
+ @import "./chat.css"; 
 @import "./course-details.css";
 @import "./course.css";
 @import "./homePage.css";
@@ -13,13 +13,7 @@
 @import "./videos.css";
 
 
-
-
-
-
-
-
-.course {
+/* .course {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 
@@ -27,4 +21,4 @@
   text-align: center;
   margin-top: 50px;
   padding-top: 25%;
-}
+} */

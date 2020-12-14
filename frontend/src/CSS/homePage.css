@@ -144,9 +144,9 @@
 
   .homepageanouncement{
    
-   text-align: center;
-   border: solid;
-   margin-bottom: 12%;
+   display:grid;
+   grid-template-columns: 1fr 1fr;
+   ;
   }
     .homepageanouncement1{
       background-color: #FDC00F;
