@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../../css/styles.css';
-import book from '../../images/undraw_education_f8ru (1).svg';
+import book from '../../images/undraw_education_f8ru.svg';
 import history from '../../images/undraw_voice_interface_eckp.svg';
 
 function LoginForm({onSubmit,onRegister}) {
