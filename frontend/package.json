@@ -25,7 +25,9 @@
     "react-scripts": "4.0.0",
     "react-test-renderer": "^17.0.1",
     "web-vitals": "^0.2.4",
-    "ws": "^7.4.0"
+    "ws": "^7.4.0",
+    "brain.js": "^1.6.1",
+    "natural": "^0.6.3"
   },
   "scripts": {
     "start": "react-scripts start",
