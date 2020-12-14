@@ -3,15 +3,15 @@ import Style from "../../css/homePage.css";
 import { Link } from "react-router-dom";
 
 //media
-import CourseGraphic from "../../images/Icons/Light_bulb.png";
-import Calender from "../../images/Icons/clock_icon.png";
-import Students from "../../images/Icons/Bag_icon.png";
-import chatIcon from "../../images/Icons/paper_airplane.png";
-import assignmentIcon from "../../images/Icons/NoteBook_icon.png";
-import videoIcon from "../../images/Icons/Play_button.png"; 
-import apple from "../../images/Icons/apple.png";
+import CourseGraphic from "../../images/Icons/undraw_Bookshelves_re_lxoy (1).png";
+import Calender from "../../images/Icons/undraw_Booking_re_gw4j (1).png";
+import Students from "../../images/Icons/undraw_true_friends_c94g (1).png";
+import chatIcon from "../../images/Icons/undraw_Chatting_re_j55r (1).png";
+import assignmentIcon from "../../images/Icons/undraw_Personal_notebook_re_d7dc (1).png";
+import videoIcon from "../../images/Icons/undraw_online_media_62jb (2).png"; 
+import apple from "../../images/Icons/undraw_mobile_apps_spmp (2).png";
 import "../../css/styles.css";
-import happyKids from '../../images/happyKids.jpg'
+import happyKids from '../../images/edvin-johansson-UGGinojhaC0-unsplash.jpg'
 import introductoryText from '../../images/introductionText.jpg'
 
 function HomePage() {
@@ -95,16 +95,11 @@ function HomePage() {
         </div>
       </div>
 
-      <div className="homepageanouncement">
+      
       <div>
-      <img className="happKids"  src={happyKids} />
+      <img className="happKids"  src={happyKids} height = "600" width="auto"/>
       </div>
 
-      <div>
-      <img className="introductoryText"  src={introductoryText} />  
-      </div>
-
-    </div>
     </div>
   );
 }

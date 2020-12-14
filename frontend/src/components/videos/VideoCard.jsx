@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import DuoTwoToneIcon from '@material-ui/icons/DuoTwoTone';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
@@ -56,6 +55,6 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
           <DeleteIcon onClick={() => onDeleteClick(video)} />
         </div>
       ) : null}
-    </Card>
+     </Card>
   );
 }
