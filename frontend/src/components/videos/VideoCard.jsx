@@ -1,24 +1,28 @@
-import React from "react";
+import React from 'react';
 
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import { makeStyles } from "@material-ui/core/styles";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import DuoTwoToneIcon from "@material-ui/icons/DuoTwoTone";
-import DeleteIcon from "@material-ui/icons/Delete";
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import { makeStyles } from '@material-ui/core/styles';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import DuoTwoToneIcon from '@material-ui/icons/DuoTwoTone';
+import DeleteIcon from '@material-ui/icons/Delete';
 
-import "../../css/videos.css";
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+
+import '../../css/styles.css';
 
 const useStyles = makeStyles({
   root: {
-    textAlign: "center",
-    backgroundColor: "#6AD1FA",
+    textAlign: 'center',
+    backgroundColor: '#6AD1FA',
+    maxWidth: 130,
+    maxHeight: 170,
   },
-  media: {
-    height: "20%",
-  },
+  // media: {
+  //   height: '20%',
+  // },
   cardLectures: {},
 });
 
@@ -30,24 +34,24 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
       <CardActionArea>
         <IconButton>
           <a href={video.videoUrl} target="_blank" rel="noopener noreferrer">
-            <DuoTwoToneIcon
+            <PlayCircleFilledIcon
               style={{
-                height: 130,
-                width: "30%",
-                color: "#E55A71",
-                margin: "0",
+                height: '50%',
+                width: '50%',
+                color: '#E55A71',
+                margin: '0',
               }}
             />
           </a>
         </IconButton>
 
-        <CardContent className={classes.cardLectures}>
-          <Typography gutterBottom variant="h5" component="h2">
+        <CardContent>
+          <Typography gutterBottom variant="p" component="p" styles={{}}>
             {`${video.videoName}`}
           </Typography>
         </CardContent>
       </CardActionArea>
-      {currentUser.userRole === "teacher" ? (
+      {currentUser.userRole === 'teacher' ? (
         <div className="iconDelete">
           <DeleteIcon onClick={() => onDeleteClick(video)} />
         </div>

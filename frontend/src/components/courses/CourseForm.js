@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import "../../css/course.css";
+import "../../css/styles.css";
 
 
 function CourseForm({ onSubmit, onCancel }) {

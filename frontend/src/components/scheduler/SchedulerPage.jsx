@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import Scheduler from './Scheduler';
 import UserApi from '../../api/UserApi';
-import Style from "../../css/scheduler.css";
+import Style from "../../css/styles.css";
 
 
 export default function SchedulerPage() {

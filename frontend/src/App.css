@@ -1,13 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 body{
 	background-color: #fffff8;
 	color:#555;
 	font-size:16px;
 	line-height:1.6em;
-	margin:0 auto;
+  margin:0 auto;
+  
+ 
 }
 
 .App {
   text-align: center;
+  font-family: "Poppins", sans-serif;
 }
 .App-logo {
   height: 40vmin;
@@ -21,6 +25,7 @@ body{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 .App-link {
   color: #09D3AC;
@@ -30,6 +35,7 @@ body{
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+ 
 }
 
 nav {
@@ -41,29 +47,37 @@ nav {
   min-height: 8vh;
   background-color: #FDC00F;
   opacity:100%;
-  font-family: Arial, Helvetica, sans-serif;
 }
 .logo{
   color: white;
   text-transform: uppercase;
   font-size: 17px;
   letter-spacing: 2px;
+  
 }
 .nav-links {
   display: flex;
   justify-content: space-around;
   width: 60%;
+  font-style: normal;
+  text-decoration: none;
+
 }
 .nav-links li{
   list-style: none;
   margin-top: 15px;
+  text-decoration: none;
+  font-style: normal;
 }
 .nav-links a{
   color: white;
+  font-weight: normal;
   text-decoration: none;
   letter-spacing: 2px;
-  font-size: 14px;
+  font-size: 15px;
   margin: 6px;
+  font-family: "Poppins", sans-serif;
+  
 }
 @media screen and (max-width:1024px) {
   .nav-links{
@@ -87,11 +101,13 @@ nav {
     width:40%;
     transform: translateX(100%);
     /* transition: transform 0.5s ease-in;  */
+    
   }
 
   
   .nav-links li{
      opacity: 0;
+     
   }
   .burger {
     display: block;
@@ -132,7 +148,7 @@ nav {
 .button1 {
   background-color: #7b5f7e;
   color: rgb(226,226,226);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Poppins", sans-serif;
   letter-spacing: 2px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }

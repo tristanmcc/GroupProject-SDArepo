@@ -10,7 +10,7 @@ import courseImg from '../../images/Icons/Course_book.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
 
 import { Tooltip } from '@material-ui/core';
-import '../../css/course.css';
+import '../../css/styles.css';
 export default function Course({
   course,
   onCourseDelete,
