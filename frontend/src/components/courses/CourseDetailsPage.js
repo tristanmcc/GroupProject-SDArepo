@@ -78,6 +78,40 @@ export default function CourseDetailsPage({ match }) {
       </div>
       <div className="course-details-section">
         <div>
+        <div className="assignment-details">
+          {openForm ? (
+            <>
+              <AssignmentsView course={course} currentUser={currentUser} />
+              {currentUser.userRole === "teacher" ? (
+              <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                endIcon={<Icon>send</Icon>}
+                onClick={onCreateNewAssignment}
+              >
+                Add New Assignment
+              </Button>
+              
+            ): null }
+            </>
+          ) : (
+            <AssignmentsPage course={course} currentUser={currentUser} />
+          )}
+          {currentUser.userRole === "teacher" ? (
+                <Link to={`/assignmentsSubmittedView`}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    endIcon={<Icon>send</Icon>}
+                    onClick={onCreateNewAssignment}
+                  >
+                    View Submitted Assignment
+                  </Button>
+                </Link>
+              ) : null}
+        </div>
           <div className="lecture-details">
             {openLectureForm ? (
               <>
@@ -100,38 +134,7 @@ export default function CourseDetailsPage({ match }) {
             </Button>
           </div>
         </div>
-        <div className="assignment-details">
-          {openForm ? (
-            <>
-              <AssignmentsView course={course} currentUser={currentUser} />
 
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                endIcon={<Icon>send</Icon>}
-                onClick={onCreateNewAssignment}
-              >
-                Add New Assignment
-              </Button>
-              {currentUser.userRole === "teacher" ? (
-                <Link to={`/assignmentsSubmittedView`}>
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                    endIcon={<Icon>send</Icon>}
-                    onClick={onCreateNewAssignment}
-                  >
-                    View Submitted Assignment
-                  </Button>
-                </Link>
-              ) : null}
-            </>
-          ) : (
-            <AssignmentsPage course={course} currentUser={currentUser} />
-          )}
-        </div>
       </div>
     </div>
   );
