@@ -1,26 +1,22 @@
 .lecture-banner {
-    margin-left: 0;
+    margin-left: 0 !important;
     margin-top:0;
-    margin-right: 0;
+    margin-right: 0 !important;
 }
 
 .iconDelete {
     text-align: center;
 }
 
-.videoLayout {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap:10px; 
-  float: left;
-  width: 40%; 
-  /* padding: 0 10px;
-  padding-bottom: 25px;  */
+.lecture-details {
+    display:flex;
+    flex-direction: column; 
+    margin-top:3rem;
+    background-color:#6AD1FA;
 }
 
-.lecture-details {
-    margin-top:3rem;
-    background-color:#6AD1FA; 
+.check {
+    background-color:#fffff8;
 }
   
 .lectures-title {
@@ -35,15 +31,7 @@
 .buttonCheck {
     background-color:#FFFFF3;
 }
-  
-.check {
-    background-color:#E55A71;
-}
-  
-.course-details {
-    margin:3rem;
-}
-  
+   
 .course-details-description {
     padding: 16px;
     text-align: center;
@@ -67,7 +55,20 @@
   
  
 @media (max-width: 750px) {
-    .container {
-        margin:0 auto;
+    
+    .container{
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
     }
+    
+    .buttonCheck, .assignment-addNew, .assignment-view {
+        text-align: center;
+    }
+
+    .course-description {
+        font-size:16px;
+    }
+    
+   
 }

@@ -73,33 +73,37 @@ export default function CourseDetailsPage({ match }) {
   return (
     <div className="course-details">
       <div className="course-details-description">
-        <h3>Course Details page - {course.description} </h3>
+        <h3 className="course-description">
+          Course Details page - {course.description}{" "}
+        </h3>
         {/* <p>{course.description}</p> */}
       </div>
       <div className="course-details-section">
         <div>
-        <div className="assignment-details">
-          {openForm ? (
-            <>
-              <AssignmentsView course={course} currentUser={currentUser} />
-              {currentUser.userRole === "teacher" ? (
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                endIcon={<Icon>send</Icon>}
-                onClick={onCreateNewAssignment}
-              >
-                Add New Assignment
-              </Button>
-              
-            ): null }
-            </>
-          ) : (
-            <AssignmentsPage course={course} currentUser={currentUser} />
-          )}
-          {currentUser.userRole === "teacher" ? (
-                <Link to={`/assignmentsSubmittedView`}>
+          <div className="assignment-details">
+            {openForm ? (
+              <>
+                <AssignmentsView course={course} currentUser={currentUser} />
+                {currentUser.userRole === "teacher" ? (
+                  <div className="assignment-addNew">
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      endIcon={<Icon>send</Icon>}
+                      onClick={onCreateNewAssignment}
+                    >
+                      Add New Assignment
+                    </Button>
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <AssignmentsPage course={course} currentUser={currentUser} />
+            )}
+            {currentUser.userRole === "teacher" ? (
+              <Link to={`/assignmentsSubmittedView`}>
+                <div className="assignment-view">
                   <Button
                     variant="contained"
                     color="primary"
@@ -109,32 +113,33 @@ export default function CourseDetailsPage({ match }) {
                   >
                     View Submitted Assignment
                   </Button>
-                </Link>
-              ) : null}
-        </div>
+                </div>
+              </Link>
+            ) : null}
+          </div>
           <div className="lecture-details">
-            {openLectureForm ? (
-              <>
-                <Videos course={course} currentUser={currentUser} />
-              </>
-            ) : (
-              <VideoUpLoadForm course={course} currentUser={currentUser} />
-            )}
-          </div>
-          <div className="buttonCheck">
-            {" "}
-            <Button
-              variant="contained"
-              color="default"
-              className={classes.uploadButton}
-              endIcon={<Icon>send</Icon>}
-              onClick={onUploadVideo}
-            >
-              Add new video
-            </Button>
+            <div className="check">
+              {openLectureForm ? (
+                <>
+                  <Videos course={course} currentUser={currentUser} />
+                </>
+              ) : (
+                <VideoUpLoadForm course={course} currentUser={currentUser} />
+              )}
+            </div>
+            <div className="buttonCheck">
+              <Button
+                variant="contained"
+                color="default"
+                className={classes.uploadButton}
+                endIcon={<Icon>send</Icon>}
+                onClick={onUploadVideo}
+              >
+                Add new video
+              </Button>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   );
