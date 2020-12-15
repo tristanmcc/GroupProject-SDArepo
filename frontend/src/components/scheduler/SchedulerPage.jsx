@@ -22,7 +22,7 @@ export default function SchedulerPage() {
 
     <div>
        <div className="sheduler-banner">Scheduler</div>
-              <div className="horizontalline"> </div>
+              <hr/>
       <Scheduler currentUser={currentUser} />
     </div>
   );

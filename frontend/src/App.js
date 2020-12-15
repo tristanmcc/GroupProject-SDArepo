@@ -53,8 +53,8 @@ function App() {
           />
 
           <Route
-            path="/assignmentsViewForCourse/:course"
-            render={({ match }) => <AssignmentsView match={match} />}
+            path="/assignmentsViewForCourse/:courseId"
+            render={({ match }) => <AssignmentsPage match={match} />}
           ></Route>
 
           <Route

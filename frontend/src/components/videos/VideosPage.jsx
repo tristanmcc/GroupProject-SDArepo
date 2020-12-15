@@ -17,7 +17,6 @@ export default function VideosPage({ course, currentUsers }) {
   return (
     <div>
       <div className="lecture-banner">Lectures</div>
-      <div className="hori_line"></div>
       <Videos course={course} currentUser={currentUser} />
     </div>
   );

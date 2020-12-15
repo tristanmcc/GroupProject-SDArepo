@@ -74,6 +74,7 @@ const updateCourse = (updatedCourse) => {
              Courses
              
          </div>
+         <hr/>
          {/*  <div className="horizontalline">
              </div> */}
      <div className="course-container">
