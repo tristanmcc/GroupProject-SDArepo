@@ -68,6 +68,21 @@
     color:black;
     font-weight: bold;
 }
+
+.carousel-indicators li {
+  background-color: #db13c18e;
+  
+}
+
+.carousel-indicators .active {
+  background-color: #2d3fa7fd;
+}
+
+
+.carousel-inner {
+  background-color: rgb(156, 197, 221); 
+}
+
 .container-assignment label {
     color:black;
     font-weight: bold;

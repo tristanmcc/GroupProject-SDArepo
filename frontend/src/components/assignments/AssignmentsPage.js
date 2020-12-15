@@ -8,6 +8,7 @@ import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CoursesApi from "../../api/CoursesApi";
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -28,6 +29,7 @@ function AssignmentsPage({match}) {
   const [assignmentTitle, setAssignmentTitle] = useState('');
   const [assignmentDescription, setAssignmentDescription] = useState('');
   const [dueDate, setDueDate] = useState(new Date());
+  const history = useHistory();
 
   const [question1, setQuestion1] = useState('');
   const [question2, setQuestion2] = useState('');
@@ -71,8 +73,8 @@ function AssignmentsPage({match}) {
       question10,
     }).then((response) => {
       setAssignId(response.data.id);
-      window.location.reload();
-
+      //window.location.reload();
+      history.go(-2);
  
     });
   }
