@@ -63,6 +63,7 @@ nav {
   text-decoration: none;
 
 }
+
 .nav-links li{
   list-style: none;
   margin-top: 15px;
@@ -79,6 +80,21 @@ nav {
   font-family: "Poppins", sans-serif;
   
 }
+
+.nav-links a:hover{     
+ color:rgba(253, 225, 10, 0.863);  
+}
+.nav-links .target {
+  color: #ff4b46;
+}
+.nav-links .active {
+  color:  rgb(0, 255, 30);
+}
+.nav-links a:focus {
+  color:  #ff4b46;
+}
+
+
 @media screen and (max-width:1024px) {
   .nav-links{
     width: 60%;
