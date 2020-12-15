@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
-import AssignmentsApi from "../../api/AssignmentsApi";
-import AnsAssApi from "../../api/AnsweredAssignmentsApi";
-import UserApi from "../../api/UserApi";
-import book from "../../images/carousel/carousel-6.jpg";
-import { useHistory } from "react-router-dom";
-import "../../css/styles.css";
+import React, { useState, useEffect } from 'react'
+import AssignmentsApi from '../../api/AssignmentsApi';
+import AnsAssApi from '../../api/AnsweredAssignmentsApi';
+import AssApi from '../../api/AssignmentsApi';
+import UserApi from '../../api/UserApi';
+import book from '../../images/carousel/carousel-6.jpg';
+import book1 from '../../images/resource_image/book.jpg';
+import { useHistory } from 'react-router-dom';
+import '../../css/styles.css';
+import Home from '../home/HomePage.js';
 
 export default function AnsweredAssignmentsForm({ match }) {
   const history = useHistory();
@@ -36,6 +39,18 @@ export default function AnsweredAssignmentsForm({ match }) {
   const [assignmentId, setAssignmentId] = useState("");
   const [user, setUser] = useState(" ");
 
+  const subAssignmentDetails = [
+    { question: question1, answer: answer1, answerFunction: setAnswer1 },
+    { question: question2, answer: answer2, answerFunction: setAnswer2 },
+    { question: question3, answer: answer3, answerFunction: setAnswer3 },
+    { question: question4, answer: answer4, answerFunction: setAnswer4 },
+    { question: question5, answer: answer5, answerFunction: setAnswer5 },
+    { question: question6, answer: answer6, answerFunction: setAnswer6 },
+    { question: question7, answer: answer7, answerFunction: setAnswer7 },
+    { question: question8, answer: answer8, answerFunction: setAnswer8 },
+    { question: question9, answer: answer9, answerFunction: setAnswer9 },
+    { question: question10, answer: answer10, answerFunction: setAnswer10 }
+];
   const getAssignmentById = (id) => {
     console.log("Calling getAssignmentById " + id);
     AssignmentsApi.getAssignmentById(id).then((response) => {
@@ -58,12 +73,13 @@ export default function AnsweredAssignmentsForm({ match }) {
     });
   };
 
-  const getUserRole = () => {
-    UserApi.getCurrentUser().then((response) => {
-      setUser(response.data);
-      console.log("User Name" + user.name);
-    });
-  };
+    const getUserRole = () => {
+        UserApi.getCurrentUser()
+            .then(response => {
+                setUser(response.data);
+                console.log("User Name" + user.name);
+            })
+    };
 
   useEffect(() => {
     console.log(
@@ -74,227 +90,98 @@ export default function AnsweredAssignmentsForm({ match }) {
     getUserRole();
   }, []);
 
-  const createAnsweredAssignment = (answers) => {
-    console.log("Inside createAnsweredAssignment" + answers);
-    AnsAssApi.createAnsweredAssignment(answers).then((response) => {
-      console.log(response);
-      history.goBack();
-    });
-  };
 
-  return (
-    <>
-      <div className="card mt-4">
-        <div className="card-body">
-          <h6 className="card-title">{answeredAssignmentTitle}</h6>
-          <p className="card-subtitle">{answeredAssignmentDescription}</p>
-          <div>
-            <div className="form-group">
-              <label>Student Name:</label>
-              {user.name}
+    const createAnsweredAssignment = (answers) => {
+        console.log("Inside createAnsweredAssignment" + answers);
+        AnsAssApi.createAnsweredAssignment(answers).then((response) => {
+          console.log(response);
+          history.goBack();
+        });
+      };
+
+
+    return (
+        <>
+        <div className="card mt-4">
+                <div className="card-body">
+                    <h6 className="card-title" >{answeredAssignmentTitle}</h6>
+                    <div>
+                        <div className="form-group">
+                            <label>Student Name:</label>
+                            {user.name}
+                        </div>
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+                            <div class="carousel-inner">
+                                {
+                                    subAssignmentDetails.map((eachQuestion, index) => (
+                                        <div class={index === 0 ? "carousel-item active" : "carousel-item"}>
+                                            <img src={book1} alt="quiz" width="1100" height="180" />
+                                            <div class="carousel-caption  d-md-block">
+                                                <label>{index+1 + '. ' + eachQuestion.question}</label>
+                                                <textarea
+                                                    type="text"
+                                                    className="form-control"
+                                                    placeholder="Type your answer here..."
+                                                    value={eachQuestion.answer}
+                                                    onChange={e => eachQuestion.answerFunction(e.target.value)}
+                                                />
+                                                {index===9?
+                                                <button
+                                                    className="btn btn-danger"
+                                                    onClick={() =>
+                                                    createAnsweredAssignment({
+                                                        answeredAssignmentTitle,
+                                                        answer1,
+                                                        answer2,
+                                                        answer3,
+                                                        answer4,
+                                                        answer5,
+                                                        answer6,
+                                                        answer7,
+                                                        answer8,
+                                                        answer9,
+                                                        answer10,
+                                                        assignmentId,
+                                                        user,
+                                                    })
+                                                    }
+                                                >
+                                                    Submit
+                                                </button> : null}
+                                            </div>
+
+
+                                            </div>
+
+                                         ))
+                                }
+                            </div>
+                            <ol class="carousel-indicators" >
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                            <li data-target="#myCarousel" data-slide-to="4"></li>
+                            <li data-target="#myCarousel" data-slide-to="5"></li>
+                            <li data-target="#myCarousel" data-slide-to="6"></li>
+                            <li data-target="#myCarousel" data-slide-to="7"></li>
+                            <li data-target="#myCarousel" data-slide-to="8"></li>
+                            <li data-target="#myCarousel" data-slide-to="9"></li>
+                        </ol>
+                            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
-            <div
-              id="myCarousel"
-              class="carousel slide"
-              data-ride="carousel"
-              data-interval="false"
-              data-wrap="false"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question1}</label>
+        </>
 
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer1}
-                      onChange={(e) => setAnswer1(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item ">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question2}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer2}
-                      onChange={(e) => setAnswer2(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question3}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer3}
-                      onChange={(e) => setAnswer3(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question4}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer4}
-                      onChange={(e) => setAnswer4(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question5}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer5}
-                      onChange={(e) => setAnswer5(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item ">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question6}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer6}
-                      onChange={(e) => setAnswer6(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item ">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question7}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer7}
-                      onChange={(e) => setAnswer7(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item ">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question8}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer8}
-                      onChange={(e) => setAnswer8(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item ">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question9}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer9}
-                      onChange={(e) => setAnswer9(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <div class="carousel-item ">
-                  <img src={book} alt="quiz" width="1100" height="180" />
-                  <div class="carousel-caption  d-md-block">
-                    <label>{question10}</label>
-
-                    <textarea
-                      type="text"
-                      className="form-control"
-                      placeholder="..."
-                      value={answer10}
-                      onChange={(e) => setAnswer10(e.target.value)}
-                    />
-                  </div>
-                </div>
-              </div>
-              <a
-                class="carousel-control-prev"
-                href="#myCarousel"
-                data-slide="prev"
-              >
-                <span class="carousel-control-prev-icon"></span>
-              </a>
-              <a
-                class="carousel-control-next"
-                href="#myCarousel"
-                data-slide="next"
-              >
-                <span class="carousel-control-next-icon"></span>
-              </a>
-            </div>
-
-            <div className="form-group">
-              <button
-                className="btn btn-danger"
-                onClick={() =>
-                  createAnsweredAssignment({
-                    answeredAssignmentTitle,
-                    answer1,
-                    answer2,
-                    answer3,
-                    answer4,
-                    answer5,
-                    answer6,
-                    answer7,
-                    answer8,
-                    answer9,
-                    answer10,
-                    assignmentId,
-                    user,
-                  })
-                }
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+    );
 }
+
