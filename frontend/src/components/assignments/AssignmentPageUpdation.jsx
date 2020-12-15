@@ -268,7 +268,7 @@ function AssignmentsPageUpdation({ match }) {
       
       <div className="card-header">
             
-          <Link to="/assignments">
+          <Link to={`/courseDetail/${match.params.courseId}`}>
 
                 <Button
                 variant="contained"

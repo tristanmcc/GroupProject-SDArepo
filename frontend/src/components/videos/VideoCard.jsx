@@ -15,7 +15,7 @@ import '../../css/styles.css';
 const useStyles = makeStyles({
   root: {
     textAlign: 'center',
-    backgroundColor: '#6AD1FA',
+    backgroundColor: '#E3E2DF',
     maxWidth: 130,
     maxHeight: 170,
   },
@@ -37,7 +37,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
               style={{
                 height: '50%',
                 width: '50%',
-                color: '#E55A71',
+                color: '#2E9CCA',
                 margin: '0',
               }}
             />
