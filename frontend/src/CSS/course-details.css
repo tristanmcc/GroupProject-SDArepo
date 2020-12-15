@@ -44,6 +44,18 @@
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+.course-details-text{
+    padding: 16px;
+    text-align: justify;
+    margin-top: -25px;
+    margin-bottom: 45px;
+    margin-left: -10px;
+    margin-right: -10px;
+    background-color: snow;
+    font-size: medium;
+    border-radius: 5px;
+    
+}
   
 .course-details-section {
     margin:0 auto;
