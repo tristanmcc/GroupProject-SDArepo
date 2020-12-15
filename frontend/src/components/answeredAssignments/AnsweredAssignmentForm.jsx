@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
-import AssApi from '../../api/AssignmentsApi';
 import UserApi from '../../api/UserApi';
 import book from '../../images/carousel/carousel-6.jpg';
-import book1 from '../../images/resource_image/book.jpg';
+import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { useHistory } from 'react-router-dom';
+import Button from "@material-ui/core/Button";
 import '../../css/styles.css';
-import Home from '../home/HomePage.js';
 
 export default function AnsweredAssignmentsForm({ match }) {
   const history = useHistory();
@@ -52,9 +51,7 @@ export default function AnsweredAssignmentsForm({ match }) {
     { question: question10, answer: answer10, answerFunction: setAnswer10 }
 ];
   const getAssignmentById = (id) => {
-    console.log("Calling getAssignmentById " + id);
     AssignmentsApi.getAssignmentById(id).then((response) => {
-      console.log("Title value" + response.data.assignmentTitle);
       setAssignmentId(response.data.id);
       setAnsweredAssignmentTitle(response.data.assignmentTitle);
       setAnsweredAssignmentDescription(response.data.assignmentDescription);
@@ -68,8 +65,6 @@ export default function AnsweredAssignmentsForm({ match }) {
       setQuestion8(response.data.question8);
       setQuestion9(response.data.question9);
       setQuestion10(response.data.question10);
-
-      console.log(response.data);
     });
   };
 
@@ -77,7 +72,6 @@ export default function AnsweredAssignmentsForm({ match }) {
         UserApi.getCurrentUser()
             .then(response => {
                 setUser(response.data);
-                console.log("User Name" + user.name);
             })
     };
 
@@ -104,10 +98,12 @@ export default function AnsweredAssignmentsForm({ match }) {
         <>
         <div className="card mt-4">
                 <div className="card-body">
-                    <h6 className="card-title" >{answeredAssignmentTitle}</h6>
-                    <div>
+                <img className="assignmentimage" alt="" src={assignmentImg} height="160px" width="90px" margin-bottom= "10px"/>
+                <p/>
+                    <h4 className="card-title">{answeredAssignmentTitle} </h4>
+                   <div>
                         <div className="form-group">
-                            <label>Student Name:</label>
+                            <label>Student Name:</label> &nbsp;
                             {user.name}
                         </div>
                         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
@@ -115,7 +111,7 @@ export default function AnsweredAssignmentsForm({ match }) {
                                 {
                                     subAssignmentDetails.map((eachQuestion, index) => (
                                         <div class={index === 0 ? "carousel-item active" : "carousel-item"}>
-                                            <img src={book1} alt="quiz" width="1100" height="180" />
+                                            <img width="100px" height="230px" />
                                             <div class="carousel-caption  d-md-block">
                                                 <label>{index+1 + '. ' + eachQuestion.question}</label>
                                                 <textarea
@@ -125,9 +121,11 @@ export default function AnsweredAssignmentsForm({ match }) {
                                                     value={eachQuestion.answer}
                                                     onChange={e => eachQuestion.answerFunction(e.target.value)}
                                                 />
+                                                <p></p>
                                                 {index===9?
-                                                <button
-                                                    className="btn btn-danger"
+                                                <Button
+                                                    variant="contained"
+                                                    color="primary"
                                                     onClick={() =>
                                                     createAnsweredAssignment({
                                                         answeredAssignmentTitle,
@@ -147,7 +145,7 @@ export default function AnsweredAssignmentsForm({ match }) {
                                                     }
                                                 >
                                                     Submit
-                                                </button> : null}
+                                                </Button> : null}
                                             </div>
 
 
