@@ -11,5 +11,9 @@ public interface AnsweredAssignmentRepository extends JpaRepository<AnsweredAssi
     List<AnsweredAssignment> findAllByUserId(Long userId);
     List<AnsweredAssignment> findByAssignmentId(Long Id);
 
+    List<AnsweredAssignment> findAllByCourseId(Long courseId);
+    
+
+
     Optional<AnsweredAssignment> findByAssignmentIdAndUserId(Long assignmentId, Long userId);
 }

@@ -243,6 +243,9 @@ function AssignmentsPage({match}) {
               >
                 Add Assignment
               </Button>
+              <Link to={`/courseDetail/${match.params.courseId}`}>
+              <Button 
+              >Cancel</Button></Link>
               
     </div>
     </div>

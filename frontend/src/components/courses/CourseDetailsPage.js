@@ -80,12 +80,19 @@ export default function CourseDetailsPage({ match }) {
   }, []);
 
   return (
+    <>
+    
     <div className="course-details">
       <div className="course-details-description">
         <h3 className="course-description">
-          Course Details page - {course.description}{" "}
+          {course.title}
         </h3>
       </div>
+      
+      <div className="course-details-text">
+       {<p>{course.description}</p>}
+       </div>
+      
       <div className="course-details-section">
         <div>
           <div className="assignment-details">
@@ -112,7 +119,7 @@ export default function CourseDetailsPage({ match }) {
               <AssignmentsPage course={course} currentUser={currentUser} />
             )}
             {currentUser.userRole === "teacher" ? (
-              <Link to={`/assignmentsSubmittedView`}>
+              <Link to={`/assignmentsSubmittedView/${courseId}`}>
                 <div className="assignment-view">
                   <Button
                     variant="contained"
@@ -120,7 +127,7 @@ export default function CourseDetailsPage({ match }) {
                     className={classes.button}
                     endIcon={<Icon>send</Icon>}
                     onClick={onCreateNewAssignment}
-                  >
+                     >
                     View Submitted Assignment
                   </Button>
                 </div>
@@ -152,5 +159,7 @@ export default function CourseDetailsPage({ match }) {
         </div>
       </div>
     </div>
+   
+    </>   
   );
 }

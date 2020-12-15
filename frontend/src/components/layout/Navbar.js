@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../App.css';
 
 export default function Navbar ({ onLogout }) {
+
 
   const navSlide =() => {
     const burger = document.querySelector('.burger');
@@ -23,6 +25,8 @@ export default function Navbar ({ onLogout }) {
      burger.classList.toggle('BurgToggle');
   }
 
+
+  
   return (
     <div>
     <nav>
@@ -30,50 +34,50 @@ export default function Navbar ({ onLogout }) {
       <div class="logo">
            Educational environment
         </div>
-        <ul class="nav-links">
+        <ul class="nav-links" >
              <li >
-               <a href="/" /* class="fas fa-home" */>
+               <a href="/" class="target" /* class="fas fa-home" */>
                  Home
                </a>
              </li>  
              <li >
-               <a href="/courses" /* class="fas fa-book-open" */>
+               <a href="/courses"  class="target"/* class="fas fa-book-open" */>
                  Courses
 
                </a>
              </li>
              <li>
-              <a href="/scheduler" /* class="far fa-calendar-alt" */>
+              <a href="/scheduler"  class="target"/* class="far fa-calendar-alt" */>
                 Scheduler
               </a>
             </li>
              <li >
-               <a href="/assignments" /* class="fas fa-tasks" */>
+               <a href="/assignments" class="target" /* class="fas fa-tasks" */>
                  Assignments
                </a>
              </li>
              <li >
-               <a href="/students" /* class="fas fa-user-graduate" */>
+               <a href="/students"  class="target"/* class="fas fa-user-graduate" */>
                  Students
                </a>
              </li>
              <li >
-               <a href="/videos"  /* class="far fa-play-circle" */>
+               <a href="/videos"   class="target"/* class="far fa-play-circle" */>
                  Lectures
                </a>
              </li>  
              <li >
-               <a href="/chat" /* class="far fa-comments"  */>
+               <a href="/chat"  class="target" /* class="far fa-comments"  */>
                 Chat
                </a>
              </li>
              <li >
-               <a href="/resources" /* class="fas fa-dice-d20" */>
+               <a href="/resources"  class="target"/* class="fas fa-dice-d20" */>
                 Resources
                </a>
              </li>  
              <li >
-               <a className="logout-button" /* class="fas fa-sign-out-alt" */ onClick={onLogout}>
+               <a className="logout-button"  class="target"/* class="fas fa-sign-out-alt" */ onClick={onLogout}>
                 Logout
                </a>
              </li>  

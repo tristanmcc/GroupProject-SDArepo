@@ -1,6 +1,7 @@
 package se.kth.sda.skeleton.course;
 import se.kth.sda.skeleton.video.Video;
 import se.kth.sda.skeleton.assignments.Assignment;
+import se.kth.sda.skeleton.answeredAssignments.AnsweredAssignment;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -19,6 +20,9 @@ public class Course {
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Assignment> assignments;
+
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
+    private List<AnsweredAssignment> assignmentsAnswered;
 
     private String title;
 

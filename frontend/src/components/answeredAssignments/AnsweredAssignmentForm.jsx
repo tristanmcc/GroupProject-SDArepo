@@ -6,7 +6,8 @@ import book from '../../images/carousel/carousel-6.jpg';
 import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { useHistory } from 'react-router-dom';
 import Button from "@material-ui/core/Button";
-import '../../css/styles.css';
+import '../../css/styles.css';  
+import CoursesApi from '../../api/CoursesApi.js'
 
 export default function AnsweredAssignmentsForm({ match }) {
   const history = useHistory();
@@ -34,6 +35,7 @@ export default function AnsweredAssignmentsForm({ match }) {
   const [question10, setQuestion10] = useState("");
   const [assignmentId, setAssignmentId] = useState("");
   const [user, setUser] = useState(" ");
+  const [course,setCourse] = useState([]);
 
   const subAssignmentDetails = [
     { question: question1, answer: answer1, answerFunction: setAnswer1 },
@@ -79,7 +81,17 @@ export default function AnsweredAssignmentsForm({ match }) {
     );
     getAssignmentById(match.params.assignId);
     getUserRole();
+    console.log("Hello88888" + match.params.courseId)
+    if(match.params.courseId !== "undefined")
+        getCourseById(match.params.courseId);
   }, []);
+
+  const getCourseById = (courseId) => {
+    console.log("INSIDE")
+    CoursesApi.getCourseById(courseId).then((res) => {
+      setCourse(res.data);
+    });
+  };
 
 
   const createAnsweredAssignment = (answers) => {
@@ -140,8 +152,7 @@ export default function AnsweredAssignmentsForm({ match }) {
                               })
                             }
                           >
-                            Submit
-                                                </Button> : null}
+                            Submit              </Button> : null}
                       </div>
 
 
