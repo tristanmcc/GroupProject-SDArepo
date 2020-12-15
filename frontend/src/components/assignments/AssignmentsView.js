@@ -157,14 +157,12 @@ function AssignmentsView({ course, currentUsers }) {
                               align={column.align}
                             >
                               {column.id === "title" ? (
-                                <Link
+                                <Link className="link"
                                   to={
                                     currentUser === "teacher"
                                       ? `/assignmentsView/${assignId}`
-                                      : `/assignmentsAnsweredView/${assignId}`
-                                  }
-                                  className="link"
-                                >
+                                      :  typeof course === "undefined" ? `/assignmentsAnsweredView/${assignId}` : `/assignmentsAnsweredView/${assignId}/${course.id}`
+                                  }>
                                   {column.format && typeof value === "number"
                                     ? column.format(value)
                                     : value}

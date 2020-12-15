@@ -186,16 +186,16 @@ EnhancedTableToolbar.propTypes = {
 
 
 
-function DisplaySubmittedAssignment() {
+function DisplaySubmittedAssignment({match}) {
 
   
   const [rows,setRows] = useState([])   
   
   const classes = useStyles();
   
-  const getAllAnsweredAssignment = () => {
-        
-    AnsweredAssignmentsApi.getAllAnsweredAssignments()
+  const getAllAnsweredAssignment = (courseId) => {
+    console.log("CourseId **********" + courseId);
+    AnsweredAssignmentsApi.getAllAnsweredAssignmentsByCourseId(courseId)
         .then(response => {
             const newArray = response.data.map(item => 
               createData(item.user.name,item.answeredAssignmentTitle,item.assignmentId,item.rating)
@@ -208,7 +208,7 @@ function DisplaySubmittedAssignment() {
 
 useEffect(() => {
     
-    getAllAnsweredAssignment(); 
+    getAllAnsweredAssignment(match.params.courseId); 
     
 
 

@@ -53,6 +53,12 @@ public class AnsweredAssignmentController {
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/assignments/answeredByCourseId/{courseId}")
+    public List<AnsweredAssignment> getAllByCourseId(@PathVariable Long courseId) {
+            return answeredAssService.getAllByCourseId(courseId);
+
+    }
+
     @GetMapping("/assignments/answeredByAssignmentId/{id}")
     public List<AnsweredAssignment> getByAssignmentId(@PathVariable Long id){
         return answeredAssService.getByAssignmentId(id);
