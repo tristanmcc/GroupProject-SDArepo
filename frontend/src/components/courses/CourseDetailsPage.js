@@ -117,7 +117,7 @@ export default function CourseDetailsPage({ match }) {
               <AssignmentsPage course={course} currentUser={currentUser} />
             )}
             {currentUser.userRole === "teacher" ? (
-              <Link to={`/assignmentsSubmittedView`}>
+              <Link to={`/assignmentsSubmittedView/${courseId}`}>
                 <div className="assignment-view">
                   <Button
                     variant="contained"
