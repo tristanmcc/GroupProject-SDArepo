@@ -23,14 +23,20 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
 import { Link } from "react-router-dom";
 import { pink } from "@material-ui/core/colors";
+import StarIcon from '@material-ui/icons/Star';
 
-function createData(name, title,id) {
-    return { name, title, id };
+function createData(name, title,id,rating) {
+  
+  var ratingArray = new Array(0);
+  if(rating != null)
+      ratingArray = new Array(rating).fill(<StarIcon style={{ color: "#25274D" }}/>)
+
+    return { name, title, id, ratingArray};
   }
 
 
   function descendingComparator(a, b, orderBy) {
-    if (b[orderBy] < a[orderBy]) {
+    if (b[orderBy] < a[orderBy]) {  
       return -1;
     }
     if (b[orderBy] > a[orderBy]) {
@@ -57,7 +63,8 @@ function createData(name, title,id) {
 
   const headCells = [
     { id: 'name', numeric: false, disablePadding: false, label: 'Submitted By' },
-    { id: 'title', numeric: false, disablePadding: false, label: 'Assignment Title' }
+    { id: 'title', numeric: false, disablePadding: false, label: 'Assignment Title' },
+    { id: 'grading', numeric: false, disablePadding: false, label: 'Grading' }
   ];
   
   function EnhancedTableHead(props) {
@@ -152,10 +159,11 @@ EnhancedTableToolbar.propTypes = {
     root: {
       width: '100%',
       
-    },
+     },
     paper: {
       width: '100%',
       marginBottom: theme.spacing(2),
+      
     },
     table: {
       minWidth: 750,
@@ -172,6 +180,7 @@ EnhancedTableToolbar.propTypes = {
       top: 20,
       width: 1,
     },
+    
   }));
 
 
@@ -188,7 +197,9 @@ function DisplaySubmittedAssignment() {
         
     AnsweredAssignmentsApi.getAllAnsweredAssignments()
         .then(response => {
-            const newArray = response.data.map(item => createData(item.user.name,item.answeredAssignmentTitle,item.assignmentId));
+            const newArray = response.data.map(item => 
+              createData(item.user.name,item.answeredAssignmentTitle,item.assignmentId,item.rating)
+            );
             setRows(newArray.reverse());
             
 
@@ -206,10 +217,10 @@ useEffect(() => {
   
 
   const [order, setOrder] = React.useState('asc');
-  const [orderBy, setOrderBy] = React.useState('calories');
+  const [orderBy, setOrderBy] = React.useState('name');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(false);
+  const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleRequestSort = (event, property) => {
@@ -297,6 +308,7 @@ useEffect(() => {
                         </TableCell>
                       
                       <TableCell >{row.title}</TableCell>
+                      <TableCell >{row.ratingArray}</TableCell>
                       
                     </TableRow>
 
@@ -320,10 +332,7 @@ onChangePage={handleChangePage}
 onChangeRowsPerPage={handleChangeRowsPerPage}
 />
 </Paper>
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      />
+      
     </div>
 
 
