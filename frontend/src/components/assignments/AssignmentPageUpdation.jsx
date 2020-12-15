@@ -271,8 +271,8 @@ function AssignmentsPageUpdation({ match }) {
       
       <div className="card-header">
             
-         {/*  <Link to={`/courseDetail/${match.params.courseId}`}>
- */}
+          
+
                 <Button
                 variant="contained"
                 color="primary"
@@ -283,10 +283,7 @@ function AssignmentsPageUpdation({ match }) {
               >
                 Update Assignment
               </Button>
-             {/*  </Link> */}
-              <Button 
-              onCLick={history.go(-2)}
-              >Cancel</Button>
+              
     </div>
     </div>
   );

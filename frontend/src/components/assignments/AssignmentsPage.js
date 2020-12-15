@@ -233,7 +233,7 @@ function AssignmentsPage({match}) {
       
       <div className="card-header">
             
-          {/* <Link to={`/courseDetail/${match.params.courseId}`}> */}
+          
 
                 <Button
                 variant="contained"
@@ -245,7 +245,7 @@ function AssignmentsPage({match}) {
               >
                 Add Assignment
               </Button>
-              {/* </Link> */}
+              
     </div>
     </div>
   );
