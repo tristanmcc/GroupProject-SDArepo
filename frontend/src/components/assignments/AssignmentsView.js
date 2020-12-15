@@ -44,24 +44,20 @@ function createData(title, Id, dueDate) {
 const useStyles = makeStyles({
   root: {
     width: "100%",
-   
-
   },
   container: {
     maxHeight: 300,
-   
   },
   assignmentRowData: {
-    borderWidth: 10,
-    borderColor: "#E55A71",
+    backgroundColor: ":#E3E2DF",
+    borderWidth: 8,
+    borderColor: "#E3E2DF",
     borderStyle: "solid",
   },
-  assignmentBody: {
-    color: "white",
-  },
+  assignmentBody: {},
   tablePagination: {
-    backgroundColor: "#E55A71",
-    color: "white",
+    backgroundColor: "#E3E2DF",
+    color: "black",
   },
 });
 
@@ -74,7 +70,6 @@ function AssignmentsView({ course, currentUsers }) {
   };
 
   const viewAssignment = (course) => {
-
     if (typeof course !== "undefined" && course !== "") {
       AssignmentsApi.getAllAssignment(course.id).then((response) => {
         const newArray = response.data.map((item) =>
@@ -117,78 +112,85 @@ function AssignmentsView({ course, currentUsers }) {
     });
   };
 
-    return (
-      <>
-      {/* <div className="assigenment-banner"> 
-      View Assignment  
-      </div>
-       <div className="horizontalline">
-   </div> */}
-        <div>
+  return (
+    <>
+      <div>
         <Paper className={classes.root}>
-      <TableContainer className={classes.container}>
-        <Table stickyHeader aria-label="sticky table">
-          
-          <TableHead>
-            <TableRow>
-              {columns.map((column) => (
-                <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth, color:column.color, fontSize: column.fontSize,  backgroundColor: "#E55A71"}}
-                >
-                  {column.label}
-                </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody className={classes.assignmentBody}>
-              {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.code}
+          <TableContainer className={classes.container}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{
+                        minWidth: column.minWidth,
+                        color: column.color,
+                        fontSize: column.fontSize,
+                        backgroundColor: "#2E9CCA",
+                      }}
                     >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        const assignId = row["Id"];
-                        return (
-                          <TableCell
-                            className={classes.assignmentRowData}
-                            key={column.id}
-                            align={column.align}
-                          >
-                            {column.id === 'title' ? 
-                              <Link to={ currentUser === 'teacher' ? `/assignmentsView/${assignId}` : `/assignmentsAnsweredView/${assignId}` }  
-                                className="link">
-                                {column.format && typeof value === 'number' ? column.format(value) :  value}
-                              </Link> 
-                              : null 
-                            }
-                            {currentUser === "teacher" ? (
-                              <div>
-                                {column.id === "ICONS" ? (
-                                  <DeleteIcon
-                                    onClick={() => handleDelete({ assignId })}
-                                  />
-                                ) : null}
-                              </div>
-                            ) : null}
-                            {column.id === "dueDate" ? value : null}
-                          </TableCell>
-                        );
-                      })}
-                    </TableRow>
-                  );
-                })}
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody className={classes.assignmentBody}>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => {
+                    return (
+                      <TableRow
+                        hover
+                        role="checkbox"
+                        tabIndex={-1}
+                        key={row.code}
+                      >
+                        {columns.map((column) => {
+                          const value = row[column.id];
+                          const assignId = row["Id"];
+                          return (
+                            <TableCell
+                              className={classes.assignmentRowData}
+                              key={column.id}
+                              align={column.align}
+                            >
+                              {column.id === "title" ? (
+                                <Link
+                                  to={
+                                    currentUser === "teacher"
+                                      ? `/assignmentsView/${assignId}`
+                                      : `/assignmentsAnsweredView/${assignId}`
+                                  }
+                                  className="link"
+                                >
+                                  {column.format && typeof value === "number"
+                                    ? column.format(value)
+                                    : value}
+                                </Link>
+                              ) : null}
+                              {currentUser === "teacher" ? (
+                                <div>
+                                  {column.id === "ICONS" ? (
+                                    <DeleteIcon
+                                      onClick={() => handleDelete({ assignId })}
+                                    />
+                                  ) : null}
+                                </div>
+                              ) : null}
+                              {column.id === "dueDate" ? value : null}
+                            </TableCell>
+                          );
+                        })}
+                      </TableRow>
+                    );
+                  })}
               </TableBody>
             </Table>
           </TableContainer>
-          <TablePagination className={classes.tablePagination}
+          <TablePagination
+            className={classes.tablePagination}
             rowsPerPageOptions={[10, 25, 100]}
             component="div"
             count={rows.length}
@@ -198,11 +200,9 @@ function AssignmentsView({ course, currentUsers }) {
             onChangeRowsPerPage={handleChangeRowsPerPage}
           />
         </Paper>
-
-        </div>
-   </>
-    
-      );
+      </div>
+    </>
+  );
 }
 
 export default AssignmentsView;
