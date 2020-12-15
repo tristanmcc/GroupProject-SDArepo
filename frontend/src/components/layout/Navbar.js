@@ -36,48 +36,48 @@ export default function Navbar ({ onLogout }) {
         </div>
         <ul class="nav-links" >
              <li >
-               <a href="/" class="btn" /* class="fas fa-home" */>
+               <a href="/" class="target" /* class="fas fa-home" */>
                  Home
                </a>
              </li>  
              <li >
-               <a href="/courses"  class="btn"/* class="fas fa-book-open" */>
+               <a href="/courses"  class="target"/* class="fas fa-book-open" */>
                  Courses
 
                </a>
              </li>
              <li>
-              <a href="/scheduler"  class="btn"/* class="far fa-calendar-alt" */>
+              <a href="/scheduler"  class="target"/* class="far fa-calendar-alt" */>
                 Scheduler
               </a>
             </li>
              <li >
-               <a href="/assignments" class="btn" /* class="fas fa-tasks" */>
+               <a href="/assignments" class="target" /* class="fas fa-tasks" */>
                  Assignments
                </a>
              </li>
              <li >
-               <a href="/students"  class="btn"/* class="fas fa-user-graduate" */>
+               <a href="/students"  class="target"/* class="fas fa-user-graduate" */>
                  Students
                </a>
              </li>
              <li >
-               <a href="/videos"   class="btn"/* class="far fa-play-circle" */>
+               <a href="/videos"   class="target"/* class="far fa-play-circle" */>
                  Lectures
                </a>
              </li>  
              <li >
-               <a href="/chat"  class="btn"/* class="far fa-comments"  */>
+               <a href="/chat"  class="target" /* class="far fa-comments"  */>
                 Chat
                </a>
              </li>
              <li >
-               <a href="/resources"  class="btn"/* class="fas fa-dice-d20" */>
+               <a href="/resources"  class="target"/* class="fas fa-dice-d20" */>
                 Resources
                </a>
              </li>  
              <li >
-               <a className="logout-button"  class="btn"/* class="fas fa-sign-out-alt" */ onClick={onLogout}>
+               <a className="logout-button"  class="target"/* class="fas fa-sign-out-alt" */ onClick={onLogout}>
                 Logout
                </a>
              </li>  

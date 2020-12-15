@@ -82,16 +82,25 @@ nav {
 }
 
 .nav-links a:hover{     
- color:rgba(253, 225, 10, 0.863);  
+ 
+ border:solid;
+ border-radius: 5px;
+ border-color:#E3E2DF;
+ border-block-color:#E3E2DF;
+ padding:5px;
+ outline: none;
+ border-color: #E3E2DF;
+ box-shadow: 0 0 10px#E3E2DF;
 }
-.nav-links .target {
-  color: #ff4b46;
+.nav-links a .target {
+  color: #E3E2DF;
 }
 .nav-links .active {
-  color:  rgb(0, 255, 30);
+  color: #E3E2DF;
 }
 .nav-links a:focus {
-  color:  #ff4b46;
+  color:  #E3E2DF;
+  
 }
 
 
