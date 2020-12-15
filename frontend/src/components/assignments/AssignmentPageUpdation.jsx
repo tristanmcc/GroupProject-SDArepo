@@ -121,7 +121,7 @@ function AssignmentsPageUpdation({ match }) {
       {
         /*alert('Updation of Assignment Successful') */
       }
-      history.go(-2);
+      history.go(-1);
     });
   }
 
@@ -271,7 +271,7 @@ function AssignmentsPageUpdation({ match }) {
       
       <div className="card-header">
             
-          <Link to="/assignments">
+          
 
                 <Button
                 variant="contained"
@@ -283,7 +283,7 @@ function AssignmentsPageUpdation({ match }) {
               >
                 Update Assignment
               </Button>
-              </Link>
+              
     </div>
     </div>
   );
