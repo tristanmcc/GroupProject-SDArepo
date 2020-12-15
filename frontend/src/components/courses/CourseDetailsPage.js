@@ -83,9 +83,14 @@ export default function CourseDetailsPage({ match }) {
     <div className="course-details">
       <div className="course-details-description">
         <h3 className="course-description">
-          Course Details page - {course.description}{" "}
+          {course.title}
         </h3>
       </div>
+      
+      <div className="course-details-text">
+       {<p>{course.description}</p>}
+       </div>
+      
       <div className="course-details-section">
         <div>
           <div className="assignment-details">
