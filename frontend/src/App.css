@@ -63,6 +63,7 @@ nav {
   text-decoration: none;
 
 }
+
 .nav-links li{
   list-style: none;
   margin-top: 15px;
@@ -79,6 +80,36 @@ nav {
   font-family: "Poppins", sans-serif;
   
 }
+
+.nav-links a:hover{     
+ 
+ border:solid;
+ border-radius: 5px;
+ border-color:#E3E2DF;
+ border-block-color:#E3E2DF;
+ padding:5px;
+ outline: none;
+ border-color: #E3E2DF;
+ box-shadow: 0 0 10px#E3E2DF;
+}
+.nav-links a .target {
+  color: #E3E2DF;
+}
+
+
+.nav-links li .active {
+  background-color:red;
+}
+.nav-links a.active {
+  background-color:red;
+  color: #E3E2DF;
+}
+.nav-links a:focus {
+  color:  #E3E2DF;
+  
+}
+
+
 @media screen and (max-width:1024px) {
   .nav-links{
     width: 60%;
