@@ -95,7 +95,13 @@ nav {
 .nav-links a .target {
   color: #E3E2DF;
 }
-.nav-links .active {
+
+
+.nav-links li .active {
+  background-color:red;
+}
+.nav-links a.active {
+  background-color:red;
   color: #E3E2DF;
 }
 .nav-links a:focus {
