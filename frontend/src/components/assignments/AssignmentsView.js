@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import AssignmentsApi from "../../api/AssignmentsApi";
 import DeleteIcon from "@material-ui/icons/Delete";
 import UserApi from "../../api/UserApi";
+import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
+import AssignmentGrade from '../answeredAssignments/AssignmentGrade';
 
 const columns = [
   {
@@ -63,12 +65,14 @@ const useStyles = makeStyles({
 
 function AssignmentsView({ course, currentUsers }) {
   const [rows, setRows] = useState([]);
+  
   const handleDelete = ({ assignId }) => {
     AssignmentsApi.deleteAssignment(assignId).then((response) => {
       window.location.reload();
     });
   };
-
+  
+  
   const viewAssignment = (course) => {
     if (typeof course !== "undefined" && course !== "") {
       AssignmentsApi.getAllAssignment(course.id).then((response) => {
@@ -86,15 +90,18 @@ function AssignmentsView({ course, currentUsers }) {
       });
     }
   };
+
+
   useEffect(() => {
-    viewAssignment(course);
     getUserRole();
+    viewAssignment(course);
   }, [course]);
 
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [currentUser, setCurrentUser] = useState(" ");
+  const [userId, setUserId] = useState("");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -109,6 +116,8 @@ function AssignmentsView({ course, currentUsers }) {
   const getUserRole = () => {
     UserApi.getCurrentUser().then((response) => {
       setCurrentUser(response.data.userRole);
+      setUserId(response.data.id);
+      
     });
   };
 
@@ -178,7 +187,15 @@ function AssignmentsView({ course, currentUsers }) {
                                     />
                                   ) : null}
                                 </div>
-                              ) : null}
+                              ) : 
+                                <div>
+                                  {column.id === "ICONS" ?
+                                    <div>
+                                      <AssignmentGrade key={assignId + "," + userId} assignmentId={assignId} userId={userId}/> 
+                                      </div>: null}
+                                </div>
+                              
+                        }
                               {column.id === "dueDate" ? value : null}
                             </TableCell>
                           );

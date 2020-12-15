@@ -89,9 +89,7 @@ function AssignmentsPage({match}) {
         <img className="assignmentimage"  src={assignmentImg} />
         </div>
 
-
        <div className="question">
-       
        
         <div>
         <label>Assignment Title:</label>

@@ -11,10 +11,7 @@ import '../../css/styles.css';
 export default function AnsweredAssignmentsForm({ match }) {
   const history = useHistory();
   const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
-  const [
-    answeredAssignmentDescription,
-    setAnsweredAssignmentDescription,
-  ] = useState("");
+  const [answeredAssignmentDescription, setAnsweredAssignmentDescription,] = useState("");
   const [answer1, setAnswer1] = useState("");
   const [answer2, setAnswer2] = useState("");
   const [answer3, setAnswer3] = useState("");
@@ -49,7 +46,7 @@ export default function AnsweredAssignmentsForm({ match }) {
     { question: question8, answer: answer8, answerFunction: setAnswer8 },
     { question: question9, answer: answer9, answerFunction: setAnswer9 },
     { question: question10, answer: answer10, answerFunction: setAnswer10 }
-];
+  ];
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
       setAssignmentId(response.data.id);
@@ -68,118 +65,117 @@ export default function AnsweredAssignmentsForm({ match }) {
     });
   };
 
-    const getUserRole = () => {
-        UserApi.getCurrentUser()
-            .then(response => {
-                setUser(response.data);
-            })
-    };
+  const getUserRole = () => {
+    UserApi.getCurrentUser()
+      .then(response => {
+        setUser(response.data);
+      })
+  };
 
   useEffect(() => {
     console.log(
       "Inside useEffect , going to call getAssignmentById " +
-        match.params.assignId
+      match.params.assignId
     );
     getAssignmentById(match.params.assignId);
     getUserRole();
   }, []);
 
 
-    const createAnsweredAssignment = (answers) => {
-        console.log("Inside createAnsweredAssignment" + answers);
-        AnsAssApi.createAnsweredAssignment(answers).then((response) => {
-          console.log(response);
-          history.goBack();
-        });
-      };
+  const createAnsweredAssignment = (answers) => {
+    AnsAssApi.createAnsweredAssignment(answers).then((response) => {
+      console.log(response);
+      history.goBack();
+    });
+  };
 
 
-    return (
-        <>
-        <div className="card mt-4">
-                <div className="card-body">
-                <img className="assignmentimage" alt="" src={assignmentImg} height="160px" width="90px" margin-bottom= "10px"/>
-                <p/>
-                    <h4 className="card-title">{answeredAssignmentTitle} </h4>
-                   <div>
-                        <div className="form-group">
-                            <label>Student Name:</label> &nbsp;
+  return (
+    <>
+      <div className="card mt-4">
+        <div className="card-body">
+          <img className="assignmentimage" alt="" src={assignmentImg} height="160px" width="90px" margin-bottom="10px" />
+          <p />
+          <h4 className="card-title">{answeredAssignmentTitle} </h4>
+          <div>
+            <div className="form-group">
+              <label>Student Name:</label> &nbsp;
                             {user.name}
-                        </div>
-                        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
-                            <div class="carousel-inner">
-                                {
-                                    subAssignmentDetails.map((eachQuestion, index) => (
-                                        <div class={index === 0 ? "carousel-item active" : "carousel-item"}>
-                                            <img width="100px" height="230px" />
-                                            <div class="carousel-caption  d-md-block">
-                                                <label>{index+1 + '. ' + eachQuestion.question}</label>
-                                                <textarea
-                                                    type="text"
-                                                    className="form-control"
-                                                    placeholder="Type your answer here..."
-                                                    value={eachQuestion.answer}
-                                                    onChange={e => eachQuestion.answerFunction(e.target.value)}
-                                                />
-                                                <p></p>
-                                                {index===9?
-                                                <Button
-                                                    variant="contained"
-                                                    color="primary"
-                                                    onClick={() =>
-                                                    createAnsweredAssignment({
-                                                        answeredAssignmentTitle,
-                                                        answer1,
-                                                        answer2,
-                                                        answer3,
-                                                        answer4,
-                                                        answer5,
-                                                        answer6,
-                                                        answer7,
-                                                        answer8,
-                                                        answer9,
-                                                        answer10,
-                                                        assignmentId,
-                                                        user,
-                                                    })
-                                                    }
-                                                >
-                                                    Submit
+            </div>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+              <div class="carousel-inner">
+                {
+                  subAssignmentDetails.map((eachQuestion, index) => (
+                    <div class={index === 0 ? "carousel-item active" : "carousel-item"}>
+                      <img width="100px" height="230px" />
+                      <div class="carousel-caption  d-md-block">
+                        <label>{index + 1 + '. ' + eachQuestion.question}</label>
+                        <textarea
+                          type="text"
+                          className="form-control"
+                          placeholder="Type your answer here..."
+                          value={eachQuestion.answer}
+                          onChange={e => eachQuestion.answerFunction(e.target.value)}
+                        />
+                        <p></p>
+                        {index === 9 ?
+                          <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() =>
+                              createAnsweredAssignment({
+                                answeredAssignmentTitle,
+                                answer1,
+                                answer2,
+                                answer3,
+                                answer4,
+                                answer5,
+                                answer6,
+                                answer7,
+                                answer8,
+                                answer9,
+                                answer10,
+                                assignmentId,
+                                user,
+                              })
+                            }
+                          >
+                            Submit
                                                 </Button> : null}
-                                            </div>
+                      </div>
 
-
-                                            </div>
-
-                                         ))
-                                }
-                            </div>
-                            <ol class="carousel-indicators" >
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                            <li data-target="#myCarousel" data-slide-to="3"></li>
-                            <li data-target="#myCarousel" data-slide-to="4"></li>
-                            <li data-target="#myCarousel" data-slide-to="5"></li>
-                            <li data-target="#myCarousel" data-slide-to="6"></li>
-                            <li data-target="#myCarousel" data-slide-to="7"></li>
-                            <li data-target="#myCarousel" data-slide-to="8"></li>
-                            <li data-target="#myCarousel" data-slide-to="9"></li>
-                        </ol>
-                            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </a>
-                            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </a>
-                        </div>
 
                     </div>
-                </div>
+
+                  ))
+                }
+              </div>
+              <ol class="carousel-indicators" >
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
+                <li data-target="#myCarousel" data-slide-to="8"></li>
+                <li data-target="#myCarousel" data-slide-to="9"></li>
+              </ol>
+              <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
             </div>
 
-        </>
+          </div>
+        </div>
+      </div>
 
-    );
+    </>
+
+  );
 }
 
