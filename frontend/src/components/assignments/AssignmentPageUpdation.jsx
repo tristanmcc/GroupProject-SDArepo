@@ -44,7 +44,7 @@ function AssignmentsPageUpdation({ match }) {
   const [course, setCourse] = useState('');
   const history = useHistory();
 
-  console.log('But of course: ', course);
+  
 
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
@@ -124,7 +124,7 @@ function AssignmentsPageUpdation({ match }) {
       history.go(-1);
     });
   }
-
+  console.log('But of course: ', course.id);
   return (
     <div className="container-assignment">
      <img className="assignmentimage"  src={assignmentImg} />
@@ -283,6 +283,9 @@ function AssignmentsPageUpdation({ match }) {
               >
                 Update Assignment
               </Button>
+              <Link to={`/courseDetail/${course.id}`}>
+              <Button 
+              >Cancel</Button></Link>
               
     </div>
     </div>
