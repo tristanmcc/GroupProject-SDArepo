@@ -46,6 +46,12 @@ public class AnsweredAssignmentController {
         }
     }
 
+    @GetMapping("/assignments/{assignmentId}/student/{userId}")
+    public AnsweredAssignment getById(@PathVariable Long assignmentId, @PathVariable Long userId){
+        return answeredAssService.getStudentAnswer(assignmentId, userId)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
     //get specific task by ID
     @GetMapping("/assignments/answered/{id}")
     public AnsweredAssignment getById(@PathVariable Long id){
@@ -64,6 +70,7 @@ public class AnsweredAssignmentController {
         return answeredAssService.getByAssignmentId(id);
                 
     }
+
 
   /*  @GetMapping("/currentUser")
     public User getCurrentUser() {
