@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import CoursesApi from "../../api/CoursesApi";
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -22,11 +24,12 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-function AssignmentsPage({ course, currentUser }) {
+function AssignmentsPage({match}) {
   const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState('');
   const [assignmentDescription, setAssignmentDescription] = useState('');
   const [dueDate, setDueDate] = useState(new Date());
+  const history = useHistory();
 
   const [question1, setQuestion1] = useState('');
   const [question2, setQuestion2] = useState('');
@@ -39,6 +42,18 @@ function AssignmentsPage({ course, currentUser }) {
   const [question9, setQuestion9] = useState('');
   const [question10, setQuestion10] = useState('');
   const [assignId, setAssignId] = useState('');
+  const [course,setCourse] = useState([]);
+
+  const getCourseById = (courseId) => {
+    CoursesApi.getCourseById(courseId).then((res) => {
+      setCourse(res.data);
+    });
+  };
+
+
+  useEffect(() => {
+    getCourseById(match.params.courseId);
+  }, []);
 
   function handleSubmit() {
     AssignmentsApi.postAssignment({
@@ -58,37 +73,13 @@ function AssignmentsPage({ course, currentUser }) {
       question10,
     }).then((response) => {
       setAssignId(response.data.id);
-      window.location.reload();
-
+      //window.location.reload();
+      history.go(-1);
  
     });
   }
 
-  function handleUpdate() {
-    console.log('Inside Update' + assignId);
-    // Creating a local variable
-    const id = assignId;
-    AssignmentsApi.updateAssignment({
-      id,
-      assignmentTitle,
-      assignmentDescription,
-      dueDate,
-      question1,
-      question2,
-      question3,
-      question4,
-      question5,
-      question6,
-      question7,
-      question8,
-      question9,
-      question10,
-      course,
-    }).then((response) => {
-      window.location.reload();
-      /*alert('Updation of Assignment Successful')*/
-    });
-  }
+  
 
   return (
 
@@ -242,7 +233,7 @@ function AssignmentsPage({ course, currentUser }) {
       
       <div className="card-header">
             
-          <Link to="/assignments">
+          
 
                 <Button
                 variant="contained"
@@ -254,7 +245,10 @@ function AssignmentsPage({ course, currentUser }) {
               >
                 Add Assignment
               </Button>
-              </Link>
+              <Link to={`/courseDetail/${match.params.courseId}`}>
+              <Button 
+              >Cancel</Button></Link>
+              
     </div>
     </div>
   );

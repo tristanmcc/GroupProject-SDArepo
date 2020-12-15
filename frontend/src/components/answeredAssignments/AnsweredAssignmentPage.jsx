@@ -40,7 +40,7 @@ export default function AnsweredAssignmentPage() {
         <>
       
         <div>
-            <AnsAssForm></AnsAssForm>
+            <AnsAssForm getAll= {getAll}></AnsAssForm>
         </div>
         </>
     );
