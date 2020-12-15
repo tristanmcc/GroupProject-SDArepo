@@ -74,7 +74,7 @@ function AssignmentsPage({match}) {
     }).then((response) => {
       setAssignId(response.data.id);
       //window.location.reload();
-      history.go(-2);
+      history.go(-1);
  
     });
   }
@@ -233,7 +233,7 @@ function AssignmentsPage({match}) {
       
       <div className="card-header">
             
-          <Link to={`/courseDetail/${match.params.courseId}`}>
+          {/* <Link to={`/courseDetail/${match.params.courseId}`}> */}
 
                 <Button
                 variant="contained"
@@ -245,7 +245,7 @@ function AssignmentsPage({match}) {
               >
                 Add Assignment
               </Button>
-              </Link>
+              {/* </Link> */}
     </div>
     </div>
   );
