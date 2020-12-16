@@ -16,6 +16,7 @@
    width: 100%;
   }
   .course-card {
+    background-color: white;
   width: 160px;
   padding-bottom: 15px;
   text-align:center;
@@ -83,6 +84,9 @@ padding: 10px 10px 10px;
   text-align: center;
  margin-top: 3px;
  padding-top: 25px;;
+}
+.course-card-buttons{
+  background-color: white;
 }
 
   .course-card-body{

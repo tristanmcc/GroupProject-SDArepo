@@ -14,7 +14,7 @@
 
 
 
-/* Float four columns side by side */
+/* Float columns side by side */
 .column {
   float: left;
     width: 14.28%;
@@ -169,7 +169,7 @@
   }
 
   .homepage{
-    margin-top: 40px;
+    margin-top: 36px;
     padding-right: 20px;
     padding-left: 10px;
     flex: 40%;
@@ -188,6 +188,10 @@
   .NavImage-responsive{
     width:100%;
     height: auto;
+  }
+
+  .description-title{
+    text-align: right;
   }
     
   
@@ -225,9 +229,7 @@
   @media screen and (max-width: 600px) {
     .column {
       display: inline;
-      
       width: 25%;
-      
       margin-bottom: 20px;
       margin-left: 120px;
     }
