@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import AssignmentsApi from '../../api/AssignmentsApi';
 import AnsAssApi from '../../api/AnsweredAssignmentsApi';
 import UserApi from '../../api/UserApi';
-import book from '../../images/carousel/carousel-6.jpg';
 import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { useHistory } from 'react-router-dom';
 
@@ -11,6 +10,23 @@ import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import '../../css/styles.css';  
 import CoursesApi from '../../api/CoursesApi.js'
+import Icon from "@material-ui/core/Icon";
+import { makeStyles } from "@material-ui/core/styles";
+
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: "#25274D",
+    cursor: "pointer",
+    outline: "none",
+    border: "none",
+    borderRadius: 15,
+    transform: "translateY(4)",
+    boxShadow: [[0, 5, "#999"]],
+  },
+  
+}));
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -35,6 +51,12 @@ const useStyles = makeStyles((theme) => ({
 export default function AnsweredAssignmentsForm({ match }) {
   const classes = useStyles();
   const history = useHistory();
+  const classes = useStyles();
+  
+    const goBack = () =>
+    {
+        history.goBack();
+    }
   const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
   const [answeredAssignmentDescription, setAnsweredAssignmentDescription,] = useState("");
   const [answer1, setAnswer1] = useState("");
@@ -121,7 +143,7 @@ export default function AnsweredAssignmentsForm({ match }) {
   const createAnsweredAssignment = (answers) => {
     AnsAssApi.createAnsweredAssignment(answers).then((response) => {
       console.log(response);
-      history.goBack();
+      goBack();
     });
   };
 
@@ -210,8 +232,20 @@ export default function AnsweredAssignmentsForm({ match }) {
 
           </div>
         </div>
+
+            
       </div>
 
+      <div>
+      <Button 
+              onClick={goBack}
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<Icon>send</Icon>}
+              >Back</Button>
+                  
+              </div>
     </>
 
   );

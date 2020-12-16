@@ -15,16 +15,10 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import AnsweredAssignmentsApi from "../../api/AnsweredAssignmentsApi";
 import { Link } from "react-router-dom";
-import { pink } from "@material-ui/core/colors";
-import { useHistory } from "react-router-dom";
-
 import StarIcon from "@material-ui/icons/Star";
-
 import Button from "@material-ui/core/Button";
-
+import { useHistory } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
-
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 function createData(user, title, id, rating) {
   var ratingArray = new Array(0);
@@ -148,13 +142,7 @@ const useToolbarStyles = makeStyles((theme) => ({
 
 const EnhancedTableToolbar = (props) => {
   const classes = useToolbarStyles();
-  const classes1 = useStyles();
   const { numSelected } = props;
-  const history = useHistory();
-
-  function backToCourseDetails() {
-    history.go(-1);
-  }
 
   return (
     <Toolbar
@@ -170,16 +158,6 @@ const EnhancedTableToolbar = (props) => {
       >
         Submitted Assignments
       </Typography>
-      {
-        <Button
-          className={classes1.button}
-          endIcon={<ArrowBackIcon/>}
-          onClick={backToCourseDetails}
-        >
-        
-          Back
-        </Button>
-      }
     </Toolbar>
   );
 };
@@ -209,22 +187,26 @@ const useStyles = makeStyles((theme) => ({
     top: 20,
     width: 1,
   },
+
   button: {
     margin: theme.spacing(1),
-    marginLeft: 1,
     backgroundColor: "#25274D",
-    color: "white",
     cursor: "pointer",
-    textDecoration: "none",
+    outline: "none",
+    border: "none",
     borderRadius: 15,
-    boxShadow: [[0, 9, "#999"]],
-    "&:hover": {
-      backgroundColor: "#464866 !important",
-    },
+    transform: "translateY(4)",
+    boxShadow: [[0, 5, "#999"]],
   },
 }));
 
 function DisplaySubmittedAssignment({ match }) {
+  const history = useHistory();
+
+  const goBack = () => {
+    history.goBack();
+  };
+
   const [rows, setRows] = useState([]);
 
   const classes = useStyles();
@@ -365,6 +347,16 @@ function DisplaySubmittedAssignment({ match }) {
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
+
+      <Button
+        onClick={goBack}
+        variant="contained"
+        color="primary"
+        className={classes.button}
+        endIcon={<Icon>send</Icon>}
+      >
+        Back
+      </Button>
     </div>
   );
 }

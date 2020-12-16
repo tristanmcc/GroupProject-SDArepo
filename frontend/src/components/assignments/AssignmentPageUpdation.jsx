@@ -30,6 +30,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function AssignmentsPageUpdation({ match }) {
+
+  
   console.log('No match for my batch: ', match);
   const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState('');
@@ -48,7 +50,12 @@ function AssignmentsPageUpdation({ match }) {
   const [assignId, setAssignId] = useState('');
   const [course, setCourse] = useState('');
   const history = useHistory();
-
+  
+  
+    const goBack = () =>
+    {
+        history.goBack();
+    }
   
 
   const getAssignmentById = (id) => {
@@ -286,7 +293,7 @@ function AssignmentsPageUpdation({ match }) {
                 onClick={() => handleUpdate()}
                 
               >
-                Update Assignment
+              Update Assignment
               </Button>
               <Link to={`/courseDetail/${course.id}`}>
               <Button className={classes.button} endIcon={<ClearIcon/>}>Cancel</Button></Link>
