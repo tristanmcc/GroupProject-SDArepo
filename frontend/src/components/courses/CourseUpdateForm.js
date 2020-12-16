@@ -17,7 +17,7 @@ export default function CourseUpdateForm( {oldCourse, changeFormState, onCourseU
           <div className="couseupdate"> 
             <form>
             <div className="form-group-update">
-                 <label>Title Name    : <span>(12 char)</span> </label>
+                 <label>Title Name    :  </label>
                   
                   <input className="input-update"
                   name="title" type="text" maxlength="12"
