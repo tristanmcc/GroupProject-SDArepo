@@ -74,14 +74,6 @@ public class QuestionControllerTest {
 
     }
 
-    @Test
-    void testCreate() {
-    }
-
-
-    @Test
-    void testDelete() {
-    }
 
 }
 

@@ -59,14 +59,9 @@ public class AnsweredAssignmentController {
                 
     }
 
-  /*  @GetMapping("/currentUser")
-    public User getCurrentUser() {
-        String email = authService.getLoggedInUserEmail();
-        return userService.findUserByEmail(email);
-    }*/
-
     @PostMapping("/assignments/answered")
     public AnsweredAssignment create(@RequestBody AnsweredAssignment newAnsweredAssignment) {
+
         newAnsweredAssignment.setEmail(authService.getLoggedInUserEmail());
         return answeredAssService.create(newAnsweredAssignment);
     }
@@ -75,7 +70,6 @@ public class AnsweredAssignmentController {
     public AnsweredAssignment update(@RequestBody AnsweredAssignment updatedAssignment){
         return answeredAssService.update(updatedAssignment);
     }
-
 
     @DeleteMapping("/assignments/answered/{id}")
     public void delete(@PathVariable long id) {

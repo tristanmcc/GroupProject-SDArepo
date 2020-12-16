@@ -16,7 +16,6 @@ import static org.mockito.Mockito.when;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
 @SpringBootTest
 public class AnsweredAssignmentServiceTest {
 
@@ -28,7 +27,7 @@ public class AnsweredAssignmentServiceTest {
 
 
         @Test
-        public void should_ReturnTwoAssignments_WheViewAll() {
+        public void should_ReturnTwoAssignments_WhenViewAll() {
 
             when(answeredAssignmentRepository.findAll()).thenReturn(Stream
                     .of(new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L),
@@ -40,7 +39,7 @@ public class AnsweredAssignmentServiceTest {
         }
 
         @Test
-        void testCreate() {
+        void should_CreateAnsweredAssignment_with_Repository() {
             AnsweredAssignment ansAss = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L);
 
             when(answeredAssignmentRepository.save(ansAss)).thenReturn(ansAss);
@@ -49,7 +48,4 @@ public class AnsweredAssignmentServiceTest {
 
         }
 
-        @Test
-        void testUpdate() {
-        }
 }
