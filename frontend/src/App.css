@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 body{
-	background-color: #fffff8;
+	background-color: snow;
 	color:#555;
 	font-size:16px;
 	line-height:1.6em;
@@ -45,7 +45,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: #FDC00F;
+  background-color: var(--darkest-blue);
   opacity:100%;
 }
 .logo{
@@ -63,6 +63,7 @@ nav {
   text-decoration: none;
 
 }
+
 .nav-links li{
   list-style: none;
   margin-top: 15px;
@@ -79,6 +80,36 @@ nav {
   font-family: "Poppins", sans-serif;
   
 }
+
+.nav-links a:hover{     
+ 
+ border:solid;
+ border-radius: 5px;
+ border-color:#E3E2DF;
+ border-block-color:#E3E2DF;
+ padding:5px;
+ outline: none;
+ border-color: #E3E2DF;
+ box-shadow: 0 0 10px#E3E2DF;
+}
+.nav-links a .target {
+  color: #E3E2DF;
+}
+
+
+.nav-links li .active {
+  background-color:red;
+}
+.nav-links a.active {
+  background-color:red;
+  color: #E3E2DF;
+}
+.nav-links a:focus {
+  color:  #E3E2DF;
+  
+}
+
+
 @media screen and (max-width:1024px) {
   .nav-links{
     width: 60%;
@@ -94,7 +125,7 @@ nav {
     right: 0px;
     height: 110vh;
     top: 8vh;
-    background-color: #FDC00F;
+    background-color: var(--darkest-blue);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -102,6 +133,10 @@ nav {
     transform: translateX(100%);
     /* transition: transform 0.5s ease-in;  */
     
+  }
+  .logout-button{
+    color: #E3E2DF;
+
   }
 
   

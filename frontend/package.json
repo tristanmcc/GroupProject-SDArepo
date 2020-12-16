@@ -12,8 +12,10 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.21.0",
+    "brain.js": "^1.6.1",
     "events": "^3.2.0",
     "moment": "^2.29.1",
+    "natural": "^0.6.3",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-big-calendar": "^0.30.0",
@@ -24,10 +26,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-test-renderer": "^17.0.1",
+    "recharts": "^1.8.5",
     "web-vitals": "^0.2.4",
-    "ws": "^7.4.0",
-    "brain.js": "^1.6.1",
-    "natural": "^0.6.3"
+    "ws": "^7.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

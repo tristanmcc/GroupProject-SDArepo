@@ -14,13 +14,19 @@ import "../../css/styles.css";
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: "#E55A71",
+    backgroundColor: "#25274D",
     cursor: "pointer",
-    outline: "none",
-    border: "none",
+    textDecoration: "none",
     borderRadius: 15,
-    transform: "translateY(4)",
-    boxShadow: [[0, 5, "#999"]],
+    boxShadow: [[0, 9, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    },
+    "&:active": {
+      backgroundColor: "#3e8e41 !important",
+      boxShadow: [[0, 5, "#666"]],
+      transform: "translateY(4) !important",
+    },
   },
   uploadButton: {
     margin: theme.spacing(1),
@@ -31,7 +37,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
-    backgroundColor: "#1391B9",
+    backgroundColor: "#25274D",
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    },
   },
 }));
 
@@ -71,71 +80,86 @@ export default function CourseDetailsPage({ match }) {
   }, []);
 
   return (
+    <>
+    
     <div className="course-details">
       <div className="course-details-description">
-        <h3>Course Details page - {course.description} </h3>
-        {/* <p>{course.description}</p> */}
+        <h3 className="course-description">
+          {course.title}
+        </h3>
       </div>
+      
+      <div className="course-details-text">
+       {<p>{course.description}</p>}
+       </div>
+      
       <div className="course-details-section">
         <div>
-        <div className="assignment-details">
-          {openForm ? (
-            <>
-              <AssignmentsView course={course} currentUser={currentUser} />
-              {currentUser.userRole === "teacher" ? (
-              <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                endIcon={<Icon>send</Icon>}
-                onClick={onCreateNewAssignment}
-              >
-                Add New Assignment
-              </Button>
-              
-            ): null }
-            </>
-          ) : (
-            <AssignmentsPage course={course} currentUser={currentUser} />
-          )}
-          {currentUser.userRole === "teacher" ? (
-                <Link to={`/assignmentsSubmittedView`}>
+          <div className="assignment-details">
+            {openForm ? (
+              <>
+                <AssignmentsView course={course} currentUser={currentUser} />
+                {currentUser.userRole === "teacher" ? (
+                  <Link to={`/assignmentsViewForCourse/${courseId}`}>
+                    <div className="assignment-addNew">
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        endIcon={<Icon>send</Icon>}
+                        onClick={onCreateNewAssignment}
+                      >
+                        Add New Assignment
+                      </Button>
+                    </div>
+                  </Link>
+                ) : null}
+              </>
+            ) : (
+              <AssignmentsPage course={course} currentUser={currentUser} />
+            )}
+            {currentUser.userRole === "teacher" ? (
+              <Link to={`/assignmentsSubmittedView/${courseId}`}>
+                <div className="assignment-view">
                   <Button
                     variant="contained"
                     color="primary"
                     className={classes.button}
                     endIcon={<Icon>send</Icon>}
                     onClick={onCreateNewAssignment}
-                  >
+                     >
                     View Submitted Assignment
                   </Button>
-                </Link>
-              ) : null}
-        </div>
+                </div>
+              </Link>
+            ) : null}
+          </div>
           <div className="lecture-details">
-            {openLectureForm ? (
-              <>
-                <Videos course={course} currentUser={currentUser} />
-              </>
-            ) : (
-              <VideoUpLoadForm course={course} currentUser={currentUser} />
-            )}
-          </div>
-          <div className="buttonCheck">
-            {" "}
-            <Button
-              variant="contained"
-              color="default"
-              className={classes.uploadButton}
-              endIcon={<Icon>send</Icon>}
-              onClick={onUploadVideo}
-            >
-              Add new video
-            </Button>
+            <div className="check">
+              {openLectureForm ? (
+                <>
+                  <Videos course={course} currentUser={currentUser} />
+                </>
+              ) : (
+                <VideoUpLoadForm course={course} currentUser={currentUser} />
+              )}
+            </div>
+            <div className="buttonCheck">
+              <Button
+                variant="contained"
+                color="default"
+                className={classes.uploadButton}
+                endIcon={<Icon>send</Icon>}
+                onClick={onUploadVideo}
+              >
+                Add new video
+              </Button>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
+   
+    </>   
   );
 }

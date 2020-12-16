@@ -2,13 +2,34 @@ import React, { useState, useEffect } from 'react';
 import AssignmentsApi from '../../api/AssignmentsApi';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { Link } from 'react-router-dom';
+import Icon from "@material-ui/core/Icon";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import CoursesApi from "../../api/CoursesApi";
+import { useHistory } from 'react-router-dom';
 
-function AssignmentsPage({ course, currentUser }) {
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: "#25274D",
+    cursor: "pointer",
+    outline: "none",
+    border: "none",
+    borderRadius: 15,
+    transform: "translateY(4)",
+    boxShadow: [[0, 5, "#999"]],
+  },
+  
+}));
+
+function AssignmentsPage({match}) {
+  const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState('');
   const [assignmentDescription, setAssignmentDescription] = useState('');
   const [dueDate, setDueDate] = useState(new Date());
+  const history = useHistory();
 
   const [question1, setQuestion1] = useState('');
   const [question2, setQuestion2] = useState('');
@@ -21,6 +42,18 @@ function AssignmentsPage({ course, currentUser }) {
   const [question9, setQuestion9] = useState('');
   const [question10, setQuestion10] = useState('');
   const [assignId, setAssignId] = useState('');
+  const [course,setCourse] = useState([]);
+
+  const getCourseById = (courseId) => {
+    CoursesApi.getCourseById(courseId).then((res) => {
+      setCourse(res.data);
+    });
+  };
+
+
+  useEffect(() => {
+    getCourseById(match.params.courseId);
+  }, []);
 
   function handleSubmit() {
     AssignmentsApi.postAssignment({
@@ -40,41 +73,25 @@ function AssignmentsPage({ course, currentUser }) {
       question10,
     }).then((response) => {
       setAssignId(response.data.id);
-      window.location.reload();
-
+      //window.location.reload();
+      history.go(-1);
  
     });
   }
 
-  function handleUpdate() {
-    console.log('Inside Update' + assignId);
-    // Creating a local variable
-    const id = assignId;
-    AssignmentsApi.updateAssignment({
-      id,
-      assignmentTitle,
-      assignmentDescription,
-      dueDate,
-      question1,
-      question2,
-      question3,
-      question4,
-      question5,
-      question6,
-      question7,
-      question8,
-      question9,
-      question10,
-      course,
-    }).then((response) => {
-      window.location.reload();
-      /*alert('Updation of Assignment Successful')*/
-    });
-  }
+  
 
   return (
+
     <div className="container-assignment">
-      <div className="form-group">
+
+        <div>
+        <img className="assignmentimage"  src={assignmentImg} />
+        </div>
+
+       <div className="question">
+       
+        <div>
         <label>Assignment Title:</label>
 
         <input
@@ -85,7 +102,7 @@ function AssignmentsPage({ course, currentUser }) {
         />
       </div>
 
-      <div className="form-group text-dark">
+      <div>
         <label>Assignment Description:</label>
 
         <input
@@ -95,7 +112,8 @@ function AssignmentsPage({ course, currentUser }) {
           onChange={(e) => setAssignmentDescription(e.target.value)}
         />
       </div>
-      <div className="form-group text-dark">
+
+      <div>
         <label>Deadline: </label>
         <p></p>
         <DatePicker
@@ -105,9 +123,9 @@ function AssignmentsPage({ course, currentUser }) {
         />
       </div>
 
-      <div className="card-body text-dark border">
-        <div className="question">
-          <div className="form-group">
+     
+           <div>
+          
             <label>Question 1:</label>
             <textarea
               type="text"
@@ -206,29 +224,30 @@ function AssignmentsPage({ course, currentUser }) {
               onChange={(e) => setQuestion10(e.target.value)}
             />
           </div>
+
         </div>
-      </div>
+    
+      
+      
       <div className="card-header">
-        {assignId === '' ? (
-          <Link to="/assignments">
-            <button
-              className=" btn btn-dark btn-sm"
-              onClick={() => handleSubmit()}
-            >
-              Submit
-            </button>
-          </Link>
-        ) : (
-          <Link to="/assignments">
-            <button
-              className=" btn btn-dark btn-sm"
-              onClick={() => handleUpdate()}
-            >
-              Update
-            </button>
-          </Link>
-        )}
-      </div>
+            
+          
+
+                <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                endIcon={<Icon>send</Icon>}
+                onClick={() => handleSubmit()}
+                
+              >
+                Add Assignment
+              </Button>
+              <Link to={`/courseDetail/${match.params.courseId}`}>
+              <Button 
+              >Cancel</Button></Link>
+              
+    </div>
     </div>
   );
 }

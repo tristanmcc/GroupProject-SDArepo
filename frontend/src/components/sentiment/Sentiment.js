@@ -4,8 +4,6 @@ const TrainingSet = require('../../resources/trainingdata.json');
 const natural = require('natural');
 const BrainJs = require('brain.js');
 
-const axios = require('axios');
-
 export default function Sentiment({ sentence }) {
   function buildWordDictionary(trainingData) {
     const tokenisedArray = trainingData.map((item) => {
@@ -38,16 +36,17 @@ export default function Sentiment({ sentence }) {
   const network = new BrainJs.NeuralNetwork();
   network.train(encodedTrainingSet);
 
-  let data = JSON.stringify([
-    sentence,
-  ]);
-
   console.log('sentence: ' + sentence.textBody);
 
   //insert sentences here
   const encoded = encode(sentence.textBody);
 
+  let { bad, good, b = +bad, g = +good } = network.run(encoded);
+
   console.log(network.run(encoded));
+  console.log('good: ' + g);
+  console.log('good: ' + good);
+  console.log('bad: ' + b);
 
   // { good: 0.8156641125679016, bad: 0.17976993322372437 }
 

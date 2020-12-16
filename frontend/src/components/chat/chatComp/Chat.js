@@ -1,9 +1,10 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import ChatInput from './ChatInput';
 import ChatMessage from './ChatMessage';
 import Style from "../../../css/styles.css";
 import UserApi from '../../../api/UserApi';
 import Forum from "../forum/Forum";
+
 
 
 //Media
@@ -26,23 +27,23 @@ class Chat extends Component {
     }
     this.userName = this.userName.bind(this);
   }
- 
+
 
   userName() {
     UserApi.getCurrentUser()
-      .then(results  => this.setState({ name: results.data.name }));
-      
+      .then(results => this.setState({ name: results.data.name }));
+
   }
 
 
   ws = new WebSocket(URL)
 
-  componentDidMount() {    
+  componentDidMount() {
     this.userName();
     //console.log(this.state);
     this.ws.onopen = () => {
     }
-  
+
 
     this.ws.onmessage = evt => {
       // on receiving a message, add it to the list of messages
@@ -56,9 +57,9 @@ class Chat extends Component {
         ws: new WebSocket(URL),
       })
     }
-      }
-      
-    
+  }
+
+
 
   addMessage = message =>
     this.setState(state => ({ messages: [message, ...state.messages] }))
@@ -72,54 +73,41 @@ class Chat extends Component {
     this.addMessage(message)
   }
 
-  
+
 
   render() {
     return (
       <div>
-          <div className="chat-banner">
-            Communication
+        <div class="chat-banner"> Communication</div>
+        <div className="horizontalline"></div>
+        <div className="chat-page-row">
+          <div className="chat-page-column">
+            <div className="forumCard"><Forum /></div>
+          </div>
+          <div className="chat-page-column">
+            <div className="chatCard">
+              <div className="chatbox">
+                {this.state.messages.map((message, index) =>
+                  <ChatMessage
+                    key={index}
+                    userIndex={index}
+                    message={message.message}
+                    name={message.name}
+                  />
+                )}
+              </div>
+              <div className="chat-inputform">
+                <label htmlFor="name">
+                </label>
+                <ChatInput
+                  ws={this.ws}
+                  onSubmitMessage={messageString => this.submitMessage(messageString)}
+                /></div>
             </div>
-            <div className="horizontalline">
-             </div>
-            <div className="chat-page-row">
-            <div className="chat-page-column">
-      <div className="forumCard"><Forum/></div>
-      </div>
-      <div className="chat-page-column">
-        <div className="chatCard">
-        <div className="chatbox">
-        <div>
-        {this.state.messages.map((message, index) =>
-          <ChatMessage
-            key={index}
-            message={message.message}
-            name={message.name}
-          />,
-        )}
+          </div>
         </div>
-      </div>
-      <div className="chat-inputform">
-      <label htmlFor="name">
-
-         {/*} <input
-            type="text"
-            id={'name'}
-            placeholder={'Enter your name...'}
-            value={this.state.name}
-            onChange={e => this.setState({ name: e.target.value })}
-        />*/} 
-        </label>
-      <ChatInput
-          ws={this.ws}
-          onSubmitMessage={messageString => this.submitMessage(messageString)}
-        /></div>
-      </div>
-      </div>
-      </div>
       </div>
     )
   }
 }
-
 export default Chat

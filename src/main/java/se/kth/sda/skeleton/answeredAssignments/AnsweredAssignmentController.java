@@ -46,11 +46,23 @@ public class AnsweredAssignmentController {
         }
     }
 
+    @GetMapping("/assignments/{assignmentId}/student/{userId}")
+    public AnsweredAssignment getById(@PathVariable Long assignmentId, @PathVariable Long userId){
+        return answeredAssService.getStudentAnswer(assignmentId, userId)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
     //get specific task by ID
     @GetMapping("/assignments/answered/{id}")
     public AnsweredAssignment getById(@PathVariable Long id){
         return answeredAssService.getById(id)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/assignments/answeredByCourseId/{courseId}")
+    public List<AnsweredAssignment> getAllByCourseId(@PathVariable Long courseId) {
+            return answeredAssService.getAllByCourseId(courseId);
+
     }
 
     @GetMapping("/assignments/answeredByAssignmentId/{id}")

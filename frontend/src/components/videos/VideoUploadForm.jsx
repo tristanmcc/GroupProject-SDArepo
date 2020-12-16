@@ -19,13 +19,17 @@ const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     color: "white",
-    backgroundColor: "#1391B9",
+    backgroundColor: "#25274D",
     cursor: "pointer",
     outline: "none",
     border: "none",
     borderRadius: 15,
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
+  },
+  "&:hover": {
+    backgroundColor: "#464866",
+    textDecoration: "none",
   },
 }));
 
