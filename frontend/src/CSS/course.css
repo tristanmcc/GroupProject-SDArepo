@@ -234,6 +234,7 @@ margin-bottom: 0px;
   .course-container {
     text-align: right;
     margin-top: 40px;
+    margin-right: 20px;
   }
   .course-grid {
     display: flex; 
@@ -259,7 +260,6 @@ margin-bottom: 0px;
     }
     .row-buttons {
       text-align:left;
-      
     }
 
   }
@@ -274,9 +274,10 @@ margin-bottom: 0px;
  .course-card{
    margin-right:10px;
  }
+
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 415px) {
     .course-grid{
       text-align: center;
      display: grid;
@@ -288,6 +289,6 @@ margin-bottom: 0px;
      margin-bottom: 40px;
     } 
     .media{
-      margin-left: 15px;
+      margin-left: 2px;
     }
     }
