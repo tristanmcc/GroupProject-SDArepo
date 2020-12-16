@@ -7,11 +7,35 @@ import CourseForm from "./CourseForm";
 import CoursesApi from "../../api/CoursesApi";
 import CoursesList from "./CoursesList";
 
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import Icon from "@material-ui/core/Icon";
+
 import CourseUpdateForm from './CourseUpdateForm.js';
 
 
 import UserApi from "../../api/UserApi";
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    //margin: theme.spacing(1),
+    backgroundColor: "#25274D",
+    color:'white',
+    cursor: "pointer",
+    textDecoration: "none",
+    borderRadius: 15,
+    boxShadow: [[0, 5, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    },
+    "&:active": {
+      backgroundColor: "#3e8e41 !important",
+      boxShadow: [[0, 5, "#666"]],
+      transform: "translateY(4) !important",
+    },
+    
+  },
+}));
 
 function CoursePage() {
    
@@ -19,7 +43,7 @@ function CoursePage() {
   const [openForm, setOpenForm] = useState(false);
   
     //useState variables
-  
+  const classes = useStyles();
   const [currentUser, setCurrentUser] = useState("");
   
 
@@ -77,8 +101,8 @@ const updateCourse = (updatedCourse) => {
          <hr/>
          {/*  <div className="horizontalline">
              </div> */}
-     <div className="course-container">
-         
+     
+        
        <div className="row-buttons">
           { openForm ? 
             <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
@@ -86,27 +110,31 @@ const updateCourse = (updatedCourse) => {
            : 
            <>
           {currentUser==='teacher' ? 
-            <button
-              className="create-coursebutton"
+            <Button
+              className={classes.button}
+              // className="create-coursebutton"
+              endIcon={<Icon>send</Icon>}
               onClick={onCreateNewCourse}>
               Create Course
-            </button> : null
+            </Button> : null
             }
-            
+            <div className="course-container"></div>
+            <div className="media">
+              
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
 
               onCourseUpdate={updateCourse}
               currentUser = {currentUser}
-            />
-          </>
+            /></div>
+          </> 
         }
       </div>
  
       </div>
      
- </div>
+ 
   );
 }
 export default CoursePage;

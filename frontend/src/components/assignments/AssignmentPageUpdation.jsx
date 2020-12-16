@@ -9,22 +9,29 @@ import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { useHistory } from 'react-router-dom';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     backgroundColor: "#25274D",
+    color: "white",
     cursor: "pointer",
     outline: "none",
     border: "none",
     borderRadius: 15,
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    }
   },
   
 }));
 
 function AssignmentsPageUpdation({ match }) {
+
+  
   console.log('No match for my batch: ', match);
   const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState('');
@@ -43,8 +50,13 @@ function AssignmentsPageUpdation({ match }) {
   const [assignId, setAssignId] = useState('');
   const [course, setCourse] = useState('');
   const history = useHistory();
-
-  console.log('But of course: ', course);
+  
+  
+    const goBack = () =>
+    {
+        history.goBack();
+    }
+  
 
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
@@ -124,7 +136,7 @@ function AssignmentsPageUpdation({ match }) {
       history.go(-1);
     });
   }
-
+  console.log('But of course: ', course.id);
   return (
     <div className="container-assignment">
      <img className="assignmentimage"  src={assignmentImg} />
@@ -281,8 +293,10 @@ function AssignmentsPageUpdation({ match }) {
                 onClick={() => handleUpdate()}
                 
               >
-                Update Assignment
+              Update Assignment
               </Button>
+              <Link to={`/courseDetail/${course.id}`}>
+              <Button className={classes.button} endIcon={<ClearIcon/>}>Cancel</Button></Link>
               
     </div>
     </div>

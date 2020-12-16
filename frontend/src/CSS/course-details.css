@@ -4,15 +4,25 @@
     margin-right: 0 !important;
 }
 
-.iconDelete {
+.videoiconDelete {
     text-align: center;
+    background-color:#ecedfc;
+
+  
 }
 
 .lecture-details {
     display:flex;
     flex-direction: column; 
     margin-top:3rem;
-    background-color:#6AD1FA;
+    margin-bottom: 60px;   
+}
+.coursedetailscontainer{
+    border-radius: 5px;
+    padding: 50px;
+    background-color: #E3E2DF ;
+    margin-left: -50px;
+    margin-right: -50px;
 }
 
 .check {
@@ -33,22 +43,31 @@
 }
    
 .course-details-description {
-    padding: 16px;
+   
     text-align: center;
     margin-top: -25px;
     margin-bottom: 45px;
-    margin-left: -50px;
-    margin-right: -50px;
-    background-color: #6AD1FA;
+    font-size: xx-large;
+}
+.course-details-text{
+    padding: 16px;
+    text-align: justify;
+    margin-top: -25px;
+    margin-bottom: 15px;
+    margin-left: -10px;
+    margin-right: -10px;
+    background-color: snow;
     font-size: medium;
     border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    
 }
   
 .course-details-section {
-    margin:0 auto;
+    margin:0 auto; 
 }
-  
+ 
+
+
 .lectures-line {
     background-color:white;
 }
@@ -65,9 +84,7 @@
         text-align: center;
     }
 
-    .course-description {
-        font-size:16px;
-    }
+    
 
     .course-name {
         align-items:center;

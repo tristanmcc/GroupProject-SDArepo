@@ -12,16 +12,15 @@
   .couseupdate{
     margin-top: 8px;
   }
-  
   img {
    width: 100%;
   }
   .course-card {
-   width:160px;
+  width: 160px;
   padding-bottom: 15px;
   text-align:center;
-  
-  margin-bottom: 3rem;
+  margin-right:40px;
+  margin-bottom: 5rem;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 5px; 
   border-width: 2px; 
@@ -236,7 +235,7 @@ margin-bottom: 0px;
   .course-container {
     text-align: right;
     margin-top: 40px;
-  
+    margin-right: 20px;
   }
   .course-grid {
     display: flex; 
@@ -250,25 +249,35 @@ margin-bottom: 0px;
     
     .course-grid{
       text-align: center;
-    
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
     }
+  
     .course-card {
-      margin:0;
+      margin-right: 40px;
       margin-bottom: 1rem;
     }
     .row-buttons {
       text-align:left;
-      
     }
 
   }
 
   @media screen and (max-width: 750px){
     .course-grid{
-    justify-content: space-around;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
   }
-}
-  @media screen and (max-width: 400px) {
+
+ .course-card{
+   margin-right:10px;
+ }
+
+  }
+
+  @media screen and (max-width: 415px) {
     .course-grid{
       text-align: center;
      display: grid;
@@ -277,5 +286,9 @@ margin-bottom: 0px;
     }
     .course-container{
      text-align: center;
+     margin-bottom: 40px;
     } 
+    .media{
+      margin-left: 2px;
+    }
     }

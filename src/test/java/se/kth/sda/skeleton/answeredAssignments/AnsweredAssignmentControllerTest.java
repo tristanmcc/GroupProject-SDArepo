@@ -37,9 +37,8 @@ public class AnsweredAssignmentControllerTest {
         when(answeredAssService.viewAll())
                 .thenReturn(threeAnsweredAssignments);
 
-
         //act
-        List<AnsweredAssignment> actualAssignments = answeredAssController.viewAll();
+        List<AnsweredAssignment> actualAssignments = answeredAssController.viewAll(null);
 
         //assert
         Assertions.assertEquals(threeAnsweredAssignments.size(),actualAssignments.size());
@@ -47,17 +46,14 @@ public class AnsweredAssignmentControllerTest {
         Assertions.assertEquals(threeAnsweredAssignments.get(1).getAnsweredAssignmentTitle(),threeAnsweredAssignments.get(1).getAnsweredAssignmentTitle());
     }
 
-
     @Test
     void should_ReturnOneStudent_WhenGetById() {
-
 
         //arrange
         AnsweredAssignment answeredAssignment1 = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L);
         AnsweredAssignment answeredAssignment2 = new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L, 2L);
         AnsweredAssignment answeredAssignment3 = new AnsweredAssignment(3L, "ansAss3",  "A3.1", "A3.2", "A3.3","A3.4","A3.5","A3.6","A3.7","A3.8","A3.9","A3.10", 3L,3L);
-
-
+        
         when(answeredAssService.getById(1L))
                 .thenReturn(Optional.of(answeredAssignment1));
         when(answeredAssService.getById(2L))
@@ -76,14 +72,25 @@ public class AnsweredAssignmentControllerTest {
     }
 
     @Test
-    void testCreate() {
+    public void should_ReturnAnsAssignments_when_GetAllByUserId() {
+//        // Arrange
+//        Long userId = 101L;
+//        AnsweredAssignment answeredAssignment1 = new AnsweredAssignment(1L, "ansAss1", "A1", "A2", "A3","A4","A5","A6","A7","A8","A9","A10",1L, 1L);
+//        AnsweredAssignment answeredAssignment2 = new AnsweredAssignment(2L, "ansAss2", "A2.1", "A2.2", "A2.3","A2.4","A2.5","A2.6","A2.7","A2.8","A2.9","A2.10", 2L, 2L);
+//
+//        List<AnsweredAssignment> answeredAssignments = new ArrayList<>();
+//        answeredAssignments.add(answeredAssignment1);
+//        answeredAssignments.add(answeredAssignment2);
+//        Mockito.when(answeredAssService.getAllByUserId(userId))
+//                .thenReturn(answeredAssignments);
+//
+//        // Act
+//        List<AnsweredAssignment> actualAssignments = answeredAssController.viewAll(userId);
+//
+//        // Assert
+//        Assertions.assertEquals(answeredAssignments.size(), actualAssignments.size());
+//        Assertions.assertEquals(answeredAssignments.get(0).getAnsweredAssignmentTitle(), actualAssignments.get(0).getAnsweredAssignmentTitle());
+//        Assertions.assertEquals(answeredAssignments.get(1).getAnswer1(), actualAssignments.get(1).getAnswer1());
     }
 
-    @Test
-    void testUpdate() {
-    }
-
-    @Test
-    void testDelete() {
-    }
 }

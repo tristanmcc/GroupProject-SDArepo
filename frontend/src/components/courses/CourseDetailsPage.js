@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     textDecoration: "none",
     borderRadius: 15,
-    boxShadow: [[0, 9, "#999"]],
+    boxShadow: [[0, 5, "#999"]],
     "&:hover": {
       backgroundColor: "#464866 !important",
     },
@@ -80,21 +80,28 @@ export default function CourseDetailsPage({ match }) {
   }, []);
 
   return (
+    <>
+    
     <div className="course-details">
       <div className="course-details-description">
-        <h3 className="course-description">
-          Course Details page - {course.description}{" "}
-        </h3>
+        <h1 className="course-description">
+          {course.title}
+        </h1>
       </div>
+      
+      <div className="course-details-text">
+       {<p>{course.description}</p>}
+       </div>
+      
       <div className="course-details-section">
         <div>
           <div className="assignment-details">
-            {openForm ? (
+            
               <>
                 <AssignmentsView course={course} currentUser={currentUser} />
                 {currentUser.userRole === "teacher" ? (
                   <Link to={`/assignmentsViewForCourse/${courseId}`}>
-                    <div className="assignment-addNew">
+                   
                       <Button
                         variant="contained"
                         color="primary"
@@ -104,26 +111,24 @@ export default function CourseDetailsPage({ match }) {
                       >
                         Add New Assignment
                       </Button>
-                    </div>
+                   
                   </Link>
                 ) : null}
               </>
-            ) : (
-              <AssignmentsPage course={course} currentUser={currentUser} />
-            )}
+            
             {currentUser.userRole === "teacher" ? (
-              <Link to={`/assignmentsSubmittedView`}>
-                <div className="assignment-view">
+              <Link to={`/assignmentsSubmittedView/${courseId}`}>
+                
                   <Button
                     variant="contained"
                     color="primary"
                     className={classes.button}
                     endIcon={<Icon>send</Icon>}
                     onClick={onCreateNewAssignment}
-                  >
+                     >
                     View Submitted Assignment
                   </Button>
-                </div>
+               
               </Link>
             ) : null}
           </div>
@@ -137,7 +142,9 @@ export default function CourseDetailsPage({ match }) {
                 <VideoUpLoadForm course={course} currentUser={currentUser} />
               )}
             </div>
+            {currentUser.userRole === "teacher" ? (
             <div className="buttonCheck">
+          
               <Button
                 variant="contained"
                 color="default"
@@ -146,11 +153,13 @@ export default function CourseDetailsPage({ match }) {
                 onClick={onUploadVideo}
               >
                 Add new video
-              </Button>
-            </div>
+              </Button> 
+            </div>): null }
           </div>
         </div>
       </div>
     </div>
+   
+    </>   
   );
 }
