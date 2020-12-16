@@ -1,15 +1,15 @@
 .chat-banner{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    padding: 16px;
-    text-align: center;
-    margin-top: -25px;
-    margin-bottom: 45px;
-    margin-left: -50px;
-    margin-right: -50px;
-    background-color: #E55A71;
-    font-size: medium;
-    border-radius: 5px;
-    color: white;
+   padding: 16px;
+   text-align: center;
+   margin-top: -25px;
+   margin-bottom: 45px;
+   margin-left: -50px;
+   margin-right: -50px;
+   background-color: #2E9CCA ;
+   font-size: medium;
+   border-radius: 5px;
+   color: #fff;
 }
 
 

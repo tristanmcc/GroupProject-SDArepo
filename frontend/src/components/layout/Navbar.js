@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
+import hatImg from '../../images/Icons/hat1.png';
 
 export default function Navbar ({ onLogout }) {
 
@@ -32,7 +33,7 @@ export default function Navbar ({ onLogout }) {
     <nav>
       
       <div class="logo">
-           Educational environment
+         <h6>EDUCATIONAL ENVIRONMENT</h6>
         </div>
         <ul class="nav-links" >
              <li >
