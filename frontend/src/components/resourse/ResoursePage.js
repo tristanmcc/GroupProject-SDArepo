@@ -49,19 +49,19 @@ function ResoursePage() {
              <figure>               
                 <a    href="  http://tiny.cc/quizztime">
                 <img className="quizimage"  src={quiz} />
-                <figcaption>  <b> QUIZ </b></figcaption>  </a>
+                <figcaption>  <b> Quiz </b></figcaption>  </a>
              </figure>
         
               <figure>
                 <a    href="https://kahoot.it">
                   <img className="kahoot"  src={kahoot} />
-                <figcaption>  <b> Khoot</b></figcaption>  </a>
+                <figcaption>  <b> Kahoot</b></figcaption>  </a>
               </figure>
 
               <figure>           
                 <a    href="http://tiny.cc/dojo1">
                 <img className="dojo"  src={dojo} />
-                <figcaption>  <b>Class DO Jo</b></figcaption>  </a>
+                <figcaption>  <b>Class Dojo</b></figcaption>  </a>
               </figure>
               <figure>
                 <a    href="http://tiny.cc/duo1">
@@ -71,7 +71,7 @@ function ResoursePage() {
               <figure>         
                 <a    href="https://classroom.google.com/h">
                 <img className="googleclassimage"  src={googleclass} />
-                <figcaption>  <b> GOOGLE CLASSROOM </b></figcaption>  </a>
+                <figcaption>  <b> Google Classroom </b></figcaption>  </a>
               </figure>
           </div>   
      </div>

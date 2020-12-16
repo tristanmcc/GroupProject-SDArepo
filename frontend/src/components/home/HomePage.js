@@ -99,19 +99,20 @@ function HomePage() {
 
       
       <div className="home-column">
-        <div className="homepage"> <h3>Your students work at their levels</h3>
+        <div className="homepage"> <h3 className="description-title">Supporting Students</h3>
         <p>
         With a growing number of school closures due to COVID-19, we want to ensure 
-        your students still have access to valuable learning resources at home. This 
-        is a guide for parents and families who would like to use Freckle to keep their
-        kids engaged in learning during these challenging times.</p>
+        that students educational and emotional needs are still being met. </p>
 
 
-        <p>Freckle is an online learning platform that allows students to practice Math and 
-        English Language Arts at their own level. Freckle continuously adapts to each student’s 
-        individual skills, so each student is getting the appropriate challenge, whether they’re 
-        working at, above, or below grade level. Depending on the level of instruction your school
-        is providing during school closures, your child’s.</p> </div>
+        <p>
+        EE is an online learning and support tool that supplements traditional 
+        learning platforms used by schools. EE continuously monitors your the classes engagement 
+        and their sentiment towards online education. In times like these where in person interactions 
+        between teachers and students are so rare, EE's NLP registers how 
+        your children are coping with both their school work and their current environment.
+        Your childrens teachers are provided with information drawn from your childs contributions 
+        to the platform in the chatroom and forum to gauge their current attitude or 'sentiment'.</p> </div>
       <img className="happKids"  src={happyKids} />
       </div>
 
