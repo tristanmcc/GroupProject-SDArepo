@@ -23,7 +23,10 @@ function HomePage() {
         <div class="column">
           <Link to="/scheduler" className="nav-card">
             <div class="card-nav1">
-              <img src={Calender} alt="Open Book" ></img>
+              <img 
+              className="NavImage-responsive"
+              src={Calender} 
+              alt="Open Book" ></img>
               Scheduler
             </div>
           </Link>
@@ -33,9 +36,9 @@ function HomePage() {
           <Link to="/courses" className="nav-card">
             <div className="card-nav2">
               <img
+                className="NavImage-responsive"
                 src={CourseGraphic}
                 alt="Open Book"
-                
               ></img>
               Courses
             </div>
@@ -46,6 +49,7 @@ function HomePage() {
           <Link to="/assignments" className="nav-card">
             <div className="card-nav3">
               <img
+                className="NavImage-responsive"
                 src={assignmentIcon}
                 alt="Open Book"
               ></img>
@@ -56,7 +60,9 @@ function HomePage() {
         <div className="column">
           <Link to="/students" className="nav-card">
             <div className="card-nav4">
-              <img src={Students} alt="Open Book" ></img>
+              <img className="NavImage-responsive" 
+              src={Students} 
+              alt="Open Book" ></img>
               Students
             </div>
           </Link>
@@ -64,7 +70,7 @@ function HomePage() {
         <div className="column">
           <Link to="/videos" className="nav-card">
             <div className="card-nav5">
-              <img
+              <img className="NavImage-responsive"
                 src={videoIcon}
                 alt="Open Book"
                 
@@ -76,7 +82,7 @@ function HomePage() {
         <div className="column">
           <Link to="/chat" className="nav-card">
             <div className="card-nav6">
-              <img src={chatIcon} alt="Open Book" ></img>
+              <img className="NavImage-responsive" src={chatIcon} alt="Open Book" ></img>
               Forum
             </div>
           </Link>
@@ -84,7 +90,7 @@ function HomePage() {
         <div className="column">
           <Link to="/resources" className="nav-card">
             <div className="card-nav7">
-              <img src={apple} alt="Open Book" ></img>
+              <img className="NavImage-responsive"src={apple} alt="Open Book" ></img>
               Resources
             </div>
           </Link>
