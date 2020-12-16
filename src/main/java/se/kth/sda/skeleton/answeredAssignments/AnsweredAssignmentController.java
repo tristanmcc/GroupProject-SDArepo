@@ -59,12 +59,6 @@ public class AnsweredAssignmentController {
                 
     }
 
-  /*  @GetMapping("/currentUser")
-    public User getCurrentUser() {
-        String email = authService.getLoggedInUserEmail();
-        return userService.findUserByEmail(email);
-    }*/
-
     @PostMapping("/assignments/answered")
     public AnsweredAssignment create(@RequestBody AnsweredAssignment newAnsweredAssignment) {
         newAnsweredAssignment.setEmail(authService.getLoggedInUserEmail());
