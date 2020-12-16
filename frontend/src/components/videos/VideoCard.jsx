@@ -68,7 +68,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
       
       </CardActionArea>
       <div className="videoiconDelete" >
-      <Typography gutterBottom variant="p" component="p" 
+      <Typography  variant="p" component="p" 
           styles={{  }}>
           
           {`${video.videoName}`}
