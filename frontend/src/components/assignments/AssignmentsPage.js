@@ -9,17 +9,22 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CoursesApi from "../../api/CoursesApi";
 import { useHistory } from 'react-router-dom';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     backgroundColor: "#25274D",
     cursor: "pointer",
+    color:"white",
     outline: "none",
     border: "none",
     borderRadius: 15,
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    },
   },
   
 }));
@@ -244,8 +249,11 @@ function AssignmentsPage({match}) {
                 Add Assignment
               </Button>
               <Link to={`/courseDetail/${match.params.courseId}`}>
-              <Button 
-              >Cancel</Button></Link>
+              <Button
+                className={classes.button}
+                endIcon={<ClearIcon/>}
+              >Cancel
+              </Button></Link>
               
     </div>
     </div>

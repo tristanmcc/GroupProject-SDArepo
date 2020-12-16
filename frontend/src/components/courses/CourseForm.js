@@ -2,12 +2,37 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import "../../css/styles.css";
 
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import Icon from "@material-ui/core/Icon";
+import ClearIcon from '@material-ui/icons/Clear';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: "#25274D",
+    color: "white",
+    cursor: "pointer",
+    textDecoration: "none",
+    borderRadius: 15,
+    boxShadow: [[0, 9, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    },
+    "&:active": {
+      backgroundColor: "#3e8e41 !important",
+      boxShadow: [[0, 5, "#666"]],
+      transform: "translateY(4) !important",
+    },
+  },
+}));
 
 function CourseForm({ onSubmit, onCancel }) {
   console.log("course form");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [show, setShow] = useState(false);
+  const classes = useStyles();
 
   const onCreateCourseClick = (e) => {
     const courseData = { title, description };
@@ -21,27 +46,30 @@ function CourseForm({ onSubmit, onCancel }) {
 
   return (
     <div className="course-create-form">
-            <div className="course-card-form-title">
-                  <h4> CREATE COURSE</h4>
-               </div>
-        <div className="course-card-body">
-              <form onSubmit={onCreateCourseClick}>
-              <div className="course-form-group">
-                <label>Title:</label>
-                  <span>(12 char)</span>
-                <input className="input-update"
-                 type="text" maxLength="12"
-                className="form-control"
-                placeholder="Title" 
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-               />
-              </div>
+      <div className="course-card-form-title">
+        <h4> CREATE COURSE</h4>
+      </div>
+      <div className="course-card-body">
+        <form onSubmit={onCreateCourseClick}>
+          <div className="course-form-group">
+            <label>Title:</label>
+            {/* <span>(12 char)</span> */}
+            <input
+              className="input-update"
+              type="text"
+              maxLength="12"
+              // className="form-control"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
 
           <div className="course-form-group">
             <label>Description:</label>
-            <textarea  className="input-update"
+            <textarea
+              className="input-update"
               className="form-control"
               placeholder="Course Description"
               value={description}
@@ -51,17 +79,22 @@ function CourseForm({ onSubmit, onCancel }) {
           </div>
 
           <div className="course-form-buttons">
-            <button className="createnewcoursebutton" type="submit">
+            <Button
+              className={classes.button}
+              type="submit"
+              endIcon={<Icon>send</Icon>}
+            >
               Create
-            </button>
-            <button
-              className="cancelnewcoursebutton"
+            </Button>
+            <Button
+              className={classes.button}
               type="button"
-              onClick={onCancel} >
+              onClick={onCancel}
+              endIcon={<ClearIcon/>}
+            >
               Cancel
-            </button>
+            </Button>
           </div>
-          
         </form>
       </div>
     </div>

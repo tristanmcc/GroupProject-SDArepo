@@ -142,7 +142,9 @@ export default function CourseDetailsPage({ match }) {
                 <VideoUpLoadForm course={course} currentUser={currentUser} />
               )}
             </div>
+            {currentUser.userRole === "teacher" ? (
             <div className="buttonCheck">
+          
               <Button
                 variant="contained"
                 color="default"
@@ -151,8 +153,8 @@ export default function CourseDetailsPage({ match }) {
                 onClick={onUploadVideo}
               >
                 Add new video
-              </Button>
-            </div>
+              </Button> 
+            </div>): null }
           </div>
         </div>
       </div>

@@ -5,11 +5,35 @@ import UserApi from '../../api/UserApi';
 import book from '../../images/carousel/carousel-6.jpg';
 import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { useHistory } from 'react-router-dom';
+
+import { makeStyles } from "@material-ui/core/styles";
+import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 import '../../css/styles.css';  
 import CoursesApi from '../../api/CoursesApi.js'
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: "#25274D",
+    cursor: "pointer",
+    textDecoration: "none",
+    borderRadius: 15,
+    boxShadow: [[0, 9, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    },
+    "&:active": {
+      backgroundColor: "#3e8e41 !important",
+      boxShadow: [[0, 5, "#666"]],
+      transform: "translateY(4) !important",
+    },
+  },
+
+}));
+
 export default function AnsweredAssignmentsForm({ match }) {
+  const classes = useStyles();
   const history = useHistory();
   const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
   const [answeredAssignmentDescription, setAnsweredAssignmentDescription,] = useState("");
@@ -134,6 +158,8 @@ export default function AnsweredAssignmentsForm({ match }) {
                           <Button
                             variant="contained"
                             color="primary"
+                            className={classes.button}
+                            endIcon={<Icon>send</Icon>}
                             onClick={() =>
                               createAnsweredAssignment({
                                 answeredAssignmentTitle,
