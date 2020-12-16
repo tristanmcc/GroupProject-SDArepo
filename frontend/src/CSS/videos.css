@@ -22,7 +22,9 @@
 
 
 .upload-video-title {
-  color:black;
+  color:white;
+  background-color: #2E9CCA;
+  padding-bottom: 10px;
   text-align:left;
   font-weight:500;
   padding-top:1rem;
