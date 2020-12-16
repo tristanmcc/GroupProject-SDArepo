@@ -1,12 +1,10 @@
 package se.kth.sda.skeleton.comment;
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +37,6 @@ public class CommentControllerTest {
         when(commentService.viewAll())
                 .thenReturn(threeComments);
 
-
         //act
         List<Comment> actualAssignments = commentController.getAll(null);
 
@@ -49,10 +46,8 @@ public class CommentControllerTest {
         Assertions.assertEquals(threeComments.get(1).getBody(),threeComments.get(1).getBody());
     }
 
-
     @Test
     void should_ReturnOneComment_WhenGetById() {
-
 
         //arrange
         Comment comment1 = new Comment(1L, "body1", "email1");
