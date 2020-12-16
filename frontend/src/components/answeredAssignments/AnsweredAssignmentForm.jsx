@@ -1,32 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import AssignmentsApi from '../../api/AssignmentsApi';
-import AnsAssApi from '../../api/AnsweredAssignmentsApi';
-import UserApi from '../../api/UserApi';
-import assignmentImg from '../../images/banner/banner-classassignments.png';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import AssignmentsApi from "../../api/AssignmentsApi";
+import AnsAssApi from "../../api/AnsweredAssignmentsApi";
+import UserApi from "../../api/UserApi";
+import book from "../../images/carousel/carousel-6.jpg";
+import assignmentImg from "../../images/banner/banner-classassignments.png";
+import { useHistory } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
-import '../../css/styles.css';  
-import CoursesApi from '../../api/CoursesApi.js'
-import Icon from "@material-ui/core/Icon";
-import { makeStyles } from "@material-ui/core/styles";
-
-
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-    backgroundColor: "#25274D",
-    cursor: "pointer",
-    outline: "none",
-    border: "none",
-    borderRadius: 15,
-    transform: "translateY(4)",
-    boxShadow: [[0, 5, "#999"]],
-  },
-  
-}));
+import "../../css/styles.css";
+import CoursesApi from "../../api/CoursesApi.js";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -45,20 +29,16 @@ const useStyles = makeStyles((theme) => ({
       transform: "translateY(4) !important",
     },
   },
-
 }));
 
 export default function AnsweredAssignmentsForm({ match }) {
   const classes = useStyles();
   const history = useHistory();
-  const classes = useStyles();
-  
-    const goBack = () =>
-    {
-        history.goBack();
-    }
   const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
-  const [answeredAssignmentDescription, setAnsweredAssignmentDescription,] = useState("");
+  const [
+    answeredAssignmentDescription,
+    setAnsweredAssignmentDescription,
+  ] = useState("");
   const [answer1, setAnswer1] = useState("");
   const [answer2, setAnswer2] = useState("");
   const [answer3, setAnswer3] = useState("");
@@ -81,7 +61,7 @@ export default function AnsweredAssignmentsForm({ match }) {
   const [question10, setQuestion10] = useState("");
   const [assignmentId, setAssignmentId] = useState("");
   const [user, setUser] = useState(" ");
-  const [course,setCourse] = useState([]);
+  const [course, setCourse] = useState([]);
 
   const subAssignmentDetails = [
     { question: question1, answer: answer1, answerFunction: setAnswer1 },
@@ -93,7 +73,7 @@ export default function AnsweredAssignmentsForm({ match }) {
     { question: question7, answer: answer7, answerFunction: setAnswer7 },
     { question: question8, answer: answer8, answerFunction: setAnswer8 },
     { question: question9, answer: answer9, answerFunction: setAnswer9 },
-    { question: question10, answer: answer10, answerFunction: setAnswer10 }
+    { question: question10, answer: answer10, answerFunction: setAnswer10 },
   ];
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
@@ -114,104 +94,121 @@ export default function AnsweredAssignmentsForm({ match }) {
   };
 
   const getUserRole = () => {
-    UserApi.getCurrentUser()
-      .then(response => {
-        setUser(response.data);
-      })
+    UserApi.getCurrentUser().then((response) => {
+      setUser(response.data);
+    });
   };
 
   useEffect(() => {
     console.log(
       "Inside useEffect , going to call getAssignmentById " +
-      match.params.assignId
+        match.params.assignId
     );
     getAssignmentById(match.params.assignId);
     getUserRole();
-    console.log("Hello88888" + match.params.courseId)
-    if(match.params.courseId !== "undefined")
-        getCourseById(match.params.courseId);
+    console.log("Hello88888" + match.params.courseId);
+    if (match.params.courseId !== "undefined")
+      getCourseById(match.params.courseId);
   }, []);
 
   const getCourseById = (courseId) => {
-    console.log("INSIDE")
+    console.log("INSIDE");
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
     });
   };
 
-
   const createAnsweredAssignment = (answers) => {
     AnsAssApi.createAnsweredAssignment(answers).then((response) => {
       console.log(response);
-      goBack();
+      history.goBack();
     });
   };
-
 
   return (
     <>
       <div className="card mt-4">
         <div className="card-body">
-          <img className="assignmentimage" alt="" src={assignmentImg} height="160px" width="90px" margin-bottom="10px" />
+          <img
+            className="assignmentimage"
+            alt=""
+            src={assignmentImg}
+            height="160px"
+            width="90px"
+            margin-bottom="10px"
+          />
           <p />
           <h4 className="card-title">{answeredAssignmentTitle} </h4>
           <div>
             <div className="form-group">
               <label>Student Name:</label> &nbsp;
-                            {user.name}
+              {user.name}
             </div>
-            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" data-wrap="false">
+            <div
+              id="myCarousel"
+              class="carousel slide"
+              data-ride="carousel"
+              data-interval="false"
+              data-wrap="false"
+            >
               <div class="carousel-inner">
-                {
-                  subAssignmentDetails.map((eachQuestion, index) => (
-                    <div class={index === 0 ? "carousel-item active" : "carousel-item"}>
-                      <img width="100px" height="230px" />
-                      <div class="carousel-caption  d-md-block">
-                        <label>{index + 1 + '. ' + eachQuestion.question}</label>
-                        <textarea
-                          type="text"
-                          className="form-control"
-                          placeholder="Type your answer here..."
-                          value={eachQuestion.answer}
-                          onChange={e => eachQuestion.answerFunction(e.target.value)}
-                        />
-                        <p></p>
-                        {index === 9 ?
-                          <Button
-                            variant="contained"
-                            color="primary"
-                            className={classes.button}
-                            endIcon={<Icon>send</Icon>}
-                            onClick={() =>
-                              createAnsweredAssignment({
-                                answeredAssignmentTitle,
-                                answer1,
-                                answer2,
-                                answer3,
-                                answer4,
-                                answer5,
-                                answer6,
-                                answer7,
-                                answer8,
-                                answer9,
-                                answer10,
-                                assignmentId,
-                                user,
-                                course
-                              })
-                            }
-                          >
-                            Submit              </Button> : null}
-                      </div>
-
-
+                {subAssignmentDetails.map((eachQuestion, index) => (
+                  <div
+                    class={
+                      index === 0 ? "carousel-item active" : "carousel-item"
+                    }
+                  >
+                    <img width="100px" height="230px" />
+                    <div class="carousel-caption  d-md-block">
+                      <label>{index + 1 + ". " + eachQuestion.question}</label>
+                      <textarea
+                        type="text"
+                        className="form-control"
+                        placeholder="Type your answer here..."
+                        value={eachQuestion.answer}
+                        onChange={(e) =>
+                          eachQuestion.answerFunction(e.target.value)
+                        }
+                      />
+                      <p></p>
+                      {index === 9 ? (
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          className={classes.button}
+                          endIcon={<Icon>send</Icon>}
+                          onClick={() =>
+                            createAnsweredAssignment({
+                              answeredAssignmentTitle,
+                              answer1,
+                              answer2,
+                              answer3,
+                              answer4,
+                              answer5,
+                              answer6,
+                              answer7,
+                              answer8,
+                              answer9,
+                              answer10,
+                              assignmentId,
+                              user,
+                              course,
+                            })
+                          }
+                        >
+                          Submit{" "}
+                        </Button>
+                      ) : null}
                     </div>
-
-                  ))
-                }
+                  </div>
+                ))}
               </div>
-              <ol class="carousel-indicators" >
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#myCarousel"
+                  data-slide-to="0"
+                  class="active"
+                ></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3"></li>
@@ -222,32 +219,24 @@ export default function AnsweredAssignmentsForm({ match }) {
                 <li data-target="#myCarousel" data-slide-to="8"></li>
                 <li data-target="#myCarousel" data-slide-to="9"></li>
               </ol>
-              <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+              <a
+                class="carousel-control-prev"
+                href="#myCarousel"
+                data-slide="prev"
+              >
                 <span class="carousel-control-prev-icon"></span>
               </a>
-              <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+              <a
+                class="carousel-control-next"
+                href="#myCarousel"
+                data-slide="next"
+              >
                 <span class="carousel-control-next-icon"></span>
               </a>
             </div>
-
           </div>
         </div>
-
-            
       </div>
-
-      <div>
-      <Button 
-              onClick={goBack}
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              endIcon={<Icon>send</Icon>}
-              >Back</Button>
-                  
-              </div>
     </>
-
   );
 }
-
