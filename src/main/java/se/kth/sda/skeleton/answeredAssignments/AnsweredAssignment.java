@@ -1,6 +1,7 @@
 package se.kth.sda.skeleton.answeredAssignments;
 
 
+import se.kth.sda.skeleton.course.Course;
 import se.kth.sda.skeleton.user.User;
 
 import javax.persistence.*;
@@ -31,6 +32,23 @@ public class AnsweredAssignment {
     private String answer8;
     private String answer9;
 
+    private Long studentId;
+
+    private Long rating;
+
+    @ManyToOne
+    private User user;
+
+    @ManyToOne
+    private Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
     public Long getAssignmentId() {
         return assignmentId;
     }
@@ -42,22 +60,6 @@ public class AnsweredAssignment {
     private String answer10;
 
     private Long assignmentId;
-
-    public Long getRating() {
-        return rating;
-    }
-
-    public void setRating(Long rating) {
-        this.rating = rating;
-    }
-
-    private Long studentId;
-
-    private Long rating;
-
-    @ManyToOne
-    private User user;
-
 
     public AnsweredAssignment(Long id, String answeredAssignmentTitle, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, Long studentId, Long assignmentId) {
         this.id = id;
@@ -76,10 +78,16 @@ public class AnsweredAssignment {
         this.assignmentId = assignmentId;
     }
 
-
     public AnsweredAssignment() {
     }
 
+    public Long getRating() {
+        return rating;
+    }
+
+    public void setRating(Long rating) {
+        this.rating = rating;
+    }
 
     public Long getId() {
         return id;

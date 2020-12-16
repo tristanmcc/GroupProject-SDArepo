@@ -13,27 +13,20 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
 import { Link } from "react-router-dom";
 import { pink } from "@material-ui/core/colors";
 import StarIcon from '@material-ui/icons/Star';
 
-function createData(name, title,id,rating) {
+function createData(user, title,id,rating) {
   
   var ratingArray = new Array(0);
-  if(rating != null)
+  const userName= user.name;
+  if(rating != null){
       ratingArray = new Array(rating).fill(<StarIcon style={{ color: "#25274D" }}/>)
-
-    return { name, title, id, ratingArray};
+    }
+    return { userName, title, id, ratingArray};
   }
-
 
   function descendingComparator(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {  
@@ -186,19 +179,19 @@ EnhancedTableToolbar.propTypes = {
 
 
 
-function DisplaySubmittedAssignment() {
+function DisplaySubmittedAssignment({match}) {
 
   
   const [rows,setRows] = useState([])   
   
   const classes = useStyles();
   
-  const getAllAnsweredAssignment = () => {
-        
-    AnsweredAssignmentsApi.getAllAnsweredAssignments()
+  const getAllAnsweredAssignment = (courseId) => {
+    console.log("CourseId **********" + courseId);
+    AnsweredAssignmentsApi.getAllAnsweredAssignmentsByCourseId(courseId)
         .then(response => {
             const newArray = response.data.map(item => 
-              createData(item.user.name,item.answeredAssignmentTitle,item.assignmentId,item.rating)
+              createData(item.user,item.answeredAssignmentTitle,item.assignmentId,item.rating)
             );
             setRows(newArray.reverse());
             
@@ -208,7 +201,7 @@ function DisplaySubmittedAssignment() {
 
 useEffect(() => {
     
-    getAllAnsweredAssignment(); 
+    getAllAnsweredAssignment(match.params.courseId); 
     
 
 
@@ -296,14 +289,14 @@ useEffect(() => {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                 
+                  console.log(row)
                   return (
                     <TableRow>
 
-                      
+                     
                       <TableCell >
-                      <Link to={`/assignmentSubmitted/${row.id}/${row.name}`}>
-                        {row.name}
+                      <Link to={`/assignmentSubmitted/${row.id}/${row.userName}`}>
+                        {row.userName}
                         </Link>
                         </TableCell>
                       
