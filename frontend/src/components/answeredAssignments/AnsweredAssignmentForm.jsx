@@ -130,14 +130,7 @@ export default function AnsweredAssignmentsForm({ match }) {
     <img className="assignmentimage" alt="" src={assignmentImg}   />
       <div className="card mt-4">
         <div className="card-body">
-          <img
-            className="assignmentimage"
-            alt=""
-            src={assignmentImg}
-            height="160px"
-            width="90px"
-            margin-bottom="10px"
-          />
+          
           
 
           <p />
