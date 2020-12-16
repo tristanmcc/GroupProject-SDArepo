@@ -29,6 +29,8 @@ function LoginForm({ onSubmit, onRegister }) {
               <input
                 type="email"
                 placeholder="Email"
+                name="email"
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -39,6 +41,7 @@ function LoginForm({ onSubmit, onRegister }) {
                 type="password"
                 placeholder="Password"
                 value={password}
+                required
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
@@ -77,7 +80,7 @@ function LoginForm({ onSubmit, onRegister }) {
                 type="password"
                 placeholder="Password"
                 value={password}
-                required
+                required={true}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
