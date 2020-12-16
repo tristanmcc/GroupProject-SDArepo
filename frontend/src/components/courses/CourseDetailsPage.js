@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     textDecoration: "none",
     borderRadius: 15,
-    boxShadow: [[0, 9, "#999"]],
+    boxShadow: [[0, 5, "#999"]],
     "&:hover": {
       backgroundColor: "#464866 !important",
     },

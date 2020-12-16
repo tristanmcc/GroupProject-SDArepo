@@ -242,10 +242,14 @@ function AssignmentsPage({match}) {
                 
               >
                 Add Assignment
-              </Button>
+              </Button >
               <Link to={`/courseDetail/${match.params.courseId}`}>
               <Button 
-              >Cancel</Button></Link>
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<Icon>send</Icon>}
+              >Back</Button></Link>
               
     </div>
     </div>
