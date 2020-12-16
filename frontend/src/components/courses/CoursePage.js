@@ -18,7 +18,7 @@ import UserApi from "../../api/UserApi";
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: theme.spacing(1),
+    //margin: theme.spacing(1),
     backgroundColor: "#25274D",
     color:'white',
     cursor: "pointer",
@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: [[0, 5, "#666"]],
       transform: "translateY(4) !important",
     },
+    
   },
 }));
 
@@ -100,7 +101,7 @@ const updateCourse = (updatedCourse) => {
          <hr/>
          {/*  <div className="horizontalline">
              </div> */}
-     <div className="course-container">
+     
         
        <div className="row-buttons">
           { openForm ? 
@@ -117,7 +118,9 @@ const updateCourse = (updatedCourse) => {
               Create Course
             </Button> : null
             }
+            <div className="course-container"></div>
             <div className="media">
+              
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
@@ -125,13 +128,13 @@ const updateCourse = (updatedCourse) => {
               onCourseUpdate={updateCourse}
               currentUser = {currentUser}
             /></div>
-          </>
+          </> 
         }
       </div>
  
       </div>
      
- </div>
+ 
   );
 }
 export default CoursePage;
