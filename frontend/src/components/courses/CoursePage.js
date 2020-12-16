@@ -78,7 +78,7 @@ const updateCourse = (updatedCourse) => {
          {/*  <div className="horizontalline">
              </div> */}
      <div className="course-container">
-         
+        
        <div className="row-buttons">
           { openForm ? 
             <CourseForm onSubmit={createCourse} onCancel={onCancelCreateCourse} /> 
@@ -92,14 +92,14 @@ const updateCourse = (updatedCourse) => {
               Create Course
             </button> : null
             }
-            
+            <div className="media">
             <CoursesList 
               courses={courses} 
               onCourseDelete={deleteCourse} 
 
               onCourseUpdate={updateCourse}
               currentUser = {currentUser}
-            />
+            /></div>
           </>
         }
       </div>
