@@ -27,10 +27,10 @@ export default function Navbar ({ onLogout }) {
     <div>
     <nav>
       
-      <div class="logo">
+      <div className="logo">
            Educational environment
         </div>
-        <ul class="nav-links">
+        <ul className="nav-links">
              <li >
                <a href="/" /* class="fas fa-home" */>
                  Home
@@ -78,10 +78,10 @@ export default function Navbar ({ onLogout }) {
                </a>
              </li>  
            </ul>
-           <div class="burger" onClick={navSlide}> 
-             <div class="line1"></div>
-             <div class="line2"></div>
-             <div class="line3"></div>
+           <div className="burger" onClick={navSlide}> 
+             <div className="line1"></div>
+             <div className="line2"></div>
+             <div className="line3"></div>
             
            </div>
           
