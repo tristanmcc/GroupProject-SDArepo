@@ -26,11 +26,11 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    },
   },
-  "&:hover": {
-    backgroundColor: "#464866",
-    textDecoration: "none",
-  },
+  
 }));
 
 export default function VideoUploadForm({ course, currentUser }) {

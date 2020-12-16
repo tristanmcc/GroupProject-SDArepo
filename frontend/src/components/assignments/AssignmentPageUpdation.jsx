@@ -9,17 +9,22 @@ import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 import assignmentImg from '../../images/banner/banner-classassignments.png';
 import { useHistory } from 'react-router-dom';
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     backgroundColor: "#25274D",
+    color: "white",
     cursor: "pointer",
     outline: "none",
     border: "none",
     borderRadius: 15,
     transform: "translateY(4)",
     boxShadow: [[0, 5, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
+    }
   },
   
 }));
@@ -290,16 +295,8 @@ function AssignmentsPageUpdation({ match }) {
               >
               Update Assignment
               </Button>
-              
-              <Button 
-              onClick={goBack}
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              endIcon={<Icon>send</Icon>}
-              >Back</Button>
-
-              
+              <Link to={`/courseDetail/${course.id}`}>
+              <Button className={classes.button} endIcon={<ClearIcon/>}>Cancel</Button></Link>
               
     </div>
     </div>
