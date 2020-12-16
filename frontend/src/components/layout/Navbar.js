@@ -83,10 +83,10 @@ export default function Navbar ({ onLogout }) {
                </a>
              </li>  
            </ul>
-           <div class="burger" onClick={navSlide}> 
-             <div class="line1"></div>
-             <div class="line2"></div>
-             <div class="line3"></div>
+           <div className="burger" onClick={navSlide}> 
+             <div className="line1"></div>
+             <div className="line2"></div>
+             <div className="line3"></div>
             
            </div>
           
