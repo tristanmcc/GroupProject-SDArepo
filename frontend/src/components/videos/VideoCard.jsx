@@ -19,17 +19,15 @@ const useStyles = makeStyles({
     textAlign: 'center',
     backgroundColor: ' #2E9CCA;',
     maxWidth: 130,
-    maxHeight: 170,
+    maxHeight: 200,
     box :'0 4px 8px 0 rgba(0, 0, 0, 0.2)' ,
-    border:'ridge',
     color:' #29648A',
     padding:'0px',
-   margin:'0px',
-   color:'#25274D',
+    margin:'0px',
+    color:'#25274D',
     
   },
   videocontent:{
-
     padding:'0px',
    margin:'0px',
   },
