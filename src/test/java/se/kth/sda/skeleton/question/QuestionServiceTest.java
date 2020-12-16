@@ -1,6 +1,5 @@
 package se.kth.sda.skeleton.question;
 
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,7 +20,6 @@ public class QuestionServiceTest {
     @MockBean
     QuestionRepository questionRepository;
 
-
     @Test
     public void should_ReturnTwoAssignments_WheViewAll() {
 
@@ -35,7 +33,7 @@ public class QuestionServiceTest {
     }
 
     @Test
-    void testCreate() {
+    void should_CreateQuestion_when_QuestionServiceCreates() {
         Question question = new Question(1L, "body1", "email");
 
         when(questionRepository.save(question)).thenReturn(question);
@@ -43,6 +41,5 @@ public class QuestionServiceTest {
         assertEquals(question, questionService.create(question));
 
     }
-
 
 }

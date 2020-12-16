@@ -2,10 +2,18 @@ import Api from "./Api";
 
 class AnsweredAssignmentsApi
 {
+    getAssignmentAnswerByUserID(assignmentId, userId){  
+        return Api.get("assignments/" + assignmentId + "/student/" + userId);
+    }
+
     getAllAnsweredAssignments() {
         return Api.get('/assignments/answered');
     }
-
+    
+    getAllAnsweredAssignmentsByCourseId(courseId) {
+        console.log("courseId vale =======" + courseId);
+        return Api.get('/assignments/answeredByCourseId/' + courseId);
+    }
     getAnsweredAssignmenttById(id) {
         return Api.get('/assignments/answered/'+id);
     }

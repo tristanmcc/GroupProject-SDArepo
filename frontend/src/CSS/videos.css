@@ -13,23 +13,26 @@
  margin-bottom: 45px;
  margin-left: -50px;
  margin-right: -50px;
- background-color:#1391B9  ;
- font-size: medium;
+ background-color:#2E9CCA;
+ font-weight:500;
+ font-size: calc(10px + 2vmin);
  border-radius: 5px;
  color: #fff;
 }     
 
 
 .upload-video-title {
-  color:white;
+  color:black;
   text-align:left;
-  font-weight:600;
+  font-weight:500;
   padding-top:1rem;
+  font-size: calc(10px + 2vmin);
   padding-left:1rem;
 }
 
 .course-name {
   margin-left:1rem;
+  color:black;
 }
 
 .videoLayout {
@@ -43,8 +46,8 @@
 .class-videos {
   display:flex;
   flex-direction:column;
-
 }
+
 /* Responsive columns - one column layout (vertical) on small screens */
 @media (max-width: 750px) {
   .videoLayout {

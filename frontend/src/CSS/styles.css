@@ -12,7 +12,6 @@
 @import "./studentpage.css";
 @import "./videos.css";
 
-
 /* .course {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -21,4 +20,16 @@
   text-align: center;
   margin-top: 50px;
   padding-top: 25%;
-} */
+}
+}*/
+
+.carousel-indicators li {
+  background-color: #e04da38e;
+  
+}
+
+.carousel-indicators .active {
+  background-color: #045e40fd;
+}
+
+

@@ -46,11 +46,23 @@ public class AnsweredAssignmentController {
         }
     }
 
+    @GetMapping("/assignments/{assignmentId}/student/{userId}")
+    public AnsweredAssignment getById(@PathVariable Long assignmentId, @PathVariable Long userId){
+        return answeredAssService.getStudentAnswer(assignmentId, userId)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
     //get specific task by ID
     @GetMapping("/assignments/answered/{id}")
     public AnsweredAssignment getById(@PathVariable Long id){
         return answeredAssService.getById(id)
                 .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+    }
+
+    @GetMapping("/assignments/answeredByCourseId/{courseId}")
+    public List<AnsweredAssignment> getAllByCourseId(@PathVariable Long courseId) {
+            return answeredAssService.getAllByCourseId(courseId);
+
     }
 
     @GetMapping("/assignments/answeredByAssignmentId/{id}")
@@ -61,6 +73,7 @@ public class AnsweredAssignmentController {
 
     @PostMapping("/assignments/answered")
     public AnsweredAssignment create(@RequestBody AnsweredAssignment newAnsweredAssignment) {
+
         newAnsweredAssignment.setEmail(authService.getLoggedInUserEmail());
         return answeredAssService.create(newAnsweredAssignment);
     }
@@ -69,7 +82,6 @@ public class AnsweredAssignmentController {
     public AnsweredAssignment update(@RequestBody AnsweredAssignment updatedAssignment){
         return answeredAssService.update(updatedAssignment);
     }
-
 
     @DeleteMapping("/assignments/answered/{id}")
     public void delete(@PathVariable long id) {

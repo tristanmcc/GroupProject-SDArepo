@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 import assignmentImg from '../../images/banner/banner-classassignments.png';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -41,8 +42,9 @@ function AssignmentsPageUpdation({ match }) {
   const [question10, setQuestion10] = useState('');
   const [assignId, setAssignId] = useState('');
   const [course, setCourse] = useState('');
+  const history = useHistory();
 
-  console.log('But of course: ', course);
+  
 
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
@@ -115,13 +117,14 @@ function AssignmentsPageUpdation({ match }) {
       question10,
       course,
     }).then((response) => {
-      window.location.reload();
+      //window.location.reload();
       {
         /*alert('Updation of Assignment Successful') */
       }
+      history.go(-1);
     });
   }
-
+  console.log('But of course: ', course.id);
   return (
     <div className="container-assignment">
      <img className="assignmentimage"  src={assignmentImg} />
@@ -268,7 +271,7 @@ function AssignmentsPageUpdation({ match }) {
       
       <div className="card-header">
             
-          <Link to="/assignments">
+          
 
                 <Button
                 variant="contained"
@@ -280,7 +283,10 @@ function AssignmentsPageUpdation({ match }) {
               >
                 Update Assignment
               </Button>
-              </Link>
+              <Link to={`/courseDetail/${course.id}`}>
+              <Button 
+              >Cancel</Button></Link>
+              
     </div>
     </div>
   );
