@@ -9,6 +9,9 @@
 
   }
 
+  .couseupdate{
+    margin-top: 8px;
+  }
   img {
    width: 100%;
   }
@@ -53,6 +56,11 @@ padding: 10px 10px 10px;
     font-weight: bold;
 }
 
+.form-group-update{
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
  .course-create-form{
     border-radius: 5px;
     background-color: #E3E2DF;
@@ -63,8 +71,8 @@ padding: 10px 10px 10px;
 }
 .input-update{
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 6px 10px;
+  margin-bottom: 2px;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
