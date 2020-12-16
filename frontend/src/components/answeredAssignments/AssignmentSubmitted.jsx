@@ -11,7 +11,6 @@ function AssignmentSubmitted({match}) {
     
     const[questions,setQuestions] = useState([]);
     const[answers,setAnswers] = useState([]);
-    const[information,setInformation] = useState([]);
     
     const getAnsweredAssignmentById = (id) => {
         console.log("Calling getAssignmentById " + id )

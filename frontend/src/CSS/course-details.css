@@ -4,17 +4,26 @@
     margin-right: 0 !important;
 }
 
-.iconDelete {
+.videoiconDelete {
     text-align: center;
+    background-color:#ecedfc;
+
+  
 }
 
 .lecture-details {
     display:flex;
     flex-direction: column; 
-    margin-top:3rem;
-    background-color:#6AD1FA;
+    margin-top:3rem;   
 }
+.coursedetailscontainer{
 
+    border-radius: 5px;
+    padding: 50px;
+    background-color: #E3E2DF ;
+    margin-left: -50px;
+    margin-right: -50px;
+}
 .check {
     background-color:#E3E2DF;
 }
@@ -58,9 +67,11 @@
 }
   
 .course-details-section {
-    margin:0 auto;
+    margin:0 auto; 
 }
-  
+ 
+
+
 .lectures-line {
     background-color:white;
 }

@@ -5,10 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import se.kth.sda.skeleton.student.Student;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +15,6 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 public class AssignmentControllerTest {
-
 
     @Autowired
     AssignmentController assController;
@@ -33,14 +30,12 @@ public class AssignmentControllerTest {
         Assignment assignment2 = new Assignment(2L, "ass2", "assDes2", d1, "Q2.1", "Q2.2", "Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10");
         Assignment assignment3 = new Assignment(3L, "ass3", "assDes3", d1,"Q3.1", "Q3.2", "Q3.3","Q3.4","Q3.5","Q3.6","Q3.7","Q3.8","Q3.9","Q3.10");
 
-
         List<Assignment> threeAssignments = new ArrayList<>();
         threeAssignments.add(assignment1);
         threeAssignments.add(assignment2);
         threeAssignments.add(assignment3);
         when(assService.viewAll())
                 .thenReturn(threeAssignments);
-
 
         //act
         List<Assignment> actualAssignments = assController.viewAll((long) 1);
@@ -50,7 +45,6 @@ public class AssignmentControllerTest {
         Assertions.assertEquals(threeAssignments.get(0).getAssignmentTitle(),threeAssignments.get(0).getAssignmentTitle());
         Assertions.assertEquals(threeAssignments.get(1).getAssignmentTitle(),threeAssignments.get(1).getAssignmentTitle());
     }
-
 
     @Test
     void should_ReturnOneStudent_WhenGetById() {
@@ -79,15 +73,4 @@ public class AssignmentControllerTest {
 
     }
 
-    @Test
-    void testCreate() {
-    }
-
-    @Test
-    void testUpdate() {
-    }
-
-    @Test
-    void testDelete() {
-    }
 }
