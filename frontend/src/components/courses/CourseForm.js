@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import "../../css/styles.css";
 
-
 function CourseForm({ onSubmit, onCancel }) {
   console.log("course form");
   const [title, setTitle] = useState("");
@@ -21,28 +20,29 @@ function CourseForm({ onSubmit, onCancel }) {
 
   return (
     <div className="course-create-form">
-            <div className="course-card-form-title">
-                  <h4> CREATE COURSE</h4>
-               </div>
-        <div className="course-card-body">
-              <form onSubmit={onCreateCourseClick}>
-              <div className="course-form-group">
-                <label>Title:</label>
-                  <span>(12 char)</span>
-                <input className="input-update"
-                 type="text" maxLength="12"
-                className="form-control"
-                placeholder="Title" 
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-               />
-              </div>
+      <div className="course-card-form-title">
+        <h4> CREATE COURSE</h4>
+      </div>
+      <div className="course-card-body">
+        <form onSubmit={onCreateCourseClick}>
+          <div className="course-form-group">
+            <label>Title:</label>
+            <span>(12 char)</span>
+            <input
+              className="input-update"
+              type="text"
+              maxLength="12"
+              placeholder="Title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </div>
 
           <div className="course-form-group">
             <label>Description:</label>
-            <textarea  className="input-update"
-              className="form-control"
+            <textarea
+              className="input-update"
               placeholder="Course Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -57,11 +57,11 @@ function CourseForm({ onSubmit, onCancel }) {
             <button
               className="cancelnewcoursebutton"
               type="button"
-              onClick={onCancel} >
+              onClick={onCancel}
+            >
               Cancel
             </button>
           </div>
-          
         </form>
       </div>
     </div>

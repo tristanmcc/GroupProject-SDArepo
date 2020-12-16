@@ -3,13 +3,11 @@ import AssignmentsApi from "../../api/AssignmentsApi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import assignmentImg from "../../images/banner/banner-classassignments.png";
-import { Link } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CoursesApi from "../../api/CoursesApi";
 import { useHistory } from "react-router-dom";
-import SimpleReactValidator from 'simple-react-validator';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -30,9 +28,7 @@ function AssignmentsPage({ match }) {
   const [assignmentDescription, setAssignmentDescription] = useState("");
   const [dueDate, setDueDate] = useState(new Date());
   const history = useHistory();
-  const useForceUpdate = () => useState()[1];
-  const validator = new SimpleReactValidator({autoForceUpdate: this});
-  const forceUpdate = useForceUpdate();
+ 
 
   const [question1, setQuestion1] = useState("");
   const [question2, setQuestion2] = useState("");
@@ -57,70 +53,78 @@ function AssignmentsPage({ match }) {
     getCourseById(match.params.courseId);
   }, []);
 
-  function handleSubmit() {
-    if(validator.allValid()) {
-      validator.hideMessages();
-   } else {
-     validator.showMessages();
-   }
-   /*  validator.showMessages();
-    forceUpdate(); */
-    // validator.errorMessages();
-    console.log("validator data",validator);
-    AssignmentsApi.postAssignment({
-      course,
-      assignmentTitle,
-      assignmentDescription,
-      dueDate,
-      question1,
-      question2,
-      question3,
-      question4,
-      question5,
-      question6,
-      question7,
-      question8,
-      question9,
-      question10,
-    }).then((response) => {
-      setAssignId(response.data.id);
-      //window.location.reload();
-      history.go(-1);
-    });
-   
-  }
+  const handleSubmit = (e) => {
+    let val1 = document.getElementById("title");
+
+    let val2 = document.getElementById("description");
+
+    let assignTitle = val1.value;
+    let assignDesc = val2.value;
+    if (assignTitle === "") {
+      alert("Assignment title must be filled out");
+      return false;
+    } else if (assignDesc === "") {
+      alert("Assignment description must be filled out");
+    } else {
+      AssignmentsApi.postAssignment({
+        course,
+        assignmentTitle,
+        assignmentDescription,
+        dueDate,
+        question1,
+        question2,
+        question3,
+        question4,
+        question5,
+        question6,
+        question7,
+        question8,
+        question9,
+        question10,
+      }).then((response) => {
+        setAssignId(response.data.id);
+        history.go(-1);
+      });
+    }
+  };
+
+ 
 
   return (
     <div className="container-assignment">
       <div>
-        <img className="assignmentimage" src={assignmentImg} alt={assignmentImg}/>
+        <img
+          className="assignmentimage"
+          src={assignmentImg}
+          alt={assignmentImg}
+        />
       </div>
 
       <div className="question">
         <div>
           <label>Assignment Title:</label>
-
           <input
+            id="title"
             type="text"
+            name="title"
             value={assignmentTitle}
-            required
             className="form-control"
             onChange={(e) => setAssignmentTitle(e.target.value)}
+            required
           />
-          {validator.message('assignmentTitle', assignmentTitle, 'required|alpha', { className: 'text-danger' })}
+         
         </div>
 
         <div>
           <label>Assignment Description:</label>
-
           <input
+            id="description"
             type="text"
-            required
             value={assignmentDescription}
             className="form-control"
             onChange={(e) => setAssignmentDescription(e.target.value)}
+            required
           />
-          {validator.message('assignmentDescription', assignmentDescription, 'required|min:20|max:120')}
         </div>
 
         <div>
@@ -232,18 +236,18 @@ function AssignmentsPage({ match }) {
             onChange={(e) => setQuestion10(e.target.value)}
           />
         </div>
-      </div>
 
-      <div className="card-header">
-        <Button
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          endIcon={<Icon>send</Icon>}
-          onClick={() => handleSubmit()}
-        >
-          Add Assignment
-        </Button>
+        <div className="card-header">
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            endIcon={<Icon>send</Icon>}
+            onClick={() => handleSubmit()}
+          >
+            Add Assignment
+          </Button>
+        </div>
       </div>
     </div>
   );
