@@ -11,6 +11,11 @@ import CoursesApi from '../../api/CoursesApi.js'
 
 export default function AnsweredAssignmentsForm({ match }) {
   const history = useHistory();
+  
+    const goBack = () =>
+    {
+        history.goBack();
+    }
   const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
   const [answeredAssignmentDescription, setAnsweredAssignmentDescription,] = useState("");
   const [answer1, setAnswer1] = useState("");
@@ -97,7 +102,7 @@ export default function AnsweredAssignmentsForm({ match }) {
   const createAnsweredAssignment = (answers) => {
     AnsAssApi.createAnsweredAssignment(answers).then((response) => {
       console.log(response);
-      history.goBack();
+      goBack();
     });
   };
 
@@ -184,8 +189,13 @@ export default function AnsweredAssignmentsForm({ match }) {
 
           </div>
         </div>
+
+            
       </div>
 
+      <div>
+                  <Button onClick={goBack}>Back</Button>
+              </div>
     </>
 
   );
