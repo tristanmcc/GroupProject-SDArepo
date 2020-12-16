@@ -58,7 +58,7 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: "name", numeric: false, disablePadding: false, label: "Submitted By" },
+  { id: "name", numeric: false, disablePadding: false, label: "Submitted By"},
   {
     id: "title",
     numeric: false,
@@ -124,19 +124,17 @@ const useToolbarStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
+    backgroundColor: "#2E9CCA",
+    
   },
-  highlight:
-    theme.palette.type === "light"
-      ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
+  
   title: {
     flex: "1 1 100%",
+    color: "white",
+    fontSize: "calc(6px + 2vmin)",
+    
+    
+    
   },
 }));
 
@@ -168,13 +166,18 @@ EnhancedTableToolbar.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
+   
   },
   paper: {
     width: "100%",
     marginBottom: theme.spacing(2),
+    
+    
   },
   table: {
     minWidth: 750,
+    
+    
   },
   visuallyHidden: {
     border: 0,
@@ -254,25 +257,6 @@ function DisplaySubmittedAssignment({ match }) {
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-
-    setSelected(newSelected);
-  };
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
@@ -286,7 +270,6 @@ function DisplaySubmittedAssignment({ match }) {
     setDense(event.target.checked);
   };
 
-  const isSelected = (name) => selected.indexOf(name) !== -1;
   const emptyRows =
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
   return (
@@ -331,7 +314,7 @@ function DisplaySubmittedAssignment({ match }) {
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: (dense ? 33 : 53) * emptyRows }}>
-                  <TableCell colSpan={2} />
+                  <TableCell colSpan={3} />
                 </TableRow>
               )}
             </TableBody>
