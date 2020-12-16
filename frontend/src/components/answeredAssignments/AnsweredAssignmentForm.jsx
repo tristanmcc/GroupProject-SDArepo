@@ -126,9 +126,10 @@ export default function AnsweredAssignmentsForm({ match }) {
 
   return (
     <>
+    <img className="assignmentimage" alt="" src={assignmentImg}   />
       <div className="card mt-4">
         <div className="card-body">
-          <img className="assignmentimage" alt="" src={assignmentImg} height="160px" width="90px" margin-bottom="10px" />
+          
           <p />
           <h4 className="card-title">{answeredAssignmentTitle} </h4>
           <div>
