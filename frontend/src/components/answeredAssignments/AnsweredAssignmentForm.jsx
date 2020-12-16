@@ -149,6 +149,7 @@ export default function AnsweredAssignmentsForm({ match }) {
                                 answer10,
                                 assignmentId,
                                 user,
+                                course
                               })
                             }
                           >

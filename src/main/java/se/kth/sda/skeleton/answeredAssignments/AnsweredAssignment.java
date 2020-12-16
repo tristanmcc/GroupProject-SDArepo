@@ -1,6 +1,7 @@
 package se.kth.sda.skeleton.answeredAssignments;
 
 
+import se.kth.sda.skeleton.course.Course;
 import se.kth.sda.skeleton.user.User;
 
 import javax.persistence.*;
@@ -38,6 +39,16 @@ public class AnsweredAssignment {
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    private Course course;
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
     public Long getAssignmentId() {
         return assignmentId;
     }
