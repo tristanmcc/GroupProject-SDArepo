@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     textDecoration: "none",
     borderRadius: 15,
-    boxShadow: [[0, 9, "#999"]],
+    boxShadow: [[0, 5, "#999"]],
     "&:hover": {
       backgroundColor: "#464866 !important",
     },
@@ -84,9 +84,9 @@ export default function CourseDetailsPage({ match }) {
     
     <div className="course-details">
       <div className="course-details-description">
-        <h3 className="course-description">
+        <h1 className="course-description">
           {course.title}
-        </h3>
+        </h1>
       </div>
       
       <div className="course-details-text">

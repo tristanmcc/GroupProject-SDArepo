@@ -28,7 +28,6 @@ function CourseForm({ onSubmit, onCancel }) {
               <form onSubmit={onCreateCourseClick}>
               <div className="course-form-group">
                 <label>Title:</label>
-              
                 <input className="input-update"
                  type="text" maxLength="12"
                 className="form-control"
