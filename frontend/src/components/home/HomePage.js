@@ -48,7 +48,6 @@ function HomePage() {
               <img
                 src={assignmentIcon}
                 alt="Open Book"
-               
               ></img>
               Assignments
             </div>
@@ -93,8 +92,21 @@ function HomePage() {
       </div>
 
       
-      <div>
-      <img className="happKids"  src={happyKids} height = "600" width="auto"/>
+      <div className="home-column">
+        <div className="homepage"> <h3>Your students work at their levels</h3>
+        <p>
+        With a growing number of school closures due to COVID-19, we want to ensure 
+        your students still have access to valuable learning resources at home. This 
+        is a guide for parents and families who would like to use Freckle to keep their
+        kids engaged in learning during these challenging times.</p>
+
+
+        <p>Freckle is an online learning platform that allows students to practice Math and 
+        English Language Arts at their own level. Freckle continuously adapts to each student’s 
+        individual skills, so each student is getting the appropriate challenge, whether they’re 
+        working at, above, or below grade level. Depending on the level of instruction your school
+        is providing during school closures, your child’s.</p> </div>
+      <img className="happKids"  src={happyKids} />
       </div>
 
     </div>
