@@ -34,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
 export default function AnsweredAssignmentsForm({ match }) {
   const classes = useStyles();
   const history = useHistory();
+  const goBack = () =>
+    {
+        history.goBack();
+    }
   const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
   const [
     answeredAssignmentDescription,
@@ -233,6 +237,17 @@ export default function AnsweredAssignmentsForm({ match }) {
           </div>
         </div>
       </div>
+
+      <div>
+      <Button 
+              onClick={goBack}
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<Icon>send</Icon>}
+              >Back</Button>
+                  
+              </div>
     </>
   );
 }

@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CoursesApi from "../../api/CoursesApi";
 import { useHistory } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -252,6 +252,13 @@ function AssignmentsPage({ match }) {
           >
             Add Assignment
           </Button>
+          <Link to={`/courseDetail/${match.params.courseId}`}>
+              <Button 
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<Icon>send</Icon>}
+              >Back</Button></Link>
         </div>
       </div>
     </div>
