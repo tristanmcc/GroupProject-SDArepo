@@ -28,7 +28,7 @@ function ResoursePage() {
  <div className="resourseimg">
      <div className="images">       
         <figure>
-           <a    href="http://tiny.cc/type11"  >
+           <a  target="_blank"  href="http://tiny.cc/type11"  >
            <img className="type"  src={type} />
            <figcaption>  <b> Typing Club</b></figcaption> 
            </a> 
@@ -36,7 +36,7 @@ function ResoursePage() {
         </figure>
         
         <figure>
-           <a    href="http://tiny.cc/splashlearn1">
+           <a  target="_blank"  href="http://tiny.cc/splashlearn1">
            <img className="splash"  src={splash} />
            <figcaption>  <b> Splash Learn</b></figcaption>
             </a>  
@@ -44,7 +44,7 @@ function ResoursePage() {
         </figure>
 
          <figure>
-             <a    href="http://tiny.cc/noodle1">
+             <a target="_blank"   href="http://tiny.cc/noodle1">
               <img className="noodle"  src={noodle} />
               <figcaption>  <b> Go Noodle </b></figcaption>
                 </a>  
@@ -52,29 +52,29 @@ function ResoursePage() {
           </figure>
    
              <figure>               
-                <a    href="  http://tiny.cc/quizztime">
+                <a target="_blank"   href="  http://tiny.cc/quizztime">
                 <img className="quizimage"  src={quiz} />
                 <figcaption>  <b> Quiz </b></figcaption>  </a>
              </figure>
         
               <figure>
-                <a    href="https://kahoot.it">
+                <a  target="_blank"  href="https://kahoot.it">
                   <img className="kahoot"  src={kahoot} />
                 <figcaption>  <b> Kahoot</b></figcaption>  </a>
               </figure>
 
               <figure>           
-                <a    href="http://tiny.cc/dojo1">
+                <a  target="_blank"  href="http://tiny.cc/dojo1">
                 <img className="dojo"  src={dojo} />
                 <figcaption>  <b>Class Dojo</b></figcaption>  </a>
               </figure>
               <figure>
-                <a    href="http://tiny.cc/duo1">
+                <a  target="_blank"  href="http://tiny.cc/duo1">
                 <img className="duolingo"  src={duo} />
                 <figcaption>  <b> Duolingo</b></figcaption>  </a>
               </figure>
               <figure>         
-                <a    href="https://classroom.google.com/h">
+                <a  target="_blank"  href="https://classroom.google.com/h">
                 <img className="googleclassimage"  src={googleclass} />
                 <figcaption>  <b> Google Classroom </b></figcaption>  </a>
               </figure>
