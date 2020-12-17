@@ -3,8 +3,12 @@ import ChartPlots from '../chartplots/ChartPlots';
 
 export default function StudentsPage() {
   return (
-    <div style={{ textAlign: 'center' }}>
-      <ChartPlots />
-    </div>
+    <>
+      <div className="student-banner">Question Sentiment</div>
+      <hr />
+      <div style={{ textAlign: 'center' }}>
+        <ChartPlots />
+      </div>
+    </>
   );
 }
