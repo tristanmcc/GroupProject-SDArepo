@@ -1,6 +1,6 @@
 import React from 'react';
-import boyAvatar from '../../../images/happyKids.jpg';
-import girlAvatar from '../../../images/happyKids.jpg';
+import boyAvatar from '../../../images/avatar/boyAvatar.png';
+import girlAvatar from '../../../images/avatar/girlAvatar.png';
 
 
 export default function ChatMessage({ userIndex, message, myUserId }) {
