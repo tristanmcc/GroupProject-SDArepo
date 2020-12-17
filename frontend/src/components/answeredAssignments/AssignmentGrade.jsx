@@ -2,16 +2,23 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import AnsweredAssignmentsApi from "../../api/AnsweredAssignmentsApi";
+import StarIcon from "@material-ui/icons/Star";
 
 export default function AssignmentGrade({ assignmentId, userId }) {
   const [grade, setGrade] = useState("");
 
   const getGrade = () => {
+    var ratingArray = new Array(0);
     AnsweredAssignmentsApi.getAssignmentAnswerByUserID(
       assignmentId,
       userId
     ).then((response) => {
-      setGrade(response.data.rating);
+      if (response.data.rating != null) {
+        ratingArray = new Array(response.data.rating).fill(
+          <StarIcon style={{ color: "#25274D" }} />
+        );
+      }
+      setGrade(ratingArray);
     });
   };
 
@@ -28,9 +35,5 @@ export default function AssignmentGrade({ assignmentId, userId }) {
     getGrade();
   }, []);
 
-  return (
-    <p>
-      {grade ? <p> Grade: {grade} / 5</p> : <p>Assignment not submitted </p>}
-    </p>
-  );
+  return <p>{grade ? <p> Grade: {grade} </p> : <p>Not yet Graded </p>}</p>;
 }
