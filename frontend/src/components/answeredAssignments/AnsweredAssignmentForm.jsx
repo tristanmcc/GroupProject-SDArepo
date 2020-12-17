@@ -100,19 +100,13 @@ export default function AnsweredAssignmentsForm({ match }) {
   };
 
   useEffect(() => {
-    console.log(
-      "Inside useEffect , going to call getAssignmentById " +
-        match.params.assignId
-    );
     getAssignmentById(match.params.assignId);
     getUserRole();
-    console.log("Hello88888" + match.params.courseId);
     if (match.params.courseId !== "undefined")
       getCourseById(match.params.courseId);
   }, []);
 
   const getCourseById = (courseId) => {
-    console.log("INSIDE");
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
     });
@@ -120,19 +114,15 @@ export default function AnsweredAssignmentsForm({ match }) {
 
   const createAnsweredAssignment = (answers) => {
     AnsAssApi.createAnsweredAssignment(answers).then((response) => {
-      console.log(response);
       history.goBack();
     });
   };
 
   return (
     <>
-    <img className="assignmentimage" alt="" src={assignmentImg}   />
+      <img className="assignmentimage" alt="" src={assignmentImg} />
       <div className="card mt-4">
         <div className="card-body">
-          
-          
-
           <p />
           <h4 className="card-title">{answeredAssignmentTitle} </h4>
           <div>
@@ -154,7 +144,7 @@ export default function AnsweredAssignmentsForm({ match }) {
                       index === 0 ? "carousel-item active" : "carousel-item"
                     }
                   >
-                    <img width="100px" height="230px" />
+                    <img width="100px" height="230px" alt={"assign_image"} />
                     <div class="carousel-caption  d-md-block">
                       <label>{index + 1 + ". " + eachQuestion.question}</label>
                       <textarea

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import clsx from "clsx";
-import { lighten, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -58,7 +58,7 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: "name", numeric: false, disablePadding: false, label: "Submitted By"},
+  { id: "name", numeric: false, disablePadding: false, label: "Submitted By" },
   {
     id: "title",
     numeric: false,
@@ -71,11 +71,10 @@ const headCells = [
 function EnhancedTableHead(props) {
   const {
     classes,
-    onSelectAllClick,
+
     order,
     orderBy,
-    numSelected,
-    rowCount,
+
     onRequestSort,
   } = props;
   const createSortHandler = (property) => (event) => {
@@ -125,16 +124,12 @@ const useToolbarStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
     backgroundColor: "#2E9CCA",
-    
   },
-  
+
   title: {
     flex: "1 1 100%",
     color: "white",
     fontSize: "calc(6px + 2vmin)",
-    
-    
-    
   },
 }));
 
@@ -166,18 +161,13 @@ EnhancedTableToolbar.propTypes = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-   
   },
   paper: {
     width: "100%",
     marginBottom: theme.spacing(2),
-    
-    
   },
   table: {
     minWidth: 750,
-    
-    
   },
   visuallyHidden: {
     border: 0,
@@ -215,7 +205,6 @@ function DisplaySubmittedAssignment({ match }) {
   const classes = useStyles();
 
   const getAllAnsweredAssignment = (courseId) => {
-    console.log("CourseId **********" + courseId);
     AnsweredAssignmentsApi.getAllAnsweredAssignmentsByCourseId(courseId).then(
       (response) => {
         const newArray = response.data.map((item) =>
@@ -239,7 +228,6 @@ function DisplaySubmittedAssignment({ match }) {
   const [orderBy, setOrderBy] = React.useState("name");
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
-  const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleRequestSort = (event, property) => {
@@ -264,10 +252,6 @@ function DisplaySubmittedAssignment({ match }) {
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
-  };
-
-  const handleChangeDense = (event) => {
-    setDense(event.target.checked);
   };
 
   const emptyRows =
@@ -296,7 +280,6 @@ function DisplaySubmittedAssignment({ match }) {
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
-                  console.log(row);
                   return (
                     <TableRow>
                       <TableCell>
