@@ -1,8 +1,10 @@
+//react core
 import React ,{ useState, useEffect } from 'react';
+//css styles
 import Style from "../../css/homePage.css";
+//react router-dom module
 import { Link } from "react-router-dom";
-import UserApi from "../../api/UserApi";
-//media
+//media and image imports
 import CourseGraphic from "../../images/Icons/undraw_Bookshelves_re_lxoy (1).png";
 import Calender from "../../images/Icons/undraw_Booking_re_gw4j (1).png";
 import Sentiment from "../../images/Icons/undraw_true_friends_c94g (1).png";
@@ -12,8 +14,10 @@ import videoIcon from "../../images/Icons/undraw_online_media_62jb (2).png";
 import apple from "../../images/Icons/undraw_mobile_apps_spmp (2).png";
 import "../../css/styles.css";
 import happyKids from '../../images/edvin-johansson-UGGinojhaC0-unsplash.jpg'
-import introductoryText from '../../images/introductionText.jpg'
+import introductoryText from '../../images/introductionText.jpg';
+import UserApi from "../../api/UserApi";
 
+//HomePage component
 function HomePage() {
 
   const [currentUser, setCurrentUser] = useState("");

@@ -1,8 +1,11 @@
+//react core
 import React ,{ useState, useEffect } from 'react';
+//css styles
+import '../../App.css';
+//Api import
 import UserApi from "../../api/UserApi";
 
-import '../../App.css';
-
+//Navbar component
 export default function Navbar({ onLogout }) {
   const [currentUser, setCurrentUser] = useState("");
   const navSlide = () => {
