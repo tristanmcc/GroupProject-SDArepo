@@ -16,7 +16,41 @@ The target customer is the teacher who is faced with the challenge of teaching s
 
 # Usage
 
-The useage of the site requires membership and therefore registration for the teachers and the students.
+The usage of the site requires membership and therefore registration for the teachers and the students. The user will start by entering a unique email, with name and password. This registration is done on the Landing Page as shown below.
+
+
+# Local Installation
+
+To run the application locally, the user will need to clone the repo and install support for nodeJS (v 14.9) and Java (v 11). This application was developed in VSCode and IntelliJ Ultimate (with Spring). It is recommneded that the user builds the project using the gradle.build file. The database for the project is run using Postgres inside a docker-compose file which can be found in the repository. 
+
+Once the gradle build is completed, the user can run the Java Spring MVC project from the SkeletonApplication.java file (see code insert).
+
+
+´´´java
+
+@SpringBootApplication
+public class SkeletonApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SkeletonApplication.class, args);
+	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurer() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry
+					.addMapping("/**")
+					.allowedOrigins("*")
+					.allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+			}
+		};
+	}
+}
+
+
+´´´
 
 
 ## Features
