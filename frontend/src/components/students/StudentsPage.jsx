@@ -1,15 +1,10 @@
 import React from 'react';
+import ChartPlots from '../chartplots/ChartPlots';
 
-import Students from './Students.jsx';
 export default function StudentsPage() {
   return (
-    <>
-      <div className="student-banner"> 
-        Student Registration    
-      </div>
-      <div className="horizontalline">
-      </div>
-      <Students />
-    </>
+    <div style={{ textAlign: 'center' }}>
+      <ChartPlots />
+    </div>
   );
 }
