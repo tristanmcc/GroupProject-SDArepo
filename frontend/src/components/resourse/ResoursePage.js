@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import "../../css/styles.css";
 
-import craft from '../../images/resource_image/craft.png';
-import sudoku from '../../images/resource_image/sudoku.jpg';
+import type from '../../images/resource_image/typing.png';
+import splash from '../../images/resource_image/SplashLearn.png';
 import quiz from '../../images/resource_image/quiz.png';
-import yoga from '../../images/resource_image/yoga.png';
-import puzel from '../../images/resource_image/puzzel.jpg';
-import health from '../../images/resource_image/healthtip.png';
-import cook from '../../images/resource_image/lilchef.png';
+import noodle from '../../images/resource_image/gonoodle.png';
+import kahoot from '../../images/resource_image/kahoot.png';
+import dojo from '../../images/resource_image/dojo.png';
+import duo from '../../images/resource_image/Duolingo.png';
 import googleclass from '../../images/resource_image/googleclass.jpg';
 
 
@@ -16,54 +16,62 @@ function ResoursePage() {
     return (
     <div> 
       <div className="resourse-banner"> 
-           Resourse  
+           Resources 
       </div>
       <div className="horizontalline">
       </div>
  <div className="resourseimg">
      <div className="images">       
         <figure>
-        <img className="craftimage"  src={craft} />
-           <a    href="http://tiny.cc/craftforkidss">
-          <figcaption>  <b> ART & CRAFT</b></figcaption>  </a>  
+           <a    href="http://tiny.cc/type11"  >
+           <img className="type"  src={type} />
+           <figcaption>  <b> Typing Club</b></figcaption> 
+           </a> 
+           
         </figure>
         
         <figure>
-        <img className="yogaimage"  src={yoga} />
-           <a    href="https://cosmickids.com">
-          <figcaption>  <b> YOGA</b></figcaption>  </a>  
+           <a    href="http://tiny.cc/splashlearn1">
+           <img className="splash"  src={splash} />
+           <figcaption>  <b> Splash Learn</b></figcaption>
+            </a>  
+            
         </figure>
-            <figure>
-               <img className="sudokuimage"  src={sudoku} />
-                  <a    href="https://www.sudokuonline.io/kids">
-                  <figcaption>  <b> SUDOKU </b></figcaption>  </a>  
-             </figure>
+
+         <figure>
+             <a    href="http://tiny.cc/noodle1">
+              <img className="noodle"  src={noodle} />
+              <figcaption>  <b> Go Noodle </b></figcaption>
+                </a>  
+                 
+          </figure>
    
-             <figure>
+             <figure>               
+                <a    href="  http://tiny.cc/quizztime">
                 <img className="quizimage"  src={quiz} />
-                <a    href="  https://www.kidzworld.com/quizzes">
-                <figcaption>  <b> QUIZ </b></figcaption>  </a>
+                <figcaption>  <b> Quiz </b></figcaption>  </a>
              </figure>
         
               <figure>
-                <img className="puzelimage"  src={puzel} />
-                <a    href="https://www.digipuzzle.net/main/kids/">
-                <figcaption>  <b> PUZZLE</b></figcaption>  </a>
+                <a    href="https://kahoot.it">
+                  <img className="kahoot"  src={kahoot} />
+                <figcaption>  <b> Kahoot</b></figcaption>  </a>
+              </figure>
+
+              <figure>           
+                <a    href="http://tiny.cc/dojo1">
+                <img className="dojo"  src={dojo} />
+                <figcaption>  <b>Class Dojo</b></figcaption>  </a>
               </figure>
               <figure>
-                <img className="healthimage"  src={health} />
-                <a    href="https://www.healthforkids.co.uk">
-                <figcaption>  <b> HEALTH TIPS</b></figcaption>  </a>
+                <a    href="http://tiny.cc/duo1">
+                <img className="duolingo"  src={duo} />
+                <figcaption>  <b> Duolingo</b></figcaption>  </a>
               </figure>
-              <figure>
-                <img className="cookimage"  src={cook} />
-                <a    href="http://tiny.cc/firelesscook">
-                <figcaption>  <b> FIRELESS COOKING</b></figcaption>  </a>
-              </figure>
-              <figure>
-                <img className="googleclassimage"  src={googleclass} />
+              <figure>         
                 <a    href="https://classroom.google.com/h">
-                <figcaption>  <b> GOOGLE CLASSROOM </b></figcaption>  </a>
+                <img className="googleclassimage"  src={googleclass} />
+                <figcaption>  <b> Google Classroom </b></figcaption>  </a>
               </figure>
           </div>   
      </div>

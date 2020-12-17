@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
+import hatImg from '../../images/Icons/hat1.png';
 
 export default function Navbar ({ onLogout }) {
 
@@ -32,7 +33,7 @@ export default function Navbar ({ onLogout }) {
     <nav>
       
       <div class="logo">
-           Educational environment
+         <h6>EDUCATIONAL ENVIRONMENT</h6>
         </div>
         <ul class="nav-links" >
              <li >
@@ -82,10 +83,10 @@ export default function Navbar ({ onLogout }) {
                </a>
              </li>  
            </ul>
-           <div class="burger" onClick={navSlide}> 
-             <div class="line1"></div>
-             <div class="line2"></div>
-             <div class="line3"></div>
+           <div className="burger" onClick={navSlide}> 
+             <div className="line1"></div>
+             <div className="line2"></div>
+             <div className="line3"></div>
             
            </div>
           

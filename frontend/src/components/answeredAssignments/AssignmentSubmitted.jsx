@@ -4,14 +4,39 @@ import AssignmentsApi from '../../api/AssignmentsApi';
 import AccordianForAssignment from '../accordian/AccordianForAssignment';
 import StarRating from "../star/StarRating";
 import '../../css/styles.css';  
+import Button from "@material-ui/core/Button";
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import Icon from "@material-ui/core/Icon";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+      backgroundColor: "#25274D",
+      cursor: "pointer",
+      outline: "none",
+      border: "none",
+      borderRadius: 15,
+      transform: "translateY(4)",
+      marginBottom:"40px",
+      boxShadow: [[0, 5, "#999"]],
+    },
+    
+  }));
 
 function AssignmentSubmitted({match}) {
+    const history = useHistory();
+    const classes = useStyles();
     console.log("Value" + match.params.assignId);
     console.log("Name" + match.params.name);
     
     const[questions,setQuestions] = useState([]);
     const[answers,setAnswers] = useState([]);
-    
+    const goBack = () =>
+    {
+        history.goBack();
+    }
     const getAnsweredAssignmentById = (id) => {
         console.log("Calling getAssignmentById " + id )
         AnsweredAssignmentsApi.getAnsweredAssignmenttByAssignmentId(id)
@@ -58,15 +83,34 @@ function AssignmentSubmitted({match}) {
         
         <div>
          <div className="grading">
+
              <div className="gradinglabel">
              <h3> Grading</h3>
+             
+            
              </div>
              <div>
              <StarRating answers={answers}/>
              </div>
-         </div>
+  
+             
+
+            </div> 
+
+              
+    
          <AccordianForAssignment questions={questions} answers={answers}/>
-        </div>  
+        </div> 
+        <div>
+             <Button 
+              onClick={goBack}
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<Icon>send</Icon>}
+              >Back</Button>
+              
+              </div>
         </>
       );}
 export default AssignmentSubmitted;

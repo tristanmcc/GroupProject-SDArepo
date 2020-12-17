@@ -16,6 +16,9 @@ public class Question {
     private String title;
     private String email;
 
+    private Double good;
+    private Double bad;
+
    @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
    private List<Comment> commentList;
 
@@ -23,6 +26,7 @@ public class Question {
         this.id = id;
         this.textBody = textBody;
         this.email = email;
+
 
     }
 
@@ -52,6 +56,14 @@ public class Question {
     public void setTextBody(String textBody) {
         this.textBody = textBody;
     }
+
+    public Double getGood() { return good;}
+
+    public void setGood(Double good) { this.good = good; }
+
+    public Double getBad() { return bad; }
+
+    public void setBad(Double bad) { this.bad = bad; }
 
     /**public List<Comment> getCommentList() { return commentList;
     }

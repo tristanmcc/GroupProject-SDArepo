@@ -12,7 +12,9 @@
 }
 
 
-/* Float four columns side by side */
+
+
+/* Float columns side by side */
 .column {
   float: left;
     width: 14.28%;
@@ -162,55 +164,42 @@
     color: #fff;
   }
  
-  .happKids{
-    margin-top: 20px;
+  .home-column{
+    display: flex;
   }
+
+  .homepage{
+    margin-top: 36px;
+    padding-right: 20px;
+    padding-left: 10px;
+    flex: 40%;
+    height: 300px;
+    text-align:justify;
+  }
+
+  .happKids{
+    margin-top: 40px;
+    flex: 60%;
+    width:400px;
+    height: auto;
+    margin-bottom: 40px;
+  }
+
+  .NavImage-responsive{
+    width:100%;
+    height: auto;
+  }
+
+  .description-title{
+    text-align: right;
+  }
+    
   
 
-  .homepageanouncement{
-   
-   display:grid;
-   grid-template-columns: 1fr 1fr;
-   ;
-  }
-    .homepageanouncement1{
-      background-color: #FDC00F;
-      animation-name: homepageanouncement1;
-      animation-duration: 4s;
-      animation-iteration-count: infinite;
-      animation-fill-mode: both;
-    }
-    @keyframes homepageanouncement1 {
-      0%   {background-color: #dc869494;}
-      25%  {background-color: rgba(222, 222, 96, 0.776);}
-      50%  {background-color: rgb(178, 178, 203);}
-      100% {background-color: rgb(180, 233, 180);}
-    }
+  
 
 
-    /*.bee{
-      position: absolute;
-      bottom:10%;
-    position:relative;
-    -webkit-animation:linear infinite alternate;
-    -webkit-animation-name: run;
-    -webkit-animation-duration: 30s;
-
-     animation-name: bee;
-      height:100px;
-      width:50px
-     
-    }
-    @keyframes bee{
-      0% { left: 0;}
-      50%{ left : 100%;}
-      100%{ left: 0;}
-    }
-   
-   
     
-
-
   
   /* Responsive columns - one column layout (vertical) on small screens */
   
@@ -223,14 +212,7 @@
       margin-bottom: 20px;
     }
   }
-    @media (max-width: 1360px) {
-   .bee{
-    height:200px;
-    width:200px
-   }
-
-
-  }
+   
 
 
   @media (max-width: 750px) {
@@ -246,27 +228,24 @@
   
   @media screen and (max-width: 600px) {
     .column {
-        display: inline;
-        float: left;
-        width: 35%;
-        padding: 0;
-        margin-bottom: 20px;
-        margin-left: 60px;
+      display: inline;
+      width: 25%;
+      margin-bottom: 20px;
+      margin-left: 120px;
     }
 }
 
 @media screen and (max-width: 420px) {
     .column {
         display: inline;
-        float: left;
-        width: 50%;
-        padding: 0;
-        margin-bottom: 20px;
-        margin-left: 120px;
-
+        width: 40%;
+        padding-left: 100px;
+      margin-bottom: 20px;
+      margin-left: 180px;
     }
-    .bee{
-      height:80px;
-      width:40px
-    }
+    .NavImage-responsive{
+    width:100%;
+    height: auto;
+  }
+    
 }
