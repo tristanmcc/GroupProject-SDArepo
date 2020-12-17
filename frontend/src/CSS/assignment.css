@@ -134,6 +134,13 @@
     border:1px solid var(--darkest-blue);
   }
 
-  
+
+  @media (max-width: 760px) {
+    .check {
+    display: flex;
+    flex-direction: column;
+  }
+  }
+
 
    
