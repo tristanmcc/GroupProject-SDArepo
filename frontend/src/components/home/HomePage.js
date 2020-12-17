@@ -1,8 +1,11 @@
+//react core
 import React from "react";
+//css styles
 import Style from "../../css/homePage.css";
+//react router-dom module
 import { Link } from "react-router-dom";
 
-//media
+//media and image imports
 import CourseGraphic from "../../images/Icons/undraw_Bookshelves_re_lxoy (1).png";
 import Calender from "../../images/Icons/undraw_Booking_re_gw4j (1).png";
 import Sentiment from "../../images/Icons/undraw_true_friends_c94g (1).png";
@@ -14,6 +17,7 @@ import "../../css/styles.css";
 import happyKids from '../../images/edvin-johansson-UGGinojhaC0-unsplash.jpg'
 import introductoryText from '../../images/introductionText.jpg'
 
+//HomePage component
 function HomePage() {
   return (
     <div>

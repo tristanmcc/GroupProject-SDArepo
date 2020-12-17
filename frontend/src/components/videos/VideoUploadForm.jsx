@@ -1,11 +1,12 @@
+//react core
 import React, { useState } from "react";
-
+//material UI components
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import TextField from "@material-ui/core/TextField";
 import LecturesApi from "../../api/LecturesApi";
-
+//material UI state from makeStyles
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
+//VideoUploadForm Component
 export default function VideoUploadForm({ course, currentUser }) {
   const [videoName, setVideoName] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
