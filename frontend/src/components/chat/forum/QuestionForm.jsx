@@ -17,14 +17,15 @@ const [textBody, setTextBody] = useState();
                             placeholder="What's on your mind?"
                             value={textBody}
                             onChange={e => setTextBody(e.target.value)} />
-                    </div>
-                    <div className="">
+                    {/* <span className=""> */}
                         <button
                             className="forum-submit"
                             onClick={() => onSubmit({textBody})}>
                             Post
                         </button>
+                    {/* </span> */}
                     </div>
+                    
                 </div>
             </div>
         </div>
