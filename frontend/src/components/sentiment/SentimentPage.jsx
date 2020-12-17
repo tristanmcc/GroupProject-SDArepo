@@ -1,4 +1,6 @@
+//react core imports
 import React from 'react';
+//NLP algorithm import
 import Sentiment from './Sentiment';
 
 export default function SentimentPage() {
