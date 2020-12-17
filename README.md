@@ -28,9 +28,6 @@ Once the gradle build is completed, the user can run the Java Spring MVC project
 
 ´´´java
 
-@SpringBootApplication
-public class SkeletonApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(SkeletonApplication.class, args);
 	}
@@ -47,9 +44,6 @@ public class SkeletonApplication {
 			}
 		};
 	}
-}
-
-
 ´´´
 
 
