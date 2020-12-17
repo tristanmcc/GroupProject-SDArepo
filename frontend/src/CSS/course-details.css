@@ -50,15 +50,18 @@
     font-size: xx-large;
 }
 .course-details-text{
-    padding: 16px;
+    padding: 12px;
     text-align: justify;
     margin-top: -25px;
     margin-bottom: 15px;
     margin-left: -10px;
     margin-right: -10px;
-    background-color: snow;
-    font-size: medium;
+    background-color:snow;
+    font-size: 18px;
     border-radius: 5px;
+    color: #25274D;
+    
+     
     
 }
   

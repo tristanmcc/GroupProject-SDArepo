@@ -1,15 +1,31 @@
 import React from 'react';
+import boyAvatar from '../../../images/avatar/boyAvatar.png';
+import girlAvatar from '../../../images/avatar/girlAvatar.png';
 
-export default function ChatMessage({ userIndex, name, message }) {
-  console.log(userIndex);
-  const userStyle = userIndex % 2 === 0 ? "message-box message-partner" : "message-box";
-  const senderPosition = userIndex % 2 === 0 ? "message-sender right" : "message-sender left";
+
+export default function ChatMessage({ userIndex, message, myUserId }) {
+ 
+  
   return (
-    <div>
-      <div class="message-sender">{name}: </div>
-      <div class={userStyle}>
-        <em>{message}</em>
+    <div class="chatblock">
+        {myUserId === message.fromUserId ?
+        <div class= "chatContainer me">
+             <img src={girlAvatar} alt="Avatar" class="avatarstyle "/>
+              <div class="message-box">
+              <span class="message-sender"><em> Me: </em></span>
+                <em>{message.message}</em>
+                
+              </div>
+        </div> :
+        <div class="chatContainer them">
+          <img src={boyAvatar} alt="Avatar" class="avatarstyle "/>
+             <div class="message-box"> 
+             <span class="message-sender"><em>{message.name}: </em></span>
+              <em>{message.message}</em>
+            </div>
+          
+          </div>
+          }
       </div>
-  </div>
   );
 }

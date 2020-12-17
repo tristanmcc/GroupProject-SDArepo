@@ -23,6 +23,7 @@ class Chat extends Component {
     super(props);
     this.state = {
       name: '',
+      currentUserId:null,
       messages: [],
     }
     this.userName = this.userName.bind(this);
@@ -31,7 +32,7 @@ class Chat extends Component {
 
   userName() {
     UserApi.getCurrentUser()
-      .then(results => this.setState({ name: results.data.name }));
+      .then(results => this.setState({ name: results.data.name, currentUserId: results.data.id }));
 
   }
 
@@ -63,12 +64,17 @@ class Chat extends Component {
 
   addMessage = message =>
     this.setState(state => ({ messages: [message, ...state.messages] }))
+    //this.setState(state => ( {messages: state.messages.concat([message])  }))
 
 
 
   submitMessage = messageString => {
     // on submitting the ChatInput form, send the message, add it to the list and reset the input
-    const message = { name: this.state.name, message: messageString }
+    const message = { 
+      name:       this.state.name, 
+      message:    messageString,
+      fromUserId: this.state.currentUserId
+     };
     this.ws.send(JSON.stringify(message))
     this.addMessage(message)
   }
@@ -87,12 +93,14 @@ class Chat extends Component {
           <div className="chat-page-column">
             <div className="chatCard">
               <div className="chatbox">
+                
                 {this.state.messages.map((message, index) =>
+
                   <ChatMessage
                     key={index}
                     userIndex={index}
-                    message={message.message}
-                    name={message.name}
+                    message={message}
+                    myUserId={this.state.currentUserId}
                   />
                 )}
               </div>

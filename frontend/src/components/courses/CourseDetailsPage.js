@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import { Link } from "react-router-dom";
 import "../../css/styles.css";
+import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -84,12 +85,14 @@ export default function CourseDetailsPage({ match }) {
     
     <div className="course-details">
       <div className="course-details-description">
-        <h1 className="course-description">
+        <h2 className="course-description">
+        <AssignmentOutlinedIcon fontSize="large" />
           {course.title}
-        </h1>
+        </h2>
       </div>
       
       <div className="course-details-text">
+        
        {<p>{course.description}</p>}
        </div>
       
