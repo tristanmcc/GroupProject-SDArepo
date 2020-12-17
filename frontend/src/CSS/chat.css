@@ -15,15 +15,14 @@
 
 /*Styling for the Chat page */
 .chatbox{
-    background-color: aliceblue; 
+    background-color:white;
     margin: auto;
-    margin-bottom: 30px; 
-    padding:15px, 15px, 15px; 
+    margin-bottom: 20px; 
     width: 97%; 
-    height: 250px; 
+    height: 410px; 
     overflow-x: hidden; 
     overflow-y: auto; 
-    text-align:justify; 
+    text-align:justify;   
 }
 
 .chat-page-column {
@@ -39,65 +38,87 @@
   }
 
 .message-sender {
-    font-size: 12px;
-    margin: 0 0 5px;
-    color: #30649c;
-    align-self: flex-start;
+
+    padding: 4px;
+    font-size: 13px;
+    
+  }
+  .message-sender em{
+    font-size: 80%;
+    margin-right: 5px;
   }
   
-/* .right{
-    float: right;
-}
-.left{
-    float: left;
-} */
 
 
 .message-box {
-  border-radius: 6px 0 6px 0;
-  position: relative;
-  background: rgba(100, 170, 0, .1);
-  border: 2px solid rgba(100, 170, 0, .1);
-  color: #6c6c6c;
-  font-size: 12px;
-  display: -webkit-inline-flex;
-  
+    background-color: #2c96d4;
+  border-radius: 6px 0 6px 0; 
+  background: rgba(100, 170, 0, .2);
+  color: #3706e9;
+  font-size: 13px;
+  padding: 5px;
+  clear: both; 
+  margin-bottom: 0px;
+ 
   }
-  
 
-  .message-box:after {
+ 
+ 
+  .chatblock {
+    margin: auto;
+  }
+
+  .chatContainer {
+    padding-top: 15px;
+    margin: 20px;
+  }
+  .me:before {
+     content: "";
+    border: 12px solid transparent;
+    border-bottom: 15px solid rgba(100, 170, 0, .2); 
+    border-right: none; 
+    left: -20px;
+  }
+
+  .me{
+    text-align: right;
+
+  }
+
+  
+  .them{
+    text-align: left;
+  }
+.them:before{
     content: "";
-    position: absolute;
-    border: 10px solid transparent;
-    border-bottom: 10px solid rgba(100, 170, 0, .2); 
-    /* border-bottom: 10px solid rgba(0, 114, 135, .2); */
-    border-left: none;
-    top: -21px;
-    left: 9px;
+    border: 12px solid transparent;
+    border-bottom: 13.5px solid rgba(100, 170, 0, .2); 
+    margin-left: 14px ;
+    border-right: none;
+ 
+}
+  
+
+  .container img.right {
+    margin-left: 10px;
+    margin-right:12px;
   }
 
-  .message-partner {
-    background: rgba(0, 114, 135, .1);
-    border: 2px solid rgba(0, 114, 135, .1);
-    align-self: flex-start;
+.avatarstyle {
+    max-width: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    margin-bottom: 7px;
   }
 
-
-  .message-partner:after {
-    right: auto;
-    bottom: auto;
-    top: -22px;
-    left: 9px;
-    border: 10px solid transparent;
-    border-bottom: 10px solid rgba(0, 114, 135, .2);
-    border-left: none;
-  }
+  
 
 .forumCard{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-    background-color: #E55A71;
-    padding: 30px 20px 0px 20px;
-    margin-left: -50px;
+    /* background-color: #E55A71; */
+    background-color: #98c4dd;
+    padding: 20px 10px 0px 10px;
+    margin-left: -70px;
 }
 
 
@@ -105,10 +126,10 @@
     .forumbox{
         background-color: aliceblue;
         margin: auto;
-        margin-bottom: 30px; 
+        margin-bottom: 20px; 
         padding:15px, 15px, 15px; 
         width: 97%; 
-        height: 250px; 
+        height: 410px; 
         overflow-x: hidden; 
         overflow-y: auto; 
         text-align:justify; 
@@ -119,7 +140,6 @@
         background-color: white;
         padding: 0px 10px;
         margin-bottom: 15px;
-        
     }
 
     .comment-card{
@@ -152,39 +172,46 @@
     }
 
     .forum-submit{
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         padding: 6px;
         border: transparent;
         border-radius: 5px;
+        float: right;
     }
     
     .forum-textArea{
         padding: 0px 2px; 
     }
     .forum-questionForm{
-        background-color: #fd9eae;
-        margin-left: -20px;
-        margin-right: -20px;
+        /* background-color: #fd9eae; */
+        background-color: #2c96d4;
+        margin-left: -10px;
+        margin-right: -10px;
         padding-left: 20px;
-        padding-top: 20px;
+        padding-top: 10px;
     }
 
 
     /*Styling for the Chat comp */
 .chat-inputform{
-    background-color: #E55A71;
-    margin-left: -20px;
-    margin-right: -20px;
+    background-color: #86bbda;
+    margin-left: -10px;
+    margin-right: -10px;
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
+    height: 100px;
+}
 
+.chat-input{
+    padding: 40px 40px; 
+    width: 90px;
 }
 
 .chatCard{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-    background-color: #fd9eae; 
-    padding: 30px 20px 0px 20px;
-    margin-right: -50px;
+    background-color: #2c96d4;  
+    padding: 20px 10px 0px 10px;
+    margin-right: -70px;
 }
 
 .chat-title{
@@ -193,13 +220,21 @@
 }
 
 .chat-submit{
-    margin-top: -3px;
+    margin-top: 2px;
     margin-bottom: 13px;
-    margin-left: -2.5px;
+    margin-left: -12.5px;
+    margin-right:14px ;
     padding: 6px;
-    border: transparent;
-    border-radius: 5px;
-
+    width: 60px;
+    height: 50px;
+    float: right;
+    align-items: right ;
+    background-color: #86bbda;
+    align-items: center;
+    border: none;
+}
+.chat-submit-icon{
+    color: white;
 }
     
 
@@ -212,7 +247,7 @@
 
     .forumCard{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-        background-color: #E55A71;
+        background-color: #86bbda;
         padding: 30px 20px 0px 20px;
         margin-bottom: 80px;
         margin-left: auto;
@@ -221,7 +256,7 @@
 
     .chatCard{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
-        background-color: #fd9eae;
+   
         padding: 30px 20px 0px 20px;
         margin-right: auto;
 
