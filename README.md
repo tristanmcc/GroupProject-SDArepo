@@ -9,6 +9,9 @@ An online tool for educational purposes that supports the learning process of st
 
 ## Brief Summary
 
+
+![alt text](https://github.com/Flea00012/GroupProject-SDArepo/blob/master/homepage.png)
+
 The platform is used by educators to support the learning process of their students with online education. The platform offers teachers features for creating assignments, courses, videos and also allows the teacher to track the Sentiment of the students. The platform offers the opportunity for students to pose questions to their fellow students and to the teachers. This communication is supported for persisted chat and for non-persisted chat (this is called the chatroom environment). 
 
 The target customer is the teacher who is faced with the challenge of teaching students via online platforms, in the context of the Covid19 epidemic and in other difficult situations. The platform is focused on supporting the student audience in the range from 10 to 14 years of age. The platform is designed to support any device that can access the internet, from small screen smart phones to desktop PC.
@@ -16,6 +19,9 @@ The target customer is the teacher who is faced with the challenge of teaching s
 ## Usage
 
 The usage of the site requires membership and therefore registration for the teachers and the students. The user will start by entering a unique email, with name and password. This registration is done on the Landing Page as shown below.
+
+
+![alt text](https://github.com/Flea00012/GroupProject-SDArepo/blob/master/landingpage.png)
 
 
 ## Local Installation
