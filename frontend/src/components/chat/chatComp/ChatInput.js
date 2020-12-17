@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Icon from "@material-ui/core/Icon";
-import Picker from 'emoji-picker-react';
-import ChatEmoji from './/ChatEmoji'
+//import Picker from 'emoji-picker-react';
+//import ChatEmoji from './/ChatEmoji'
 
 class ChatInput extends Component {
   static propTypes = {

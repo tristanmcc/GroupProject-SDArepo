@@ -4,7 +4,8 @@ import UserApi from "../../../api/UserApi";
 import CommentsApi from "../../../api/CommentsApi";
 import CommentForm from "./CommentForm";
 import ShowComments from "./ShowComments"
-import { RiDeleteBin7Line, RiQuestionAnswerLine } from 'react-icons/ri';
+import {  RiQuestionAnswerLine } from 'react-icons/ri';
+import DeleteIcon from "@material-ui/icons/Delete";
 
 //Function
 function ShowQuestions({question}) {
@@ -58,7 +59,7 @@ function ShowQuestions({question}) {
              { currentUser === question.email ?
             <button className="question-button"
                     onClick={() => handleDelete(question)}>
-                    <RiDeleteBin7Line/>
+                    <DeleteIcon fontSize="small"/>
                 </button>
                 : null }
                 <button className="question-button"
