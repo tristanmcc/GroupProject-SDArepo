@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 
-// import BarChart from '../chartplots/BarChartPosNeg';
-// import RadarChart from '../chartplots/RadarChart';
-import ScatterPlot from '../chartplots/ScatterPlot';
+import QuestionsApi from "../../api/QuestionsApi";
 
-import '../../css/styles.css';
+import ScatterPlot from "../chartplots/ScatterPlot";
 
-const TrainingSet = require('../../resources/trainingdata.json');
-const natural = require('natural');
-const BrainJs = require('brain.js');
+const TrainingSet = require("../../resources/trainingdata.json");
+const natural = require("natural");
+const BrainJs = require("brain.js");
 
-export default function Sentiment({ sentence }) {
+export default function Sentiment() {
+  const [questions, setQuestions] = useState([]);
+
+  const viewQuestions = () => {
+    QuestionsApi.getAllQuestions()
+      .then((response) => {
+        console.log("response", response.data);
+        setQuestions(response.data);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  useEffect(() => {
+    viewQuestions();
+  }, []);
+
   function buildWordDictionary(trainingData) {
     const tokenisedArray = trainingData.map((item) => {
-      const tokens = item.phrase.split(' ');
+      const tokens = item.phrase.split(" ");
       return tokens.map((token) => natural.PorterStemmer.stem(token));
     });
 
@@ -26,11 +39,10 @@ export default function Sentiment({ sentence }) {
   const dictionary = buildWordDictionary(TrainingSet);
 
   function encode(phrase) {
-    const phraseTokens = phrase.split(' ');
+    const phraseTokens = phrase.split(" ");
     const encodedPhrase = dictionary.map((word) =>
       phraseTokens.includes(word) ? 1 : 0
     );
-
     return encodedPhrase;
   }
 
@@ -42,25 +54,15 @@ export default function Sentiment({ sentence }) {
   const network = new BrainJs.NeuralNetwork();
   network.train(encodedTrainingSet);
 
-  console.log('sentence: ' + sentence.textBody);
-
-  //insert sentences here
-  const encoded = encode(sentence.textBody);
-
-  // let { bad, good, b = +bad, g = +good } = network.run(encoded);
-
-  let data = network.run(encoded);
-  console.log('good/bad from Sentiment.js: ' + network.run(encoded));
-
-  // { good: 0.8156641125679016, bad: 0.17976993322372437 }
+  const questionBody = questions.map((item) => {
+    const encoded = encode(item.textBody);
+    let data = network.run(encoded);
+    return data;
+  });
 
   return (
     <>
-      {/*  <BarChart data={data} />*/}
-      {/*<RadarChart data={data} /> */}
-      <div className="sentimentPlots">
-        <ScatterPlot data={data} />
-      </div>
+      <ScatterPlot data={questionBody} />
     </>
   );
 }

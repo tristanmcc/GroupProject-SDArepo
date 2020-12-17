@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Icon from "@material-ui/core/Icon";
 
 
+
+
 class ChatInput extends Component {
   static propTypes = {
     onSubmitMessage: PropTypes.func.isRequired,

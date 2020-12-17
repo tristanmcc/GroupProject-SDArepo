@@ -15,7 +15,7 @@ import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
 import CourseDetailsPage from './components/courses/CourseDetailsPage';
 import VideosPage from './components/videos/VideosPage.jsx';
-import StudentsPage from './components/students/StudentsPage';
+import SentimentPage from './components/students/SentimentPage';
 import AssignmentsView from './components/assignments/AssignmentsView';
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
 import Chat from './components/chat/chatComp/Chat';
@@ -39,7 +39,7 @@ function App() {
           </Route>
 
           <Route exact path="/assignments">
-            <AssignmentsView/>
+            <AssignmentsView />
           </Route>
 
           <Route
@@ -55,7 +55,7 @@ function App() {
           <Route
             path="/assignmentsAnsweredView/:assignId"
             render={({ match }) => <AnsweredAssignmentsForm match={match} />}
-          />  
+          />
 
           <Route
             path="/assignmentsViewForCourse/:courseId"
@@ -67,10 +67,10 @@ function App() {
             render={({ match }) => <AssignmentsPage match={match} />}
           />
 
-          <Route path="/assignmentsSubmittedView/:courseId"
-          render={({ match }) => <DisplaySubmittedAssignment match={match} />}>
-           
-          </Route>
+          <Route
+            path="/assignmentsSubmittedView/:courseId"
+            render={({ match }) => <DisplaySubmittedAssignment match={match} />}
+          ></Route>
 
           <Route
             path="/assignmentSubmitted/:assignId/:name"
@@ -85,8 +85,8 @@ function App() {
             <CourseDetailsPage />
           </Route>
 
-          <Route path="/students">
-            <StudentsPage />
+          <Route path="/sentiment">
+            <SentimentPage />
           </Route>
 
           <Route path="/videos">

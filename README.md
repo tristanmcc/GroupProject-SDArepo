@@ -55,7 +55,7 @@ In order to run the front-end (the reactJS application), navigate into the direc
 
 The chatroom can is developed in NodeJS and uses websockets for communication between user and the server. The files can be found in the directory "backend".
 
-## List of Dependancies
+## List of Dependencies
 
 ### front-end
 - axios: "^0.21.0"
