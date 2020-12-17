@@ -1,5 +1,5 @@
 import React from "react";
-import Sentiment from "../sentiment/Sentiment";
+import Sentiment from "./Sentiment";
 
 export default function SentimentPage() {
   return (
