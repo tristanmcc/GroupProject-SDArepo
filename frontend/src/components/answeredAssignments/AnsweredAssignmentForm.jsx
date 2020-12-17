@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import AssignmentsApi from "../../api/AssignmentsApi";
 import AnsAssApi from "../../api/AnsweredAssignmentsApi";
 import UserApi from "../../api/UserApi";
-import book from "../../images/carousel/carousel-6.jpg";
 import assignmentImg from "../../images/banner/banner-classassignments.png";
 import { useHistory } from "react-router-dom";
 
@@ -34,10 +33,9 @@ const useStyles = makeStyles((theme) => ({
 export default function AnsweredAssignmentsForm({ match }) {
   const classes = useStyles();
   const history = useHistory();
-  const goBack = () =>
-    {
-        history.goBack();
-    }
+  const goBack = () => {
+    history.goBack();
+  };
   const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
   const [
     answeredAssignmentDescription,
@@ -124,16 +122,14 @@ export default function AnsweredAssignmentsForm({ match }) {
 
   return (
     <>
-   
-    
       <div className="card mt-4">
-      <img className="assignmentimage" alt="" src={assignmentImg}   />
+        <img className="assignmentimage" alt="" src={assignmentImg} />
         <div className="card-body">
           <p />
           <h4 className="card-title">{answeredAssignmentTitle} </h4>
           <div>
             <div className="form-group">
-              <label>Student Name   :</label> &nbsp;
+              <label>Student Name :</label> &nbsp;
               {user.name}
             </div>
             <div
@@ -150,7 +146,7 @@ export default function AnsweredAssignmentsForm({ match }) {
                       index === 0 ? "carousel-item active" : "carousel-item"
                     }
                   >
-                    <img width="100px" height="230px" alt={"assign_image"} />
+                     <img width="100px" height="230px"/>
                     <div class="carousel-caption  d-md-block">
                       <label>{index + 1 + ". " + eachQuestion.question}</label>
                       <textarea
@@ -231,15 +227,16 @@ export default function AnsweredAssignmentsForm({ match }) {
       </div>
 
       <div>
-      <Button 
-              onClick={goBack}
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              endIcon={<Icon>send</Icon>}
-              >Back</Button>
-                  
-              </div>
+        <Button
+          onClick={goBack}
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          endIcon={<Icon>send</Icon>}
+        >
+          Back
+        </Button>
+      </div>
     </>
   );
 }
