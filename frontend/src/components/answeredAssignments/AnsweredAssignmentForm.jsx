@@ -248,7 +248,19 @@ export default function AnsweredAssignmentsForm({ match }) {
               </a>
             </div>
           </div>
+          <div className="check1">
+          <Button
+            onClick={goBack}
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            endIcon={<Icon>send</Icon>}
+          >
+            Back
+          </Button>
         </div>
+        </div>
+       
       </div>
 
       <div>
