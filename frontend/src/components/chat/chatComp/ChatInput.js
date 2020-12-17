@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import Icon from "@material-ui/core/Icon";
-import Picker from 'emoji-picker-react';
-import ChatEmoji from './/ChatEmoji'
+
 
 class ChatInput extends Component {
   static propTypes = {
@@ -12,7 +11,6 @@ class ChatInput extends Component {
     message: '',
   }
 
-  
 
   render() {
     return (
@@ -33,24 +31,10 @@ class ChatInput extends Component {
           onChange={e => this.setState({ message: e.target.value })}
         /> 
         <span >
-        {/* <input className="chat-submit" type="submit" value={'Send'} /> <Icon className="chat-submit" >send</Icon> </span> */}
-        <button className="chat-submit"  > <Icon className = "chat-submit-icon"> send</Icon> </button> 
+          <button className="chat-submit"  > <Icon className = "chat-submit-icon"> send</Icon> </button> 
         </span>
           </form>
-         {/*  <div style={{ color: "red" }}>{errors}</div>
-        {this.state.showEmojis ? (
-          <span style={styles.emojiPicker} ref={el => (this.emojiPicker = el)}>
-            <Picker
-              onSelect={this.addEmoji}
-              emojiTooltip={true}
-              title="weChat"
-            />
-          </span>
-        ) : (
-          <p style={styles.getEmojiButton} onClick={this.showEmojis}>
-            {String.fromCodePoint(0x1f60a)}
-          </p>
-        )} */}
+        
         </div>
       
     )
