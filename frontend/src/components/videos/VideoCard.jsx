@@ -76,7 +76,7 @@ export default function VideoCard({ video, onDeleteClick, currentUser }) {
       {currentUser.userRole === 'teacher' ? (
         
           
-          <DeleteIcon onClick={() => onDeleteClick(video)} />
+          <DeleteIcon fontSize="small" onClick={() => onDeleteClick(video)} />
         
       ) : null}
       </div>

@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
+import Sentiment from "../sentiment/Sentiment";
 
-import Students from './Students.jsx';
 export default function StudentsPage() {
   return (
     <>
-      <div className="student-banner"> 
-        Student Registration    
+      <div className="student-banner">Question Sentiment</div>
+      <hr />
+      <div style={{ textAlign: "center" }}>
+        <Sentiment />
       </div>
-      <div className="horizontalline">
-      </div>
-      <Students />
     </>
   );
 }

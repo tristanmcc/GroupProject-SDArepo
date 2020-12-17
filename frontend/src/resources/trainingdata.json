@@ -1,7 +1,16 @@
 [
-  {"phrase": "I love dogs, they're so cute.", "result": {"good": 1}},
-  {"phrase": "Cats are evil", "result": {"bad": 1}},
-  {"phrase": "I love cake", "result": {"good": 1}},
-  {"phrase": "Chocolate cake is the best", "result": {"good": 1}},
-  {"phrase": "Carrots are horrible and should not be eaten", "result": {"bad": 1}}
+  { "phrase": "I love Math, Math is great.", "result": { "good": 1 } },
+  { "phrase": "The teacher is evil", "result": { "bad": 1 } },
+  { "phrase": "I love to study physics", "result": { "good": 1 } },
+  { "phrase": "You are stupid", "result": { "bad": 1 } },
+  { "phrase": "I can help", "result": { "good": 1 } },
+  { "phrase": "I do not want to study", "result": { "bad": 1 } },
+  { "phrase": "The teacher is brilliant", "result": { "good": 1 } },
+  { "phrase": "Math sucks", "result": { "bad": 1 } },
+  { "phrase": "Physics is awesome", "result": { "good": 1 } },
+  { "phrase": "Studying sucks", "result": { "bad": 1 } },
+  { "phrase": "I want to study more coding", "result": { "good": 1 } },
+  { "phrase": "I dont want to learn", "result": { "bad": 1 } },
+  { "phrase": "My group members are cool", "result": { "good": 1 } },
+  { "phrase": "I hate online learning", "result": { "bad": 1 } }
 ]

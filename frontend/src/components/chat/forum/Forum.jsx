@@ -4,8 +4,6 @@ import QuestionForm from './QuestionForm';
 import ShowQuestions from './ShowQuestions';
 import Style from '../../../css/chat.css';
 
-// import Sentiment from '../../sentiment/Sentiment';
-
 function Forum() {
   const [questions, setQuestions] = useState([]);
 
@@ -34,11 +32,7 @@ function Forum() {
       <div>
         <QuestionForm onSubmit={createQuestion} />
       </div>
-      <>
-        {/* {questions.map((question) => (
-          <Sentiment key={question.id} sentence={question} />
-        ))} */}
-      </>
+      <></>
     </div>
   );
 }

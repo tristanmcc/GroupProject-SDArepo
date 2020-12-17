@@ -180,7 +180,7 @@ function AssignmentsView({ course, currentUsers }) {
                               {currentUser === "teacher" ? (
                                 <div>
                                   {column.id === "ICONS" ? (
-                                    <DeleteIcon
+                                    <DeleteIcon fontSize="small"
                                       onClick={() => handleDelete({ assignId })}
                                     />
                                   ) : null}
