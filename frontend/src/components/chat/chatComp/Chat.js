@@ -1,12 +1,11 @@
-import React, { Component, useEffect, useRef } from 'react';
-import ChatInput from './ChatInput';
-import ChatMessage from './ChatMessage';
+import React, { Component } from "react";
+import ChatInput from "./ChatInput";
+import ChatMessage from "./ChatMessage";
 
-import UserApi from '../../../api/UserApi';
+import UserApi from "../../../api/UserApi";
 import Forum from "../forum/Forum";
 
-
-const URL = 'ws://localhost:3030'
+const URL = "ws://localhost:3030";
 
 class Chat extends Component {
   constructor(props) {
@@ -17,14 +16,13 @@ class Chat extends Component {
       messages: [],
     };
     this.userName = this.userName.bind(this);
-    }
+  }
 
   userName() {
-    UserApi.getCurrentUser()
-      .then(results => this.setState({ name: results.data.name, currentUserId: results.data.id }));
-
-  };
-  
+    UserApi.getCurrentUser().then((results) =>
+      this.setState({ name: results.data.name, currentUserId: results.data.id })
+    );
+  }
 
   ws = new WebSocket(URL);
 
@@ -46,12 +44,10 @@ class Chat extends Component {
       });
     };
   }
-  
 
-<<<<<<< HEAD
   addMessage = (message) =>
-    this.setState((state) => ({ messages: [message, ...state.messages] }));
-  //this.setState(state => ( {messages: state.messages.concat([message])  }))
+    // this.setState(state => ({ messages: [message, ...state.messages] }));
+    this.setState((state) => ({ messages: state.messages.concat([message]) }));
 
   submitMessage = (messageString) => {
     // on submitting the ChatInput form, send the message, add it to the list and reset the input
@@ -63,34 +59,12 @@ class Chat extends Component {
     this.ws.send(JSON.stringify(message));
     this.addMessage(message);
   };
-=======
-  
-
- 
-  addMessage = message =>
-    // this.setState(state => ({ messages: [message, ...state.messages] }));
-    this.setState(state => ( {messages: state.messages.concat([message])  }));
-
-
-
-  submitMessage = messageString => {
-    // on submitting the ChatInput form, send the message, add it to the list and reset the input
-    const message = { 
-      name:       this.state.name, 
-      message:    messageString,
-      fromUserId: this.state.currentUserId
-     };
-    this.ws.send(JSON.stringify(message))
-    this.addMessage(message)
-  }
 
   //  alwaysScrollToBottom = () => {
   //   const elementRef = useRef();
   //   useEffect(() => elementRef.current.scrollIntoView());
   //   return <div ref={elementRef} />;
   // };
-
->>>>>>> master
 
   render() {
     return (
@@ -105,9 +79,7 @@ class Chat extends Component {
           </div>
           <div className="chat-page-column">
             <div className="chatCard">
-           
               <div className="chatbox">
-<<<<<<< HEAD
                 {this.state.messages.map((message, index) => (
                   <ChatMessage
                     key={index}
@@ -117,24 +89,6 @@ class Chat extends Component {
                   />
                 ))}
               </div>
-=======
-                
-                {this.state.messages.map((message, index) =>
-                  
-                  
-                   <ChatMessage
-                      key={index}
-                      userIndex={index}
-                      message={message}
-                      myUserId={this.state.currentUserId}
-                  /> 
-                
-              
-                 
-                )}
-
-              </div> 
->>>>>>> master
               <div className="chat-inputform">
                 <label htmlFor="name"></label>
                 <ChatInput
