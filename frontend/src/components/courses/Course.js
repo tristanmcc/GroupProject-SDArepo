@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { RiDeleteBin7Line, RiEdit2Line } from 'react-icons/ri';
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import { Link } from 'react-router-dom';
 import courseImg from '../../images/Icons/coursebook.png';
@@ -64,7 +65,7 @@ export default function Course({
               className="create-deleteButton"
               onClick={() => onCourseDelete(course)}
             >
-              <RiDeleteBin7Line/>
+              <DeleteIcon fontSize="small"/>
             </button>
             <button className="create-updateButton" onClick={() => setFormState(true)}>
               <RiEdit2Line/>
