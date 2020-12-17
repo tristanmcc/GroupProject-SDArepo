@@ -1,8 +1,10 @@
-import React from 'react';
+import React ,{ useState, useEffect } from 'react';
+import UserApi from "../../api/UserApi";
 
 import '../../App.css';
 
 export default function Navbar({ onLogout }) {
+  const [currentUser, setCurrentUser] = useState("");
   const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
@@ -22,11 +24,21 @@ export default function Navbar({ onLogout }) {
     burger.classList.toggle('BurgToggle');
   };
 
+  const getUserRole = () => {
+    UserApi.getCurrentUser().then((response) => {
+      setCurrentUser(response.data);
+    });
+  };
+
+  useEffect(() => {
+    getUserRole();
+  }, []);
+
   return (
     <div>
       <nav>
         <div class="logo">
-          <h6>EDUCATIONAL ENVIRONMENT</h6>
+          <h7>Eduverse</h7>
         </div>
         <ul class="nav-links">
           <li>
@@ -49,11 +61,13 @@ export default function Navbar({ onLogout }) {
               Assignments
             </a>
           </li>
+          {currentUser.userRole === "teacher" ?
           <li>
             <a href="/sentiment" class="target">
               Sentiment
             </a>
-          </li>
+          </li> : null}
+
           <li>
             <a href="/videos" class="target">
               Lectures
