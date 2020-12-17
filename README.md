@@ -26,7 +26,7 @@ To run the application locally, the user will need to clone the repo and install
 Once the gradle build is completed, the user can run the Java Spring MVC project from the SkeletonApplication.java file (see code insert).
 
 
-´´´java
+```java
 
 	public static void main(String[] args) {
 		SpringApplication.run(SkeletonApplication.class, args);
@@ -44,7 +44,7 @@ Once the gradle build is completed, the user can run the Java Spring MVC project
 			}
 		};
 	}
-´´´
+```
 
 
 ## Features
