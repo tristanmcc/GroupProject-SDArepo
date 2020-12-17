@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import TextField from "@material-ui/core/TextField";
 import LecturesApi from "../../api/LecturesApi";
+import ClearIcon from '@material-ui/icons/Clear';
+
 //material UI state from makeStyles
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 //VideoUploadForm Component
-export default function VideoUploadForm({ course, currentUser }) {
+export default function VideoUploadForm({ course, currentUser, setLectureFormstate }) {
   const [videoName, setVideoName] = useState("");
   const [videoUrl, setVideoUrl] = useState("");
   const classes = useStyles();
@@ -48,18 +50,23 @@ export default function VideoUploadForm({ course, currentUser }) {
     window.location.reload();
   };
 
+  const onCancelVideoUpload = () => {
+    setLectureFormstate(true);
+  };
+
   return (
     <>
       <h3 className="upload-video-title">Upload Video</h3>
       <hr />
 
       <form className={classes.root} noValidate autoComplete="off">
-        <TextField
+        <TextField 
           id="filled-basic"
           label="Enter video name"
           variant="filled"
           value={videoName}
           onChange={(e) => setVideoName(e.target.value)}
+          
         />
         <TextField
           id="filled-basic"
@@ -70,6 +77,7 @@ export default function VideoUploadForm({ course, currentUser }) {
         />
       </form>
       {currentUser.userRole === "teacher" ? (
+        <div>
         <Button
           variant="contained"
           color="default"
@@ -82,6 +90,15 @@ export default function VideoUploadForm({ course, currentUser }) {
         >
           Upload
         </Button>
+        <Button
+              className={classes.button}
+              type="button"
+              onClick={onCancelVideoUpload}
+              endIcon={<ClearIcon />}
+            >
+              Cancel
+            </Button>
+        </div>
       ) : null}
       <hr />
     </>

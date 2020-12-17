@@ -77,6 +77,8 @@ export default function CourseDetailsPage({ match }) {
     setOpenLectureForm(false);
   };
 
+ 
+
   const getCourseById = (courseId) => {
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
@@ -148,7 +150,7 @@ export default function CourseDetailsPage({ match }) {
                     <Videos course={course} currentUser={currentUser} />
                   </>
                 ) : (
-                  <VideoUpLoadForm course={course} currentUser={currentUser} />
+                  <VideoUpLoadForm course={course} currentUser={currentUser} setLectureFormstate={setOpenLectureForm} />
                 )}
               </div>
               {currentUser.userRole === 'teacher' ? (
