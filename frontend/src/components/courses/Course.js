@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import courseImg from '../../images/Icons/coursebook.png';
 //import courseImg from '../../images/Icons/courses-icon.png';
 import CourseUpdateForm from './CourseUpdateForm.js';
-
+import CourseForm from './CourseForm.js';
 import { Tooltip } from '@material-ui/core';
 import '../../css/styles.css';
 export default function Course({
@@ -32,44 +32,32 @@ export default function Course({
 
   return (
 
-  <div className="course-card">
-                <div className="courselinkimage">
-              <Link to={`/courseDetail/${id}`}>
-                <img className="courseimage"  src={courseImg} alt={title} />  
-                {/* <img className="courseimage"  src={courseImg} alt={title} />  */}
-               </Link>
-               </div>
-               <div className="courseheader">
-                <h4 className="course-card-title">{title}</h4>
-               { /*  <p className="description">{description}</p>*/}
-            </div> 
-  
-                   
-   {/*   <div
-      className="course-card"
-      onMouseEnter={() => setIsShown(true)}
-      onMouseLeave={() => setIsShown(false)}  >
-   {isShown && (
-        <p
-          style={{
-            display: 'block',
-            fontSize: '12px',
-            textAlign: 'center',
-            fontWeight: 'bold',
-          }}
-        >
-          click to navigate to assignments
-        </p>
-      )}  
-      <Link to={`/courseDetail/${id}`}>
-        <img className="courseImage" src={courseImg} alt={title} />
-      </Link>
-      <div className="card-content">
-        <h3 className="card-title">{title}</h3>
-            <p className="description">{description}</p>
-      </div> */} 
+  <div>
 
-      <div className="course-card-buttons">
+   {formState ? 
+          
+          <div className="course-create-form">
+              <CourseUpdateForm
+            key={course.id}
+            changeFormState={setFormState}
+            oldCourse={course}
+            onCourseUpdate={onCourseUpdate}
+            onCancelUpdate={onCancelUpdate}
+          />
+          </div>
+          : 
+
+        
+
+        <div className="course-card">
+        <div className="courselinkimage">
+        <Link to={`/courseDetail/${id}`}>
+          <img className="courseimage"  src={courseImg} alt={title} />  
+         </Link>
+         <h4 className="course-card-title">{title}</h4>
+         </div> 
+
+         <div className="course-card-buttons">
         {currentUserRole === 'teacher' ? (
           <div>
             <button
@@ -82,18 +70,14 @@ export default function Course({
               <RiEdit2Line/>
             </button>
           </div>
+          
         ) : null}
-        {formState ? (
-          <CourseUpdateForm
-            key={course.id}
-            changeFormState={setFormState}
-            oldCourse={course}
-            onCourseUpdate={onCourseUpdate}
-            onCancelUpdate={onCancelUpdate}
-          />
-        ) : null}
-       </div>
+        </div>
+        
 
+         
+        </div>  }    
+        
    </div>
 
   );
