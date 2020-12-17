@@ -1,10 +1,9 @@
 //react core
-import React from "react";
+import React ,{ useState, useEffect } from 'react';
 //css styles
 import Style from "../../css/homePage.css";
 //react router-dom module
 import { Link } from "react-router-dom";
-
 //media and image imports
 import CourseGraphic from "../../images/Icons/undraw_Bookshelves_re_lxoy (1).png";
 import Calender from "../../images/Icons/undraw_Booking_re_gw4j (1).png";
@@ -15,10 +14,23 @@ import videoIcon from "../../images/Icons/undraw_online_media_62jb (2).png";
 import apple from "../../images/Icons/undraw_mobile_apps_spmp (2).png";
 import "../../css/styles.css";
 import happyKids from '../../images/edvin-johansson-UGGinojhaC0-unsplash.jpg'
-import introductoryText from '../../images/introductionText.jpg'
+import introductoryText from '../../images/introductionText.jpg';
+import UserApi from "../../api/UserApi";
 
 //HomePage component
 function HomePage() {
+
+  const [currentUser, setCurrentUser] = useState("");
+  const getUserRole = () => {
+    UserApi.getCurrentUser().then((response) => {
+      setCurrentUser(response.data);
+    });
+  };
+
+  useEffect(() => {
+    getUserRole();
+  }, []);
+
   return (
     <div>
       
@@ -61,7 +73,10 @@ function HomePage() {
             </div>
           </Link>
         </div>
+        
+
         <div className="column">
+        {currentUser.userRole === "teacher" ?
           <Link to="/sentiment" className="nav-card">
             <div className="card-nav4">
               <img className="NavImage-responsive" 
@@ -70,6 +85,14 @@ function HomePage() {
               Sentiment
             </div>
           </Link>
+          :
+          <Link to="#" className="nav-card">
+            <div className="card-nav4">
+              <h3>Hello</h3> <br></br>
+              <h4>{currentUser.name}</h4>
+            </div>
+          </Link>
+         }
         </div>
         <div className="column">
           <Link to="/videos" className="nav-card">
@@ -110,12 +133,12 @@ function HomePage() {
 
 
         <p>
-        EE is an online learning and support tool that supplements traditional 
-        learning platforms used by schools. EE continuously monitors your the classes engagement 
+        Eduverse is an online learning and support tool that supplements traditional 
+        learning platforms used by schools. Eduverse continuously monitors student's engagement 
         and their sentiment towards online education. In times like these where in person interactions 
-        between teachers and students are so rare, EE's NLP registers how 
+        between teachers and students are so rare, Eduverse's NLP registers how 
         your children are coping with both their school work and their current environment.
-        Your childrens teachers are provided with information drawn from your childs contributions 
+        Teachers are provided with information drawn from childs contributions 
         to the platform in the chatroom and forum to gauge their current attitude or 'sentiment'.</p> </div>
       <img className="happKids"  src={happyKids} />
       </div>
