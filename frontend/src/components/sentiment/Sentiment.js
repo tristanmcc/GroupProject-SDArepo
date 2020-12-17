@@ -4,7 +4,7 @@ import QuestionsApi from "../../api/QuestionsApi";
 
 import ScatterPlot from "../chartplots/ScatterPlot";
 
-import "../../css/styles.css";
+// import "../../css/styles.css";
 
 const TrainingSet = require("../../resources/trainingdata.json");
 const natural = require("natural");
@@ -55,6 +55,7 @@ export default function Sentiment() {
 
   const network = new BrainJs.NeuralNetwork();
   network.train(encodedTrainingSet);
+
   const questionBody = questions.map((item) => {
     const encoded = encode(item.textBody);
     let data = network.run(encoded);
@@ -63,9 +64,7 @@ export default function Sentiment() {
 
   return (
     <>
-      <div className="sentimentPlots">
-        <ScatterPlot data={questionBody} />
-      </div>
+      <ScatterPlot data={questionBody} />
     </>
   );
 }
