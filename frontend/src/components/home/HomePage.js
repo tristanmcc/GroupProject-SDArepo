@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 //media
 import CourseGraphic from "../../images/Icons/undraw_Bookshelves_re_lxoy (1).png";
 import Calender from "../../images/Icons/undraw_Booking_re_gw4j (1).png";
-import Students from "../../images/Icons/undraw_true_friends_c94g (1).png";
+import Sentiment from "../../images/Icons/undraw_true_friends_c94g (1).png";
 import chatIcon from "../../images/Icons/undraw_Chatting_re_j55r (1).png";
 import assignmentIcon from "../../images/Icons/undraw_Personal_notebook_re_d7dc (1).png";
 import videoIcon from "../../images/Icons/undraw_online_media_62jb (2).png"; 
@@ -58,12 +58,12 @@ function HomePage() {
           </Link>
         </div>
         <div className="column">
-          <Link to="/students" className="nav-card">
+          <Link to="/sentiment" className="nav-card">
             <div className="card-nav4">
               <img className="NavImage-responsive" 
-              src={Students} 
+              src={Sentiment} 
               alt="Open Book" ></img>
-              Students
+              Sentiment
             </div>
           </Link>
         </div>

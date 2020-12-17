@@ -15,7 +15,7 @@ import AssignmentsPage from './components/assignments/AssignmentsPage';
 import CoursePage from './components/courses/CoursePage';
 import CourseDetailsPage from './components/courses/CourseDetailsPage';
 import VideosPage from './components/videos/VideosPage.jsx';
-import SentimentPage from './components/students/SentimentPage';
+import SentimentPage from './components/sentiment/SentimentPage';
 import AssignmentsView from './components/assignments/AssignmentsView';
 import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
 import Chat from './components/chat/chatComp/Chat';
