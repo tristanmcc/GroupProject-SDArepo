@@ -1,5 +1,11 @@
 import React from 'react';
 
+// import BarChart from '../chartplots/BarChartPosNeg';
+// import RadarChart from '../chartplots/RadarChart';
+import ScatterPlot from '../chartplots/ScatterPlot';
+
+import '../../css/styles.css';
+
 const TrainingSet = require('../../resources/trainingdata.json');
 const natural = require('natural');
 const BrainJs = require('brain.js');
@@ -41,14 +47,20 @@ export default function Sentiment({ sentence }) {
   //insert sentences here
   const encoded = encode(sentence.textBody);
 
-  let { bad, good, b = +bad, g = +good } = network.run(encoded);
+  // let { bad, good, b = +bad, g = +good } = network.run(encoded);
 
-  console.log(network.run(encoded));
-  console.log('good: ' + g);
-  console.log('good: ' + good);
-  console.log('bad: ' + b);
+  let data = network.run(encoded);
+  console.log('good/bad from Sentiment.js: ' + network.run(encoded));
 
   // { good: 0.8156641125679016, bad: 0.17976993322372437 }
 
-  return <></>;
+  return (
+    <>
+      {/*  <BarChart data={data} />*/}
+      {/*<RadarChart data={data} /> */}
+      <div className="sentimentPlots">
+        <ScatterPlot data={data} />
+      </div>
+    </>
+  );
 }
