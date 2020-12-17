@@ -21,7 +21,7 @@ The usage of the site requires membership and therefore registration for the tea
 
 # Local Installation
 
-To run the application locally, the user will need to clone the repo and install support for nodeJS (v 14.9) and Java (v 11). This application was developed in VSCode and IntelliJ Ultimate (with Spring). It is recommneded that the user builds the project using the gradle.build file. The database for the project is run using Postgres inside a docker-compose file which can be found in the repository. 
+To run the application locally, the user will need to clone the repo and install support for nodeJS (v 14.9) and Java (v 11). This application was developed in VSCode and IntelliJ Ultimate (with Spring). It is recommneded that the user builds the project using the gradle.build file, to ensure all dependancies are installed correctly. Note also that the database for the project is run using Postgres inside a docker-compose file, which can be found in the repository. 
 
 Once the gradle build is completed, the user can run the Java Spring MVC project from the SkeletonApplication.java file (see code insert).
 
@@ -45,6 +45,32 @@ Once the gradle build is completed, the user can run the Java Spring MVC project
 		};
 	}
 ```
+
+In order to run the front-end (the reactJS application), navigate into the directory "frontend" and ```bash npm install ``` to obtain all the required dependancies.
+
+The chatroom can is developed in NodeJS and uses websockets for communication between user and the server. The files can be found in the directory "backend".
+
+## List of Dependancies
+
+### front-end
+- axios: "^0.21.0",
+- brain.js: "^1.6.1",
+- events: "^3.2.0",
+    "moment": "^2.29.1",
+    "natural": "^0.6.3",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-big-calendar": "^0.30.0",
+    "react-bootstrap": "^1.4.0",
+    "react-datepicker": "^3.3.0",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.0",
+    "react-test-renderer": "^17.0.1",
+    "recharts": "^1.8.5",
+    "web-vitals": "^0.2.4",
+    "ws": "^7.4.0"
 
 
 ## Features
