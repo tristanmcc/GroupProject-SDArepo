@@ -1,4 +1,6 @@
+//react core
 import React from 'react';
+//import rechart and components
 import {
   AreaChart,
   Area,

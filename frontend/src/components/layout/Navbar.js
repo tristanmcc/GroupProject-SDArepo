@@ -1,7 +1,9 @@
+//react core
 import React from 'react';
-
+//css styles
 import '../../App.css';
 
+//Navbar component
 export default function Navbar({ onLogout }) {
   const navSlide = () => {
     const burger = document.querySelector('.burger');

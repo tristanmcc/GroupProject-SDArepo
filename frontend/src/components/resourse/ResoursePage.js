@@ -1,7 +1,11 @@
+//react core
 import React, { Component } from 'react';
+//react router-dom module
 import { Link } from "react-router-dom";
+//css Styles
 import "../../css/styles.css";
 
+//images for the page
 import type from '../../images/resource_image/typing.png';
 import splash from '../../images/resource_image/SplashLearn.png';
 import quiz from '../../images/resource_image/quiz.png';
@@ -12,6 +16,7 @@ import duo from '../../images/resource_image/Duolingo.png';
 import googleclass from '../../images/resource_image/googleclass.jpg';
 
 
+// ResourcePage component
 function ResoursePage() {
     return (
     <div> 
