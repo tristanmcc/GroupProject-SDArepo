@@ -1,10 +1,7 @@
 .sentimentPlots {
-  display: inline;
   float: left;
-  width: 80%;
-  padding: 0;
-  margin-bottom: 20px;
-  margin-left: 150px;
+  width: 25%;
+  padding: 0 10px;
   padding-bottom: 25px;
 }
 

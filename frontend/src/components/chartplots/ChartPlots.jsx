@@ -22,7 +22,6 @@ export default function ChartPlots() {
 
   return (
     <>
-      <h4>Question Sentiment</h4>
       {questions.map((question) => (
         <Sentiment key={question.id} sentence={question} />
       ))}
