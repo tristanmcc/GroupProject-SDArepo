@@ -13,13 +13,12 @@ The platform is used by educators to support the learning process of their stude
 
 The target customer is the teacher who is faced with the challenge of teaching students via online platforms, in the context of the Covid19 epidemic and in other difficult situations. The platform is focused on supporting the student audience in the range from 10 to 14 years of age. The platform is designed to support any device that can access the internet, from small screen smart phones to desktop PC.
 
-
-# Usage
+## Usage
 
 The usage of the site requires membership and therefore registration for the teachers and the students. The user will start by entering a unique email, with name and password. This registration is done on the Landing Page as shown below.
 
 
-# Local Installation
+## Local Installation
 
 To run the application locally, the user will need to clone the repo and install support for nodeJS (v 14.9) and Java (v 11). This application was developed in VSCode and IntelliJ Ultimate (with Spring). It is recommneded that the user builds the project using the gradle.build file, to ensure all dependancies are installed correctly. Note also that the database for the project is run using Postgres inside a docker-compose file, which can be found in the repository. 
 
@@ -53,32 +52,47 @@ The chatroom can is developed in NodeJS and uses websockets for communication be
 ## List of Dependancies
 
 ### front-end
-- axios: "^0.21.0",
-- brain.js: "^1.6.1",
-- events: "^3.2.0",
-    "moment": "^2.29.1",
-    "natural": "^0.6.3",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-big-calendar": "^0.30.0",
-    "react-bootstrap": "^1.4.0",
-    "react-datepicker": "^3.3.0",
-    "react-dom": "^17.0.1",
-    "react-icons": "^4.1.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.0",
-    "react-test-renderer": "^17.0.1",
-    "recharts": "^1.8.5",
-    "web-vitals": "^0.2.4",
-    "ws": "^7.4.0"
+- axios: "^0.21.0"
+- brain.js: "^1.6.1"
+- events: "^3.2.0"
+- moment: "^2.29.1"
+- natural: "^0.6.3"
+- prop-types: "^15.7.2"
+- react: "^17.0.1"
+- react-big-calendar: "^0.30.0"
+- react-bootstrap: "^1.4.0"
+- react-datepicker: "^3.3.0"
+- react-dom: "^17.0.1"
+- react-icons: "^4.1.0"
+- react-router-dom: "^5.2.0"
+- react-scripts: "4.0.0"
+- react-test-renderer: "^17.0.1"
+- recharts: "^1.8.5"
+- web-vitals: "^0.2.4"
+- ws: "^7.4.0"
+- @fortawesome: "^1.0.9"
+- @material-ui/core": "^4.11.1"
+- @material-ui/icons": "^4.9.1"
 
+### Spring-Java
+- 'org.springframework.boot:spring-boot-starter-data-jpa'
+- 'org.springframework.boot:spring-boot-starter-security'
+- 'org.springframework.boot:spring-boot-starter-thymeleaf'
+- 'org.springframework.boot:spring-boot-starter-web'
+- 'org.springframework.boot:spring-boot-devtools'
+- 'com.auth0', name: 'java-jwt', version: '3.8.3'
+- 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.4.1'
+
+### back-end
+- ws: "^7.4.0"
 
 ## Features
 
-
-
-## Class Diagram
-
+- chat room
+- sentiment analysis using NLP from the Brain.JS library
+- course creation
+- assignment creation and completion
+- grading of students
 
 
 ## Contributing
