@@ -1,37 +1,46 @@
+//react core
 import React, { useState, useEffect } from 'react';
+//axios instance
 import AssignmentsApi from '../../api/AssignmentsApi';
+//datePicker from react-datepicker
 import DatePicker from 'react-datepicker';
+//css for react-datepicker
 import 'react-datepicker/dist/react-datepicker.css';
 import { parseISO } from 'date-fns';
-import Button from "@material-ui/core/Button";
+//button from material ui
+import Button from '@material-ui/core/Button';
+//react router-dom module
 import { Link } from 'react-router-dom';
-import Icon from "@material-ui/core/Icon";
-import { makeStyles } from "@material-ui/core/styles";
+//material ui icons and styles
+import Icon from '@material-ui/core/Icon';
+import { makeStyles } from '@material-ui/core/styles';
+//image for the banner
 import assignmentImg from '../../images/banner/banner-classassignments.png';
+//react router-dom module
 import { useHistory } from 'react-router-dom';
+//material UI icon
 import ClearIcon from '@material-ui/icons/Clear';
 
+//make styles from material ui styles state
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: "#25274D",
-    color: "white",
-    cursor: "pointer",
-    outline: "none",
-    border: "none",
+    backgroundColor: '#25274D',
+    color: 'white',
+    cursor: 'pointer',
+    outline: 'none',
+    border: 'none',
     borderRadius: 15,
-    transform: "translateY(4)",
-    boxShadow: [[0, 5, "#999"]],
-    "&:hover": {
-      backgroundColor: "#464866 !important",
-    }
+    transform: 'translateY(4)',
+    boxShadow: [[0, 5, '#999']],
+    '&:hover': {
+      backgroundColor: '#464866 !important',
+    },
   },
-  
 }));
 
+//AssisgnmentPageUpdation component
 function AssignmentsPageUpdation({ match }) {
-
-  
   console.log('No match for my batch: ', match);
   const classes = useStyles();
   const [assignmentTitle, setAssignmentTitle] = useState('');
@@ -50,14 +59,12 @@ function AssignmentsPageUpdation({ match }) {
   const [assignId, setAssignId] = useState('');
   const [course, setCourse] = useState('');
   const history = useHistory();
-  
-  
-    const goBack = () =>
-    {
-        history.goBack();
-    }
-  
 
+  const goBack = () => {
+    history.goBack();
+  };
+
+  //function to GET assignments by ID
   const getAssignmentById = (id) => {
     AssignmentsApi.getAssignmentById(id).then((response) => {
       setAssignId(response.data.id);
@@ -83,6 +90,7 @@ function AssignmentsPageUpdation({ match }) {
     }
   }, []);
 
+  //function to handleSubmit of assignment by user
   function handleSubmit() {
     AssignmentsApi.postAssignment({
       course,
@@ -102,9 +110,6 @@ function AssignmentsPageUpdation({ match }) {
     }).then((response) => {
       setAssignId(response.data.id);
       window.location.reload();
-      {
-        /* alert('Successfully added the assignment'); */
-      }
     });
   }
 
@@ -129,176 +134,167 @@ function AssignmentsPageUpdation({ match }) {
       question10,
       course,
     }).then((response) => {
-      //window.location.reload();
-      {
-        /*alert('Updation of Assignment Successful') */
-      }
       history.go(-1);
     });
   }
   console.log('But of course: ', course.id);
   return (
     <div className="container-assignment">
-     <img className="assignmentimage"  src={assignmentImg} />
+      <img className="assignmentimage" src={assignmentImg} />
       <div className="question">
-     
-        <div >
+        <div>
           <label>Assignment Title:</label>
 
-         <input
-          type="text"
-          value={assignmentTitle}
-          className="form-control"
-          onChange={(e) => setAssignmentTitle(e.target.value)}
-        />
-      </div>
-
-      <div>
-        <label>Assignment Description:</label>
-
-        <input
-          type="text"
-          value={assignmentDescription}
-          className="form-control"
-          onChange={(e) => setAssignmentDescription(e.target.value)}
-        />
-      </div>
-
-         <div>
-            <label>Deadline: </label>
+          <input
+            type="text"
+            value={assignmentTitle}
+            className="form-control"
+            onChange={(e) => setAssignmentTitle(e.target.value)}
+          />
         </div>
 
         <div>
-        <DatePicker
-          selected={dueDate}
-          onChange={(date) => setDueDate(date)}
-          showCalendarIcon={true}
-          required={true}
-          calendarAriaLabel="Toggle calendar"
-        />
+          <label>Assignment Description:</label>
+
+          <input
+            type="text"
+            value={assignmentDescription}
+            className="form-control"
+            onChange={(e) => setAssignmentDescription(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Deadline: </label>
+        </div>
+
+        <div>
+          <DatePicker
+            selected={dueDate}
+            onChange={(date) => setDueDate(date)}
+            showCalendarIcon={true}
+            required={true}
+            calendarAriaLabel="Toggle calendar"
+          />
+        </div>
+
+        <div>
+          <label>Question 1:</label>
+          <textarea
+            type="text"
+            value={question1}
+            className="form-control"
+            onChange={(e) => setQuestion1(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 2:</label>
+          <textarea
+            type="text"
+            value={question2}
+            className="form-control"
+            onChange={(e) => setQuestion2(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 3:</label>
+          <textarea
+            type="text"
+            value={question3}
+            className="form-control"
+            onChange={(e) => setQuestion3(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 4:</label>
+          <textarea
+            type="text"
+            value={question4}
+            className="form-control"
+            onChange={(e) => setQuestion4(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 5:</label>
+          <textarea
+            type="text"
+            value={question5}
+            className="form-control"
+            onChange={(e) => setQuestion5(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 6:</label>
+          <textarea
+            type="text"
+            value={question6}
+            className="form-control"
+            onChange={(e) => setQuestion6(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 7:</label>
+          <textarea
+            type="text"
+            value={question7}
+            className="form-control"
+            onChange={(e) => setQuestion7(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 8:</label>
+          <textarea
+            type="text"
+            value={question8}
+            className="form-control"
+            onChange={(e) => setQuestion8(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 9:</label>
+          <textarea
+            type="text"
+            value={question9}
+            className="form-control"
+            onChange={(e) => setQuestion9(e.target.value)}
+          />
+        </div>
+
+        <div>
+          <label>Question 10:</label>
+          <textarea
+            type="text"
+            value={question10}
+            className="form-control"
+            onChange={(e) => setQuestion10(e.target.value)}
+          />
+        </div>
       </div>
-      
-        
 
-          <div>
-            <label>Question 1:</label>
-            <textarea
-              type="text"
-              value={question1}
-              className="form-control"
-              onChange={(e) => setQuestion1(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 2:</label>
-            <textarea
-              type="text"
-              value={question2}
-              className="form-control"
-              onChange={(e) => setQuestion2(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 3:</label>
-            <textarea
-              type="text"
-              value={question3}
-              className="form-control"
-              onChange={(e) => setQuestion3(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 4:</label>
-            <textarea
-              type="text"
-              value={question4}
-              className="form-control"
-              onChange={(e) => setQuestion4(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 5:</label>
-            <textarea
-              type="text"
-              value={question5}
-              className="form-control"
-              onChange={(e) => setQuestion5(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 6:</label>
-            <textarea
-              type="text"
-              value={question6}
-              className="form-control"
-              onChange={(e) => setQuestion6(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 7:</label>
-            <textarea
-              type="text"
-              value={question7}
-              className="form-control"
-              onChange={(e) => setQuestion7(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 8:</label>
-            <textarea
-              type="text"
-              value={question8}
-              className="form-control"
-              onChange={(e) => setQuestion8(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 9:</label>
-            <textarea
-              type="text"
-              value={question9}
-              className="form-control"
-              onChange={(e) => setQuestion9(e.target.value)}
-            />
-          </div>
-
-          <div>
-            <label>Question 10:</label>
-            <textarea
-              type="text"
-              value={question10}
-              className="form-control"
-              onChange={(e) => setQuestion10(e.target.value)}
-            />
-          </div>
-     </div>
-      
       <div className="card-header">
-            
-          
-
-                <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                endIcon={<Icon>send</Icon>}
-                onClick={() => handleUpdate()}
-                
-              >
-              Update Assignment
-              </Button>
-              <Link to={`/courseDetail/${course.id}`}>
-              <Button className={classes.button} endIcon={<ClearIcon/>}>Cancel</Button></Link>
-              
-    </div>
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          endIcon={<Icon>send</Icon>}
+          onClick={() => handleUpdate()}
+        >
+          Update Assignment
+        </Button>
+        <Link to={`/courseDetail/${course.id}`}>
+          <Button className={classes.button} endIcon={<ClearIcon />}>
+            Cancel
+          </Button>
+        </Link>
+      </div>
     </div>
   );
 }
