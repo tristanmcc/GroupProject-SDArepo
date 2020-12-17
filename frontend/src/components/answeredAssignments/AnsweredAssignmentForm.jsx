@@ -1,43 +1,43 @@
 //react core
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 //axios instance
-import AssignmentsApi from '../../api/AssignmentsApi';
+import AssignmentsApi from "../../api/AssignmentsApi";
 //axios instance
-import AnsAssApi from '../../api/AnsweredAssignmentsApi';
+import AnsAssApi from "../../api/AnsweredAssignmentsApi";
 //axios instance
-import UserApi from '../../api/UserApi';
+import UserApi from "../../api/UserApi";
 //image of book
-import book from '../../images/carousel/carousel-6.jpg';
+import book from "../../images/carousel/carousel-6.jpg";
 //image of assignment
-import assignmentImg from '../../images/banner/banner-classassignments.png';
+import assignmentImg from "../../images/banner/banner-classassignments.png";
 //react router-dom module
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 //material UI state styles and Icons
-import { makeStyles } from '@material-ui/core/styles';
-import Icon from '@material-ui/core/Icon';
-import Button from '@material-ui/core/Button';
+import { makeStyles } from "@material-ui/core/styles";
+import Icon from "@material-ui/core/Icon";
+import Button from "@material-ui/core/Button";
 //css styles
-import '../../css/styles.css';
+import "../../css/styles.css";
 ////axios instance
-import CoursesApi from '../../api/CoursesApi.js';
+import CoursesApi from "../../api/CoursesApi.js";
 
 //make a style with material UI state style
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor: '#25274D',
-    cursor: 'pointer',
-    textDecoration: 'none',
+    backgroundColor: "#25274D",
+    cursor: "pointer",
+    textDecoration: "none",
     borderRadius: 15,
-    boxShadow: [[0, 5, '#999']],
-    '&:hover': {
-      backgroundColor: '#464866 !important',
+    boxShadow: [[0, 5, "#999"]],
+    "&:hover": {
+      backgroundColor: "#464866 !important",
     },
-    '&:active': {
-      backgroundColor: '#3e8e41 !important',
-      boxShadow: [[0, 5, '#666']],
-      transform: 'translateY(4) !important',
+    "&:active": {
+      backgroundColor: "#3e8e41 !important",
+      boxShadow: [[0, 5, "#666"]],
+      transform: "translateY(4) !important",
     },
   },
 }));
@@ -49,33 +49,33 @@ export default function AnsweredAssignmentsForm({ match }) {
   const goBack = () => {
     history.goBack();
   };
-  const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState('');
+  const [answeredAssignmentTitle, setAnsweredAssignmentTitle] = useState("");
   const [
     answeredAssignmentDescription,
     setAnsweredAssignmentDescription,
-  ] = useState('');
-  const [answer1, setAnswer1] = useState('');
-  const [answer2, setAnswer2] = useState('');
-  const [answer3, setAnswer3] = useState('');
-  const [answer4, setAnswer4] = useState('');
-  const [answer5, setAnswer5] = useState('');
-  const [answer6, setAnswer6] = useState('');
-  const [answer7, setAnswer7] = useState('');
-  const [answer8, setAnswer8] = useState('');
-  const [answer9, setAnswer9] = useState('');
-  const [answer10, setAnswer10] = useState('');
-  const [question1, setQuestion1] = useState('');
-  const [question2, setQuestion2] = useState('');
-  const [question3, setQuestion3] = useState('');
-  const [question4, setQuestion4] = useState('');
-  const [question5, setQuestion5] = useState('');
-  const [question6, setQuestion6] = useState('');
-  const [question7, setQuestion7] = useState('');
-  const [question8, setQuestion8] = useState('');
-  const [question9, setQuestion9] = useState('');
-  const [question10, setQuestion10] = useState('');
-  const [assignmentId, setAssignmentId] = useState('');
-  const [user, setUser] = useState(' ');
+  ] = useState("");
+  const [answer1, setAnswer1] = useState("");
+  const [answer2, setAnswer2] = useState("");
+  const [answer3, setAnswer3] = useState("");
+  const [answer4, setAnswer4] = useState("");
+  const [answer5, setAnswer5] = useState("");
+  const [answer6, setAnswer6] = useState("");
+  const [answer7, setAnswer7] = useState("");
+  const [answer8, setAnswer8] = useState("");
+  const [answer9, setAnswer9] = useState("");
+  const [answer10, setAnswer10] = useState("");
+  const [question1, setQuestion1] = useState("");
+  const [question2, setQuestion2] = useState("");
+  const [question3, setQuestion3] = useState("");
+  const [question4, setQuestion4] = useState("");
+  const [question5, setQuestion5] = useState("");
+  const [question6, setQuestion6] = useState("");
+  const [question7, setQuestion7] = useState("");
+  const [question8, setQuestion8] = useState("");
+  const [question9, setQuestion9] = useState("");
+  const [question10, setQuestion10] = useState("");
+  const [assignmentId, setAssignmentId] = useState("");
+  const [user, setUser] = useState(" ");
   const [course, setCourse] = useState([]);
 
   const subAssignmentDetails = [
@@ -119,19 +119,19 @@ export default function AnsweredAssignmentsForm({ match }) {
 
   useEffect(() => {
     console.log(
-      'Inside useEffect , going to call getAssignmentById ' +
+      "Inside useEffect , going to call getAssignmentById " +
         match.params.assignId
     );
     getAssignmentById(match.params.assignId);
     getUserRole();
-    console.log('Hello88888' + match.params.courseId);
-    if (match.params.courseId !== 'undefined')
+    console.log("Hello88888" + match.params.courseId);
+    if (match.params.courseId !== "undefined")
       getCourseById(match.params.courseId);
   }, []);
 
   //GET courseId for the assignment
   const getCourseById = (courseId) => {
-    console.log('INSIDE');
+    console.log("INSIDE");
     CoursesApi.getCourseById(courseId).then((res) => {
       setCourse(res.data);
     });
@@ -168,12 +168,12 @@ export default function AnsweredAssignmentsForm({ match }) {
                 {subAssignmentDetails.map((eachQuestion, index) => (
                   <div
                     class={
-                      index === 0 ? 'carousel-item active' : 'carousel-item'
+                      index === 0 ? "carousel-item active" : "carousel-item"
                     }
                   >
                     <img width="100px" height="230px" />
                     <div class="carousel-caption  d-md-block">
-                      <label>{index + 1 + '. ' + eachQuestion.question}</label>
+                      <label>{index + 1 + ". " + eachQuestion.question}</label>
                       <textarea
                         type="text"
                         className="form-control"
@@ -209,7 +209,7 @@ export default function AnsweredAssignmentsForm({ match }) {
                             })
                           }
                         >
-                          Submit{' '}
+                          Submit{" "}
                         </Button>
                       ) : null}
                     </div>
@@ -249,30 +249,17 @@ export default function AnsweredAssignmentsForm({ match }) {
             </div>
           </div>
           <div className="check1">
-          <Button
-            onClick={goBack}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            endIcon={<Icon>send</Icon>}
-          >
-            Back
-          </Button>
+            <Button
+              onClick={goBack}
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              endIcon={<Icon>send</Icon>}
+            >
+              Back
+            </Button>
+          </div>
         </div>
-        </div>
-       
-      </div>
-
-      <div>
-        <Button
-          onClick={goBack}
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          endIcon={<Icon>send</Icon>}
-        >
-          Back
-        </Button>
       </div>
     </>
   );
