@@ -240,10 +240,6 @@
 
 
 @media (max-width: 767px) {
-    .chat-page-column {
-        width: 100%;
-        padding: 0 25px;
-    }
 
     .forumCard{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
@@ -253,6 +249,30 @@
         margin-left: auto;
         
     }
+
+    .forum-questionForm{
+        /* background-color: #fd9eae; */
+        background-color: #2c96d4;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+    .chat-page-column {
+        width: 100%;
+        padding: 0 25px;
+    }
+
+    .chat-inputform{
+        background-color: #86bbda;
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-top: 10px;
+        height: 100px;
+    }
+
+    
 
     .chatCard{
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
