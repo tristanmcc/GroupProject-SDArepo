@@ -1,80 +1,92 @@
-import React, { useEffect, useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
-import TableRow from "@material-ui/core/TableRow";
-import { Link } from "react-router-dom";
-import AssignmentsApi from "../../api/AssignmentsApi";
-import DeleteIcon from "@material-ui/icons/Delete";
-import UserApi from "../../api/UserApi";
-import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
+// react core
+import React, { useEffect, useState } from 'react';
+
+//material UI styles state and associated components
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+
+//react router-dom module
+import { Link } from 'react-router-dom';
+//axios instance
+import AssignmentsApi from '../../api/AssignmentsApi';
+//material UI delete icon
+import DeleteIcon from '@material-ui/icons/Delete';
+//axios instance
+import UserApi from '../../api/UserApi';
+// Assignments grade component for student grading by teacher
 import AssignmentGrade from '../answeredAssignments/AssignmentGrade';
 
 const columns = [
   {
-    id: "title",
-    label: "Assignments",
+    id: 'title',
+    label: 'Assignments',
     minWidth: 150,
-    color: "white",
-    fontSize: "calc(10px + 2vmin)",
+    color: 'white',
+    fontSize: 'calc(10px + 2vmin)',
   },
   {
-    id: "dueDate",
-    label: "Deadline*",
+    id: 'dueDate',
+    label: 'Deadline*',
     minWidth: 100,
-    color: "white",
-    fontSize: "calc(6px + 2vmin)",
+    color: 'white',
+    fontSize: 'calc(6px + 2vmin)',
   },
   {
-    id: "ICONS",
-    label: "",
+    id: 'ICONS',
+    label: '',
     minWidth: 150,
-    color: "black",
-    fontSize: "calc(10px + 2vmin)",
+    color: 'black',
+    fontSize: 'calc(10px + 2vmin)',
   },
 ];
 
+//createData function
 function createData(title, Id, dueDate) {
   return { title, Id, dueDate };
 }
 
+//make style with material UI state style
 const useStyles = makeStyles({
   root: {
-    width: "100%",
+    width: '100%',
   },
   container: {
     maxHeight: 300,
   },
   assignmentRowData: {
-    backgroundColor: ":#E3E2DF",
+    backgroundColor: ':#E3E2DF',
     borderWidth: 8,
-    borderColor: "#E3E2DF",
-    borderStyle: "solid",
+    borderColor: '#E3E2DF',
+    borderStyle: 'solid',
   },
   assignmentBody: {},
   tablePagination: {
-    backgroundColor: "#E3E2DF",
-    color: "black",
+    backgroundColor: '#E3E2DF',
+    color: 'black',
   },
 });
 
+//AssignmentsView function with CRUD operations
 function AssignmentsView({ course, currentUsers }) {
   const [rows, setRows] = useState([]);
-  
+
+  //deletion of assignment
   const handleDelete = ({ assignId }) => {
     AssignmentsApi.deleteAssignment(assignId).then((response) => {
       window.location.reload();
     });
   };
-  
-  
+
+  //viewing of assignment by course Id
   const viewAssignment = (course) => {
-    if (typeof course !== "undefined" && course !== "") {
+    if (typeof course !== 'undefined' && course !== '') {
       AssignmentsApi.getAllAssignment(course.id).then((response) => {
         const newArray = response.data.map((item) =>
           createData(item.assignmentTitle, item.id, item.dueDate)
@@ -91,7 +103,6 @@ function AssignmentsView({ course, currentUsers }) {
     }
   };
 
-
   useEffect(() => {
     getUserRole();
     viewAssignment(course);
@@ -100,8 +111,8 @@ function AssignmentsView({ course, currentUsers }) {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const [currentUser, setCurrentUser] = useState(" ");
-  const [userId, setUserId] = useState("");
+  const [currentUser, setCurrentUser] = useState(' ');
+  const [userId, setUserId] = useState('');
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -117,7 +128,6 @@ function AssignmentsView({ course, currentUsers }) {
     UserApi.getCurrentUser().then((response) => {
       setCurrentUser(response.data.userRole);
       setUserId(response.data.id);
-      
     });
   };
 
@@ -137,7 +147,7 @@ function AssignmentsView({ course, currentUsers }) {
                         minWidth: column.minWidth,
                         color: column.color,
                         fontSize: column.fontSize,
-                        backgroundColor: "#2E9CCA",
+                        backgroundColor: '#2E9CCA',
                       }}
                     >
                       {column.label}
@@ -158,43 +168,52 @@ function AssignmentsView({ course, currentUsers }) {
                       >
                         {columns.map((column) => {
                           const value = row[column.id];
-                          const assignId = row["Id"];
+                          const assignId = row['Id'];
                           return (
                             <TableCell
                               className={classes.assignmentRowData}
                               key={column.id}
                               align={column.align}
                             >
-                              {column.id === "title" ? (
-                                <Link className="link"
+                              {column.id === 'title' ? (
+                                <Link
+                                  className="link"
                                   to={
-                                    currentUser === "teacher"
+                                    currentUser === 'teacher'
                                       ? `/assignmentsView/${assignId}`
-                                      :  typeof course === "undefined" ? `/assignmentsAnsweredView/${assignId}` : `/assignmentsAnsweredView/${assignId}/${course.id}`
-                                  }>
-                                  {column.format && typeof value === "number"
+                                      : typeof course === 'undefined'
+                                      ? `/assignmentsAnsweredView/${assignId}`
+                                      : `/assignmentsAnsweredView/${assignId}/${course.id}`
+                                  }
+                                >
+                                  {column.format && typeof value === 'number'
                                     ? column.format(value)
                                     : value}
                                 </Link>
                               ) : null}
-                              {currentUser === "teacher" ? (
+                              {currentUser === 'teacher' ? (
                                 <div>
-                                  {column.id === "ICONS" ? (
-                                    <DeleteIcon fontSize="small"
+                                  {column.id === 'ICONS' ? (
+                                    <DeleteIcon
+                                      fontSize="small"
                                       onClick={() => handleDelete({ assignId })}
                                     />
                                   ) : null}
                                 </div>
-                              ) : 
+                              ) : (
                                 <div>
-                                  {column.id === "ICONS" ?
+                                  {column.id === 'ICONS' ? (
                                     <div>
-                                      <AssignmentGrade key={assignId + "," + userId} assignmentId={assignId} userId={userId}/> 
-                                      </div>: null}
+                                      <AssignmentGrade
+                                        key={assignId + ',' + userId}
+                                        assignmentId={assignId}
+                                        userId={userId}
+                                      />
+                                    </div>
+                                  ) : null}
                                 </div>
-                              
-                        }
-                              {column.id === "dueDate" ? value : null}
+                              )}
+                              {column.id === 'dueDate' ? value : null}
                             </TableCell>
                           );
                         })}
