@@ -45,7 +45,7 @@ function CourseForm({ onSubmit, onCancel }) {
   return (
     <div className="course-create-form">
       <div className="course-card-form-title">
-        <h4> CREATE COURSE</h4>
+        <h4> CREATE COURSE </h4>
       </div>
       <div className="course-card-body">
         <form onSubmit={onCreateCourseClick}>

@@ -8,21 +8,21 @@ import Auth from "./services/Auth";
 import Navbar from "./components/layout/Navbar";
 
 // Import pages
-import SchedulerPage from "./components/scheduler/SchedulerPage";
-import LoginPage from "./components/auth/LoginPage";
-import HomePage from "./components/home/HomePage";
-import AssignmentsPage from "./components/assignments/AssignmentsPage";
-import CoursePage from "./components/courses/CoursePage";
-import CourseDetailsPage from "./components/courses/CourseDetailsPage";
-import VideosPage from "./components/videos/VideosPage.jsx";
-import SentimentPage from "./components/students/SentimentPage";
-import AssignmentsView from "./components/assignments/AssignmentsView";
-import AnsweredAssignmentsForm from "./components/answeredAssignments/AnsweredAssignmentForm";
-import Chat from "./components/chat/chatComp/Chat";
-import ResoursePage from "./components/resourse/ResoursePage";
-import AssignmentsPageUpdation from "./components/assignments/AssignmentPageUpdation";
-import DisplaySubmittedAssignment from "./components/answeredAssignments/DisplaySubmittedAssignment";
-import AssignmentSubmitted from "./components/answeredAssignments/AssignmentSubmitted";
+import SchedulerPage from './components/scheduler/SchedulerPage';
+import LoginPage from './components/auth/LoginPage';
+import HomePage from './components/home/HomePage';
+import AssignmentsPage from './components/assignments/AssignmentsPage';
+import CoursePage from './components/courses/CoursePage';
+import CourseDetailsPage from './components/courses/CourseDetailsPage';
+import VideosPage from './components/videos/VideosPage.jsx';
+import SentimentPage from './components/sentiment/SentimentPage';
+import AssignmentsView from './components/assignments/AssignmentsView';
+import AnsweredAssignmentsForm from './components/answeredAssignments/AnsweredAssignmentForm';
+import Chat from './components/chat/chatComp/Chat';
+import ResoursePage from './components/resourse/ResoursePage';
+import AssignmentsPageUpdation from './components/assignments/AssignmentPageUpdation';
+import DisplaySubmittedAssignment from './components/answeredAssignments/DisplaySubmittedAssignment';
+import AssignmentSubmitted from './components/answeredAssignments/AssignmentSubmitted';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());

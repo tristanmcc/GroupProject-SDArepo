@@ -18,7 +18,7 @@ export default function ChatMessage({ userIndex, message, myUserId }) {
       ) : (
         <div class="chatContainer them">
           <img src={boyAvatar} alt="Avatar" class="avatarstyle " />
-          <div class="message-box">
+          <div class="message-box left-side">
             <span class="message-sender">
               <em>{message.name}: </em>
             </span>

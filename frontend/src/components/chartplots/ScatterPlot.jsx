@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   AreaChart,
   Area,
@@ -8,31 +8,9 @@ import {
   Tooltip,
   Label,
   ResponsiveContainer,
-} from 'recharts';
-import moment from 'moment';
+} from "recharts";
 
 export default function ScatterPlot({ data }) {
-  const dateFormat = (time) => {
-    return moment.unix(time).format('YYYY-MM-DD HH:mm');
-  };
-  const valueFormatter = (value) => {
-    return Math.round(value * 100) + '%';
-  };
-
-  const renderTooltipContent = (o) => {
-    const { payload } = o;
-    if (!payload) {
-      return null;
-    }
-    return (
-      <div className="customized-tooltip-content">
-        {payload.map((entry, index) => (
-          <dl key={index}>({valueFormatter(entry.value)})</dl>
-        ))}
-      </div>
-    );
-  };
-
   return (
     <ResponsiveContainer height={300} width="100%">
       <AreaChart
@@ -48,7 +26,7 @@ export default function ScatterPlot({ data }) {
         <YAxis domain={[0, 1]}>
           <Label value="Sentiment" angle={-90} position="insideLeft" />
         </YAxis>
-        {/* <Tooltip content={renderTooltipContent}/> */}
+
         <Tooltip />
         <Area
           type="monotone"

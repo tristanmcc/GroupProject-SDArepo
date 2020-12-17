@@ -3,13 +3,11 @@ import AnsweredAssignmentsApi from "../../api/AnsweredAssignmentsApi";
 import AssignmentsApi from "../../api/AssignmentsApi";
 import AccordianForAssignment from "../accordian/AccordianForAssignment";
 import StarRating from "../star/StarRating";
-
+import "../../css/styles.css";
 import Button from "@material-ui/core/Button";
 import { useHistory } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
 import { makeStyles } from "@material-ui/core/styles";
-
-import "../../css/styles.css";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -28,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 function AssignmentSubmitted({ match }) {
   const history = useHistory();
   const classes = useStyles();
-
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const goBack = () => {
@@ -59,28 +56,30 @@ function AssignmentSubmitted({ match }) {
 
   return (
     <>
-      <div>
-        <div className="grading">
-          <div className="gradinglabel">
-            <h3> Grading</h3>
+      <div className="check">
+        <div>
+          <div className="grading">
+            <div className="gradinglabel">
+              <h3> Grading</h3>
+            </div>
+            <div>
+              <StarRating answers={answers} />
+            </div>
           </div>
-          <div>
-            <StarRating answers={answers} />
-          </div>
-        </div>
 
-        <AccordianForAssignment questions={questions} answers={answers} />
-      </div>
-      <div>
-        <Button
-          onClick={goBack}
-          variant="contained"
-          color="primary"
-          className={classes.button}
-          endIcon={<Icon>send</Icon>}
-        >
-          Back
-        </Button>
+          <AccordianForAssignment questions={questions} answers={answers} />
+        </div>
+        <div>
+          <Button
+            onClick={goBack}
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            endIcon={<Icon>send</Icon>}
+          >
+            Back
+          </Button>
+        </div>
       </div>
     </>
   );
