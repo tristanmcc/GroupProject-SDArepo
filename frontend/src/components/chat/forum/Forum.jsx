@@ -1,9 +1,15 @@
+//react corse
 import React, { useState, useEffect } from 'react';
+//axios instance
 import QuestionsApi from '../../../api/QuestionsApi';
+//QuestionForm component
 import QuestionForm from './QuestionForm';
+//showQuestions component
 import ShowQuestions from './ShowQuestions';
+//css styles
 import Style from '../../../css/chat.css';
 
+//Forum Component
 function Forum() {
   const [questions, setQuestions] = useState([]);
 

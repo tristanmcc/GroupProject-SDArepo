@@ -1,36 +1,48 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
-import { lighten, makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
-import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
-import AnsweredAssignmentsApi from "../../api/AnsweredAssignmentsApi";
-import { Link } from "react-router-dom";
-import StarIcon from "@material-ui/icons/Star";
-import Button from "@material-ui/core/Button";
-import { useHistory } from "react-router-dom";
-import Icon from "@material-ui/core/Icon";
+//react core
+import React, { useState, useEffect } from 'react';
+//proptypes import
+import PropTypes from 'prop-types';
+//clsx import for react
+import clsx from 'clsx';
+//material UI components, state styles and modules
+import { lighten, makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+import TableSortLabel from '@material-ui/core/TableSortLabel';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
+//axios Instance
+import AnsweredAssignmentsApi from '../../api/AnsweredAssignmentsApi';
+//react router-dom module
+import { Link } from 'react-router-dom';
+//star icon for material UI
+import StarIcon from '@material-ui/icons/Star';
+//button for material UI
+import Button from '@material-ui/core/Button';
+//react router-dom module
+import { useHistory } from 'react-router-dom';
+//material UI icon
+import Icon from '@material-ui/core/Icon';
+
+//createData function
 function createData(user, title, id, rating) {
   var ratingArray = new Array(0);
   const userName = user.name;
   if (rating != null) {
     ratingArray = new Array(rating).fill(
-      <StarIcon style={{ color: "#25274D" }} />
+      <StarIcon style={{ color: '#25274D' }} />
     );
   }
   return { userName, title, id, ratingArray };
 }
-
+//descending comparator function
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -41,12 +53,14 @@ function descendingComparator(a, b, orderBy) {
   return 0;
 }
 
+//GET comparator function
 function getComparator(order, orderBy) {
-  return order === "desc"
+  return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
+//stableSort the array
 function stableSort(array, comparator) {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {
@@ -58,14 +72,14 @@ function stableSort(array, comparator) {
 }
 
 const headCells = [
-  { id: "name", numeric: false, disablePadding: false, label: "Submitted By"},
+  { id: 'name', numeric: false, disablePadding: false, label: 'Submitted By' },
   {
-    id: "title",
+    id: 'title',
     numeric: false,
     disablePadding: false,
-    label: "Assignment Title",
+    label: 'Assignment Title',
   },
-  { id: "grading", numeric: false, disablePadding: false, label: "Grading" },
+  { id: 'grading', numeric: false, disablePadding: false, label: 'Grading' },
 ];
 
 function EnhancedTableHead(props) {
@@ -88,19 +102,19 @@ function EnhancedTableHead(props) {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
-            padding={headCell.disablePadding ? "none" : "default"}
+            align={headCell.numeric ? 'right' : 'left'}
+            padding={headCell.disablePadding ? 'none' : 'default'}
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : "asc"}
+              direction={orderBy === headCell.id ? order : 'asc'}
               onClick={createSortHandler(headCell.id)}
             >
               {headCell.label}
               {orderBy === headCell.id ? (
                 <span className={classes.visuallyHidden}>
-                  {order === "desc" ? "sorted descending" : "sorted ascending"}
+                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
                 </span>
               ) : null}
             </TableSortLabel>
@@ -115,7 +129,7 @@ EnhancedTableHead.propTypes = {
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
   onSelectAllClick: PropTypes.func.isRequired,
-  order: PropTypes.oneOf(["asc", "desc"]).isRequired,
+  order: PropTypes.oneOf(['asc', 'desc']).isRequired,
   orderBy: PropTypes.string.isRequired,
   rowCount: PropTypes.number.isRequired,
 };
@@ -124,17 +138,13 @@ const useToolbarStyles = makeStyles((theme) => ({
   root: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
-    backgroundColor: "#2E9CCA",
-    
+    backgroundColor: '#2E9CCA',
   },
-  
+
   title: {
-    flex: "1 1 100%",
-    color: "white",
-    fontSize: "calc(6px + 2vmin)",
-    
-    
-    
+    flex: '1 1 100%',
+    color: 'white',
+    fontSize: 'calc(6px + 2vmin)',
   },
 }));
 
@@ -165,41 +175,36 @@ EnhancedTableToolbar.propTypes = {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
-   
+    width: '100%',
   },
   paper: {
-    width: "100%",
+    width: '100%',
     marginBottom: theme.spacing(2),
-    
-    
   },
   table: {
     minWidth: 750,
-    
-    
   },
   visuallyHidden: {
     border: 0,
-    clip: "rect(0 0 0 0)",
+    clip: 'rect(0 0 0 0)',
     height: 1,
     margin: -1,
-    overflow: "hidden",
+    overflow: 'hidden',
     padding: 0,
-    position: "absolute",
+    position: 'absolute',
     top: 20,
     width: 1,
   },
 
   button: {
     margin: theme.spacing(1),
-    backgroundColor: "#25274D",
-    cursor: "pointer",
-    outline: "none",
-    border: "none",
+    backgroundColor: '#25274D',
+    cursor: 'pointer',
+    outline: 'none',
+    border: 'none',
     borderRadius: 15,
-    transform: "translateY(4)",
-    boxShadow: [[0, 5, "#999"]],
+    transform: 'translateY(4)',
+    boxShadow: [[0, 5, '#999']],
   },
 }));
 
@@ -215,7 +220,7 @@ function DisplaySubmittedAssignment({ match }) {
   const classes = useStyles();
 
   const getAllAnsweredAssignment = (courseId) => {
-    console.log("CourseId **********" + courseId);
+    console.log('CourseId **********' + courseId);
     AnsweredAssignmentsApi.getAllAnsweredAssignmentsByCourseId(courseId).then(
       (response) => {
         const newArray = response.data.map((item) =>
@@ -235,16 +240,16 @@ function DisplaySubmittedAssignment({ match }) {
     getAllAnsweredAssignment(match.params.courseId);
   }, []);
 
-  const [order, setOrder] = React.useState("asc");
-  const [orderBy, setOrderBy] = React.useState("name");
+  const [order, setOrder] = React.useState('asc');
+  const [orderBy, setOrderBy] = React.useState('name');
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
   const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === "asc";
-    setOrder(isAsc ? "desc" : "asc");
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
   };
 
@@ -280,7 +285,7 @@ function DisplaySubmittedAssignment({ match }) {
           <Table
             className={classes.table}
             aria-labelledby="tableTitle"
-            size={dense ? "small" : "medium"}
+            size={dense ? 'small' : 'medium'}
             aria-label="enhanced table"
           >
             <EnhancedTableHead

@@ -1,6 +1,8 @@
+//axios import for the instance
 import axios from 'axios';
+//authetication service object import
 import Auth from '../services/Auth';
-
+//baseURL for the axios instance
 const BASE_URL = 'https://aqueous-temple-16710.herokuapp.com';
 
 const Api = axios.create({

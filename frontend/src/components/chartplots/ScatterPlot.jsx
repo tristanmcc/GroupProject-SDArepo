@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
 } from 'recharts';
 
+//ScatterPlot component
 export default function ScatterPlot({ data }) {
   return (
     <ResponsiveContainer height={300} width="100%">
