@@ -45,34 +45,31 @@ nav  {
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
-  background-color: var(--darkest-blue);
-  opacity:100%;
+ background-color: var(--darkest-blue);
 }
-.logo{
-color: white;
+
+.logo {
+  color: white;
   text-transform: uppercase;
   font-size: 24px;
   letter-spacing: 2px;
-  
-  
- 
-  
 }
+
 .nav-links {
   display: flex;
   justify-content: space-around;
   width: 60%;
   font-style: normal;
   text-decoration: none;
-
 }
 
-.nav-links li{
+.nav-links li {
   list-style: none;
   margin-top: 15px;
   text-decoration: none;
   font-style: normal;
 }
+
 .nav-links a{
   color: white;
   font-weight: normal;
@@ -139,13 +136,11 @@ color: white;
   }
   .logout-button{
     color: #E3E2DF;
-
   }
 
   
   .nav-links li{
      opacity: 0;
-     
   }
   .burger {
     display: block;
