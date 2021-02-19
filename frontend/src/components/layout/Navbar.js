@@ -40,9 +40,9 @@ export default function Navbar({ onLogout }) {
   return (
     <div>
       <nav>
-        <div class="logo">
-          <h7>Eduverse</h7>
-        </div>
+        <div className="logo">
+          <h7>Sentiment</h7>
+          </div>
         <ul class="nav-links">
           <li>
             <a href="/" class="target">
